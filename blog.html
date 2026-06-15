@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ブログ — curamar</title>
+<style>
+  :root{
+    --bg:#0d1014;--bg-soft:#141a21;--bg-line:#1f2730;
+    --ink:#e8edf2;--ink-dim:#8a97a5;
+    --accent:#c8f542;--accent-cool:#5cc8ff;
+    --radius:14px;--maxw:1080px;
+    --font-disp:"Zen Kaku Gothic New","Hiragino Kaku Gothic ProN",sans-serif;
+    --font-body:"Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;
+    --font-mono:"SFMono-Regular",Consolas,"Courier New",monospace;
+    /* カテゴリ色 */
+    --cat-dev:#c8f542;     /* 開発日誌＝StreamCore黄緑 */
+    --cat-write:#5cc8ff;   /* 執筆秘話＝海/SFシアン */
+    --cat-note:#b78cff;    /* 雑記＝紫 */
+  }
+  @media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--ink);font-family:var(--font-body);line-height:1.8;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  a{color:inherit;text-decoration:none}
+  .grid-bg{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.5;
+    background-image:linear-gradient(var(--bg-line) 1px,transparent 1px),linear-gradient(90deg,var(--bg-line) 1px,transparent 1px);
+    background-size:48px 48px;
+    mask-image:radial-gradient(ellipse 80% 60% at 50% 0%,#000 30%,transparent 75%);
+    -webkit-mask-image:radial-gradient(ellipse 80% 60% at 50% 0%,#000 30%,transparent 75%)}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px;position:relative;z-index:1}
+
+  header{position:sticky;top:0;z-index:50;background:rgba(13,16,20,.82);backdrop-filter:blur(10px);border-bottom:1px solid var(--bg-line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:62px}
+  .logo{font-family:var(--font-mono);font-weight:700;letter-spacing:.05em;font-size:18px}
+  .logo .cura{color:var(--accent)}.logo .mar{color:var(--accent-cool)}
+  .nav-links{display:flex;gap:26px;font-size:14px}
+  .nav-links a{color:var(--ink-dim);transition:color .2s}
+  .nav-links a:hover{color:var(--ink)}
+  .nav-links a.here{color:var(--ink)}
+
+  /* page head */
+  .page-head{padding:72px 0 36px}
+  .page-head .eyebrow{font-family:var(--font-mono);font-size:13px;color:var(--accent-cool);letter-spacing:.18em;display:inline-flex;align-items:center;gap:10px;margin-bottom:18px}
+  .page-head .eyebrow::before{content:"";width:28px;height:1px;background:var(--accent-cool)}
+  .page-head h1{font-family:var(--font-disp);font-size:clamp(30px,5vw,44px);font-weight:700;margin-bottom:14px}
+  .page-head p{color:var(--ink-dim);max-width:600px}
+
+  /* filter */
+  .filters{display:flex;gap:10px;flex-wrap:wrap;margin:8px 0 36px}
+  .chip{font-family:var(--font-mono);font-size:12px;letter-spacing:.06em;padding:7px 16px;border-radius:999px;
+    border:1px solid var(--bg-line);color:var(--ink-dim);background:transparent;cursor:pointer;transition:.2s}
+  .chip:hover{color:var(--ink);border-color:var(--ink-dim)}
+  .chip.active{color:var(--bg);background:var(--ink);border-color:var(--ink);font-weight:700}
+
+  /* post list */
+  .posts{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;padding-bottom:60px}
+  .post{display:block;background:var(--bg-soft);border:1px solid var(--bg-line);border-radius:var(--radius);
+    padding:24px;transition:transform .2s,border-color .2s}
+  .post:hover{transform:translateY(-3px);border-color:var(--accent-cool)}
+  .post .meta{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+  .cat{font-family:var(--font-mono);font-size:11px;letter-spacing:.08em;padding:3px 10px;border-radius:999px;font-weight:700}
+  .cat.dev{color:var(--cat-dev);border:1px solid color-mix(in srgb,var(--cat-dev) 40%,transparent)}
+  .cat.write{color:var(--cat-write);border:1px solid color-mix(in srgb,var(--cat-write) 40%,transparent)}
+  .cat.note{color:var(--cat-note);border:1px solid color-mix(in srgb,var(--cat-note) 40%,transparent)}
+  .post .date{font-family:var(--font-mono);font-size:12px;color:var(--ink-dim)}
+  .post h2{font-family:var(--font-disp);font-size:20px;font-weight:700;line-height:1.5;margin-bottom:10px}
+  .post p{font-size:14px;color:var(--ink-dim);line-height:1.7}
+  .post .more{display:inline-block;margin-top:14px;font-size:13px;color:var(--accent-cool)}
+
+  /* empty state */
+  .empty{grid-column:1/-1;text-align:center;padding:60px 20px;color:var(--ink-dim)}
+  .empty .mono{font-family:var(--font-mono);font-size:13px;color:var(--accent-cool);margin-bottom:10px}
+
+  footer{border-top:1px solid var(--bg-line);padding:40px 0;margin-top:20px}
+  .foot{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+  .foot .links{display:flex;gap:20px;font-size:14px}
+  .foot .links a{color:var(--ink-dim);transition:color .2s}
+  .foot .links a:hover{color:var(--accent)}
+  .foot .cp{font-family:var(--font-mono);font-size:12px;color:var(--ink-dim)}
+
+  @media(max-width:820px){.nav-links{display:none}.posts{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="grid-bg"></div>
+
+<header>
+  <div class="wrap nav">
+    <a href="index.html" class="logo"><span class="cura">cura</span><span class="mar">mar</span></a>
+    <nav class="nav-links">
+      <a href="index.html#streamcore">StreamCore</a>
+      <a href="index.html#about">About</a>
+      <a href="blog.html" class="here">ブログ</a>
+      <a href="index.html#support">サポート</a>
+      <a href="https://www.twitch.tv/curamar" target="_blank" rel="noopener">配信</a>
+      <a href="https://kakuyomu.jp/users/CURAMAR" target="_blank" rel="noopener">小説</a>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap">
+  <section class="page-head">
+    <span class="eyebrow">LOG / NOTES</span>
+    <h1>ブログ</h1>
+    <p>StreamCore の開発日誌、SF小説の執筆秘話、その他の雑記。思考の過程をそのまま残しておく場所です。</p>
+  </section>
+
+  <!-- フィルタ：カテゴリで絞り込み（JSで動作） -->
+  <div class="filters" id="filters">
+    <button class="chip active" data-cat="all">すべて</button>
+    <button class="chip" data-cat="dev">開発日誌</button>
+    <button class="chip" data-cat="write">執筆秘話</button>
+    <button class="chip" data-cat="note">雑記</button>
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- 記事一覧：新しい記事を上に1ブロックずつ足していく            -->
+  <!-- 1記事 = 下の <a class="post" ...> ブロックをコピーして編集    -->
+  <!--   data-cat は dev / write / note のどれか                    -->
+  <!--   href は posts/ フォルダ内の記事HTMLファイル名               -->
+  <!-- ============================================================ -->
+  <div class="posts" id="posts">
+
+    <!-- ▼▼▼ 記事ブロックの見本（コピー元）。中身はダミー ▼▼▼ -->
+    <a class="post" data-cat="dev" href="posts/sample-dev.html">
+      <div class="meta">
+        <span class="cat dev">開発日誌</span>
+        <span class="date">2026.06.15</span>
+      </div>
+      <h2>（サンプル）StreamCore を作りはじめた理由</h2>
+      <p>自分の配信で「これがあれば」と思った機能を、AIと壁打ちしながら形にしていく——その第一歩の記録。</p>
+      <span class="more">続きを読む →</span>
+    </a>
+    <!-- ▲▲▲ ここまでが1記事ブロック ▲▲▲ -->
+
+    <a class="post" data-cat="write" href="posts/sample-write.html">
+      <div class="meta">
+        <span class="cat write">執筆秘話</span>
+        <span class="date">2026.06.15</span>
+      </div>
+      <h2>（サンプル）「アンチ・エントロピア」の着想</h2>
+      <p>物理法則が狂った世界。その設定を思いついたきっかけと、SFで「科学」を物語に落とす時に考えていること。</p>
+      <span class="more">続きを読む →</span>
+    </a>
+
+    <a class="post" data-cat="note" href="posts/sample-note.html">
+      <div class="meta">
+        <span class="cat note">雑記</span>
+        <span class="date">2026.06.15</span>
+      </div>
+      <h2>（サンプル）配信と創作と開発のあいだ</h2>
+      <p>3つの活動を並行してやっていると見えてくる、共通する「ものを作る」感覚についての雑記。</p>
+      <span class="more">続きを読む →</span>
+    </a>
+
+  </div>
+
+  <!-- 記事がまだ無い時に表示する空状態（記事を1つでも足したら下の hidden を消す or 放置でOK・JSが制御） -->
+</div>
+
+<footer>
+  <div class="wrap foot">
+    <a href="index.html" class="logo"><span class="cura">cura</span><span class="mar">mar</span></a>
+    <nav class="links">
+      <a href="blog.html">ブログ</a>
+      <a href="https://www.twitch.tv/curamar" target="_blank" rel="noopener">Twitch</a>
+      <a href="https://kakuyomu.jp/users/CURAMAR" target="_blank" rel="noopener">カクヨム</a>
+      <a href="https://discord.gg/QtQcEgn9JF" target="_blank" rel="noopener">Discord</a>
+    </nav>
+    <div class="cp">© 2026 curamar</div>
+  </div>
+</footer>
+
+<script>
+  // カテゴリフィルタ
+  var chips=document.querySelectorAll('.chip');
+  var posts=document.querySelectorAll('.post');
+  chips.forEach(function(c){
+    c.addEventListener('click',function(){
+      chips.forEach(function(x){x.classList.remove('active')});
+      c.classList.add('active');
+      var cat=c.dataset.cat;
+      posts.forEach(function(p){
+        p.style.display=(cat==='all'||p.dataset.cat===cat)?'':'none';
+      });
+    });
+  });
+</script>
+</body>
+</html>

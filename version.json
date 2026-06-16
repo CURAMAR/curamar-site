@@ -1,0 +1,12 @@
+{
+  "version": "0.5.5",
+  "date": "2026-06-14",
+  "notes": [
+    "字幕・翻訳字幕の色とサイズを調整できるようにしました",
+    "アラートをイベント別にON/OFFできるようにしました",
+    "棒読みちゃん連携・スタンプ読み上げに対応しました",
+    "設定は引き継がれます（EXEの差し替えのみでOKです）"
+  ],
+  "download_url": "https://curamar.space/download.html",
+  "critical": false
+}

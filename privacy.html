@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>プライバシーポリシー — curamar / StreamCore</title>
+<style>
+  :root{
+    --bg:#0d1014;--bg-soft:#141a21;--bg-line:#1f2730;
+    --ink:#e8edf2;--ink-dim:#8a97a5;
+    --accent:#c8f542;--accent-cool:#5cc8ff;
+    --radius:14px;--maxw:820px;
+    --font-disp:"Zen Kaku Gothic New","Hiragino Kaku Gothic ProN",sans-serif;
+    --font-body:"Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;
+    --font-mono:"SFMono-Regular",Consolas,"Courier New",monospace;
+  }
+  @media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--ink);font-family:var(--font-body);line-height:1.9;-webkit-font-smoothing:antialiased}
+  a{color:var(--accent-cool)}
+  .grid-bg{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.4;
+    background-image:linear-gradient(var(--bg-line) 1px,transparent 1px),linear-gradient(90deg,var(--bg-line) 1px,transparent 1px);
+    background-size:48px 48px;
+    mask-image:radial-gradient(ellipse 80% 50% at 50% 0%,#000 20%,transparent 70%);
+    -webkit-mask-image:radial-gradient(ellipse 80% 50% at 50% 0%,#000 20%,transparent 70%)}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px;position:relative;z-index:1}
+
+  header{position:sticky;top:0;z-index:50;background:rgba(13,16,20,.82);backdrop-filter:blur(10px);border-bottom:1px solid var(--bg-line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:62px}
+  .logo{font-family:var(--font-mono);font-weight:700;letter-spacing:.05em;font-size:18px}
+  .logo .cura{color:var(--accent)}.logo .mar{color:var(--accent-cool)}
+  .back{font-size:14px;color:var(--ink-dim)}
+  .back:hover{color:var(--ink)}
+
+  article{padding:56px 0 40px}
+  .doc-eyebrow{font-family:var(--font-mono);font-size:13px;color:var(--accent-cool);letter-spacing:.16em;display:inline-flex;align-items:center;gap:10px;margin-bottom:16px}
+  .doc-eyebrow::before{content:"";width:28px;height:1px;background:var(--accent-cool)}
+  h1{font-family:var(--font-disp);font-size:clamp(26px,5vw,38px);font-weight:700;margin-bottom:10px}
+  .updated{font-family:var(--font-mono);font-size:12px;color:var(--ink-dim);margin-bottom:36px}
+
+  .lead{font-size:16px;color:var(--ink-dim);background:var(--bg-soft);border:1px solid var(--bg-line);border-radius:var(--radius);padding:20px 22px;margin-bottom:40px}
+
+  h2{font-family:var(--font-disp);font-size:21px;font-weight:700;margin:44px 0 16px;padding-left:14px;border-left:3px solid var(--accent)}
+  h3{font-size:17px;font-weight:700;margin:28px 0 12px;color:var(--ink)}
+  p{margin-bottom:18px}
+  ul{margin:0 0 18px 22px}
+  li{margin-bottom:9px}
+  strong{color:var(--ink)}
+  .note{background:var(--bg-soft);border:1px solid var(--bg-line);border-radius:10px;padding:16px 18px;font-size:14px;color:var(--ink-dim);margin-bottom:18px}
+  .accent-box{border-left:3px solid var(--accent-cool);background:var(--bg-soft);padding:16px 20px;border-radius:0 10px 10px 0;margin-bottom:18px}
+
+  footer{border-top:1px solid var(--bg-line);padding:34px 0;margin-top:40px}
+  .foot{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px}
+  .foot .links{display:flex;gap:18px;font-size:14px}
+  .foot .links a{color:var(--ink-dim)}.foot .links a:hover{color:var(--accent)}
+  .foot .cp{font-family:var(--font-mono);font-size:12px;color:var(--ink-dim)}
+</style>
+</head>
+<body>
+<div class="grid-bg"></div>
+
+<header>
+  <div class="wrap nav">
+    <a href="index.html" class="logo"><span class="cura">cura</span><span class="mar">mar</span></a>
+    <a href="index.html" class="back">← トップへ</a>
+  </div>
+</header>
+
+<div class="wrap">
+  <article>
+    <span class="doc-eyebrow">PRIVACY POLICY</span>
+    <h1>プライバシーポリシー</h1>
+    <div class="updated">最終更新: 2026年6月15日</div>
+
+    <div class="lead">
+      本ポリシーは、curamar が運営するウェブサイト <strong>curamar.space</strong> と、配信支援ツール
+      <strong>StreamCore</strong>（以下「本ソフト」）における、情報の取り扱いについて説明するものです。
+      本ソフトは「あなたの個人情報をできるだけ集めない・端末の外に出さない」という方針で設計されています。
+    </div>
+
+    <h2>1. StreamCore（本ソフト）について</h2>
+
+    <h3>1-1. 本ソフトが収集しないもの</h3>
+    <p>本ソフトは、利用者や視聴者の個人を特定する情報を収集・蓄積しません。具体的には：</p>
+    <ul>
+      <li><strong>視聴者の名前やコメントを、個人を識別できる形では記録しません。</strong>ログ機能は統計（件数・処理時間など）が中心で、視聴者個人を特定する情報は残さない設計です。</li>
+      <li>利用者の氏名・住所・連絡先などを、本ソフトが収集してどこかに送ることはありません。</li>
+      <li>利用者の行動を追跡したり、プロファイリングのためにデータを集めることはありません。</li>
+    </ul>
+
+    <h3>1-2. 端末内にのみ保存される情報</h3>
+    <p>以下の情報は、すべて<strong>あなたのパソコンの中だけ</strong>に保存され、開発者を含む第三者が見ることはできません：</p>
+    <ul>
+      <li>各種設定（config）、読み上げ辞書、視聴者メモ、着せ替え素材、動作ログ</li>
+      <li>連携サービスの API キーや認証トークン。これらは<strong>お使いのパソコン固有の情報から生成した鍵で暗号化</strong>して保存されます。別のパソコンに移すと復号できないため、移行時は再入力が必要です。</li>
+    </ul>
+
+    <h3>1-3. 外部サービスとの連携で送信される情報</h3>
+    <p>本ソフトは、利用者が選んで有効にした機能に限り、以下の外部サービスと通信します。<strong>どの連携も、利用者が明示的にオンにしたときだけ動作します（既定はオフ）。</strong></p>
+
+    <div class="accent-box">
+      <strong>翻訳機能について（重要）</strong><br>
+      翻訳機能を有効にすると、<strong>翻訳の対象となるテキスト（コメントなど）が、選択した外部の翻訳サービスに送信されます。</strong>
+      利用しうるサービスは DeepL、Google 翻訳（deep-translator 経由）、MyMemory、LibreTranslate です。
+      送信されるのは翻訳対象の文章であり、各サービスのプライバシーポリシー・利用規約が適用されます。
+      翻訳機能をオフにすれば、これらへの送信は行われません。
+    </div>
+
+    <ul>
+      <li><strong>Twitch / YouTube</strong>: チャットの取得や配信情報の連携のため、各社の API と通信します（利用者が連携を有効にした場合）。</li>
+      <li><strong>VOICEVOX / 棒読みちゃん</strong>: 読み上げ機能のため、お使いのパソコン上で動作するこれらのソフトに、読み上げるテキストを渡します（ローカル通信）。</li>
+      <li><strong>OBS</strong>: 配信ソフトとの連携のため、お使いのパソコン上の OBS と通信します（ローカル通信）。</li>
+      <li><strong>更新のお知らせ</strong>: 「更新を確認する」を有効にした場合に限り、最新版の情報（version.json）を curamar.space から取得します。既定はオフで、オフの間は一切通信しません。</li>
+    </ul>
+
+    <h3>1-4. YouTube API サービスの利用について</h3>
+    <p>
+      本ソフトは <strong>YouTube API Services</strong> を利用しています。本ソフトの YouTube 連携機能を利用する場合、
+      <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google プライバシーポリシー</a>
+      が適用されます。本ソフトは、YouTube から取得した情報を、上記の連携機能を提供する目的以外には利用しません。
+    </p>
+
+    <h2>2. ウェブサイト（curamar.space）について</h2>
+
+    <h3>2-1. アクセス解析</h3>
+    <p>
+      本サイトでは、訪問者数やどのページが見られているかを把握するために、アクセス解析を利用しています。
+      これは本サイトの改善のために、閲覧の傾向を統計的に把握する目的で用いるものです。
+      個人を特定する目的では利用しません。
+    </p>
+
+    <h3>2-2. 外部リンク</h3>
+    <p>
+      本サイトには Twitch、カクヨム、Discord などの外部サービスへのリンクが含まれます。
+      リンク先での情報の取り扱いについては、各サービスのプライバシーポリシーをご確認ください。
+    </p>
+
+    <h2>3. お問い合わせ</h2>
+    <p>
+      本ポリシーや情報の取り扱いについてのご質問は、Discord またはサイト上の連絡先からお寄せください。
+    </p>
+
+    <h2>4. 改定について</h2>
+    <p>
+      本ポリシーの内容は、機能の追加やサービスの変更に応じて改定することがあります。
+      重要な変更がある場合は、本ページ上で告知します。
+    </p>
+
+    <div class="note">
+      本ポリシーは、StreamCore および curamar.space の現在の仕様に基づいて記載しています。
+      個人開発のプロジェクトであり、法務の専門家による作成ではありません。記載に不足や誤りを見つけられた場合は、お知らせいただけると助かります。
+    </div>
+  </article>
+</div>
+
+<footer>
+  <div class="wrap foot">
+    <a href="index.html" class="logo"><span class="cura">cura</span><span class="mar">mar</span></a>
+    <nav class="links">
+      <a href="index.html">トップ</a>
+      <a href="blog.html">ブログ</a>
+      <a href="https://discord.gg/QtQcEgn9JF" target="_blank" rel="noopener">Discord</a>
+    </nav>
+    <div class="cp">© 2026 curamar</div>
+  </div>
+</footer>
+</body>
+</html>

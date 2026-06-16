@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ダウンロード・更新方法 — StreamCore</title>
+<style>
+  :root{
+    --bg:#0d1014;--bg-soft:#141a21;--bg-line:#1f2730;
+    --ink:#e8edf2;--ink-dim:#8a97a5;
+    --accent:#c8f542;--accent-cool:#5cc8ff;--warn:#ff6b6b;
+    --radius:14px;--maxw:820px;
+    --font-disp:"Zen Kaku Gothic New","Hiragino Kaku Gothic ProN",sans-serif;
+    --font-body:"Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;
+    --font-mono:"SFMono-Regular",Consolas,"Courier New",monospace;
+  }
+  @media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--ink);font-family:var(--font-body);line-height:1.9;-webkit-font-smoothing:antialiased}
+  a{color:var(--accent-cool)}
+  .grid-bg{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.4;
+    background-image:linear-gradient(var(--bg-line) 1px,transparent 1px),linear-gradient(90deg,var(--bg-line) 1px,transparent 1px);
+    background-size:48px 48px;
+    mask-image:radial-gradient(ellipse 80% 50% at 50% 0%,#000 20%,transparent 70%);
+    -webkit-mask-image:radial-gradient(ellipse 80% 50% at 50% 0%,#000 20%,transparent 70%)}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px;position:relative;z-index:1}
+
+  header{position:sticky;top:0;z-index:50;background:rgba(13,16,20,.82);backdrop-filter:blur(10px);border-bottom:1px solid var(--bg-line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:62px}
+  .logo{font-family:var(--font-mono);font-weight:700;letter-spacing:.05em;font-size:18px}
+  .logo .cura{color:var(--accent)}.logo .mar{color:var(--accent-cool)}
+  .back{font-size:14px;color:var(--ink-dim)}.back:hover{color:var(--ink)}
+
+  article{padding:56px 0 40px}
+  .doc-eyebrow{font-family:var(--font-mono);font-size:13px;color:var(--accent);letter-spacing:.16em;display:inline-flex;align-items:center;gap:10px;margin-bottom:16px}
+  .doc-eyebrow::before{content:"";width:28px;height:1px;background:var(--accent)}
+  h1{font-family:var(--font-disp);font-size:clamp(26px,5vw,38px);font-weight:700;margin-bottom:10px}
+  .sub{color:var(--ink-dim);margin-bottom:36px}
+
+  h2{font-family:var(--font-disp);font-size:21px;font-weight:700;margin:44px 0 16px;padding-left:14px;border-left:3px solid var(--accent)}
+  p{margin-bottom:16px}
+  strong{color:var(--ink)}
+
+  /* DLカード */
+  .dl-card{background:var(--bg-soft);border:1px solid var(--bg-line);border-radius:var(--radius);padding:28px;margin-bottom:20px}
+  .dl-card .ver{font-family:var(--font-mono);font-size:13px;color:var(--accent);letter-spacing:.06em}
+  .dl-card h3{font-size:20px;margin:8px 0 14px}
+  .btn{display:inline-flex;align-items:center;gap:9px;background:var(--accent);color:#0d1014;font-weight:700;font-size:15px;padding:13px 26px;border-radius:10px;border:none;cursor:pointer;text-decoration:none;transition:transform .15s,box-shadow .2s}
+  .btn:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(200,245,66,.25)}
+  .btn.cool{background:var(--accent-cool)}
+  .btn.cool:hover{box-shadow:0 8px 28px rgba(92,200,255,.25)}
+
+  /* 手順ステップ */
+  .steps{counter-reset:step;margin:8px 0 8px}
+  .step{position:relative;padding:16px 18px 16px 58px;background:var(--bg-soft);border:1px solid var(--bg-line);border-radius:12px;margin-bottom:12px}
+  .step::before{counter-increment:step;content:counter(step);position:absolute;left:16px;top:16px;width:28px;height:28px;border-radius:50%;background:var(--accent);color:#0d1014;font-family:var(--font-mono);font-weight:700;display:flex;align-items:center;justify-content:center;font-size:14px}
+  .step .st-t{font-weight:700;margin-bottom:4px}
+  .step .st-d{font-size:14px;color:var(--ink-dim)}
+  .step code{font-family:var(--font-mono);background:var(--bg);border:1px solid var(--bg-line);border-radius:6px;padding:2px 7px;font-size:13px;color:var(--accent-cool)}
+
+  .safe{border-left:3px solid var(--accent);background:var(--bg-soft);padding:16px 20px;border-radius:0 10px 10px 0;margin:18px 0}
+  .safe strong{color:var(--accent)}
+  .warn-box{border-left:3px solid var(--warn);background:var(--bg-soft);padding:16px 20px;border-radius:0 10px 10px 0;margin:18px 0;font-size:14px;color:var(--ink-dim)}
+
+  .support-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:8px}
+  .sc{background:var(--bg-soft);border:1px solid var(--bg-line);border-radius:var(--radius);padding:22px}
+  .sc .lab{font-family:var(--font-mono);font-size:11px;letter-spacing:.1em;color:var(--accent-cool)}
+  .sc h3{font-size:17px;margin:8px 0 8px}
+  .sc p{font-size:13px;color:var(--ink-dim);margin-bottom:14px}
+
+  footer{border-top:1px solid var(--bg-line);padding:34px 0;margin-top:40px}
+  .foot{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px}
+  .foot .links{display:flex;gap:18px;font-size:14px}
+  .foot .links a{color:var(--ink-dim)}.foot .links a:hover{color:var(--accent)}
+  .foot .cp{font-family:var(--font-mono);font-size:12px;color:var(--ink-dim)}
+
+  @media(max-width:680px){.support-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="grid-bg"></div>
+
+<header>
+  <div class="wrap nav">
+    <a href="index.html" class="logo"><span class="cura">cura</span><span class="mar">mar</span></a>
+    <a href="index.html" class="back">← トップへ</a>
+  </div>
+</header>
+
+<div class="wrap">
+  <article>
+    <span class="doc-eyebrow">DOWNLOAD / UPDATE</span>
+    <h1>ダウンロードと更新方法</h1>
+    <p class="sub">StreamCore のダウンロード、新しいバージョンへの差し替え手順です。</p>
+
+    <!-- ============================================================ -->
+    <!-- 【DLボタン】一般公開時に、下の href を実際のDLリンク           -->
+    <!-- （GitHub Releases等）に差し替える。それまでは Discord 案内。 -->
+    <!-- ============================================================ -->
+    <h2>ダウンロード</h2>
+    <div class="dl-card">
+      <div class="ver">最新版 v0.5.5</div>
+      <h3>StreamCore（Windows 10 / 11）</h3>
+      <p>現在 StreamCore は<strong>テスター向けに配布中</strong>です。配布を希望される方は、Discord までお気軽にどうぞ。一般公開の準備が整い次第、ここから直接ダウンロードできるようにします。</p>
+      <a class="btn cool" href="https://discord.gg/QtQcEgn9JF" target="_blank" rel="noopener">Discord で配布を受け取る</a>
+    </div>
+
+    <!-- 一般公開後はこのブロックに切り替え（コメントアウト解除＋上を削除）:
+    <div class="dl-card">
+      <div class="ver">最新版 v0.6.0</div>
+      <h3>StreamCore（Windows 10 / 11）</h3>
+      <p>下のボタンから最新版（zip）をダウンロードできます。解凍して使ってください。</p>
+      <a class="btn" href="（GitHub ReleasesのDLリンク）">⬇ StreamCore をダウンロード</a>
+    </div>
+    -->
+
+    <h2>新しいバージョンへの差し替え方法</h2>
+    <p>StreamCore は、<strong>EXE ファイルを新しいものに置き換えるだけ</strong>で更新できます。設定は引き継がれるので、入れ直しは不要です。</p>
+
+    <div class="safe">
+      <strong>設定はそのまま引き継がれます。</strong><br>
+      設定・読み上げ辞書・視聴者メモ・着せ替え素材は、StreamCore.exe とは別のファイルに保存されています。
+      EXE を差し替えても、これらは消えません。やることは「EXE を新しいものに置き換える」だけです。
+    </div>
+
+    <div class="steps">
+      <div class="step">
+        <div class="st-t">新しい StreamCore をダウンロードする</div>
+        <div class="st-d">上のダウンロードから最新版を入手します。zip の場合は解凍して、中の <code>StreamCore.exe</code> を取り出します。</div>
+      </div>
+      <div class="step">
+        <div class="st-t">今使っている StreamCore の場所を開く</div>
+        <div class="st-d">今の <code>StreamCore.exe</code> がある場所（フォルダ）を開きます。場所が分からない時は、アプリの「INFO」ページの「インストール場所」や「フォルダを開く」から確認できます。</div>
+      </div>
+      <div class="step">
+        <div class="st-t">StreamCore を閉じる</div>
+        <div class="st-d">起動中だと差し替えられないので、StreamCore を終了します。</div>
+      </div>
+      <div class="step">
+        <div class="st-t">EXE を上書きする</div>
+        <div class="st-d">今のフォルダにある古い <code>StreamCore.exe</code> に、新しい <code>StreamCore.exe</code> を<strong>同じ場所に上書きコピー</strong>します（「置き換える」を選択）。<br>※ <code>config</code> などの他のファイル・フォルダはそのまま触りません。</div>
+      </div>
+      <div class="step">
+        <div class="st-t">起動して完了</div>
+        <div class="st-d"><code>StreamCore.exe</code>（または同じ場所の <code>起動.bat</code>）から起動します。設定が引き継がれた状態で新しいバージョンが立ち上がれば完了です。</div>
+      </div>
+    </div>
+
+    <div class="warn-box">
+      うまく起動しない・設定が消えたように見える場合は、フォルダを間違えて別の場所に置いていないか（古いEXEと同じ場所に上書きできているか）を確認してください。それでも解決しない時は、下のサポートからご連絡ください。
+    </div>
+
+    <h2>困った時・報告したい時</h2>
+    <p>不具合の報告や要望は、以下のどちらからでも受け付けています。</p>
+    <div class="support-grid">
+      <div class="sc">
+        <div class="lab">COMMUNITY（おすすめ）</div>
+        <h3>Discord で伝える</h3>
+        <p>その場でやり取りできるので解決が早いです。ログファイルもチャンネルに添付できます。</p>
+        <a class="btn cool" href="https://discord.gg/QtQcEgn9JF" target="_blank" rel="noopener">Discord に参加</a>
+      </div>
+      <div class="sc">
+        <div class="lab">FORM（Discord なしでOK）</div>
+        <h3>フォームで送る</h3>
+        <p>Discord を使わない方はこちら。ログファイルの添付もできます。</p>
+        <!-- 【報告フォーム】Googleフォーム作成後に href を差し替え -->
+        <a class="btn" href="#" target="_blank" rel="noopener">報告フォームを開く（準備中）</a>
+      </div>
+    </div>
+
+    <h2>ログファイルの送り方</h2>
+    <p>不具合の調査には、ログファイルがとても役立ちます。送る時は次のようにしてください。</p>
+    <div class="steps">
+      <div class="step">
+        <div class="st-t">ログファイルを見つける</div>
+        <div class="st-d">アプリの「INFO」ページの「ログフォルダを開く」から、ログのある場所を開けます。</div>
+      </div>
+      <div class="step">
+        <div class="st-t">送る</div>
+        <div class="st-d"><strong>サイズが小さいログ</strong>は、Discord の <code>#ログ共有</code> にそのまま添付するか、報告フォームに添付してください。<br><strong>サイズが大きいログ</strong>は、ギガファイル便などのファイル転送サービスにアップロードして、その URL を Discord か報告フォームに貼ってください。</div>
+      </div>
+    </div>
+  </article>
+</div>
+
+<footer>
+  <div class="wrap foot">
+    <a href="index.html" class="logo"><span class="cura">cura</span><span class="mar">mar</span></a>
+    <nav class="links">
+      <a href="index.html">トップ</a>
+      <a href="blog.html">ブログ</a>
+      <a href="https://discord.gg/QtQcEgn9JF" target="_blank" rel="noopener">Discord</a>
+      <a href="privacy.html">プライバシーポリシー</a>
+    </nav>
+    <div class="cp">© 2026 curamar</div>
+  </div>
+</footer>
+</body>
+</html>

@@ -12,7 +12,7 @@
     --bg-line:#1f2730;       /* 罫線 */
     --ink:#e8edf2;           /* 本文 */
     --ink-dim:#8a97a5;       /* 補足 */
-    --accent:#c8f542;        /* StreamCore と同じ黄緑 */
+    --accent:#c8f542;        /* Ligastmir と同じ黄緑 */
     --accent-cool:#5cc8ff;   /* SF的な冷たい青（観測・データ） */
     --warn:#ff6b6b;
     --radius:14px;
@@ -54,8 +54,10 @@
   }
   .nav{display:flex;align-items:center;justify-content:space-between;height:62px}
   .logo{font-family:var(--font-mono);font-weight:700;letter-spacing:.05em;font-size:18px;color:var(--ink)}
-  .logo .cura{color:var(--accent)}     /* cura = キュア / 黄緑（StreamCoreと同色） */
+  .logo .cura{color:var(--accent)}     /* cura = キュア / 黄緑（Ligastmirと同色） */
   .logo .mar{color:var(--accent-cool)}  /* mar = 海 / シアン */
+  /* Ligastmir ワードマーク（公式ロゴ踏襲: ligar=緑 / stream=白 / transmitir=シアン・2026-06-21） */
+  .lgw .l{color:var(--accent)} .lgw .s{color:var(--ink)} .lgw .m{color:#42d4f5}
   .nav-links{display:flex;gap:26px;font-size:14px}
   .nav-links a{color:var(--ink-dim);transition:color .2s}
   .nav-links a:hover{color:var(--ink)}
@@ -95,18 +97,18 @@
   .sec-title{font-family:var(--font-disp);font-size:clamp(24px,4vw,34px);font-weight:700}
   .divider{height:1px;background:var(--bg-line);border:none}
 
-  /* ===== StreamCore ===== */
-  /* ===== StreamCore（プロダクト領域：黄緑が主役に切り替わる） ===== */
-  #streamcore{position:relative}
-  #streamcore::before{
+  /* ===== Ligastmir ===== */
+  /* ===== Ligastmir（プロダクト領域：黄緑が主役に切り替わる） ===== */
+  #ligastmir{position:relative}
+  #ligastmir::before{
     content:"";position:absolute;left:-9999px;right:-9999px;top:0;bottom:0;z-index:-1;
     background:
       radial-gradient(ellipse 60% 50% at 30% 0%,rgba(200,245,66,.06),transparent 70%);
     border-top:1px solid rgba(200,245,66,.18);
     border-bottom:1px solid rgba(200,245,66,.18);
   }
-  #streamcore .sec-no{color:var(--accent)}        /* この領域だけ番号が黄緑 */
-  #streamcore .eyebrow-prod{
+  #ligastmir .sec-no{color:var(--accent)}        /* この領域だけ番号が黄緑 */
+  #ligastmir .eyebrow-prod{
     display:inline-block;font-family:var(--font-mono);font-size:11px;letter-spacing:.14em;
     color:var(--accent);border:1px solid rgba(200,245,66,.35);border-radius:999px;
     padding:3px 12px;margin-bottom:14px;
@@ -182,7 +184,7 @@
   <div class="wrap nav">
     <div class="logo"><span class="cura">cura</span><span class="mar">mar</span></div>
     <nav class="nav-links">
-      <a href="#streamcore">StreamCore</a>
+      <a href="#ligastmir">Ligastmir</a>
       <a href="#about">About</a>
       <a href="blog.html">ブログ</a>
       <a href="#support">サポート</a>
@@ -204,13 +206,13 @@
     </h1>
     <p class="lead">
       curamar（クラマー）です。ゲーム配信をしながら、SF小説を書き、
-      自分の配信のために配信支援ツール「StreamCore」を作っています。
+      自分の配信のために配信支援ツール「Ligastmir」を作っています。
       気になるところからどうぞ。
     </p>
     <div class="hero-cards">
-      <a class="hcard" href="#streamcore">
+      <a class="hcard" href="#ligastmir">
         <div class="k">PRODUCT</div>
-        <div class="t">StreamCore</div>
+        <div class="t lgw"><span class="l">Liga</span><span class="s">st</span><span class="m">mir</span></div>
         <div class="d">配信支援デスクトップツール。字幕・翻訳・読み上げ・コメビュー。</div>
       </a>
       <a class="hcard" href="https://www.twitch.tv/curamar" target="_blank" rel="noopener">
@@ -229,12 +231,12 @@
 
 <hr class="divider">
 
-<!-- ===== STREAMCORE ===== -->
+<!-- ===== LIGASTMIR ===== -->
 <div class="wrap">
-  <section class="block" id="streamcore">
+  <section class="block" id="ligastmir">
     <div class="sec-head">
       <span class="sec-no">/ 01</span>
-      <h2 class="sec-title">StreamCore</h2>
+      <h2 class="sec-title lgw"><span class="l">Liga</span><span class="s">st</span><span class="m">mir</span></h2>
     </div>
     <span class="eyebrow-prod">PRODUCT</span>
     <div class="sc-grid">
@@ -262,7 +264,7 @@
         <div class="row"><span>配信プラットフォーム</span><span class="v">Twitch / YouTube</span></div>
         <div class="row"><span>読み上げエンジン</span><span class="v">VOICEVOX / SAPI5 / 棒読みちゃん</span></div>
         <div class="row"><span>OBS 連携</span><span class="v">対応（WebSocket）</span></div>
-        <div class="row"><span>現在のバージョン</span><span class="v">v0.5.5（テスト配布中）</span></div>
+        <div class="row"><span>現在のバージョン</span><span class="v">v0.6.0（テスト配布中）</span></div>
       </aside>
     </div>
   </section>
@@ -290,8 +292,8 @@
       </div>
       <div class="pcard">
         <h3><span class="dot"></span>ツール開発</h3>
-        <p>StreamCore を開発。「自分の配信のために作ったものを、同じく困っている人に」という気持ちで公開しています。開発の裏側や執筆の話はブログに書いています。
-        <br><br><a class="inline" href="#streamcore">StreamCore を見る →</a></p>
+        <p>Ligastmir を開発。「自分の配信のために作ったものを、同じく困っている人に」という気持ちで公開しています。開発の裏側や執筆の話はブログに書いています。
+        <br><br><a class="inline" href="#ligastmir">Ligastmir を見る →</a></p>
       </div>
     </div>
   </section>
@@ -310,7 +312,7 @@
       <div class="scard">
         <div class="lab">REPORT</div>
         <h3>不具合報告・要望フォーム</h3>
-        <p>StreamCore の不具合や「こんな機能が欲しい」をフォームから送れます。匿名でもOK。アプリ内の「INFO」ページからも開けます。</p>
+        <p>Ligastmir の不具合や「こんな機能が欲しい」をフォームから送れます。匿名でもOK。アプリ内の「INFO」ページからも開けます。</p>
         <a class="btn ghost" href="https://forms.gle/RFj81KQe1nFik4L76" target="_blank" rel="noopener">フォームを開く</a>
       </div>
       <div class="scard">
@@ -331,7 +333,7 @@
       <a href="https://www.twitch.tv/curamar" target="_blank" rel="noopener">Twitch</a>
       <a href="https://kakuyomu.jp/users/CURAMAR" target="_blank" rel="noopener">カクヨム</a>
       <a href="https://discord.gg/QtQcEgn9JF" target="_blank" rel="noopener">Discord</a>
-      <a href="#streamcore">StreamCore</a>
+      <a href="#ligastmir">Ligastmir</a>
       <a href="privacy.html">プライバシーポリシー</a>
     </nav>
     <div class="cp">© 2026 curamar</div>

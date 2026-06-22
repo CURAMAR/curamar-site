@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ダウンロード・更新方法 — StreamCore</title>
+<title>ダウンロード・更新方法 — Ligastmir</title>
 <style>
   :root{
     --bg:#0d1014;--bg-soft:#141a21;--bg-line:#1f2730;
@@ -91,7 +91,7 @@
   <article>
     <span class="doc-eyebrow">DOWNLOAD / UPDATE</span>
     <h1>ダウンロードと更新方法</h1>
-    <p class="sub">StreamCore のダウンロード、新しいバージョンへの差し替え手順です。</p>
+    <p class="sub">Ligastmir のダウンロード、新しいバージョンへの差し替え手順です。</p>
 
     <!-- ============================================================ -->
     <!-- 【DLボタン】一般公開時に、下の href を実際のDLリンク           -->
@@ -99,55 +99,53 @@
     <!-- ============================================================ -->
     <h2>ダウンロード</h2>
     <div class="dl-card">
-      <div class="ver">最新版 v0.5.6</div>
-      <h3>StreamCore（Windows 10 / 11）</h3>
-      <p>現在 StreamCore は<strong>テスター向けに配布中</strong>です。配布を希望される方は、Discord までお気軽にどうぞ。一般公開の準備が整い次第、ここから直接ダウンロードできるようにします。</p>
+      <div class="ver">最新版 v0.6.0</div>
+      <h3>Ligastmir（Windows 10 / 11）</h3>
+      <p>現在 Ligastmir は<strong>テスター向けに配布中</strong>です。配布を希望される方は、Discord までお気軽にどうぞ。一般公開の準備が整い次第、ここから直接ダウンロードできるようにします。</p>
       <a class="btn cool" href="https://discord.gg/QtQcEgn9JF" target="_blank" rel="noopener">Discord で配布を受け取る</a>
     </div>
 
     <!-- 一般公開後はこのブロックに切り替え（コメントアウト解除＋上を削除）:
     <div class="dl-card">
       <div class="ver">最新版 v0.6.0</div>
-      <h3>StreamCore（Windows 10 / 11）</h3>
+      <h3>Ligastmir（Windows 10 / 11）</h3>
       <p>下のボタンから最新版（zip）をダウンロードできます。解凍して使ってください。</p>
-      <a class="btn" href="（GitHub ReleasesのDLリンク）">⬇ StreamCore をダウンロード</a>
+      <a class="btn" href="（GitHub ReleasesのDLリンク）">⬇ Ligastmir をダウンロード</a>
     </div>
     -->
 
-    <h2>新しいバージョンへの差し替え方法</h2>
-    <p>StreamCore は、<strong>EXE ファイルを新しいものに置き換えるだけ</strong>で更新できます。設定は引き継がれるので、入れ直しは不要です。</p>
+    <h2>新しいバージョンへの差し替え方法（v0.6.0 から「フォルダ」配布）</h2>
+    <p>v0.6.0 から Ligastmir は<strong>フォルダ形式（onedir）</strong>での配布になりました。更新は「フォルダを新しいものにして、設定ファイルだけ引き継ぐ」流れです。<strong>設定は別ファイルなので、コピーすれば引き継がれます。</strong></p>
 
     <div class="safe">
-      <strong>設定はそのまま引き継がれます。</strong><br>
-      設定・読み上げ辞書・視聴者メモ・着せ替え素材は、StreamCore.exe とは別のファイルに保存されています。
-      EXE を差し替えても、これらは消えません。やることは「EXE を新しいものに置き換える」だけです。
+      <strong>設定はコピーで引き継げます。</strong><br>
+      設定・読み上げ辞書・視聴者メモ・着せ替え素材は、<code>Ligastmir.exe</code> とは別のファイル／フォルダに保存されています。
+      新しいフォルダへ下記をコピーすれば、設定はそのまま引き継がれます。
     </div>
 
     <div class="steps">
       <div class="step">
-        <div class="st-t">新しい StreamCore をダウンロードする</div>
-        <div class="st-d">上のダウンロードから最新版を入手します。zip の場合は解凍して、中の <code>StreamCore.exe</code> を取り出します。</div>
+        <div class="st-t">新しい Ligastmir をダウンロードして展開する</div>
+        <div class="st-d">最新版の zip を入手し、解凍して新しい <code>Ligastmir_v0.6.0…</code> フォルダを取り出します。中に <code>Ligastmir.exe</code> と <code>_internal</code> フォルダが入っています。</div>
       </div>
       <div class="step">
-        <div class="st-t">今使っている StreamCore の場所を開く</div>
-        <div class="st-d">今の <code>StreamCore.exe</code> がある場所（フォルダ）を開きます。場所が分からない時は、アプリの「INFO」ページの「インストール場所」や「フォルダを開く」から確認できます。</div>
+        <div class="st-t">今使っている Ligastmir を閉じる</div>
+        <div class="st-d">起動中だとファイルを移せないので、Ligastmir を終了します。</div>
       </div>
       <div class="step">
-        <div class="st-t">StreamCore を閉じる</div>
-        <div class="st-d">起動中だと差し替えられないので、StreamCore を終了します。</div>
-      </div>
-      <div class="step">
-        <div class="st-t">EXE を上書きする</div>
-        <div class="st-d">今のフォルダにある古い <code>StreamCore.exe</code> に、新しい <code>StreamCore.exe</code> を<strong>同じ場所に上書きコピー</strong>します（「置き換える」を選択）。<br>※ <code>config</code> などの他のファイル・フォルダはそのまま触りません。</div>
+        <div class="st-t">古いフォルダから設定ファイルをコピーする</div>
+        <div class="st-d">今まで使っていたフォルダ（旧 <code>StreamCore.exe</code> / 旧 <code>Ligastmir.exe</code> があった場所）から、次のファイル・フォルダを<strong>新しいフォルダ（<code>Ligastmir.exe</code> と同じ階層）へコピー</strong>します。<br>
+        <code>config.json</code> / <code>tts_dict.json</code> / <code>viewers.json</code> / <code>viewer_stats.json</code> / <code>user_assets</code> フォルダ<br>
+        ※ <code>_internal</code> フォルダはプログラム本体なので<strong>触らない</strong>でください。</div>
       </div>
       <div class="step">
         <div class="st-t">起動して完了</div>
-        <div class="st-d"><code>StreamCore.exe</code>（または同じ場所の <code>起動.bat</code>）から起動します。設定が引き継がれた状態で新しいバージョンが立ち上がれば完了です。</div>
+        <div class="st-d">新しいフォルダの <code>Ligastmir.exe</code>（または同じ場所の <code>起動.bat</code>）から起動します。設定が引き継がれた状態で立ち上がれば完了です。古いフォルダはしばらくバックアップとして残しておくと安心です。</div>
       </div>
     </div>
 
     <div class="warn-box">
-      うまく起動しない・設定が消えたように見える場合は、フォルダを間違えて別の場所に置いていないか（古いEXEと同じ場所に上書きできているか）を確認してください。それでも解決しない時は、下のサポートからご連絡ください。
+      <strong>StreamCore から Ligastmir に移行する方へ：</strong>名前とフォルダ構成が変わりましたが、上の手順で設定（<code>config.json</code> など）をコピーすれば、これまでの設定をそのまま引き継げます。うまく起動しない・設定が消えたように見える場合は、コピー先が <code>Ligastmir.exe</code> と同じ階層になっているかを確認のうえ、下のサポートへご連絡ください。
     </div>
 
     <h2>困った時・報告したい時</h2>

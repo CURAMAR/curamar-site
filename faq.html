@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>よくある質問（FAQ）— Ligastmir</title>
+<style>
+  :root{
+    --bg:#0d1014;--bg-soft:#141a21;--bg-line:#1f2730;
+    --ink:#e8edf2;--ink-dim:#8a97a5;
+    --accent:#c8f542;--accent-cool:#5cc8ff;--warn:#ff6b6b;
+    --radius:14px;--maxw:820px;
+    --font-disp:"Zen Kaku Gothic New","Hiragino Kaku Gothic ProN",sans-serif;
+    --font-body:"Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;
+    --font-mono:"SFMono-Regular",Consolas,"Courier New",monospace;
+  }
+  @media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--ink);font-family:var(--font-body);line-height:1.9;-webkit-font-smoothing:antialiased}
+  a{color:var(--accent-cool)}
+  .grid-bg{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.4;
+    background-image:linear-gradient(var(--bg-line) 1px,transparent 1px),linear-gradient(90deg,var(--bg-line) 1px,transparent 1px);
+    background-size:48px 48px;
+    mask-image:radial-gradient(ellipse 80% 50% at 50% 0%,#000 20%,transparent 70%);
+    -webkit-mask-image:radial-gradient(ellipse 80% 50% at 50% 0%,#000 20%,transparent 70%)}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px;position:relative;z-index:1}
+
+  header{position:sticky;top:0;z-index:50;background:rgba(13,16,20,.82);backdrop-filter:blur(10px);border-bottom:1px solid var(--bg-line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:62px;gap:16px}
+  .logo{font-family:var(--font-mono);font-weight:700;letter-spacing:.05em;font-size:18px}
+  .logo .cura{color:var(--accent)}.logo .mar{color:var(--accent-cool)}
+  .nav-links{display:flex;gap:18px;font-size:14px;flex-wrap:wrap}
+  .nav-links a{color:var(--ink-dim)}.nav-links a:hover{color:var(--ink)}
+  .nav-links a.cur{color:var(--accent)}
+
+  .lgw .l{color:var(--accent)}.lgw .s{color:var(--ink)}.lgw .m{color:var(--accent-cool)}
+
+  article{padding:48px 0 40px}
+  .doc-eyebrow{font-family:var(--font-mono);font-size:13px;color:var(--accent);letter-spacing:.16em;display:inline-flex;align-items:center;gap:10px;margin-bottom:16px}
+  .doc-eyebrow::before{content:"";width:28px;height:1px;background:var(--accent)}
+  h1{font-family:var(--font-disp);font-size:clamp(26px,5vw,38px);font-weight:700;margin-bottom:10px}
+  .sub{color:var(--ink-dim);margin-bottom:30px}
+  strong{color:var(--ink)}
+
+  .qa{background:var(--bg-soft);border:1px solid var(--bg-line);border-radius:12px;padding:18px 22px;margin-bottom:14px}
+  .qa .q{font-weight:700;font-size:16px;margin-bottom:6px}
+  .qa .q::before{content:"Q. ";color:var(--accent);font-family:var(--font-mono)}
+  .qa .a{font-size:14.5px;color:var(--ink-dim)}
+  .qa .a strong{color:var(--ink)}
+  .qa .more{font-size:13px;margin-top:8px;font-family:var(--font-mono)}
+
+  .lead-card{border-left:3px solid var(--accent-cool);background:var(--bg-soft);padding:14px 18px;border-radius:0 10px 10px 0;margin-bottom:24px;font-size:14px;color:var(--ink-dim)}
+  .lead-card strong{color:var(--ink)}
+
+  footer{border-top:1px solid var(--bg-line);padding:34px 0;margin-top:44px}
+  .foot{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px}
+  .foot .links{display:flex;gap:18px;font-size:14px;flex-wrap:wrap}
+  .foot .links a{color:var(--ink-dim)}.foot .links a:hover{color:var(--accent)}
+  .foot .cp{font-family:var(--font-mono);font-size:12px;color:var(--ink-dim)}
+</style>
+</head>
+<body>
+<div class="grid-bg"></div>
+
+<header>
+  <div class="wrap nav">
+    <a href="index.html" class="logo"><span class="cura">cura</span><span class="mar">mar</span></a>
+    <nav class="nav-links">
+      <a href="index.html">トップ</a>
+      <a href="guide.html">使い方</a>
+      <a href="faq.html" class="cur">FAQ</a>
+      <a href="download.html">ダウンロード</a>
+      <a href="blog.html">ブログ</a>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap">
+  <article>
+    <span class="doc-eyebrow">FAQ</span>
+    <h1>よくある質問</h1>
+    <p class="sub"><span class="lgw"><span class="l">Liga</span><span class="s">st</span><span class="m">mir</span></span> を試す前の疑問に短くお答えします。具体的な手順やつまずいた時の対処は<a href="guide.html">使い方 &amp; こんな時は</a>にまとめています。</p>
+
+    <div class="lead-card">
+      導入後の「動かない／調整したい」は <strong><a href="guide.html">使い方ページ</a></strong>へ。ここでは<strong>導入前の不安</strong>に短く答えます。
+    </div>
+
+    <div class="qa">
+      <div class="q">今使っている配信ツール（わんコメ等）と併用できる?</div>
+      <div class="a"><strong>はい、併用できます。</strong> Ligastmir は OBS を補助する役割で、既存のツールと一緒に使えます。<span style="opacity:.7">（具体的な併用例は順次このページに追記予定です。）</span></div>
+    </div>
+
+    <div class="qa">
+      <div class="q">VOICEVOX は必須?</div>
+      <div class="a">いいえ、<strong>任意</strong>です。Windows 標準の音声（SAPI5）なら準備なしでそのまま読み上げできます。VOICEVOX や棒読みちゃんは使いたい人だけ。</div>
+      <div class="more">→ <a href="guide.html#tts">使い方 ④ コメント読み上げ</a></div>
+    </div>
+
+    <div class="qa">
+      <div class="q">無料?</div>
+      <div class="a"><strong>無料です。</strong> 各自が自分の API キー等を設定して使う形なので、サーバー費用もかかりません。</div>
+    </div>
+
+    <div class="qa">
+      <div class="q">インストールは必要?</div>
+      <div class="a">いいえ。<strong>exe をダブルクリックするだけ</strong>で動きます（Python などのインストールは不要）。</div>
+      <div class="more">→ <a href="guide.html#start">使い方 ① まず起動する</a></div>
+    </div>
+
+    <div class="qa">
+      <div class="q">海外の視聴者のコメントは読める?</div>
+      <div class="a">翻訳をONにすると、<strong>原文＋日本語訳の2段表示</strong>になり、<strong>日本語訳を読み上げ</strong>ます。言語は自動検出です。</div>
+      <div class="more">→ <a href="guide.html#twitch">使い方 ⑤ コメント連動・翻訳</a></div>
+    </div>
+
+    <div class="qa">
+      <div class="q">動作が重い／読み上げが遅いときは?</div>
+      <div class="a">PC環境による「順番待ち」や合成の重さが原因のことが多いです。対処をいくつかまとめています。</div>
+      <div class="more">→ <a href="guide.html#troubleshoot">こんな時は（読み上げが遅い）</a></div>
+    </div>
+  </article>
+</div>
+
+<footer>
+  <div class="wrap foot">
+    <a href="index.html" class="logo"><span class="cura">cura</span><span class="mar">mar</span></a>
+    <nav class="links">
+      <a href="index.html">トップ</a>
+      <a href="guide.html">使い方</a>
+      <a href="faq.html">FAQ</a>
+      <a href="download.html">ダウンロード</a>
+      <a href="blog.html">ブログ</a>
+      <a href="https://discord.gg/QtQcEgn9JF" target="_blank" rel="noopener">Discord</a>
+      <a href="privacy.html">プライバシーポリシー</a>
+    </nav>
+    <div class="cp">© 2026 curamar</div>
+  </div>
+</footer>
+</body>
+</html>

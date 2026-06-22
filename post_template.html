@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ja">
+<!-- ============================================================
+     記事テンプレート — 使い方
+     1. このファイルをコピーして posts/ フォルダに置き、好きなファイル名にする
+        例: posts/why-i-built-ligastmir.html
+     2. 下の【ここを編集】の箇所だけ書き換える（HTMLの他の部分は触らなくてOK）
+     3. blog.html の記事一覧に、この記事へのリンクを1ブロック足す
+     ============================================================ -->
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- 【ここを編集①】ブラウザのタブに出るタイトル -->
+<title>記事タイトル — curamar</title>
+
+<style>
+  :root{
+    --bg:#0d1014;--bg-soft:#141a21;--bg-line:#1f2730;
+    --ink:#e8edf2;--ink-dim:#8a97a5;
+    --accent:#c8f542;--accent-cool:#5cc8ff;
+    --radius:14px;--maxw:760px;
+    --font-disp:"Zen Kaku Gothic New","Hiragino Kaku Gothic ProN",sans-serif;
+    --font-body:"Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;
+    --font-mono:"SFMono-Regular",Consolas,"Courier New",monospace;
+    --cat-dev:#c8f542;--cat-write:#5cc8ff;--cat-note:#b78cff;
+  }
+  @media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--ink);font-family:var(--font-body);line-height:1.9;-webkit-font-smoothing:antialiased}
+  a{color:var(--accent-cool)}
+  .grid-bg{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.4;
+    background-image:linear-gradient(var(--bg-line) 1px,transparent 1px),linear-gradient(90deg,var(--bg-line) 1px,transparent 1px);
+    background-size:48px 48px;
+    mask-image:radial-gradient(ellipse 80% 50% at 50% 0%,#000 20%,transparent 70%);
+    -webkit-mask-image:radial-gradient(ellipse 80% 50% at 50% 0%,#000 20%,transparent 70%)}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px;position:relative;z-index:1}
+
+  header{position:sticky;top:0;z-index:50;background:rgba(13,16,20,.82);backdrop-filter:blur(10px);border-bottom:1px solid var(--bg-line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:62px}
+  .logo{font-family:var(--font-mono);font-weight:700;letter-spacing:.05em;font-size:18px}
+  .logo .cura{color:var(--accent)}.logo .mar{color:var(--accent-cool)}
+  .back{font-size:14px;color:var(--ink-dim)}
+  .back:hover{color:var(--ink)}
+
+  article{padding:60px 0 40px}
+  .a-meta{display:flex;align-items:center;gap:12px;margin-bottom:20px}
+  .cat{font-family:var(--font-mono);font-size:11px;letter-spacing:.08em;padding:3px 10px;border-radius:999px;font-weight:700}
+  .cat.dev{color:var(--cat-dev);border:1px solid color-mix(in srgb,var(--cat-dev) 40%,transparent)}
+  .cat.write{color:var(--cat-write);border:1px solid color-mix(in srgb,var(--cat-write) 40%,transparent)}
+  .cat.note{color:var(--cat-note);border:1px solid color-mix(in srgb,var(--cat-note) 40%,transparent)}
+  .a-date{font-family:var(--font-mono);font-size:12px;color:var(--ink-dim)}
+  .a-title{font-family:var(--font-disp);font-size:clamp(26px,5vw,38px);font-weight:700;line-height:1.4;margin-bottom:40px}
+
+  /* 本文の体裁（書いた段落・見出し・引用が自動でこの見た目になる） */
+  .body p{margin-bottom:24px;font-size:16px}
+  .body h2{font-family:var(--font-disp);font-size:24px;font-weight:700;margin:48px 0 18px;padding-left:14px;border-left:3px solid var(--accent)}
+  .body h3{font-family:var(--font-disp);font-size:19px;font-weight:700;margin:36px 0 14px;color:var(--ink)}
+  .body ul,.body ol{margin:0 0 24px 24px}
+  .body li{margin-bottom:8px}
+  .body blockquote{border-left:3px solid var(--accent-cool);background:var(--bg-soft);padding:16px 20px;border-radius:0 10px 10px 0;margin-bottom:24px;color:var(--ink-dim)}
+  .body img{max-width:100%;border-radius:var(--radius);border:1px solid var(--bg-line);margin-bottom:24px}
+  .body code{font-family:var(--font-mono);background:var(--bg-soft);border:1px solid var(--bg-line);border-radius:6px;padding:2px 7px;font-size:14px;color:var(--accent)}
+  .body strong{color:var(--ink)}
+  .body a{border-bottom:1px solid transparent;transition:border-color .2s}
+  .body a:hover{border-color:var(--accent-cool)}
+
+  .a-foot{border-top:1px solid var(--bg-line);margin-top:50px;padding-top:30px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+  .a-foot .back-btn{font-size:14px;color:var(--accent-cool)}
+  .a-foot .share{font-family:var(--font-mono);font-size:12px;color:var(--ink-dim)}
+
+  footer{border-top:1px solid var(--bg-line);padding:34px 0;margin-top:30px}
+  .foot{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px}
+  .foot .links{display:flex;gap:18px;font-size:14px}
+  .foot .links a{color:var(--ink-dim)}.foot .links a:hover{color:var(--accent)}
+  .foot .cp{font-family:var(--font-mono);font-size:12px;color:var(--ink-dim)}
+</style>
+</head>
+<body>
+<div class="grid-bg"></div>
+
+<header>
+  <div class="wrap nav">
+    <a href="../index.html" class="logo"><span class="cura">cura</span><span class="mar">mar</span></a>
+    <a href="../blog.html" class="back">← ブログ一覧</a>
+  </div>
+</header>
+
+<div class="wrap">
+  <article>
+    <div class="a-meta">
+      <!-- 【ここを編集②】カテゴリ：開発日誌なら下の class="cat dev" のまま／
+           執筆秘話なら class="cat write" にして文字も「執筆秘話」／
+           雑記なら class="cat note" にして文字も「雑記」 -->
+      <span class="cat dev">開発日誌</span>
+      <!-- 【ここを編集③】日付 -->
+      <span class="a-date">2026.06.15</span>
+    </div>
+
+    <!-- 【ここを編集④】記事タイトル -->
+    <h1 class="a-title">記事のタイトルをここに書く</h1>
+
+    <!-- ============================================================
+         【ここを編集⑤】本文
+         ・段落は  <p>ここに文章</p>  で囲む（1段落＝1つの<p>）
+         ・小見出しは  <h2>見出し</h2>
+         ・さらに小さい見出しは  <h3>見出し</h3>
+         ・強調したい言葉は  <strong>言葉</strong>
+         ・引用・囲みは  <blockquote>引用文</blockquote>
+         ・リンクは  <a href="https://...">表示する文字</a>
+         ・画像は  <img src="画像ファイル名" alt="説明">
+         下のサンプルを消して、自分の文章に置き換えてください。
+         ============================================================ -->
+    <div class="body">
+
+      <p>ここに最初の段落を書きます。リード文として、この記事で何を書くのかを軽く示すと読みやすくなります。</p>
+
+      <h2>見出しのある段落</h2>
+      <p>本文の段落です。<strong>強調したい部分</strong>はこのように太字にできます。リンクを貼りたいときは<a href="https://www.twitch.tv/curamar">このように</a>書きます。</p>
+
+      <p>段落を分けたいときは、こうして新しい <code>&lt;p&gt;</code> で囲むだけです。改行が自動で空きます。</p>
+
+      <blockquote>引用や、ちょっと強調して囲みたい一文はこの形にできます。</blockquote>
+
+      <h3>小さめの見出し</h3>
+      <p>箇条書きを使いたいときは下のように書きます。</p>
+      <ul>
+        <li>項目1</li>
+        <li>項目2</li>
+        <li>項目3</li>
+      </ul>
+
+      <p>画像を入れたいときは、同じ posts フォルダに画像ファイルを置いて、こう書きます（今はコメントアウト中）。</p>
+      <!-- <img src="screenshot.png" alt="スクリーンショットの説明"> -->
+
+    </div>
+    <!-- ▲▲▲ 本文ここまで ▲▲▲ -->
+
+    <div class="a-foot">
+      <a href="../blog.html" class="back-btn">← ブログ一覧へ戻る</a>
+      <span class="share">curamar.space</span>
+    </div>
+  </article>
+</div>
+
+<footer>
+  <div class="wrap foot">
+    <a href="../index.html" class="logo"><span class="cura">cura</span><span class="mar">mar</span></a>
+    <nav class="links">
+      <a href="../blog.html">ブログ</a>
+      <a href="https://www.twitch.tv/curamar" target="_blank" rel="noopener">Twitch</a>
+      <a href="https://kakuyomu.jp/users/CURAMAR" target="_blank" rel="noopener">カクヨム</a>
+      <a href="https://discord.gg/QtQcEgn9JF" target="_blank" rel="noopener">Discord</a>
+    </nav>
+    <div class="cp">© 2026 curamar</div>
+  </div>
+</footer>
+</body>
+</html>

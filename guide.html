@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>使い方 & こんな時は — Ligastmir</title>
+<style>
+  :root{
+    --bg:#0d1014;--bg-soft:#141a21;--bg-line:#1f2730;
+    --ink:#e8edf2;--ink-dim:#8a97a5;
+    --accent:#c8f542;--accent-cool:#5cc8ff;--warn:#ff6b6b;
+    --radius:14px;--maxw:880px;
+    --font-disp:"Zen Kaku Gothic New","Hiragino Kaku Gothic ProN",sans-serif;
+    --font-body:"Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;
+    --font-mono:"SFMono-Regular",Consolas,"Courier New",monospace;
+  }
+  @media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--ink);font-family:var(--font-body);line-height:1.9;-webkit-font-smoothing:antialiased}
+  a{color:var(--accent-cool)}
+  .grid-bg{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.4;
+    background-image:linear-gradient(var(--bg-line) 1px,transparent 1px),linear-gradient(90deg,var(--bg-line) 1px,transparent 1px);
+    background-size:48px 48px;
+    mask-image:radial-gradient(ellipse 80% 50% at 50% 0%,#000 20%,transparent 70%);
+    -webkit-mask-image:radial-gradient(ellipse 80% 50% at 50% 0%,#000 20%,transparent 70%)}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px;position:relative;z-index:1}
+
+  header{position:sticky;top:0;z-index:50;background:rgba(13,16,20,.82);backdrop-filter:blur(10px);border-bottom:1px solid var(--bg-line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:62px;gap:16px}
+  .logo{font-family:var(--font-mono);font-weight:700;letter-spacing:.05em;font-size:18px}
+  .logo .cura{color:var(--accent)}.logo .mar{color:var(--accent-cool)}
+  .nav-links{display:flex;gap:18px;font-size:14px;flex-wrap:wrap}
+  .nav-links a{color:var(--ink-dim)}.nav-links a:hover{color:var(--ink)}
+  .nav-links a.cur{color:var(--accent)}
+
+  /* Ligastmir ワードマーク（公式ロゴ踏襲: liga=緑 / st=白 / mir=シアン。サイト既存色 #5cc8ff に統一） */
+  .lgw .l{color:var(--accent)}.lgw .s{color:var(--ink)}.lgw .m{color:var(--accent-cool)}
+
+  article{padding:48px 0 40px}
+  .doc-eyebrow{font-family:var(--font-mono);font-size:13px;color:var(--accent);letter-spacing:.16em;display:inline-flex;align-items:center;gap:10px;margin-bottom:16px}
+  .doc-eyebrow::before{content:"";width:28px;height:1px;background:var(--accent)}
+  h1{font-family:var(--font-disp);font-size:clamp(26px,5vw,38px);font-weight:700;margin-bottom:10px}
+  .sub{color:var(--ink-dim);margin-bottom:28px}
+
+  h2{font-family:var(--font-disp);font-size:21px;font-weight:700;margin:46px 0 16px;padding-left:14px;border-left:3px solid var(--accent);scroll-margin-top:74px}
+  h2.ts{border-left-color:var(--accent-cool)}
+  h3{font-size:17px;margin:0 0 6px}
+  p{margin-bottom:14px}
+  strong{color:var(--ink)}
+  ul,ol{margin:6px 0 12px 2px;padding-left:22px}
+  li{margin:5px 0}
+
+  /* 目次 */
+  .toc{background:var(--bg-soft);border:1px solid var(--bg-line);border-radius:var(--radius);padding:16px 20px;margin:6px 0 10px}
+  .toc-h{font-family:var(--font-mono);font-size:12px;letter-spacing:.12em;color:var(--accent);margin-bottom:9px}
+  .toc ul{list-style:none;display:flex;flex-wrap:wrap;gap:8px 16px;margin:0;padding:0}
+  .toc a{color:var(--ink-dim);font-size:14px}.toc a:hover{color:var(--accent-cool)}
+
+  /* 使い方の部品（サイト体系で表現） */
+  .url-row{display:flex;gap:10px;align-items:center;flex-wrap:wrap;background:var(--bg-soft);border:1px solid var(--bg-line);border-radius:8px;padding:9px 12px;margin:7px 0}
+  .url-row b{font-size:12px;min-width:96px;color:var(--ink)}
+  .url-row code{flex:1;font-family:var(--font-mono);font-size:13px;color:var(--accent-cool);word-break:break-all}
+  .url-row .sz{font-size:11px;color:var(--ink-dim)}
+  code{font-family:var(--font-mono);background:var(--bg);border:1px solid var(--bg-line);border-radius:6px;padding:2px 7px;font-size:13px;color:var(--accent-cool);word-break:break-all}
+  .pill{display:inline-block;font-size:12px;background:var(--bg);border:1px solid var(--bg-line);border-radius:999px;padding:1px 9px;margin:0 1px;color:var(--ink)}
+  .safe{border-left:3px solid var(--accent);background:var(--bg-soft);padding:14px 18px;border-radius:0 10px 10px 0;margin:14px 0;font-size:14px}
+  .safe strong{color:var(--accent)}
+  .note{border-left:3px solid var(--accent-cool);background:var(--bg-soft);padding:14px 18px;border-radius:0 10px 10px 0;margin:14px 0;font-size:14px;color:var(--ink-dim)}
+  .note strong{color:var(--ink)}
+  .warn-box{border-left:3px solid var(--warn);background:var(--bg-soft);padding:14px 18px;border-radius:0 10px 10px 0;margin:14px 0;font-size:14px;color:var(--ink-dim)}
+  .warn-box strong{color:var(--ink)}
+  .muted{color:var(--ink-dim)}
+
+  /* こんな時は */
+  .tcase{background:var(--bg-soft);border:1px solid var(--bg-line);border-radius:12px;padding:16px 20px;margin-bottom:14px;scroll-margin-top:74px}
+  .tcase .cause{font-size:13px;color:var(--ink-dim);margin-bottom:8px}
+  .tcase ul,.tcase ol{font-size:14px;margin:6px 0}
+  .jump{font-size:13px;margin-top:10px}
+  .jump a{font-family:var(--font-mono)}
+
+  footer{border-top:1px solid var(--bg-line);padding:34px 0;margin-top:44px}
+  .foot{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px}
+  .foot .links{display:flex;gap:18px;font-size:14px;flex-wrap:wrap}
+  .foot .links a{color:var(--ink-dim)}.foot .links a:hover{color:var(--accent)}
+  .foot .cp{font-family:var(--font-mono);font-size:12px;color:var(--ink-dim)}
+</style>
+</head>
+<body>
+<div class="grid-bg"></div>
+
+<header>
+  <div class="wrap nav">
+    <a href="index.html" class="logo"><span class="cura">cura</span><span class="mar">mar</span></a>
+    <nav class="nav-links">
+      <a href="index.html">トップ</a>
+      <a href="guide.html" class="cur">使い方</a>
+      <a href="faq.html">FAQ</a>
+      <a href="download.html">ダウンロード</a>
+      <a href="blog.html">ブログ</a>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap">
+  <article>
+    <span class="doc-eyebrow">USAGE / TROUBLESHOOT</span>
+    <h1>使い方 &amp; こんな時は</h1>
+    <p class="sub"><span class="lgw"><span class="l">Liga</span><span class="s">st</span><span class="m">mir</span></span> の導入から日々の操作、つまずいた時の対処までをまとめたページです。アプリ同梱の「セットアップガイド」と同じ内容を、サイトから読めるように再構成しています。</p>
+
+    <!-- 目次 -->
+    <div class="toc">
+      <div class="toc-h">USAGE — 使い方</div>
+      <ul>
+        <li><a href="#start">① まず起動する</a></li>
+        <li><a href="#obs-source">② OBSに表示する</a></li>
+        <li><a href="#appearance">③ 見た目を調整する</a></li>
+        <li><a href="#tts">④ コメント読み上げ</a></li>
+        <li><a href="#twitch">⑤ コメント連動・翻訳</a></li>
+        <li><a href="#advanced">⑥ もっと使う</a></li>
+        <li><a href="#skin">⑦ 着せ替え</a></li>
+        <li><a href="#trouble-basic">⑧ 困ったとき（基本）</a></li>
+      </ul>
+    </div>
+    <div class="toc">
+      <div class="toc-h">TROUBLESHOOT — こんな時は</div>
+      <ul>
+        <li><a href="#troubleshoot">症状から探す（10項目）↓</a></li>
+      </ul>
+    </div>
+
+    <!-- ===================== セクションA：使い方 ===================== -->
+
+    <h2 id="start">① まず起動する</h2>
+    <ol>
+      <li><code>Ligastmir.exe</code> をダブルクリック。</li>
+      <li>初回は「<strong>WindowsによってPCが保護されました</strong>」と出ることがあります → <strong>「詳細情報」→「実行」</strong>で開けます（署名のない自作アプリのため・問題ありません）。</li>
+      <li>少し待つと操作画面（コマンドセンター）が開きます。</li>
+    </ol>
+    <div class="safe"><strong>置き場所に注意：</strong> デスクトップや「ドキュメント」など普通のフォルダに置いてください。<span class="muted">（Program Files の中やZIPの中から直接起動すると、設定の保存に失敗することがあります）</span></div>
+    <div class="note">設定ファイル（<code>config.json</code> など）や記録ログは、exe と<strong>同じフォルダ</strong>に自動で作られます。</div>
+
+    <h2 id="obs-source">② OBSに表示する（字幕・コメビュー・アラート）</h2>
+    <p>OBSで <strong>ソース欄の「＋」→「ブラウザ」</strong>を追加し、下のURLを貼り付けます。<span class="muted">（アプリの「🖥 ブラウザソース」ページに「コピー」ボタン付きでまとまっています）</span></p>
+    <div class="url-row"><b>字幕</b><code>http://127.0.0.1:8766/subtitle_display.html</code><span class="sz">幅広め</span></div>
+    <div class="url-row"><b>コメビュー</b><code>http://127.0.0.1:8766/comment_overlay.html</code><span class="sz">420×600</span></div>
+    <div class="url-row"><b>アラート</b><code>http://127.0.0.1:8766/alert_overlay.html</code><span class="sz">800×600</span></div>
+    <div class="url-row"><b>弾幕</b><code>http://127.0.0.1:8766/danmaku_overlay.html</code><span class="sz">1920×1080</span></div>
+    <div class="url-row"><b>エモート</b><code>http://127.0.0.1:8766/emote_float_overlay.html</code><span class="sz">1920×1080</span></div>
+    <p class="muted" style="font-size:13px">※ <strong>弾幕</strong>（コメントが画面を横切る）と<strong>エモートフロート</strong>（スタンプが浮遊）は任意です。使いたいものだけ追加してください（追加しなければ表示も負荷もありません）。</p>
+    <div class="safe"><strong>重要：</strong> ブラウザソースのプロパティで<strong>「非アクティブ時にソースをシャットダウンする」のチェックを必ず外して</strong>ください。<span class="muted">（入っていると映像が止まります）</span></div>
+    <div class="note">右上の小さなドットは<strong>接続中は消えます</strong>。赤く出たままなら、Ligastmir 側が起動しているか確認してください。</div>
+
+    <h2 id="appearance">③ ブラウザソースの見た目を調整する</h2>
+    <p>アプリの「<span class="pill">🖥 ブラウザソース</span>」ページで、各オーバーレイの見た目を<strong>その場で調整</strong>できます（OBSに貼ったまま変化が反映されます）。設定は<strong>自動保存</strong>され、OBSソースの再読込やアプリ再起動のあとも元に戻ります。</p>
+    <ul>
+      <li><strong>💬 コメビュー：</strong> 本文の文字サイズ・ユーザー名サイズ・背景の不透明度・最大表示件数・表示寿命（「ずっと表示」）に加え、<strong>本文の色</strong>と<strong>アクセント色</strong>（ユーザー名・カード左の枠線）を変えられます。<span class="muted">※Twitch側で名前に色を付けている人は、その色が優先されます。「色を既定に戻す」でいつでも戻せます。</span></li>
+      <li><strong>🎊 弾幕：</strong> <strong>文字サイズ</strong>と<strong>流れる範囲</strong>（画面全体／上部／中央／下部）。</li>
+      <li><strong>✨ エモートフロート：</strong> <strong>出る向き</strong>（下から上／上から下）・<strong>出る位置</strong>（全体／左／中央／右）・<strong>大きさ</strong>。</li>
+      <li><strong>🎤 字幕・翻訳字幕：</strong> <strong>字幕の色</strong>・<strong>翻訳字幕の色とサイズ</strong>を別々に調整できます（<span class="pill">音声・コメント</span>ページの「字幕表示設定」）。<span class="muted">テスト/ログページの「調整用字幕プレビュー」で出しっぱなしにすると合わせやすいです。</span></li>
+    </ul>
+    <div class="note">見た目の変化を確かめたい時は、先に上の②のURLをOBSに追加しておくと、スライダーを動かすたびにOBS側がリアルタイムで変わります。</div>
+
+    <h2 id="tts">④ コメントの読み上げ（TTS）</h2>
+    <ul>
+      <li><strong>Windows標準の声（SAPI5）：</strong> 追加準備なしでそのまま使えます。</li>
+      <li><strong>VOICEVOX（ずんだもん等のキャラ声）：</strong> ① VOICEVOX（無料）を <a href="https://voicevox.hiroshiba.jp/" target="_blank" rel="noopener">公式サイト</a>からインストール → ② <span class="pill">音声・コメント</span>ページの「VOICEVOX自動起動」をON →「自動検出」でパス設定 → ③ 次回から一緒に立ち上がります。</li>
+      <li><strong>棒読みちゃんを既にお使いの場合：</strong> 本体を起動してから音声エンジンで<strong>「棒読みちゃん」</strong>を選ぶだけ。<strong>読み方辞書・声・速度は棒読みちゃん側の設定がそのまま使えます</strong>（音量のみ Ligastmir のスライダーを反映）。自動起動・終了も同ページ。</li>
+      <li><strong>スタンプ（エモート）の読み：</strong> コード（例: <code>curama1Neko0</code>）のまま読まれます。TTS辞書（またはチャットの <code>!教育</code> コマンド）で読みを登録できます。</li>
+    </ul>
+    <div class="note">音量・話者・読み上げ前のお知らせ音などは<span class="pill">音声・コメント</span>ページで調整できます。設定は自動保存されます。</div>
+
+    <h2 id="twitch">⑤ コメント連動・翻訳（Twitch）</h2>
+    <ul>
+      <li><strong>コメント読み上げ（匿名でOK）：</strong> <span class="pill">配信</span>ページでチャンネル名を入れて「接続」。</li>
+      <li><strong>海外コメントの翻訳：</strong> <span class="pill">音声・コメント</span>ページの「💬コメント関連」で「チャット翻訳」をON。コメビューに<strong>原文＋日本語訳が2段</strong>で出て、<strong>日本語訳を読み上げ</strong>ます。<strong>言語は自動検出</strong>＝英語・中国語・韓国語・アラビア語など、翻訳エンジンが対応する言語はすべて対象です。</li>
+      <li><strong>コメビューの見た目：</strong> 文字サイズ・色・不透明度・表示件数や「ずっと表示」は<span class="pill">🖥 ブラウザソース</span>ページでまとめて調整できます（③参照）。</li>
+    </ul>
+
+    <h2 id="advanced">⑥ もっと使う（任意・各自で登録が必要）</h2>
+    <ul>
+      <li><strong>フォロー/サブ/レイド通知・アラート演出（Twitch）：</strong> <span class="pill">配信</span>ページ「📡Twitch関連」の手順で <a href="https://dev.twitch.tv/console/apps/create" target="_blank" rel="noopener">dev.twitch.tv</a> に自分用アプリを無料登録 → Client ID / Secret を入力 →「Twitchで認証する」。<span class="muted">アラートは<strong>イベント別にON/OFF</strong>できます（配信ページの「表示するアラート」）。</span></li>
+      <li><strong>YouTubeのコメント取り込み：</strong> Google Cloud で YouTube Data API キーを取得 → <span class="pill">配信</span>ページの接続モードで YouTube を選び、URLとキーを入力。</li>
+      <li><strong>OBS操作（シーン切替・配信開始/停止）：</strong> OBSの<strong>「ツール → WebSocketサーバー設定」</strong>でサーバーを有効化（ポート/パスワード確認）→ <span class="pill">OBS連携</span>ページで接続。</li>
+    </ul>
+    <div class="note">これらの連携は<strong>自動でつなぎません</strong>。使いたい時にボタン/トグルで明示的にONにする設計です。</div>
+    <div class="safe"><strong>アラート用の画像・音声素材について：</strong> アラート演出に表示する画像や効果音は、<strong>ご自身が利用権を持つ素材</strong>をご使用ください。フリー素材を使う場合も配布元の利用規約（再配布可否・クレジット要否・商用可否など）を必ずご確認ください。<span class="muted">※Ligastmir 自体にアラート用の画像・音は同梱されていません。</span></div>
+
+    <h2 id="skin">⑦ 見た目を着せ替える（画像・効果音）</h2>
+    <p>「<span class="pill">🎨 着せ替え</span>」ページで、アラートやコメビューに<strong>自分の画像・効果音を割り当てて</strong>見た目を変えられます。絵を描く機能ではなく、用意した素材を決まった場所にはめ込む方式です。<span class="muted">使わない場合はスキップでOK（既定の見た目のまま動きます）。</span></p>
+    <ol>
+      <li>着せ替えページで「🖼 画像...」「🎵 効果音...」を押してファイルを選ぶ（自動で取り込み＆保存）。</li>
+      <li>「▶ テスト」「💬 テストコメント」でOBSの表示を確認。</li>
+      <li>外したい時は <strong>✕</strong> で解除（既定の見た目に戻ります）。</li>
+    </ol>
+    <p style="margin-top:6px"><strong>割り当てられる場所と素材の目安：</strong></p>
+    <div class="url-row"><b>アラート画像</b><code>PNG / JPG / GIFアニメ / WebP（7種それぞれ）</code><span class="sz">正方形・140×140px以上</span></div>
+    <div class="url-row"><b>アラート効果音</b><code>MP3 / WAV / OGG（音量スライダー付き）</code><span class="sz">数秒の短い音</span></div>
+    <div class="url-row"><b>吹き出し背景</b><code>透過PNG推奨（コメントカード背景）</code><span class="sz">合わせ方3種</span></div>
+    <div class="url-row"><b>キャラアイコン</b><code>PNG / GIFアニメ（各カードの左横）</code><span class="sz">正方形・48×48px枠</span></div>
+    <div class="url-row"><b>バッジ表示</b><code>絵文字 ⇄ Twitch公式バッジ画像（要Twitch認証）</code><span class="sz">切替のみ</span></div>
+    <ul>
+      <li><strong>保存場所：</strong> 取り込んだ素材は exe と同じフォルダの <code>user_assets</code> に入ります。割り当ては自動保存され、<strong>再起動後も復元</strong>されます。</li>
+      <li><strong>軽量起動：</strong> <code>Ligastmir.exe --skin-editor</code> で、配信機能を立ち上げずに着せ替えだけを開けます（配信前の準備に便利）。</li>
+    </ul>
+    <div class="safe"><strong>素材の権利：</strong> ⑥と同じく、<strong>ご自身が利用権を持つ素材</strong>を使い、フリー素材は配布元の規約をご確認ください。</div>
+
+    <h2 id="trouble-basic">⑧ 困ったとき（基本）</h2>
+    <ul>
+      <li><strong>画面が真っ白／開かない：</strong> 「Edge WebView2 ランタイム」（無料）を <a href="https://developer.microsoft.com/microsoft-edge/webview2/" target="_blank" rel="noopener">Microsoftのサイト</a>から入れてください<span class="muted">（最近のWindowsなら大抵入っています）</span>。</li>
+      <li><strong>声が出ない：</strong> Windowsの音量・出力先を確認。VOICEVOXの声なら VOICEVOX が起動しているか確認。</li>
+      <li><strong>動きがおかしい：</strong> exe と同じフォルダの <code>ust_debug.log</code> を開く（または作者に送る）と原因が分かります。</li>
+      <li><strong>別のPCに渡したとき：</strong> セキュリティ上、APIキーやトークンは<strong>そのPCごとに入力し直し</strong>が必要です<span class="muted">（設定ごとコピーしても暗号化で読めない仕組み）</span>。</li>
+    </ul>
+
+    <!-- ===================== セクションB：こんな時は ===================== -->
+
+    <h2 id="troubleshoot" class="ts">こんな時は（症状から探す）</h2>
+
+    <div class="tcase">
+      <h3>読み上げ（TTS）が遅い・コメントから遅れて読まれる</h3>
+      <div class="cause">原因は主に2つ：賑やかな時の「順番待ち（キュー渋滞）」と、エンジン合成の重さ（特にVOICEVOXはPC性能に依存）。</div>
+      <ul>
+        <li>VOICEVOX を使っていてPCに対応GPUがあるなら、VOICEVOX設定→オプションで<strong>演算デバイスをGPUに</strong>（合成が速くなる。GPU版インストールが必要・対応GPUが無い場合は切り替えない）。</li>
+        <li>軽いエンジンに替える（<strong>SAPI5 / 棒読みちゃん</strong>）。高品質エンジンはPC性能によって遅延することがあります。</li>
+        <li><strong>電源プランを見直す</strong>（ノートPCは省電力だとCPUが絞られる。電源接続＋高パフォーマンス/バランス）。</li>
+        <li><strong>OBSのエンコーダをハードウェア(NVENC等)に</strong>（CPUエンコードだと VOICEVOX とCPUを取り合う）。</li>
+        <li>裏で動く重いアプリ/ブラウザタブを閉じる。</li>
+      </ul>
+      <div class="muted" style="font-size:13px">※どれが効くかはPC環境による。VOICEVOX利用時に起きやすい。</div>
+      <div class="jump">→ 関連: <a href="#tts">④ コメント読み上げ</a></div>
+    </div>
+
+    <div class="tcase">
+      <h3>海外コメントが翻訳・読み上げされない</h3>
+      <div class="cause">「チャット翻訳」がOFFのことが多いです。</div>
+      <ul><li>「チャット翻訳」がONか確認（音声・コメントページ）。言語は自動検出。翻訳エンジンの一時不調時は別エンジンへフォールバックします。</li></ul>
+      <div class="jump">→ 関連: <a href="#twitch">⑤ コメント連動・翻訳</a></div>
+    </div>
+
+    <div class="tcase">
+      <h3>本番の字幕が出ない（テスト字幕は出るのに）</h3>
+      <div class="cause">クラウド同期やマイクの形式が干渉していることがあります。</div>
+      <ul>
+        <li>アプリを <strong>OneDrive 等のクラウド同期フォルダ直下に置かない</strong>（同期がファイルを掴むと音声認識が止まることがある。同期対象外フォルダ例 <code>C:\Ligastmir\</code> へ）。</li>
+        <li>マイクを <strong>16bit・48000Hz（または44100Hz）・モノラル</strong>に（外部ミキサーや 24bit/96kHz・マルチチャンネル固定だと認識が始まらないことがある）。</li>
+      </ul>
+      <div class="jump">→ 関連: <a href="#trouble-basic">⑧ 困ったとき（基本）</a> / <a href="#start">① まず起動する</a></div>
+    </div>
+
+    <div class="tcase">
+      <h3>SmartScreen / ウイルス対策ソフトの警告が出る・隔離される</h3>
+      <div class="cause">署名なしの個人開発EXEのため、誤検知が出ることがあります。</div>
+      <ul>
+        <li>SmartScreen は「詳細情報」→「実行」で開けます。</li>
+        <li>不安なら VirusTotal で確認（PyInstaller製は数エンジンが誤検知するのが通常・主要エンジンが問題なければ実害は小さいです）。</li>
+        <li>隔離された場合は、対策ソフトでそのフォルダを「除外」に追加してください。</li>
+      </ul>
+      <div class="jump">→ 関連: <a href="#start">① まず起動する</a></div>
+    </div>
+
+    <div class="tcase">
+      <h3>画面が真っ白／開かない</h3>
+      <div class="cause">Edge WebView2 ランタイムが入っていないことがあります。</div>
+      <ul><li>Edge WebView2 ランタイム（無料）を <a href="https://developer.microsoft.com/microsoft-edge/webview2/" target="_blank" rel="noopener">Microsoft のサイト</a>から入れてください。</li></ul>
+      <div class="jump">→ 関連: <a href="#trouble-basic">⑧ 困ったとき（基本）</a></div>
+    </div>
+
+    <div class="tcase">
+      <h3>新しいバージョンへの更新／別PCに移したら設定が消えた</h3>
+      <div class="cause">設定の保存場所と暗号化の仕組みを押さえると解決します。</div>
+      <ul>
+        <li>設定・辞書・着せ替え素材は exe と同じフォルダに保存されます。更新は exe（または配布フォルダ）を新しいものにするだけ。詳しい手順は <a href="download.html">ダウンロード・更新方法</a>へ。</li>
+        <li><strong>別PCに移すと API キー/トークンは入力し直しが必要</strong>（そのPC固有の鍵で暗号化しているため復号できない＝仕様）。</li>
+      </ul>
+      <div class="jump">→ 関連: <a href="download.html">ダウンロードと更新方法</a></div>
+    </div>
+
+    <div class="tcase">
+      <h3>VOICEVOX が起動しない／エラー</h3>
+      <div class="cause">本体未起動か、GPUモードの環境不一致が多いです。</div>
+      <ul><li>VOICEVOX 本体が起動しているか確認。自動起動はパス設定（音声・コメントページ）。GPUモードは GPU が無い環境ではエラーになるので CPU モードに。</li></ul>
+      <div class="jump">→ 関連: <a href="#tts">④ コメント読み上げ</a></div>
+    </div>
+
+    <div class="tcase">
+      <h3>棒読みちゃんが繋がらない</h3>
+      <div class="cause">起動順と選択の問題が多いです。</div>
+      <ul><li>棒読みちゃん本体を先に起動してから、音声エンジンで「棒読みちゃん」を選びます。読み/声/速度は棒読みちゃん側の設定が反映されます。</li></ul>
+      <div class="jump">→ 関連: <a href="#tts">④ コメント読み上げ</a></div>
+    </div>
+
+    <div class="tcase">
+      <h3>OBSにアラート等が表示されない／映像が止まる</h3>
+      <div class="cause">「非アクティブ時シャットダウン」のチェックや、URL/起動状態が原因のことが多いです。</div>
+      <ul><li>ブラウザソースのプロパティで「<strong>非アクティブ時にソースをシャットダウンする</strong>」のチェックを外す。URLが正しいか・Ligastmir が起動しているか（右上ドットが消える＝接続）を確認。</li></ul>
+      <div class="jump">→ 関連: <a href="#obs-source">② OBSに表示する</a></div>
+    </div>
+
+    <!-- ★（将来）視聴者バッジが出ない — バッジ機能実装後に追記するプレースホルダ
+    <div class="tcase">
+      <h3>視聴者バッジが出ない</h3>
+      <div class="cause">（バッジ機能実装後に記載）</div>
+    </div>
+    -->
+
+  </article>
+</div>
+
+<footer>
+  <div class="wrap foot">
+    <a href="index.html" class="logo"><span class="cura">cura</span><span class="mar">mar</span></a>
+    <nav class="links">
+      <a href="index.html">トップ</a>
+      <a href="guide.html">使い方</a>
+      <a href="faq.html">FAQ</a>
+      <a href="download.html">ダウンロード</a>
+      <a href="blog.html">ブログ</a>
+      <a href="https://discord.gg/QtQcEgn9JF" target="_blank" rel="noopener">Discord</a>
+      <a href="privacy.html">プライバシーポリシー</a>
+    </nav>
+    <div class="cp">© 2026 curamar</div>
+  </div>
+</footer>
+</body>
+</html>

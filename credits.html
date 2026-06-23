@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>クレジット — curamar / Ligastmir</title>
+<meta name="description" content="Ligastmir の開発・検証・紹介で支えてくれた協力者の皆さんへの謝辞。ツール開発協力・クリエイター枠の方々を紹介します。">
+<link rel="canonical" href="https://curamar.space/credits.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="curamar.space">
+<meta property="og:title" content="クレジット — curamar / Ligastmir">
+<meta property="og:description" content="Ligastmir を支えてくれた協力者の皆さんへの謝辞。">
+<meta property="og:url" content="https://curamar.space/credits.html">
+<meta property="og:image" content="https://curamar.space/assets/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="クレジット — curamar / Ligastmir">
+<meta name="twitter:description" content="Ligastmir を支えてくれた協力者の皆さんへの謝辞。">
+<meta name="twitter:image" content="https://curamar.space/assets/og-image.png">
+<link rel="icon" href="/favicon.ico">
+<style>
+  :root{
+    --bg:#0d1014;--bg-soft:#141a21;--bg-line:#1f2730;
+    --ink:#e8edf2;--ink-dim:#8a97a5;
+    --accent:#c8f542;--accent-cool:#5cc8ff;--warn:#ff6b6b;
+    --radius:14px;--maxw:820px;
+    --font-disp:"Zen Kaku Gothic New","Hiragino Kaku Gothic ProN",sans-serif;
+    --font-body:"Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;
+    --font-mono:"SFMono-Regular",Consolas,"Courier New",monospace;
+  }
+  @media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--ink);font-family:var(--font-body);line-height:1.9;-webkit-font-smoothing:antialiased}
+  a{color:var(--accent-cool)}
+  .grid-bg{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.4;
+    background-image:linear-gradient(var(--bg-line) 1px,transparent 1px),linear-gradient(90deg,var(--bg-line) 1px,transparent 1px);
+    background-size:48px 48px;
+    mask-image:radial-gradient(ellipse 80% 50% at 50% 0%,#000 20%,transparent 70%);
+    -webkit-mask-image:radial-gradient(ellipse 80% 50% at 50% 0%,#000 20%,transparent 70%)}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px;position:relative;z-index:1}
+
+  header{position:sticky;top:0;z-index:50;background:rgba(13,16,20,.82);backdrop-filter:blur(10px);border-bottom:1px solid var(--bg-line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:62px;gap:16px}
+  .logo{font-family:var(--font-mono);font-weight:700;letter-spacing:.05em;font-size:18px}
+  .logo .cura{color:var(--accent)}.logo .mar{color:var(--accent-cool)}
+  .nav-links{display:flex;gap:18px;font-size:14px;flex-wrap:wrap}
+  .nav-links a{color:var(--ink-dim)}.nav-links a:hover{color:var(--ink)}
+  .nav-links a.cur{color:var(--accent)}
+
+  article{padding:48px 0 40px}
+  .doc-eyebrow{font-family:var(--font-mono);font-size:13px;color:var(--accent);letter-spacing:.16em;display:inline-flex;align-items:center;gap:10px;margin-bottom:16px}
+  .doc-eyebrow::before{content:"";width:28px;height:1px;background:var(--accent)}
+  h1{font-family:var(--font-disp);font-size:clamp(26px,5vw,38px);font-weight:700;margin-bottom:10px}
+  .sub{color:var(--ink-dim);margin-bottom:30px}
+
+  /* クレジット本体（カテゴリ駆動・アイコン枠は本人色を尊重して中立） */
+  .cred-cat{margin-bottom:30px}
+  .cred-h{font-family:var(--font-disp);font-size:18px;font-weight:700;color:var(--accent);
+    border-bottom:1px solid var(--bg-line);padding-bottom:8px;margin-bottom:14px}
+  .cred-grid{display:flex;flex-wrap:wrap;gap:12px}
+  .cred-card{display:inline-flex;align-items:center;gap:10px;background:var(--bg-soft);
+    border:1px solid var(--bg-line);border-radius:999px;padding:8px 18px 8px 8px;
+    color:var(--ink);transition:border-color .2s,transform .2s}
+  .cred-card.no-ava{padding:10px 18px}
+  .cred-card:hover{border-color:var(--accent-cool);transform:translateY(-1px)}
+  /* アイコンは本人のものをそのまま（Ligastmirカラーに染めない＝filterや色付けをしない） */
+  .cred-ava{width:38px;height:38px;border-radius:50%;object-fit:cover;background:var(--bg-line);flex:none}
+  .cred-name{font-size:14.5px;font-weight:600;color:var(--ink)}
+  .cred-empty{color:var(--ink-dim);font-size:14px}
+
+  footer{border-top:1px solid var(--bg-line);padding:34px 0;margin-top:44px}
+  .foot{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px}
+  .foot .links{display:flex;gap:18px;font-size:14px;flex-wrap:wrap}
+  .foot .links a{color:var(--ink-dim)}.foot .links a:hover{color:var(--accent)}
+  .foot .cp{font-family:var(--font-mono);font-size:12px;color:var(--ink-dim)}
+</style>
+</head>
+<body>
+<div class="grid-bg"></div>
+
+<header>
+  <div class="wrap nav">
+    <a href="index.html" class="logo"><span class="cura">cura</span><span class="mar">mar</span></a>
+    <nav class="nav-links">
+      <a href="index.html">トップ</a>
+      <a href="guide.html">使い方</a>
+      <a href="faq.html">FAQ</a>
+      <a href="download.html">ダウンロード</a>
+      <a href="blog.html">ブログ</a>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap">
+  <article>
+    <span class="doc-eyebrow">CREDITS</span>
+    <h1>クレジット</h1>
+    <p class="sub"><span class="lgw">Ligastmir</span> は、検証や紹介で支えてくれた方々のおかげで形になっています。協力してくれたみなさんに、感謝を込めて。</p>
+    <div id="credits-root"><p class="cred-empty">読み込み中…</p></div>
+  </article>
+</div>
+
+<footer>
+  <div class="wrap foot">
+    <a href="index.html" class="logo"><span class="cura">cura</span><span class="mar">mar</span></a>
+    <nav class="links">
+      <a href="index.html">トップ</a>
+      <a href="guide.html">使い方</a>
+      <a href="faq.html">FAQ</a>
+      <a href="download.html">ダウンロード</a>
+      <a href="blog.html">ブログ</a>
+      <a href="https://discord.gg/QtQcEgn9JF" target="_blank" rel="noopener">Discord</a>
+      <a href="privacy.html">プライバシーポリシー</a>
+    </nav>
+    <div class="cp">© 2026 curamar</div>
+  </div>
+</footer>
+
+<script>
+  // クレジットは contributors.json（データ）と本ページ（表示）を分離。
+  // 人・カテゴリの増減は JSON 編集だけで済む（HTMLは触らない）。
+  // カテゴリ表示名・順序はここで定義（新カテゴリは1行足すだけ）。
+  var CATEGORY_LABELS = { tool: 'ツール開発協力', creator: 'クリエイター枠' };
+  var CATEGORY_ORDER  = ['tool', 'creator'];
+
+  function esc(s){
+    return String(s == null ? '' : s).replace(/[&<>"']/g, function(m){
+      return ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' })[m];
+    });
+  }
+
+  function render(list){
+    var root = document.getElementById('credits-root');
+    if (!Array.isArray(list)) list = [];
+    // カテゴリごとにグループ化
+    var groups = {};
+    list.forEach(function(c){
+      if (!c || !c.name) return;
+      var cat = c.category || 'other';
+      (groups[cat] = groups[cat] || []).push(c);
+    });
+    // 定義順 → 未定義カテゴリの順
+    var cats = CATEGORY_ORDER.filter(function(c){ return groups[c]; });
+    Object.keys(groups).forEach(function(c){ if (cats.indexOf(c) < 0) cats.push(c); });
+    if (cats.length === 0){ root.innerHTML = '<p class="cred-empty">協力者は準備中です。</p>'; return; }
+
+    var html = '';
+    cats.forEach(function(cat){
+      var label = CATEGORY_LABELS[cat] || cat;
+      html += '<section class="cred-cat"><h2 class="cred-h">' + esc(label) + '</h2><div class="cred-grid">';
+      groups[cat].forEach(function(c){
+        var url  = c.url ? esc(c.url) : '#';
+        var name = esc(c.name);
+        // アイコンのフォールバック: icon が空なら名前だけ（崩れない）。本人アイコンは色を染めない。
+        var hasIcon = !!(c.icon && String(c.icon).trim());
+        var ava = hasIcon ? '<img class="cred-ava" src="' + esc(c.icon) + '" alt="' + name + '" loading="lazy">' : '';
+        html += '<a class="cred-card' + (hasIcon ? '' : ' no-ava') + '" href="' + url + '" target="_blank" rel="noopener">' +
+                ava + '<span class="cred-name">' + name + '</span></a>';
+      });
+      html += '</div></section>';
+    });
+    root.innerHTML = html;
+  }
+
+  fetch('contributors.json', { cache: 'no-cache' })
+    .then(function(r){ if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
+    .then(render)
+    .catch(function(e){
+      document.getElementById('credits-root').innerHTML =
+        '<p class="cred-empty">クレジットの読み込みに失敗しました。</p>';
+    });
+</script>
+</body>
+</html>

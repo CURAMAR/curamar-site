@@ -161,6 +161,30 @@
       <strong>StreamCore から Ligastmir に移行する方へ：</strong>名前とフォルダ構成が変わりましたが、上の手順で設定（<code>config.json</code> など）をコピーすれば、これまでの設定をそのまま引き継げます。うまく起動しない・設定が消えたように見える場合は、コピー先が <code>Ligastmir.exe</code> と同じ階層になっているかを確認のうえ、下のサポートへご連絡ください。
     </div>
 
+    <h2>起動できない時（ブロックの解除）</h2>
+    <p>起動してもすぐ閉じてしまう・<code>Failed to resolve … Python.Runtime.dll</code> のようなエラーが出る場合は、<strong>ネットからダウンロードしたファイルに付く「ブロック」</strong>が原因です。Windows がブロックされたファイルの読み込みを止めるために起こります。次のどちらかで直ります。</p>
+
+    <div class="safe">
+      <strong>一番かんたん：付属の <code>起動.bat</code> から起動する。</strong><br>
+      フォルダ内の <code>起動.bat</code> をダブルクリックすると、自動でブロックを解除してから立ち上がります。<br>
+      ※ <code>Ligastmir.exe</code> を直接ダブルクリックした場合はブロックが解除されません。
+    </div>
+
+    <div class="steps">
+      <div class="step">
+        <div class="st-t">zip を「ブロック解除」してから解凍する（確実）</div>
+        <div class="st-d">解凍する前の zip ファイルを<strong>右クリック → プロパティ</strong>を開き、画面下の<strong>「ブロックの解除」にチェック → OK</strong>。そのあとで解凍してください。これで中のファイル全部のブロックが外れます。</div>
+      </div>
+      <div class="step">
+        <div class="st-t">すでに解凍済みのとき</div>
+        <div class="st-d">フォルダ内の <code>起動.bat</code> から起動すれば、自動でブロックを解除して立ち上がります。それでも直らない時は、上の「zip を先に解除して解凍し直す」をお試しください。</div>
+      </div>
+    </div>
+
+    <div class="warn-box">
+      <strong>SmartScreen の警告が出た場合：</strong>署名なしの個人開発アプリのため「発行元不明」と表示されることがあります。「詳細情報 → 実行」で起動できます（手元で動作確認した配布版です）。
+    </div>
+
     <h2>困った時・報告したい時</h2>
     <p>不具合の報告や要望は、以下のどちらからでも受け付けています。</p>
     <div class="support-grid">

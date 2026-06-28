@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>なぜ『Ligastmir』を作ったのか — 配信中の「あったらいいな」から | curamar</title>
+<meta name="description" content="配信支援ツール Ligastmir を作った理由。配信中の「手が足りない」瞬間から、必要な機能だけを一つにまとめるまで。めんどくさがりの個人配信者がAIと一緒に作った、開発日誌の第1話。">
+<link rel="canonical" href="https://curamar.space/posts/why-i-built-ligastmir.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="curamar.space">
+<meta property="og:title" content="なぜ『Ligastmir』を作ったのか — 配信中の「あったらいいな」から">
+<meta property="og:description" content="配信中の「手が足りない」から始まった、配信支援ツールづくりの話。開発日誌 第1話。">
+<meta property="og:url" content="https://curamar.space/posts/why-i-built-ligastmir.html">
+<meta property="og:image" content="https://curamar.space/assets/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="なぜ『Ligastmir』を作ったのか — curamar 開発日誌">
+<meta name="twitter:image" content="https://curamar.space/assets/og-image.png">
+<link rel="icon" href="/favicon.ico">
+<style>
+  :root{
+    --bg:#0d1014;--bg-soft:#141a21;--bg-line:#1f2730;
+    --ink:#e8edf2;--ink-dim:#8a97a5;
+    --accent:#c8f542;--accent-cool:#5cc8ff;
+    --radius:14px;--maxw:760px;
+    --font-disp:"Zen Kaku Gothic New","Hiragino Kaku Gothic ProN",sans-serif;
+    --font-body:"Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;
+    --font-mono:"SFMono-Regular",Consolas,"Courier New",monospace;
+    --cat-dev:#c8f542;--cat-write:#5cc8ff;--cat-note:#b78cff;
+  }
+  @media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--ink);font-family:var(--font-body);line-height:1.9;-webkit-font-smoothing:antialiased}
+  a{color:var(--accent-cool)}
+  .grid-bg{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.4;
+    background-image:linear-gradient(var(--bg-line) 1px,transparent 1px),linear-gradient(90deg,var(--bg-line) 1px,transparent 1px);
+    background-size:48px 48px;
+    mask-image:radial-gradient(ellipse 80% 50% at 50% 0%,#000 20%,transparent 70%);
+    -webkit-mask-image:radial-gradient(ellipse 80% 50% at 50% 0%,#000 20%,transparent 70%)}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px;position:relative;z-index:1}
+  header{position:sticky;top:0;z-index:50;background:rgba(13,16,20,.82);backdrop-filter:blur(10px);border-bottom:1px solid var(--bg-line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:62px}
+  .logo{font-family:var(--font-mono);font-weight:700;letter-spacing:.05em;font-size:18px}
+  .logo .cura{color:var(--accent)}.logo .mar{color:var(--accent-cool)}
+  .back{font-size:14px;color:var(--ink-dim)}
+  .back:hover{color:var(--ink)}
+  article{padding:60px 0 40px}
+  .a-meta{display:flex;align-items:center;gap:12px;margin-bottom:20px}
+  .cat{font-family:var(--font-mono);font-size:11px;letter-spacing:.08em;padding:3px 10px;border-radius:999px;font-weight:700}
+  .cat.dev{color:var(--cat-dev);border:1px solid color-mix(in srgb,var(--cat-dev) 40%,transparent)}
+  .a-date{font-family:var(--font-mono);font-size:12px;color:var(--ink-dim)}
+  .a-title{font-family:var(--font-disp);font-size:clamp(26px,5vw,38px);font-weight:700;line-height:1.4;margin-bottom:40px}
+  .body p{margin-bottom:22px;font-size:16px}
+  .body strong{color:var(--ink)}
+  .a-foot{border-top:1px solid var(--bg-line);margin-top:50px;padding-top:30px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+  .a-foot .back-btn{font-size:14px;color:var(--accent-cool)}
+  .a-foot .share{font-family:var(--font-mono);font-size:12px;color:var(--ink-dim)}
+  footer{border-top:1px solid var(--bg-line);padding:34px 0;margin-top:30px}
+  .foot{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px}
+  .foot .links{display:flex;gap:18px;font-size:14px}
+  .foot .links a{color:var(--ink-dim)}.foot .links a:hover{color:var(--accent)}
+  .foot .cp{font-family:var(--font-mono);font-size:12px;color:var(--ink-dim)}
+</style>
+</head>
+<body>
+<div class="grid-bg"></div>
+
+<header>
+  <div class="wrap nav">
+    <a href="../index.html" class="logo"><span class="cura">cura</span><span class="mar">mar</span></a>
+    <a href="../blog.html" class="back">← ブログ一覧</a>
+  </div>
+</header>
+
+<div class="wrap">
+  <article>
+    <div class="a-meta">
+      <span class="cat dev">開発日誌</span>
+      <span class="a-date">2026.06.29</span>
+    </div>
+
+    <h1 class="a-title">なぜ『Ligastmir』を作ったのか</h1>
+
+    <div class="body">
+      <p>配信をしていると、ふと「手が足りない」と感じる瞬間があります。</p>
+      <p>ゲームのプレイに集中し過ぎて、コメントを拾えない、来てくれた人に気が付けない、OBSのシーンも切り替えて……。</p>
+      <p>海外の人が来たら頭の中で翻訳して――いや、これは嘘だわ。英語とかわかんないです。</p>
+      <p>ひとつひとつは大したことないですが、配信中に全部を同時に回そうとすると、地味に脳のリソースを食われません？</p>
+      <p>最初は、世の中にある便利なツールを組み合わせて凌いでいました。</p>
+      <p>読み上げはこれ、コメント表示はこれ、翻訳は別の何か。</p>
+      <p>でも、バラバラのツールを立ち上げて、それぞれ設定して、配信のたびに繋ぎ直して……という「準備」そのものが、だんだん面倒になっていきました。</p>
+      <p>元々めんどくさいという言葉に足が生えて歩いているような性格です、この結論にたどり着くのは必然だったのかもしれませんね。</p>
+      <p>それで、思ったんですよ。</p>
+      <p><strong>「自分の配信のために、必要なものをひとつにまとめたい」</strong> と。</p>
+      <p>……こんなスマートな言い回しではなかったですが。</p>
+      <p>要するに、めんどいから自分で作ったるかと、え？　そのほうが手間じゃないか？</p>
+      <p>配信者で、自作パソコン使っていて、昔はニコニコ動画で配信したり動画上げてた人間です。</p>
+      <p>クリエイティブやエンジニアリングは好きなんですよ。</p>
+      <p>「面倒くさい性分」なんです。</p>
+      <p>ただ、作るうえで最初に決めた"縛り"がありました。</p>
+      <p><strong>全部入りの重いツールにはしない</strong>こと。</p>
+      <p>「この機能を使うなら、あの設定も必須」みたいに、芋づる式に強制される作りが、個人的にすごく苦手……だったからです。</p>
+      <p>だから Ligastmir は、<strong>字幕だけ使う人、読み上げだけ使う人、コメント表示だけ使う人——それぞれが「使いたい機能だけ」を選べる</strong>ように作りました。</p>
+      <p>Twitchだけの人も、YouTubeだけの人も、両方の人も、正解です。</p>
+      <p>そしてもう一つ。</p>
+      <p>配信ソフトの定番であるOBSが得意なこと（録画・画面合成・配信そのもの）には手を出さず、<strong>OBSが苦手なところと、配信中に手元から触れた方が楽なところ</strong>だけを補う、という役割に徹することにしました。</p>
+      <p>OBSの"となりに置いておく相棒"みたいなイメージです。</p>
+      <p>正直に書いておくと、このツールのコードの大半は、<strong>AI（Claude）と一緒に書いています</strong>。</p>
+      <p>何を作るか・何を作らないかは俺自身が決めて、実装はAIと二人三脚で進める。</p>
+      <p>そのあたりの裏側は、また別の回でちゃんと話そうと思います。</p>
+      <p>そうやって少しずつ形にしてきたのが、配信支援ツール <strong>Ligastmir（リガストミール）</strong> です。</p>
+      <p>もともとは完全に「自分のため」に作り始めたものですが、同じように配信中に困っている人に届いたら嬉しいな、という気持ちで公開しています。</p>
+      <p>次回は、「AIと一緒に作る」ってどういうことなのか、その正直なところを書いてみます。</p>
+    </div>
+
+    <div class="a-foot">
+      <a href="../blog.html" class="back-btn">← ブログ一覧へ戻る</a>
+      <span class="share">curamar.space</span>
+    </div>
+  </article>
+</div>
+
+<footer>
+  <div class="wrap foot">
+    <a href="../index.html" class="logo"><span class="cura">cura</span><span class="mar">mar</span></a>
+    <nav class="links">
+      <a href="../blog.html">ブログ</a>
+      <a href="../ligastmir.html">Ligastmir</a>
+      <a href="https://www.twitch.tv/curamar" target="_blank" rel="noopener">Twitch</a>
+      <a href="https://kakuyomu.jp/users/CURAMAR" target="_blank" rel="noopener">カクヨム</a>
+    </nav>
+    <div class="cp">© 2026 curamar</div>
+  </div>
+</footer>
+</body>
+</html>

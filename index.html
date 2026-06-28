@@ -269,9 +269,10 @@
           <div class="feat"><span class="ic">03</span><div class="x"><div class="ft">コメント読み上げ</div><div class="fd">VOICEVOX・棒読みちゃん対応</div></div></div>
           <div class="feat"><span class="ic">04</span><div class="x"><div class="ft">コメビュー・演出</div><div class="fd">エモート画像化・アラート・着せ替え</div></div></div>
         </div>
+        <p id="lg-badge" style="font-family:var(--font-mono);font-size:12px;color:var(--accent);letter-spacing:.04em;margin:0 0 14px">最新版 v0.6.0 ・ 2026-06-23 更新</p>
         <div class="btn-row">
           <a class="btn" href="download.html">ダウンロード</a>
-          <a class="btn ghost" href="#support">使い方・サポート</a>
+          <a class="btn ghost" href="ligastmir.html">Ligastmir を詳しく</a>
         </div>
       </div>
       <aside class="sc-panel">
@@ -280,7 +281,7 @@
         <div class="row"><span>配信プラットフォーム</span><span class="v">Twitch / YouTube</span></div>
         <div class="row"><span>読み上げエンジン</span><span class="v">VOICEVOX / SAPI5 / 棒読みちゃん</span></div>
         <div class="row"><span>OBS 連携</span><span class="v">対応（WebSocket）</span></div>
-        <div class="row"><span>現在のバージョン</span><span class="v">v0.6.0（テスト配布中）</span></div>
+        <div class="row"><span>現在のバージョン</span><span class="v" id="lg-ver">v0.6.0（テスト配布中）</span></div>
       </aside>
     </div>
   </section>
@@ -349,7 +350,7 @@
       <a href="https://www.twitch.tv/curamar" target="_blank" rel="noopener">Twitch</a>
       <a href="https://kakuyomu.jp/users/CURAMAR" target="_blank" rel="noopener">カクヨム</a>
       <a href="https://discord.gg/QtQcEgn9JF" target="_blank" rel="noopener">Discord</a>
-      <a href="#ligastmir">Ligastmir</a>
+      <a href="ligastmir.html">Ligastmir</a>
       <a href="privacy.html">プライバシーポリシー</a>
     </nav>
     <div class="cp">© 2026 curamar</div>
@@ -370,6 +371,13 @@
       n.style.borderRadius='12px';n.style.gap='14px';
     }
   });
+
+  // 最新版バッジ（version.json 連動・取得失敗時は固定表示のまま）
+  fetch('version.json').then(function(r){return r.json();}).then(function(d){
+    var v='v'+d.version;
+    var ver=document.getElementById('lg-ver'); if(ver){ver.textContent=v+'（テスト配布中）';}
+    var b=document.getElementById('lg-badge'); if(b&&d.date){b.textContent='最新版 '+v+' ・ '+d.date+' 更新';}
+  }).catch(function(){});
 </script>
 </body>
 </html>

@@ -112,7 +112,7 @@
     <!-- ============================================================ -->
     <h2>ダウンロード</h2>
     <div class="dl-card">
-      <div class="ver">最新版 v0.6.0</div>
+      <div class="ver" id="dl-ver">最新版 v0.6.0</div>
       <h3>Ligastmir（Windows 10 / 11）</h3>
       <p>現在 Ligastmir は<strong>テスター向けに配布中</strong>です。配布を希望される方は、Discord までお気軽にどうぞ。一般公開の準備が整い次第、ここから直接ダウンロードできるようにします。</p>
       <a class="btn cool" href="https://discord.gg/QtQcEgn9JF" target="_blank" rel="noopener">Discord で配布を受け取る</a>
@@ -230,5 +230,10 @@
     <div class="cp">© 2026 curamar</div>
   </div>
 </footer>
+<script>
+  fetch('version.json').then(function(r){return r.json();}).then(function(d){
+    var e=document.getElementById('dl-ver'); if(e&&d.version){e.textContent='最新版 v'+d.version;}
+  }).catch(function(){});
+</script>
 </body>
 </html>

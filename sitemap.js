@@ -30,6 +30,9 @@
       key: "site",
       items: [
         { t: "トップ", d: "配信 / SF小説 / ツール開発", href: "/index.html" },
+        { t: "curamar について", d: "プロフィール・3つの世界", href: "/about.html" },
+        { t: "配信", d: "Twitch・Dead by Daylight", href: "/streaming.html" },
+        { t: "SF小説", d: "アンチ・エントロピア（カクヨム）", href: "/novel.html" },
         { t: "ブログ・開発日誌", d: "個人開発と執筆の記録", href: "/blog.html" },
         { t: "クレジット", d: "協力者・利用素材", href: "/credits.html" },
         { t: "プライバシーポリシー", d: "データの取り扱い", href: "/privacy.html" }

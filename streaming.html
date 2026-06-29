@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>配信について — curamar（Twitch / Dead by Daylight）</title>
+<meta name="description" content="配信者 curamar の配信紹介。Dead by Daylight（DBD）を中心にゲーム配信。参加型もやってます。自分の配信のために配信支援ツール Ligastmir を作っています。">
+<link rel="canonical" href="https://curamar.space/streaming.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="curamar.space">
+<meta property="og:title" content="配信について — curamar（Twitch / Dead by Daylight）">
+<meta property="og:description" content="Dead by Daylight を中心にゲーム配信。参加型もやってます。">
+<meta property="og:url" content="https://curamar.space/streaming.html">
+<meta property="og:image" content="https://curamar.space/assets/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="配信について — curamar">
+<meta name="twitter:description" content="Dead by Daylight を中心にゲーム配信。参加型もやってます。">
+<meta name="twitter:image" content="https://curamar.space/assets/og-image.png">
+<link rel="icon" href="/favicon.ico">
+<style>
+  :root{
+    --bg:#0d1014;--bg-soft:#141a21;--bg-line:#1f2730;
+    --ink:#e8edf2;--ink-dim:#8a97a5;
+    --accent:#c8f542;--accent-cool:#5cc8ff;
+    --radius:14px;--maxw:820px;
+    --font-disp:"Zen Kaku Gothic New","Hiragino Kaku Gothic ProN",sans-serif;
+    --font-body:"Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;
+    --font-mono:"SFMono-Regular",Consolas,"Courier New",monospace;
+  }
+  @media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--ink);font-family:var(--font-body);line-height:1.9;-webkit-font-smoothing:antialiased}
+  a{color:var(--accent-cool)}
+  .grid-bg{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.4;
+    background-image:linear-gradient(var(--bg-line) 1px,transparent 1px),linear-gradient(90deg,var(--bg-line) 1px,transparent 1px);
+    background-size:48px 48px;
+    mask-image:radial-gradient(ellipse 80% 50% at 50% 0%,#000 20%,transparent 70%);
+    -webkit-mask-image:radial-gradient(ellipse 80% 50% at 50% 0%,#000 20%,transparent 70%)}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px;position:relative;z-index:1}
+
+  header{position:sticky;top:0;z-index:50;background:rgba(13,16,20,.82);backdrop-filter:blur(10px);border-bottom:1px solid var(--bg-line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:62px}
+  .logo{font-family:var(--font-mono);font-weight:700;letter-spacing:.05em;font-size:18px}
+  .logo .cura{color:var(--accent)}.logo .mar{color:var(--accent-cool)}
+  .back{font-size:14px;color:var(--ink-dim)}
+  .back:hover{color:var(--ink)}
+
+  article{padding:56px 0 40px}
+  .doc-eyebrow{font-family:var(--font-mono);font-size:13px;color:var(--accent-cool);letter-spacing:.16em;display:inline-flex;align-items:center;gap:10px;margin-bottom:16px}
+  .doc-eyebrow::before{content:"";width:28px;height:1px;background:var(--accent-cool)}
+  h1{font-family:var(--font-disp);font-size:clamp(26px,5vw,38px);font-weight:700;margin-bottom:10px}
+
+  .lead{font-size:16px;color:var(--ink-dim);background:var(--bg-soft);border:1px solid var(--bg-line);border-radius:var(--radius);padding:20px 22px;margin:22px 0 40px}
+
+  h2{font-family:var(--font-disp);font-size:21px;font-weight:700;margin:44px 0 16px;padding-left:14px;border-left:3px solid var(--accent)}
+  p{margin-bottom:18px}
+  ul{margin:0 0 18px 22px}
+  li{margin-bottom:9px}
+  strong{color:var(--ink)}
+  .accent-box{border-left:3px solid var(--accent-cool);background:var(--bg-soft);padding:16px 20px;border-radius:0 10px 10px 0;margin-bottom:18px;color:var(--ink-dim)}
+
+  .cta-row{display:flex;gap:14px;flex-wrap:wrap;margin:30px 0 8px}
+  .cta{display:inline-flex;align-items:center;gap:9px;background:var(--accent);color:#0d1014;font-weight:700;font-size:15px;
+    padding:13px 26px;border-radius:10px;transition:transform .15s,box-shadow .2s}
+  .cta:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(200,245,66,.25)}
+  .cta.ghost{background:transparent;color:var(--ink);border:1px solid var(--bg-line)}
+  .cta.ghost:hover{border-color:var(--accent);box-shadow:none}
+
+  .related{margin:46px 0 0;padding-top:26px;border-top:1px solid var(--bg-line)}
+  .related .lab{font-family:var(--font-mono);font-size:12px;letter-spacing:.12em;color:var(--ink-dim);margin-bottom:14px}
+  .rcards{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .rcard{display:block;background:var(--bg-soft);border:1px solid var(--bg-line);border-radius:12px;padding:16px 18px;transition:transform .12s,border-color .2s}
+  .rcard:hover{transform:translateY(-2px);border-color:var(--accent)}
+  .rcard .t{font-size:15px;font-weight:700;color:var(--ink)}
+  .rcard .d{font-size:12.5px;color:var(--ink-dim);margin-top:3px;line-height:1.6}
+  @media(max-width:560px){.rcards{grid-template-columns:1fr}}
+
+  footer{border-top:1px solid var(--bg-line);padding:34px 0;margin-top:40px}
+  .foot{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px}
+  .foot .links{display:flex;gap:18px;font-size:14px}
+  .foot .links a{color:var(--ink-dim)}.foot .links a:hover{color:var(--accent)}
+  .foot .cp{font-family:var(--font-mono);font-size:12px;color:var(--ink-dim)}
+</style>
+</head>
+<body>
+<div class="grid-bg"></div>
+
+<header>
+  <div class="wrap nav">
+    <a href="index.html" class="logo"><span class="cura">cura</span><span class="mar">mar</span></a>
+    <a href="index.html" class="back">← トップへ</a>
+  </div>
+</header>
+
+<div class="wrap">
+  <article>
+    <span class="doc-eyebrow">STREAMING</span>
+    <h1>配信について</h1>
+
+    <div class="lead">
+      curamar（クラマー）は <strong>Dead by Daylight（DBD）</strong>・<strong>Escape from Tarkov（タルコフ）</strong>
+      を中心にゲーム配信をしています。じっくり遊ぶ日も、視聴者さんと一緒に遊ぶ参加型の日も。
+      気軽に覗いていってください。
+    </div>
+
+    <h2>どんな配信？</h2>
+    <p>
+      メインは非対称対戦ホラー <strong>Dead by Daylight</strong>。<strong>Escape from Tarkov</strong> や
+      ほかの FPS をやる日もあります。配信は競技一辺倒ではなく、駆け引きを楽しみつつ、
+      コメントを拾ってわいわいやるスタイルです。
+    </p>
+    <p>
+      過去には DBD のアーティスト（カラスを飛ばす系キラー）で <strong>最高 世界4位</strong> まで行けました。
+      <a href="https://dbd.tricky.lol/" target="_blank" rel="noopener">dbd.tricky.lol</a> の
+      「Survivors downed with Dire Crows」あたりで見られるやつです（今は何位だろう…？）。
+      アーティストは今も使っていますが、専らエンジョイ勢でランキングはそこまで意識していません
+      ——ぶっちゃけ、多少の箔が付くので書いているところもあります！
+    </p>
+
+    <h2>参加型もやっています</h2>
+    <p>
+      視聴者さんと一緒にプレイする<strong>参加型</strong>の枠もあります。
+      DBD は初めてという方も、久しぶりという方も歓迎です。
+      進行や募集のしかたは配信中・Discord でご案内しています。
+    </p>
+
+    <h2>海外の視聴者さんも</h2>
+    <p>
+      コメントが多言語でも置いていかれないように、配信には自作の支援ツールを使っています。
+      コメントの読み上げや、海外コメントのリアルタイム翻訳字幕など——
+      「あったらいいな」を自分の配信のために形にしたのが <strong>Ligastmir</strong> です。
+    </p>
+    <div class="accent-box">
+      配信で使っているツール Ligastmir は、無料で公開しています。同じように
+      「一人で配信を回すのが大変」という配信者さんに届けばと思っています。
+    </div>
+
+    <div class="cta-row">
+      <a class="cta" href="https://www.twitch.tv/curamar" target="_blank" rel="noopener">Twitch で配信を見る ↗</a>
+      <a class="cta ghost" href="https://discord.gg/QtQcEgn9JF" target="_blank" rel="noopener">Discord に参加</a>
+    </div>
+
+    <div class="related">
+      <div class="lab">RELATED</div>
+      <div class="rcards">
+        <a class="rcard" href="ligastmir.html"><div class="t">配信支援ツール Ligastmir</div><div class="d">字幕・翻訳・読み上げ・コメビュー</div></a>
+        <a class="rcard" href="novel.html"><div class="t">SF小説 アンチ・エントロピア</div><div class="d">物理法則が狂った世界を解き明かす</div></a>
+        <a class="rcard" href="about.html"><div class="t">curamar について</div><div class="d">配信・小説・ツール開発の人</div></a>
+        <a class="rcard" href="blog.html"><div class="t">ブログ・開発日誌</div><div class="d">作ってる裏側の話</div></a>
+      </div>
+    </div>
+  </article>
+</div>
+
+<footer>
+  <div class="wrap foot">
+    <a href="index.html" class="logo"><span class="cura">cura</span><span class="mar">mar</span></a>
+    <nav class="links">
+      <a href="index.html">トップ</a>
+      <a href="blog.html">ブログ</a>
+      <a href="https://discord.gg/QtQcEgn9JF" target="_blank" rel="noopener">Discord</a>
+    </nav>
+    <div class="cp">© 2026 curamar</div>
+  </div>
+</footer>
+<script src="/sitemap.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>curamar について — 配信 / SF小説 / ツール開発</title>
+<meta name="description" content="curamar（クラマー）のプロフィール。Dead by Daylight を中心にゲーム配信をしながら SF小説を書き、自分の配信のために配信支援ツール Ligastmir を開発しています。">
+<link rel="canonical" href="https://curamar.space/about.html">
+<meta property="og:type" content="profile">
+<meta property="og:site_name" content="curamar.space">
+<meta property="og:title" content="curamar について — 配信 / SF小説 / ツール開発">
+<meta property="og:description" content="配信・SF小説・配信支援ツール Ligastmir 開発。混沌を観測して、秩序に組み立てる人。">
+<meta property="og:url" content="https://curamar.space/about.html">
+<meta property="og:image" content="https://curamar.space/assets/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="curamar について">
+<meta name="twitter:description" content="配信・SF小説・配信支援ツール Ligastmir 開発。">
+<meta name="twitter:image" content="https://curamar.space/assets/og-image.png">
+<link rel="icon" href="/favicon.ico">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"ProfilePage","mainEntity":{"@type":"Person","name":"curamar","alternateName":"クラマー","url":"https://curamar.space/","description":"Dead by Daylight を中心に配信しながら SF小説を書き、配信支援ツール Ligastmir を開発する個人配信者・開発者。","sameAs":["https://www.twitch.tv/curamar","https://kakuyomu.jp/users/CURAMAR"]}}
+</script>
+<style>
+  :root{
+    --bg:#0d1014;--bg-soft:#141a21;--bg-line:#1f2730;
+    --ink:#e8edf2;--ink-dim:#8a97a5;
+    --accent:#c8f542;--accent-cool:#5cc8ff;
+    --radius:14px;--maxw:820px;
+    --font-disp:"Zen Kaku Gothic New","Hiragino Kaku Gothic ProN",sans-serif;
+    --font-body:"Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;
+    --font-mono:"SFMono-Regular",Consolas,"Courier New",monospace;
+  }
+  @media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--ink);font-family:var(--font-body);line-height:1.9;-webkit-font-smoothing:antialiased}
+  a{color:var(--accent-cool)}
+  .grid-bg{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.4;
+    background-image:linear-gradient(var(--bg-line) 1px,transparent 1px),linear-gradient(90deg,var(--bg-line) 1px,transparent 1px);
+    background-size:48px 48px;
+    mask-image:radial-gradient(ellipse 80% 50% at 50% 0%,#000 20%,transparent 70%);
+    -webkit-mask-image:radial-gradient(ellipse 80% 50% at 50% 0%,#000 20%,transparent 70%)}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px;position:relative;z-index:1}
+
+  header{position:sticky;top:0;z-index:50;background:rgba(13,16,20,.82);backdrop-filter:blur(10px);border-bottom:1px solid var(--bg-line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:62px}
+  .logo{font-family:var(--font-mono);font-weight:700;letter-spacing:.05em;font-size:18px}
+  .logo .cura{color:var(--accent)}.logo .mar{color:var(--accent-cool)}
+  .back{font-size:14px;color:var(--ink-dim)}
+  .back:hover{color:var(--ink)}
+
+  article{padding:56px 0 40px}
+  .doc-eyebrow{font-family:var(--font-mono);font-size:13px;color:var(--accent-cool);letter-spacing:.16em;display:inline-flex;align-items:center;gap:10px;margin-bottom:16px}
+  .doc-eyebrow::before{content:"";width:28px;height:1px;background:var(--accent-cool)}
+  h1{font-family:var(--font-disp);font-size:clamp(26px,5vw,38px);font-weight:700;margin-bottom:10px}
+  h1 .hl{color:var(--accent)}
+
+  .lead{font-size:16px;color:var(--ink-dim);background:var(--bg-soft);border:1px solid var(--bg-line);border-radius:var(--radius);padding:20px 22px;margin:22px 0 40px}
+
+  h2{font-family:var(--font-disp);font-size:21px;font-weight:700;margin:44px 0 16px;padding-left:14px;border-left:3px solid var(--accent)}
+  p{margin-bottom:18px}
+  ul{margin:0 0 18px 22px}
+  li{margin-bottom:9px}
+  strong{color:var(--ink)}
+  .accent-box{border-left:3px solid var(--accent-cool);background:var(--bg-soft);padding:16px 20px;border-radius:0 10px 10px 0;margin-bottom:18px;color:var(--ink-dim)}
+
+  .three{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:8px 0 8px}
+  .tcard{display:block;background:var(--bg-soft);border:1px solid var(--bg-line);border-radius:12px;padding:18px;transition:transform .12s,border-color .2s}
+  .tcard:hover{transform:translateY(-3px);border-color:var(--accent)}
+  .tcard .k{font-family:var(--font-mono);font-size:11px;color:var(--ink-dim);letter-spacing:.1em}
+  .tcard .t{font-size:16px;font-weight:700;color:var(--ink);margin:7px 0 4px}
+  .tcard .d{font-size:12.5px;color:var(--ink-dim);line-height:1.6}
+  @media(max-width:560px){.three{grid-template-columns:1fr}}
+
+  .cta-row{display:flex;gap:14px;flex-wrap:wrap;margin:30px 0 8px}
+  .cta{display:inline-flex;align-items:center;gap:9px;background:var(--accent);color:#0d1014;font-weight:700;font-size:15px;
+    padding:13px 26px;border-radius:10px;transition:transform .15s,box-shadow .2s}
+  .cta:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(200,245,66,.25)}
+  .cta.ghost{background:transparent;color:var(--ink);border:1px solid var(--bg-line)}
+  .cta.ghost:hover{border-color:var(--accent);box-shadow:none}
+
+  footer{border-top:1px solid var(--bg-line);padding:34px 0;margin-top:40px}
+  .foot{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px}
+  .foot .links{display:flex;gap:18px;font-size:14px}
+  .foot .links a{color:var(--ink-dim)}.foot .links a:hover{color:var(--accent)}
+  .foot .cp{font-family:var(--font-mono);font-size:12px;color:var(--ink-dim)}
+</style>
+</head>
+<body>
+<div class="grid-bg"></div>
+
+<header>
+  <div class="wrap nav">
+    <a href="index.html" class="logo"><span class="cura">cura</span><span class="mar">mar</span></a>
+    <a href="index.html" class="back">← トップへ</a>
+  </div>
+</header>
+
+<div class="wrap">
+  <article>
+    <span class="doc-eyebrow">ABOUT</span>
+    <h1>curamar（クラマー）について</h1>
+
+    <div class="lead">
+      ゲーム配信をしながら、SF小説を書き、自分の配信のために配信支援ツール
+      <strong>Ligastmir</strong> を作っている、30代後半・一児の父をやっているおっさんです。
+      やっていることは一見バラバラですが、根っこは <strong>「混沌を観測して、秩序に組み立てる」</strong>
+      ——とどこか厨二くさい言い回しをしつつ、結局は <strong>「作って試して触って理解する」</strong> のが好き、という一つの性分でつながっています。
+    </div>
+
+    <h2>3つの世界</h2>
+    <div class="three">
+      <a class="tcard" href="streaming.html">
+        <div class="k">STREAMING</div>
+        <div class="t">配信</div>
+        <div class="d">Dead by Daylight や Escape from Tarkov などを中心に。参加型も。</div>
+      </a>
+      <a class="tcard" href="novel.html">
+        <div class="k">FICTION</div>
+        <div class="t">SF小説</div>
+        <div class="d">「アンチ・エントロピア」をカクヨムで連載中。科学とユーモアのSF。</div>
+      </a>
+      <a class="tcard" href="ligastmir.html">
+        <div class="k">PRODUCT</div>
+        <div class="t">ツール開発</div>
+        <div class="d">配信支援ツール Ligastmir を開発・無料公開。</div>
+      </a>
+    </div>
+
+    <h2>なぜ作るのか</h2>
+    <p>
+      Ligastmir は、もともと<strong>自分の配信を一人で回すため</strong>に作り始めたツールです。
+      コメントの読み上げ、海外視聴者のコメント翻訳、字幕、コメントビューア——
+      「これがあれば配信に集中できるのに」を一つずつ形にしていったら、ひとつのアプリになりました。
+    </p>
+    <div class="accent-box">
+      せっかく作ったなら、同じように「一人で配信を回すのが大変」という人に届けばいい。
+      そう思って無料で公開しています。完璧ではないけれど、使ってもらいながら良くしていきたい。
+    </div>
+
+    <h2>つくる姿勢</h2>
+    <p>
+      開発は <strong>AI（Claude）と二人三脚</strong>で進めています。ある程度のプログラム知識はあるものの、
+      これだけ膨大なコーディングをひとりでこなすのはとても無理で、日々アドバイスをもらいながら助けてもらっています。
+    </p>
+    <p>
+      ——とはいえ、<strong>小説は 100% 自分で書いています</strong>。ブログは「AI が下書き → 自分が清書して載せる」スタイル。
+      どこを AI に任せて、どこは自分の手でやるか。その線引きも含めて、過程や考えていることは
+      <a href="blog.html">ブログ・開発日誌</a>に少しずつ書いていきます。気になったところから読んでもらえたら嬉しいです。
+    </p>
+
+    <div class="cta-row">
+      <a class="cta" href="ligastmir.html">Ligastmir を見る</a>
+      <a class="cta ghost" href="https://discord.gg/QtQcEgn9JF" target="_blank" rel="noopener">Discord に参加</a>
+    </div>
+  </article>
+</div>
+
+<footer>
+  <div class="wrap foot">
+    <a href="index.html" class="logo"><span class="cura">cura</span><span class="mar">mar</span></a>
+    <nav class="links">
+      <a href="index.html">トップ</a>
+      <a href="blog.html">ブログ</a>
+      <a href="https://www.twitch.tv/curamar" target="_blank" rel="noopener">Twitch</a>
+      <a href="https://kakuyomu.jp/users/CURAMAR" target="_blank" rel="noopener">カクヨム</a>
+      <a href="https://discord.gg/QtQcEgn9JF" target="_blank" rel="noopener">Discord</a>
+    </nav>
+    <div class="cp">© 2026 curamar</div>
+  </div>
+</footer>
+<script src="/sitemap.js" defer></script>
+</body>
+</html>

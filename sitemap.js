@@ -34,6 +34,7 @@
         { t: "配信", d: "Twitch・Dead by Daylight", href: "/streaming.html" },
         { t: "SF小説", d: "アンチ・エントロピア（カクヨム）", href: "/novel.html" },
         { t: "ブログ・開発日誌", d: "個人開発と執筆の記録", href: "/blog.html" },
+        { t: "活動を応援する", d: "OFUSE でのファンレター（任意）", href: "/support.html" },
         { t: "クレジット", d: "協力者・利用素材", href: "/credits.html" },
         { t: "プライバシーポリシー", d: "データの取り扱い", href: "/privacy.html" }
       ]

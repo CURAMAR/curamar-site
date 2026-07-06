@@ -22,7 +22,8 @@
         { t: "ダウンロード", d: "最新版を入手・導入手順", href: "/download.html" },
         { t: "使い方ガイド", d: "初期設定と各機能の使い方", href: "/guide.html" },
         { t: "よくある質問", d: "導入前の不安・トラブル", href: "/faq.html" },
-        { t: "更新履歴", d: "バージョンごとの変更点", href: "/changelog.html" }
+        { t: "更新履歴", d: "バージョンごとの変更点", href: "/changelog.html" },
+        { t: "本物の見分け方", d: "公式の入手先・偽配布の注意", href: "/verify.html" }
       ]
     },
     {

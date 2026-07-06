@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>本物の見分け方・偽配布の注意 — Ligastmir</title>
+<meta name="description" content="Ligastmir の公式の入手先と、改変版・なりすまし・無断転載の見分け方。公式はこのサイトと公式Discordだけ。ツールは起動時に本体の整合性を自己チェックします。">
+<link rel="canonical" href="https://curamar.space/verify.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="curamar.space">
+<meta property="og:title" content="本物の見分け方・偽配布の注意 — Ligastmir">
+<meta property="og:description" content="公式の入手先はこのサイトと公式Discordだけ。改変版・なりすましにご注意ください。">
+<meta property="og:url" content="https://curamar.space/verify.html">
+<meta property="og:image" content="https://curamar.space/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:type" content="image/png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="本物の見分け方・偽配布の注意 — Ligastmir">
+<meta name="twitter:description" content="公式の入手先はこのサイトと公式Discordだけ。改変版・なりすましにご注意ください。">
+<meta name="twitter:image" content="https://curamar.space/assets/og-image.png">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<style>
+  :root{
+    --bg:#0d1014;--bg-soft:#141a21;--bg-line:#1f2730;
+    --ink:#e8edf2;--ink-dim:#8a97a5;
+    --accent:#c8f542;--accent-cool:#5cc8ff;
+    --radius:14px;--maxw:820px;
+    --font-disp:"Zen Kaku Gothic New","Hiragino Kaku Gothic ProN",sans-serif;
+    --font-body:"Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;
+    --font-mono:"SFMono-Regular",Consolas,"Courier New",monospace;
+  }
+  @media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--ink);font-family:var(--font-body);line-height:1.9;-webkit-font-smoothing:antialiased}
+  a{color:var(--accent-cool)}
+  .grid-bg{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.4;
+    background-image:linear-gradient(var(--bg-line) 1px,transparent 1px),linear-gradient(90deg,var(--bg-line) 1px,transparent 1px);
+    background-size:48px 48px;
+    mask-image:radial-gradient(ellipse 80% 50% at 50% 0%,#000 20%,transparent 70%);
+    -webkit-mask-image:radial-gradient(ellipse 80% 50% at 50% 0%,#000 20%,transparent 70%)}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px;position:relative;z-index:1}
+
+  header{position:sticky;top:0;z-index:50;background:rgba(13,16,20,.82);backdrop-filter:blur(10px);border-bottom:1px solid var(--bg-line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:62px}
+  .logo{font-family:var(--font-mono);font-weight:700;letter-spacing:.05em;font-size:18px}
+  .logo .cura{color:var(--accent)}.logo .mar{color:var(--accent-cool)}
+  .back{font-size:14px;color:var(--ink-dim)}
+  .back:hover{color:var(--ink)}
+
+  article{padding:56px 0 40px}
+  .doc-eyebrow{font-family:var(--font-mono);font-size:13px;color:var(--accent-cool);letter-spacing:.16em;display:inline-flex;align-items:center;gap:10px;margin-bottom:16px}
+  .doc-eyebrow::before{content:"";width:28px;height:1px;background:var(--accent-cool)}
+  h1{font-family:var(--font-disp);font-size:clamp(26px,5vw,38px);font-weight:700;margin-bottom:10px}
+  h1 .hl{color:var(--accent)}
+
+  .lead{font-size:16px;color:var(--ink-dim);background:var(--bg-soft);border:1px solid var(--bg-line);border-radius:var(--radius);padding:20px 22px;margin:22px 0 40px}
+
+  h2{font-family:var(--font-disp);font-size:21px;font-weight:700;margin:44px 0 16px;padding-left:14px;border-left:3px solid var(--accent)}
+  p{margin-bottom:18px}
+  ul{margin:0 0 18px 22px}
+  li{margin-bottom:9px}
+  strong{color:var(--ink)}
+  .accent-box{border-left:3px solid var(--accent-cool);background:var(--bg-soft);padding:16px 20px;border-radius:0 10px 10px 0;margin-bottom:18px;color:var(--ink-dim)}
+  .note{background:var(--bg-soft);border:1px solid var(--bg-line);border-radius:10px;padding:16px 18px;font-size:14px;color:var(--ink-dim);margin-bottom:18px}
+  .warn{border-left:3px solid #ff6b6b;background:rgba(255,107,107,.07);padding:16px 20px;border-radius:0 10px 10px 0;margin-bottom:18px}
+  .give-row{display:flex;gap:14px;flex-wrap:wrap;margin:26px 0 8px}
+  .give{display:inline-flex;align-items:center;gap:9px;background:var(--accent);color:#0d1014;font-weight:700;font-size:15px;
+    padding:13px 26px;border-radius:10px;transition:transform .15s,box-shadow .2s}
+  .give:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(200,245,66,.25)}
+  .give.ghost{background:transparent;color:var(--ink);border:1px solid var(--bg-line)}
+  .give.ghost:hover{border-color:var(--accent);box-shadow:none}
+  code{font-family:var(--font-mono);font-size:.92em;background:var(--bg-soft);border:1px solid var(--bg-line);border-radius:5px;padding:1px 6px}
+
+  footer{border-top:1px solid var(--bg-line);padding:34px 0;margin-top:40px}
+  .foot{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px}
+  .foot .links{display:flex;gap:18px;font-size:14px}
+  .foot .links a{color:var(--ink-dim)}.foot .links a:hover{color:var(--accent)}
+  .foot .cp{font-family:var(--font-mono);font-size:12px;color:var(--ink-dim)}
+</style>
+</head>
+<body>
+<div class="grid-bg"></div>
+
+<header>
+  <div class="wrap nav">
+    <a href="index.html" class="logo"><span class="cura">cura</span><span class="mar">mar</span></a>
+    <a href="index.html" class="back">← トップへ</a>
+  </div>
+</header>
+
+<div class="wrap">
+  <article>
+    <span class="doc-eyebrow">VERIFY</span>
+    <h1>本物の<span class="hl">見分け方</span>・偽配布の注意</h1>
+
+    <div class="lead">
+      <strong>Ligastmir の公式の入手先は、この公式サイトと公式Discordだけです。</strong>
+      それ以外の場所で配られているもの（まとめサイト・無断転載・改変版）は、公式ではありません。
+      安心して使うために、下の見分け方を参考にしてください。
+    </div>
+
+    <h2>公式の入手先</h2>
+    <ul>
+      <li><strong>公式サイト</strong>：<a href="index.html">curamar.space</a>（このサイト） →
+        <a href="download.html">ダウンロード</a></li>
+      <li><strong>公式Discord</strong>：配布の告知・最新版はこちらでも案内しています
+        （<a href="https://discord.gg/QtQcEgn9JF" target="_blank" rel="noopener">参加リンク</a>）</li>
+    </ul>
+    <div class="give-row">
+      <a class="give" href="download.html">📥 公式ダウンロードへ</a>
+      <a class="give ghost" href="https://discord.gg/QtQcEgn9JF" target="_blank" rel="noopener">💬 公式Discord</a>
+    </div>
+
+    <h2>こういうものにご注意ください</h2>
+    <div class="warn">
+      <ul style="margin-bottom:0">
+        <li><strong>中身を書き換えた版（改変版）の配布</strong>：広告や別の動作が仕込まれている恐れがあります。</li>
+        <li><strong>公式以外の場所での再配布・転載・ミラー</strong>：古い版だったり、改変されている恐れがあります。</li>
+        <li><strong>制作者になりすました案内</strong>：本人を装って別のファイルへ誘導する等。</li>
+      </ul>
+    </div>
+    <p>これらは <a href="https://curamar.space/">利用規約</a>（ツール同梱の <code>LICENSE.txt</code>）で禁止しています。
+      個人での利用・紹介・宣伝は大歓迎ですが、<strong>入手は必ず公式から</strong>ご案内ください
+      （リンクの共有は歓迎です）。</p>
+
+    <h2>アプリ内で「本物」を確認できます</h2>
+    <p>
+      Ligastmir は<strong>起動時に本体ファイルの整合性を自己チェック</strong>し、公式ビルドと一致しない場合は警告を表示します
+      （ツールを壊したり止めたりはしません＝情報のお知らせだけです）。
+    </p>
+    <p>
+      さらに、ツール内の <strong>「INFO」→「本物の確認」</strong> に、あなたのコピーの<strong>確認コード</strong>が表示されます。
+      「公式サイトと照合する」ボタンを押すと、このサイトが公開している公式の確認コードと突き合わせて、
+      <strong>本物（公式ビルド）かどうか</strong>を判定できます（押した時だけ1回通信します・普段は通信しません）。
+    </p>
+    <div class="note">
+      ※ 確認コードが一致すれば公式ビルドです。一致しない場合は、改変版・破損・古い版の可能性があるので、
+      上の「公式ダウンロード」から入手し直してください。
+    </div>
+
+    <h2>おかしいな、と思ったら</h2>
+    <p>
+      「公式かどうか分からない配布を見つけた」「なりすましを見かけた」ときは、
+      <a href="https://discord.gg/QtQcEgn9JF" target="_blank" rel="noopener">公式Discord</a> で教えてください。
+    </p>
+  </article>
+</div>
+
+<footer>
+  <div class="wrap foot">
+    <a href="index.html" class="logo"><span class="cura">cura</span><span class="mar">mar</span></a>
+    <nav class="links">
+      <a href="index.html">トップ</a>
+      <a href="ligastmir.html">Ligastmir</a>
+      <a href="download.html">ダウンロード</a>
+      <a href="https://discord.gg/QtQcEgn9JF" target="_blank" rel="noopener">Discord</a>
+      <a href="credits.html">クレジット</a>
+    </nav>
+    <div class="cp">© 2026 curamar</div>
+  </div>
+</footer>
+<script src="/sitemap.js" defer></script>
+</body>
+</html>

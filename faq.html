@@ -21,7 +21,7 @@
 <meta name="twitter:image" content="https://curamar.space/assets/og-image.png">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"今使っている配信ツール（わんコメ等）と併用できますか？","acceptedAnswer":{"@type":"Answer","text":"はい、併用できます。Ligastmir は OBS を補助する役割で、既存のツールと一緒に使えます。"}},{"@type":"Question","name":"VOICEVOX は必須ですか？","acceptedAnswer":{"@type":"Answer","text":"いいえ、任意です。Windows 標準の音声（SAPI5）なら準備なしでそのまま読み上げできます。VOICEVOX や棒読みちゃんは使いたい人だけ。"}},{"@type":"Question","name":"無料ですか？","acceptedAnswer":{"@type":"Answer","text":"無料です。各自が自分の API キー等を設定して使う形なので、サーバー費用もかかりません。"}},{"@type":"Question","name":"インストールは必要ですか？","acceptedAnswer":{"@type":"Answer","text":"いいえ。exe をダブルクリックするだけで動きます（Python などのインストールは不要）。"}},{"@type":"Question","name":"海外の視聴者のコメントは読めますか？","acceptedAnswer":{"@type":"Answer","text":"翻訳をONにすると、原文＋日本語訳の2段表示になり、日本語訳を読み上げます。言語は自動検出です。"}},{"@type":"Question","name":"動作が重い／読み上げが遅いときは？","acceptedAnswer":{"@type":"Answer","text":"PC環境による「順番待ち」や合成の重さが原因のことが多いです。使い方ページに対処をまとめています。"}}]}
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"今使っている配信ツール（わんコメ等）と併用できますか？","acceptedAnswer":{"@type":"Answer","text":"はい、併用できます。Ligastmir は OBS を補助する役割で、既存のツールと一緒に使えます。"}},{"@type":"Question","name":"VOICEVOX は必須ですか？","acceptedAnswer":{"@type":"Answer","text":"いいえ、任意です。Windows 標準の音声（SAPI5）なら準備なしでそのまま読み上げできます。VOICEVOX や棒読みちゃんは使いたい人だけ。"}},{"@type":"Question","name":"無料ですか？","acceptedAnswer":{"@type":"Answer","text":"無料です。各自が自分の API キー等を設定して使う形なので、サーバー費用もかかりません。"}},{"@type":"Question","name":"インストールは必要ですか？","acceptedAnswer":{"@type":"Answer","text":"いいえ。exe をダブルクリックするだけで動きます（Python などのインストールは不要）。"}},{"@type":"Question","name":"海外の視聴者のコメントは読めますか？","acceptedAnswer":{"@type":"Answer","text":"翻訳をONにすると、原文＋日本語訳の2段表示になり、日本語訳を読み上げます。言語は自動検出です。"}},{"@type":"Question","name":"動作が重い／読み上げが遅いときは？","acceptedAnswer":{"@type":"Answer","text":"PC環境による「順番待ち」や合成の重さが原因のことが多いです。使い方ページに対処をまとめています。"}},{"@type":"Question","name":"字幕やコメビューの見た目（フォント・位置）は変えられますか？","acceptedAnswer":{"@type":"Answer","text":"はい。フォントを5種類から選べ、字幕は色・サイズ・表示位置・最大行数を調整できます。翻訳字幕は日本語字幕と別の位置に置けるので、ゲーム画面やワイプに被らないよう逃がせます。"}},{"@type":"Question","name":"配信タイトルやカテゴリをツールから変更できますか？","acceptedAnswer":{"@type":"Answer","text":"できます。タイトル・カテゴリ・説明・サムネイルをツール内から変更でき、Twitch と YouTube の両方へ一度で反映することもできます。"}},{"@type":"Question","name":"コメントやスタンプで演出を出せますか？","acceptedAnswer":{"@type":"Answer","text":"はい。リアクション機能で、特定のキーワード・スタンプ・イベントをきっかけに効果音や画像・絵文字の演出を自動で出せます。何も設定しなければ演出は出ません。"}},{"@type":"Question","name":"ダウンロードしたものが本物か確認できますか？","acceptedAnswer":{"@type":"Answer","text":"公式の入手先はこのサイトと公式Discordだけです。ツールは起動時に本体を自己チェックし、書き換えを検知すると警告します。見分け方は専用ページにまとめています。"}}]}
 </script>
 <style>
   :root{
@@ -137,6 +137,30 @@
       <div class="q">動作が重い／読み上げが遅いときは?</div>
       <div class="a">PC環境による「順番待ち」や合成の重さが原因のことが多いです。対処をいくつかまとめています。</div>
       <div class="more">→ <a href="guide.html#troubleshoot">こんな時は（読み上げが遅い）</a></div>
+    </div>
+
+    <div class="qa">
+      <div class="q">字幕やコメビューの見た目（フォント・位置）は変えられる?</div>
+      <div class="a">はい。<strong>フォントを5種類</strong>から選べ、字幕は<strong>色・サイズ・表示位置・最大行数</strong>を調整できます。<strong>翻訳字幕は日本語字幕と別の位置</strong>に置けるので、ゲーム画面やワイプに被らないよう逃がせます。</div>
+      <div class="more">→ <a href="guide.html#appearance">使い方 ③ 見た目を調整する</a></div>
+    </div>
+
+    <div class="qa">
+      <div class="q">配信タイトルやカテゴリをツールから変更できる?</div>
+      <div class="a">できます。<strong>タイトル・カテゴリ・説明・サムネイル</strong>をツール内から変更でき、<strong>Twitch と YouTube の両方へ一度で反映</strong>することもできます（片方だけ接続していればその配信のみ）。</div>
+      <div class="more">→ <a href="guide.html#advanced">使い方 ⑥ もっと使う</a></div>
+    </div>
+
+    <div class="qa">
+      <div class="q">コメントやスタンプで演出を出せる?</div>
+      <div class="a">はい。「<strong>リアクション</strong>」機能で、特定のキーワード・スタンプ・イベントをきっかけに<strong>効果音や画像・絵文字の演出</strong>を自動で出せます。何も設定しなければ演出は出ません（使いたい人だけ）。</div>
+      <div class="more">→ <a href="guide.html#reaction">使い方 ⑦-2 リアクション演出</a></div>
+    </div>
+
+    <div class="qa">
+      <div class="q">ダウンロードしたものが本物か確認できる?</div>
+      <div class="a">公式の入手先は<strong>このサイトと公式Discordだけ</strong>です。ツールは<strong>起動時に本体を自己チェック</strong>し、書き換えを検知すると警告します。見分け方は専用ページにまとめています。</div>
+      <div class="more">→ <a href="verify.html">本物の見分け方・偽配布の注意</a></div>
     </div>
   </article>
 </div>

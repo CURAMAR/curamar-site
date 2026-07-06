@@ -137,6 +137,7 @@
         <li><a href="#twitch">⑤ コメント連動・翻訳</a></li>
         <li><a href="#advanced">⑥ もっと使う</a></li>
         <li><a href="#skin">⑦ 着せ替え</a></li>
+        <li><a href="#reaction">⑦-2 リアクション演出</a></li>
         <li><a href="#trouble-basic">⑧ 困ったとき（基本）</a></li>
       </ul>
     </div>
@@ -173,9 +174,10 @@
     <p>アプリの「<span class="pill">🖥 ブラウザソース</span>」ページで、各オーバーレイの見た目を<strong>その場で調整</strong>できます（OBSに貼ったまま変化が反映されます）。設定は<strong>自動保存</strong>され、OBSソースの再読込やアプリ再起動のあとも元に戻ります。</p>
     <ul>
       <li><strong>💬 コメビュー：</strong> 本文の文字サイズ・ユーザー名サイズ・背景の不透明度・最大表示件数・表示寿命（「ずっと表示」）に加え、<strong>本文の色</strong>と<strong>アクセント色</strong>（ユーザー名・カード左の枠線）を変えられます。<span class="muted">※Twitch側で名前に色を付けている人は、その色が優先されます。「色を既定に戻す」でいつでも戻せます。</span></li>
+      <li><strong>🔤 フォント：</strong> 字幕とコメビューの<strong>字体を5種類</strong>から選べます（標準／まる字／極太／明朝／手書き風）。選択ボタン自体がその字体で表示されるので、雰囲気を見ながら選べます。</li>
       <li><strong>🎊 弾幕：</strong> <strong>文字サイズ</strong>と<strong>流れる範囲</strong>（画面全体／上部／中央／下部）。</li>
       <li><strong>✨ エモートフロート：</strong> <strong>出る向き</strong>（下から上／上から下）・<strong>出る位置</strong>（全体／左／中央／右）・<strong>大きさ</strong>。</li>
-      <li><strong>🎤 字幕・翻訳字幕：</strong> <strong>字幕の色</strong>・<strong>翻訳字幕の色とサイズ</strong>を別々に調整できます（<span class="pill">音声・コメント</span>ページの「字幕表示設定」）。<span class="muted">テスト/ログページの「調整用字幕プレビュー」で出しっぱなしにすると合わせやすいです。</span></li>
+      <li><strong>🎤 字幕・翻訳字幕：</strong> <strong>字幕の色</strong>・<strong>翻訳字幕の色とサイズ</strong>を別々に調整できます。さらに<strong>表示位置</strong>（上下＝上／中央／下・左右＝左／中央／右・画面端からの余白）と<strong>最大行数</strong>を変えられ、<strong>翻訳字幕は日本語字幕と別の位置</strong>に置けます（ゲーム画面やワイプに被らないよう逃がせます）。設定は<span class="pill">音声・コメント</span>ページの「字幕表示設定」。<span class="muted">テスト/ログページの「調整用字幕プレビュー」で出しっぱなしにすると合わせやすいです。</span></li>
     </ul>
     <div class="note">見た目の変化を確かめたい時は、先に上の②のURLをOBSに追加しておくと、スライダーを動かすたびにOBS側がリアルタイムで変わります。</div>
 
@@ -199,9 +201,11 @@
     <ul>
       <li><strong>フォロー/サブ/レイド通知・アラート演出（Twitch）：</strong> <span class="pill">配信</span>ページ「📡Twitch関連」の手順で <a href="https://dev.twitch.tv/console/apps/create" target="_blank" rel="noopener">dev.twitch.tv</a> に自分用アプリを無料登録 → Client ID / Secret を入力 →「Twitchで認証する」。<span class="muted">アラートは<strong>イベント別にON/OFF</strong>できます（配信ページの「表示するアラート」）。</span></li>
       <li><strong>YouTubeのコメント取り込み：</strong> Google Cloud で YouTube Data API キーを取得 → <span class="pill">配信</span>ページの接続モードで YouTube を選び、URLとキーを入力。</li>
+      <li><strong>配信タイトル・カテゴリの変更（Twitch / YouTube）：</strong> <span class="pill">配信</span>ページからツールを離れずに<strong>タイトル・カテゴリ（ゲーム）・説明・サムネイル</strong>を書き換えられます。Twitch と YouTube の<strong>両方に一度で反映</strong>するボタンもあります（片方だけ接続している時は、その配信だけに反映）。<span class="muted">※Twitch は初回に「タイトル変更の権限」を追加で認証、YouTube は Google 認証（デスクトップ用）が必要です。ページ内の手順に従ってください。</span></li>
       <li><strong>OBS操作（シーン切替・配信開始/停止）：</strong> OBSの<strong>「ツール → WebSocketサーバー設定」</strong>でサーバーを有効化（ポート/パスワード確認）→ <span class="pill">OBS連携</span>ページで接続。</li>
+      <li><strong>OBSを一緒に起動する：</strong> Ligastmir の起動時に<strong>OBSも自動で立ち上げる</strong>設定ができます（<span class="pill">OBS連携</span>ページ・任意）。OBSの実行ファイルの場所を一度指定しておくだけ。<span class="muted">配信中は誤操作防止のため終了させない安全策付き。閉じる時に一緒に終了させるかも選べます。</span></li>
     </ul>
-    <div class="note">これらの連携は<strong>自動でつなぎません</strong>。使いたい時にボタン/トグルで明示的にONにする設計です。</div>
+    <div class="note">これらの連携は<strong>自動でつなぎません</strong>。使いたい時にボタン/トグルで明示的にONにする設計です（OBS同伴起動だけは、事前に有効化しておけば起動時に立ち上がります）。</div>
     <div class="safe"><strong>アラート用の画像・音声素材について：</strong> アラート演出に表示する画像や効果音は、<strong>ご自身が利用権を持つ素材</strong>をご使用ください。フリー素材を使う場合も配布元の利用規約（再配布可否・クレジット要否・商用可否など）を必ずご確認ください。<span class="muted">※Ligastmir 自体にアラート用の画像・音は同梱されていません。</span></div>
 
     <h2 id="skin">⑦ 見た目を着せ替える（画像・効果音）</h2>
@@ -222,6 +226,16 @@
       <li><strong>軽量起動：</strong> <code>Ligastmir.exe --skin-editor</code> で、配信機能を立ち上げずに着せ替えだけを開けます（配信前の準備に便利）。</li>
     </ul>
     <div class="safe"><strong>素材の権利：</strong> ⑥と同じく、<strong>ご自身が利用権を持つ素材</strong>を使い、フリー素材は配布元の規約をご確認ください。</div>
+
+    <h2 id="reaction">⑦-2 コメントで演出を出す（リアクション）</h2>
+    <p>「<span class="pill">🎨 着せ替え</span>」ページの「<strong>⚡ リアクション</strong>」で、<strong>コメントやイベントをきっかけに演出を自動で出せます</strong>。たとえば「<code>888</code> と打たれたら拍手の効果音」「特定のスタンプで絵文字が舞う」といった仕掛けを、配信を止めずに用意できます。</p>
+    <ul>
+      <li><strong>きっかけ（3種）：</strong> <strong>キーワード</strong>（コメント本文に特定の語）／<strong>スタンプ</strong>（特定のエモート・Twitch）／<strong>イベント</strong>（フォローなど）。</li>
+      <li><strong>出す演出：</strong> アラート演出（画像＋効果音）／絵文字を画面に舞わせる、を割り当て。着せ替えと同じ素材のしくみを使います。</li>
+      <li><strong>連打対策：</strong> 各リアクションの<strong>クールダウン</strong>（連続で出さない待ち時間）と、全体の<strong>最小間隔</strong>を設定でき、荒れた時の出しすぎを防げます。</li>
+      <li><strong>チャンネルポイント報酬ごとの演出：</strong> 同じページの「🎉 報酬演出」で、Twitchのチャンネルポイント報酬が使われた時の専用演出も割り当てられます。</li>
+    </ul>
+    <div class="note">「▶ テスト」ボタンでOBSの見え方をその場で確認できます。<strong>何も設定しなければ演出は一切出ません</strong>（動作も軽いまま）。使いたい人だけ足していく方式です。</div>
 
     <h2 id="trouble-basic">⑧ 困ったとき（基本）</h2>
     <ul>
@@ -313,6 +327,17 @@
       <div class="cause">「非アクティブ時シャットダウン」のチェックや、URL/起動状態が原因のことが多いです。</div>
       <ul><li>ブラウザソースのプロパティで「<strong>非アクティブ時にソースをシャットダウンする</strong>」のチェックを外す。URLが正しいか・Ligastmir が起動しているか（右上ドットが消える＝接続）を確認。</li></ul>
       <div class="jump">→ 関連: <a href="#obs-source">② OBSに表示する</a></div>
+    </div>
+
+    <div class="tcase">
+      <h3>手元のファイルが本物か／改変版でないか確かめたい</h3>
+      <div class="cause">公式の入手先は<strong>このサイトと公式Discordだけ</strong>です。念のため中身を確かめたい時のために、自己チェック機能があります。</div>
+      <ul>
+        <li>Ligastmir は<strong>起動時に本体の中身を自己チェック</strong>し、書き換えを検知すると警告を出します（警告だけで動作は止めません）。</li>
+        <li>アプリの「<span class="pill">ℹ️ INFO</span>」ページの「<strong>本物の確認</strong>」ボタンを押すと、公式の記録と照合できます。</li>
+        <li>入手先や見分け方の詳細は <a href="verify.html">本物の見分け方・偽配布の注意</a> にまとめています。</li>
+      </ul>
+      <div class="jump">→ 関連: <a href="verify.html">本物の見分け方</a></div>
     </div>
 
     <!-- ★（将来）視聴者バッジが出ない — バッジ機能実装後に追記するプレースホルダ

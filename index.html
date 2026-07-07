@@ -399,7 +399,7 @@
   // 最新版バッジ（version.json 連動・取得失敗時は固定表示のまま）
   fetch('version.json').then(function(r){return r.json();}).then(function(d){
     var v='v'+d.version;
-    var ver=document.getElementById('lg-ver'); if(ver){ver.textContent=v+'（テスト配布中）';}
+    var ver=document.getElementById('lg-ver'); if(ver){ver.textContent=v+'（配布中）';}
     var b=document.getElementById('lg-badge'); if(b&&d.date){b.textContent='最新版 '+v+' ・ '+d.date+' 更新';}
   }).catch(function(){});
 

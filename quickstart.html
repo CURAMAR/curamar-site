@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>3分ではじめる Ligastmir — 最短セットアップ</title>
+<meta name="description" content="配信支援ツール Ligastmir の最短セットアップ手順。ダウンロード→解凍→起動.bat→使う機能だけON→OBSにブラウザソース、の5ステップ。まず字幕だけ・読み上げだけの最小構成もOK。">
+<link rel="canonical" href="https://curamar.space/quickstart.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="curamar.space">
+<meta property="og:title" content="3分ではじめる Ligastmir — 最短セットアップ">
+<meta property="og:description" content="ダウンロード→解凍→起動.bat→使う機能だけON→OBSに貼る。最短5ステップで配信支援をはじめる。">
+<meta property="og:url" content="https://curamar.space/quickstart.html">
+<meta property="og:image" content="https://curamar.space/assets/og-ligastmir.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:type" content="image/png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="3分ではじめる Ligastmir — 最短セットアップ">
+<meta name="twitter:description" content="最短5ステップで配信支援をはじめる。まず字幕だけ・読み上げだけでもOK。">
+<meta name="twitter:image" content="https://curamar.space/assets/og-ligastmir.png">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"HowTo","name":"Ligastmir の最短セットアップ（3分）","description":"配信支援ツール Ligastmir をダウンロードして、OBS に字幕やコメントビューを表示するまでの最短手順。","totalTime":"PT3M","supply":[],"tool":[{"@type":"HowToTool","name":"Windows 10 / 11 の PC"},{"@type":"HowToTool","name":"OBS Studio（画面に表示する場合）"}],"step":[
+{"@type":"HowToStep","position":1,"name":"最新版をダウンロード","text":"ダウンロードページから最新版の zip を入手します。"},
+{"@type":"HowToStep","position":2,"name":"zip を解凍","text":"zip を右クリック→「すべて展開」でフォルダを取り出します。"},
+{"@type":"HowToStep","position":3,"name":"起動.bat をダブルクリック","text":"フォルダ内の 起動.bat をダブルクリックして起動します。初回に SmartScreen が出たら「詳細情報 → 実行」で進めます。"},
+{"@type":"HowToStep","position":4,"name":"使いたい機能だけ ON","text":"字幕だけ・読み上げだけでも OK。Twitch / YouTube / OBS は使うものだけ接続します。"},
+{"@type":"HowToStep","position":5,"name":"OBS にブラウザソースを追加","text":"画面に出したい機能（字幕・コメントビューなど）の URL を OBS のブラウザソースに貼り付けます。"}]}
+</script>
+<style>
+  :root{
+    --bg:#0d1014;--bg-soft:#141a21;--bg-line:#1f2730;
+    --ink:#e8edf2;--ink-dim:#8a97a5;
+    --accent:#c8f542;--accent-cool:#5cc8ff;
+    --radius:14px;--maxw:820px;
+    --font-disp:"Zen Kaku Gothic New","Hiragino Kaku Gothic ProN",sans-serif;
+    --font-body:"Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;
+    --font-mono:"SFMono-Regular",Consolas,"Courier New",monospace;
+  }
+  @media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--ink);font-family:var(--font-body);line-height:1.9;-webkit-font-smoothing:antialiased}
+  a{color:var(--accent-cool)}
+  .grid-bg{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.4;
+    background-image:linear-gradient(var(--bg-line) 1px,transparent 1px),linear-gradient(90deg,var(--bg-line) 1px,transparent 1px);
+    background-size:48px 48px;
+    mask-image:radial-gradient(ellipse 80% 50% at 50% 0%,#000 20%,transparent 70%);
+    -webkit-mask-image:radial-gradient(ellipse 80% 50% at 50% 0%,#000 20%,transparent 70%)}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px;position:relative;z-index:1}
+
+  header{position:sticky;top:0;z-index:50;background:rgba(13,16,20,.82);backdrop-filter:blur(10px);border-bottom:1px solid var(--bg-line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:62px}
+  .logo{font-family:var(--font-mono);font-weight:700;letter-spacing:.05em;font-size:18px}
+  .logo .cura{color:var(--accent)}.logo .mar{color:var(--accent-cool)}
+  .back{font-size:14px;color:var(--ink-dim)}
+  .back:hover{color:var(--ink)}
+
+  article{padding:56px 0 40px}
+  .doc-eyebrow{font-family:var(--font-mono);font-size:13px;color:var(--accent-cool);letter-spacing:.16em;display:inline-flex;align-items:center;gap:10px;margin-bottom:16px}
+  .doc-eyebrow::before{content:"";width:28px;height:1px;background:var(--accent-cool)}
+  h1{font-family:var(--font-disp);font-size:clamp(26px,5vw,38px);font-weight:700;margin-bottom:10px}
+  h1 .hl{color:var(--accent)}
+
+  .lead{font-size:16px;color:var(--ink-dim);background:var(--bg-soft);border:1px solid var(--bg-line);border-radius:var(--radius);padding:20px 22px;margin:22px 0 40px}
+
+  h2{font-family:var(--font-disp);font-size:21px;font-weight:700;margin:44px 0 16px;padding-left:14px;border-left:3px solid var(--accent)}
+  p{margin-bottom:18px}
+  strong{color:var(--ink)}
+  code{font-family:var(--font-mono);font-size:.92em;background:var(--bg-soft);border:1px solid var(--bg-line);border-radius:6px;padding:1px 7px;color:var(--accent)}
+  .accent-box{border-left:3px solid var(--accent-cool);background:var(--bg-soft);padding:16px 20px;border-radius:0 10px 10px 0;margin-bottom:18px;color:var(--ink-dim)}
+  .note{background:var(--bg-soft);border:1px solid var(--bg-line);border-radius:10px;padding:16px 18px;font-size:14px;color:var(--ink-dim);margin-bottom:18px}
+
+  /* ステップ */
+  .qsteps{counter-reset:qs;display:flex;flex-direction:column;gap:12px;margin:0 0 8px}
+  .qstep{counter-increment:qs;position:relative;background:var(--bg-soft);border:1px solid var(--bg-line);border-radius:12px;padding:16px 18px 16px 62px}
+  .qstep::before{content:counter(qs);position:absolute;left:16px;top:16px;width:30px;height:30px;display:grid;place-items:center;
+    background:var(--accent);color:#0d1014;font-family:var(--font-mono);font-weight:700;font-size:15px;border-radius:8px}
+  .qstep b{display:block;font-size:15.5px;color:var(--ink);margin-bottom:3px}
+  .qstep span{font-size:13.5px;color:var(--ink-dim);line-height:1.8}
+
+  /* 最小レシピ */
+  .recipes{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:8px 0 8px}
+  .recipe{background:var(--bg-soft);border:1px solid var(--bg-line);border-radius:12px;padding:18px 20px}
+  .recipe h3{font-size:15.5px;font-weight:700;color:var(--ink);margin-bottom:8px}
+  .recipe ol{margin:0 0 0 20px;font-size:13.5px;color:var(--ink-dim);line-height:1.9}
+  .recipe li strong{color:var(--ink)}
+  @media(max-width:640px){.recipes{grid-template-columns:1fr}}
+
+  .cta-row{display:flex;gap:14px;flex-wrap:wrap;margin:30px 0 8px}
+  .cta{display:inline-flex;align-items:center;gap:9px;background:var(--accent);color:#0d1014;font-weight:700;font-size:15px;
+    padding:13px 26px;border-radius:10px;transition:transform .15s,box-shadow .2s;text-decoration:none}
+  .cta:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(200,245,66,.25)}
+  .cta.ghost{background:transparent;color:var(--ink);border:1px solid var(--bg-line)}
+  .cta.ghost:hover{border-color:var(--accent);box-shadow:none}
+
+  .related{margin:46px 0 0;padding-top:26px;border-top:1px solid var(--bg-line)}
+  .related .lab{font-family:var(--font-mono);font-size:12px;letter-spacing:.12em;color:var(--ink-dim);margin-bottom:14px}
+  .rcards{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .rcard{display:block;background:var(--bg-soft);border:1px solid var(--bg-line);border-radius:12px;padding:16px 18px;transition:transform .12s,border-color .2s;text-decoration:none}
+  .rcard:hover{transform:translateY(-2px);border-color:var(--accent)}
+  .rcard .t{font-size:15px;font-weight:700;color:var(--ink)}
+  .rcard .d{font-size:12.5px;color:var(--ink-dim);margin-top:3px;line-height:1.6}
+  @media(max-width:560px){.rcards{grid-template-columns:1fr}}
+
+  footer{border-top:1px solid var(--bg-line);padding:34px 0;margin-top:40px}
+  .foot{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px}
+  .foot .links{display:flex;gap:18px;font-size:14px}
+  .foot .links a{color:var(--ink-dim)}.foot .links a:hover{color:var(--accent)}
+  .foot .cp{font-family:var(--font-mono);font-size:12px;color:var(--ink-dim)}
+</style>
+</head>
+<body>
+<div class="grid-bg"></div>
+
+<header>
+  <div class="wrap nav">
+    <a href="index.html" class="logo"><span class="cura">cura</span><span class="mar">mar</span></a>
+    <a href="ligastmir.html" class="back">← Ligastmir について</a>
+  </div>
+</header>
+
+<div class="wrap">
+  <article>
+    <span class="doc-eyebrow">QUICK START</span>
+    <h1>3分で<span class="hl">はじめる</span> Ligastmir</h1>
+
+    <div class="lead">
+      むずかしい設定は<strong>あとまわしで OK</strong>。まずは動かして、雰囲気をつかむための最短手順です。
+      詳しい設定やトラブル対処は <a href="guide.html">使い方ガイド</a> にすべてまとまっているので、
+      このページでは<strong>「とりあえず使ってみる」</strong>だけを目指します。
+    </div>
+
+    <h2>最短セットアップ（5ステップ）</h2>
+    <div class="qsteps">
+      <div class="qstep"><b>最新版をダウンロード</b><span><a href="download.html">ダウンロードページ</a>から zip を入手します（無料・登録不要）。Discord で受け取ることもできます。</span></div>
+      <div class="qstep"><b>zip を解凍する</b><span>zip を右クリック →「すべて展開」。出てきたフォルダは好きな場所に置いて OK です（デスクトップでも可）。</span></div>
+      <div class="qstep"><b><code>起動.bat</code> をダブルクリック</b><span>フォルダの中の <code>起動.bat</code> から起動します。<strong>Ligastmir.exe を直接起動することもできますが、ダウンロード時のブロック解除を自動で行ってくれるので、通常は 起動.bat がおすすめ</strong>です。初回に SmartScreen の画面が出たら「詳細情報 → 実行」で進めます（公式サイト・公式 Discord から入手した配布版であれば大丈夫です）。</span></div>
+      <div class="qstep"><b>使いたい機能だけ ON にする</b><span>最初の画面の案内に沿って、使いたい機能だけスイッチを入れます。<strong>字幕だけ・読み上げだけでも「正解」</strong>です。Twitch / YouTube / OBS の接続も、使うものだけでかまいません。</span></div>
+      <div class="qstep"><b>OBS にブラウザソースを追加する</b><span>画面に出したいもの（字幕・コメントビューなど）の URL がツール内に一覧で用意されています。コピーして OBS の「ブラウザ」ソースに貼れば表示されます。</span></div>
+    </div>
+    <div class="note">
+      これで完了です。うまくいかないところがあったら、<a href="faq.html">FAQ</a> か <a href="guide.html">使い方ガイド</a> を見るか、
+      <a href="https://discord.gg/QtQcEgn9JF" target="_blank" rel="noopener">Discord</a> で気軽に聞いてください。
+    </div>
+
+    <!-- 将来スクショ差し込み枠: assets/shots/ に画像が入り次第、各ステップへ実画面を追加する -->
+
+    <h2>「まずはこれだけ」の最小レシピ</h2>
+    <p>全部の機能を覚える必要はありません。目的ひとつだけの最小構成なら、さらに簡単です。</p>
+    <div class="recipes">
+      <div class="recipe">
+        <h3>🎤 まず字幕だけ使う</h3>
+        <ol>
+          <li>起動して<strong>字幕（音声認識）を ON</strong></li>
+          <li>字幕ページの URL をコピー</li>
+          <li>OBS のブラウザソースに貼る</li>
+          <li>マイクに向かって話す → 画面に字幕が出ます</li>
+        </ol>
+      </div>
+      <div class="recipe">
+        <h3>🔊 まず読み上げだけ使う</h3>
+        <ol>
+          <li>起動して <strong>Twitch か YouTube に接続</strong></li>
+          <li><strong>読み上げを ON</strong>（Windows 標準の声ならそのまま使えます）</li>
+          <li>コメントが来ると読み上げてくれます</li>
+          <li>VOICEVOX の声を使いたくなったら<a href="guide.html#tts">ガイドへ</a></li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="accent-box">
+      <strong>試したら、よければ一言ください。</strong>
+      「ここが分かりづらかった」「この設定で迷った」——そんな一言だけでも、開発のとても大きな助けになります。
+      <a href="https://discord.gg/QtQcEgn9JF" target="_blank" rel="noopener">Discord</a> でも
+      <a href="https://forms.gle/RFj81KQe1nFik4L76" target="_blank" rel="noopener">匿名フォーム</a> でも OK です。
+    </div>
+
+    <div class="cta-row">
+      <a class="cta" href="download.html">ダウンロードページへ</a>
+      <a class="cta ghost" href="guide.html">詳しい使い方を見る</a>
+    </div>
+
+    <div class="related">
+      <div class="lab">RELATED</div>
+      <div class="rcards">
+        <a class="rcard" href="ligastmir.html"><div class="t">Ligastmir とは</div><div class="d">できること・こんな人におすすめ</div></a>
+        <a class="rcard" href="faq.html"><div class="t">よくある質問</div><div class="d">導入前の不安・つまずき対処</div></a>
+        <a class="rcard" href="verify.html"><div class="t">本物の確認</div><div class="d">公式配布版かどうかの確認方法</div></a>
+        <a class="rcard" href="changelog.html"><div class="t">更新履歴</div><div class="d">バージョンごとの変更点</div></a>
+      </div>
+    </div>
+  </article>
+</div>
+
+<footer>
+  <div class="wrap foot">
+    <a href="index.html" class="logo"><span class="cura">cura</span><span class="mar">mar</span></a>
+    <nav class="links">
+      <a href="index.html">トップ</a>
+      <a href="ligastmir.html">Ligastmir</a>
+      <a href="guide.html">使い方</a>
+      <a href="faq.html">FAQ</a>
+      <a href="download.html">ダウンロード</a>
+      <a href="privacy.html">プライバシーポリシー</a>
+    </nav>
+    <div class="cp">© 2026 curamar</div>
+  </div>
+</footer>
+<script src="/sitemap.js" defer></script>
+</body>
+</html>

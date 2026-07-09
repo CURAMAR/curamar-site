@@ -20,6 +20,7 @@
       items: [
         { t: "Ligastmir とは", d: "製品紹介・できること", href: "/ligastmir.html" },
         { t: "ダウンロード", d: "最新版を入手・導入手順", href: "/download.html" },
+        { t: "3分ではじめる", d: "最短セットアップ（はじめての方）", href: "/quickstart.html" },
         { t: "使い方ガイド", d: "初期設定と各機能の使い方", href: "/guide.html" },
         { t: "よくある質問", d: "導入前の不安・トラブル", href: "/faq.html" },
         { t: "更新履歴", d: "バージョンごとの変更点", href: "/changelog.html" },

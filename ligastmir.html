@@ -77,6 +77,18 @@
   p.txt strong{color:var(--ink)}
 
   .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  /* こんな人におすすめ（チェックリスト） */
+  .fit-list{display:grid;grid-template-columns:1fr 1fr;gap:10px 24px;list-style:none;margin:0 0 18px;max-width:760px;padding:0}
+  .fit-list li{position:relative;padding:10px 14px 10px 38px;background:var(--bg-soft);border:1px solid var(--bg-line);border-radius:10px;font-size:14px;color:var(--ink-dim);line-height:1.7}
+  .fit-list li::before{content:"✔";position:absolute;left:14px;color:var(--accent);font-weight:700}
+  .fit-list li strong{color:var(--ink)}
+  @media(max-width:640px){.fit-list{grid-template-columns:1fr}}
+  /* 安心して使うために */
+  .trust-list{list-style:none;margin:0 0 14px;padding:0;max-width:760px;display:grid;grid-template-columns:1fr 1fr;gap:8px 24px}
+  .trust-list li{position:relative;padding-left:26px;font-size:14px;color:var(--ink-dim);line-height:1.8}
+  .trust-list li::before{content:"🛡";position:absolute;left:0;font-size:13px}
+  .trust-list li strong{color:var(--ink)}
+  @media(max-width:640px){.trust-list{grid-template-columns:1fr}}
   .grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
   .card{background:var(--bg-soft);border:1px solid var(--bg-line);border-radius:var(--radius);padding:22px;transition:border-color .2s,transform .2s}
   .card:hover{border-color:var(--accent);transform:translateY(-3px)}
@@ -141,8 +153,30 @@
     <p class="badge" id="lg-badge">最新版 v0.7.0 ・ 2026-07-06 更新</p>
     <div class="btn-row">
       <a class="btn" href="download.html">ダウンロード</a>
+      <a class="btn ghost" href="quickstart.html">🔰 3分ではじめる</a>
       <a class="btn ghost" href="guide.html">使い方を見る</a>
     </div>
+  </section>
+</div>
+
+<hr class="divider">
+
+<!-- ===== こんな人におすすめ（悩み起点の入口） ===== -->
+<div class="wrap">
+  <section class="block">
+    <div class="sec-head"><span class="sec-no">/ 00</span><h2 class="sec-title">こんな人におすすめ</h2></div>
+    <p class="txt">機能の一覧より先に——<strong>こんな「困った」に心当たりがあれば</strong>、Ligastmir はきっと役に立ちます。</p>
+    <ul class="fit-list">
+      <li>OBS に<strong>字幕</strong>を出したい</li>
+      <li>Twitch / YouTube のコメントを<strong>読み上げたい</strong></li>
+      <li>海外のコメントを<strong>日本語に翻訳</strong>したい</li>
+      <li><strong>コメントビュー</strong>を配信画面に出したい</li>
+      <li><strong>VOICEVOX や棒読みちゃん</strong>を配信で使いたい</li>
+      <li>配信中に <strong>OBS を何度も触りたくない</strong></li>
+      <li>必要な機能だけ使える<strong>軽いツール</strong>が欲しい</li>
+      <li>わんコメなど<strong>既存ツールと併用</strong>しながら環境を整えたい</li>
+    </ul>
+    <p class="txt" style="font-size:13.5px;color:var(--ink-dim)">ひとつでも当てはまったら、<a href="quickstart.html" style="color:var(--accent-cool)">3分ではじめる</a> からどうぞ。全部盛りにする必要はありません——<strong style="color:var(--ink)">使いたい機能だけ ON</strong> にすれば、それで完成です。</p>
   </section>
 </div>
 
@@ -211,14 +245,34 @@
       <div class="step"><b>使う機能だけ ON</b> <span>— 字幕だけ、読み上げだけ、でもOK。Twitch / YouTube / OBS は使うものだけ繋ぎます。</span></div>
       <div class="step"><b>OBS にブラウザソースを追加</b> <span>— 字幕やコメビューを OBS に表示して、配信開始。</span></div>
     </div>
-    <p class="txt" style="margin-top:20px">画面つきの詳しい手順は <a href="guide.html" style="color:var(--accent-cool)">使い方ガイド</a> へ。<br><span style="font-size:13px">動作環境：Windows 10 / 11（Windows 11 推奨）・本体無料。VOICEVOX で読み上げる場合のみ VOICEVOX 本体（無料）が別途必要です。</span></p>
+    <p class="txt" style="margin-top:20px">最短の手順だけ知りたい方は <a href="quickstart.html" style="color:var(--accent-cool)">🔰 3分ではじめる</a>、画面つきの詳しい手順は <a href="guide.html" style="color:var(--accent-cool)">使い方ガイド</a> へ。<br><span style="font-size:13px">動作環境：Windows 10 / 11（Windows 11 推奨）・本体無料。VOICEVOX で読み上げる場合のみ VOICEVOX 本体（無料）が別途必要です。</span></p>
+  </section>
+</div>
+
+<hr class="divider">
+
+<!-- ===== 安心して使うために（プライバシー・本物確認の要点） ===== -->
+<div class="wrap">
+  <section class="block">
+    <div class="sec-head"><span class="sec-no">/ 05</span><h2 class="sec-title">安心して使うために</h2></div>
+    <p class="txt">個人開発のツールだからこそ、<strong>安心材料は先に見えるところへ</strong>。要点だけまとめておきます。</p>
+    <ul class="trust-list">
+      <li><strong>勝手に通信しません</strong>——外部サービス連携は、あなたが ON にしたものだけ動きます</li>
+      <li><strong>認証情報は端末内に保存</strong>——暗号化してあなたの PC の中だけに置かれます</li>
+      <li><strong>公式配布元は curamar.space と公式 Discord のみ</strong>——それ以外は改変版の可能性があります</li>
+      <li><strong>「本物の確認」機能つき</strong>——手元のアプリが公式配布版か照合できます</li>
+      <li><strong>不具合報告・要望フォーム</strong>があります——匿名でも OK</li>
+      <li><strong>広告・行動追跡なし</strong>——このサイトもツールも同じ方針です</li>
+    </ul>
+    <p class="txt" style="font-size:13.5px;color:var(--ink-dim)">詳しくは <a href="privacy.html" style="color:var(--accent-cool)">プライバシーポリシー</a>・<a href="verify.html" style="color:var(--accent-cool)">本物の確認</a> へ。</p>
   </section>
 </div>
 
 <div class="wrap">
   <div class="cta">
     <h2>Ligastmir を試してみる</h2>
-    <p>サイトから最新版を無料でダウンロードできます。導入・更新の手順はダウンロードページに、質問は Discord でどうぞ。</p>
+    <p>サイトから最新版を無料でダウンロードできます。導入・更新の手順はダウンロードページに、質問は Discord でどうぞ。<br>
+    <span style="font-size:13.5px">感想や不具合報告は大歓迎——<strong>軽く触ってみた一言だけでも</strong>、開発の力になります。</span></p>
     <div class="btn-row">
       <a class="btn" href="download.html">ダウンロードページへ</a>
       <a class="btn ghost" href="https://discord.gg/QtQcEgn9JF" target="_blank" rel="noopener">Discord に参加</a>

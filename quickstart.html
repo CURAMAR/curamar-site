@@ -79,6 +79,13 @@
   .qstep b{display:block;font-size:15.5px;color:var(--ink);margin-bottom:3px}
   .qstep span{font-size:13.5px;color:var(--ink-dim);line-height:1.8}
 
+  /* 実画面スクショ（2026-07-10） */
+  .qshots{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:22px 0 26px}
+  .qshots figure{margin:0;background:var(--bg-soft);border:1px solid var(--bg-line);border-radius:12px;overflow:hidden}
+  .qshots img{width:100%;height:auto;display:block;background:#0b0e12}
+  .qshots figcaption{font-size:12.5px;color:var(--ink-dim);padding:9px 13px;line-height:1.6}
+  @media(max-width:640px){.qshots{grid-template-columns:1fr}}
+
   /* 最小レシピ */
   .recipes{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:8px 0 8px}
   .recipe{background:var(--bg-soft);border:1px solid var(--bg-line);border-radius:12px;padding:18px 20px}
@@ -144,7 +151,17 @@
       <a href="https://discord.gg/QtQcEgn9JF" target="_blank" rel="noopener">Discord</a> で気軽に聞いてください。
     </div>
 
-    <!-- 将来スクショ差し込み枠: assets/shots/ に画像が入り次第、各ステップへ実画面を追加する -->
+    <!-- 実画面スクショ（2026-07-10・v0.7.0） -->
+    <div class="qshots">
+      <figure>
+        <img src="assets/shots/bsource-urls.webp" alt="Ligastmirのブラウザソース一覧画面。字幕・コメントビュー・アラートなどOBSに貼るURLがコピーボタン付きで並んでいる" width="1440" height="900" loading="lazy">
+        <figcaption>ステップ5の画面：OBSに貼るURLは一覧からコピーするだけ。</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/shots/subtitle-obs.webp" alt="OBSに表示された音声認識字幕の例。日本語字幕の下に英語の翻訳字幕が出ている" width="1920" height="1080" loading="lazy">
+        <figcaption>できあがりの例：話すとこんなふうに字幕が出ます（翻訳もON時）。</figcaption>
+      </figure>
+    </div>
 
     <h2>「まずはこれだけ」の最小レシピ</h2>
     <p>全部の機能を覚える必要はありません。目的ひとつだけの最小構成なら、さらに簡単です。</p>

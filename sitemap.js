@@ -22,6 +22,10 @@
         { t: "ダウンロード", d: "最新版を入手・導入手順", href: "/download.html" },
         { t: "3分ではじめる", d: "最短セットアップ（はじめての方）", href: "/quickstart.html" },
         { t: "使い方ガイド", d: "初期設定と各機能の使い方", href: "/guide.html" },
+        { t: "音声認識字幕", d: "OBSに字幕を表示する方法", href: "/feature-subtitle.html" },
+        { t: "コメント読み上げ", d: "VOICEVOX/棒読みちゃん対応", href: "/feature-tts.html" },
+        { t: "コメント翻訳", d: "海外コメントを日本語に", href: "/feature-translate.html" },
+        { t: "コメントビュー表示", d: "OBSにコメントを出す方法", href: "/feature-commentview.html" },
         { t: "よくある質問", d: "導入前の不安・トラブル", href: "/faq.html" },
         { t: "更新履歴", d: "バージョンごとの変更点", href: "/changelog.html" },
         { t: "本物の見分け方", d: "公式の入手先・偽配布の注意", href: "/verify.html" }

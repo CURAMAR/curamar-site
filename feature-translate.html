@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>海外コメントを日本語に翻訳して読み上げる方法（配信翻訳ツール）— Ligastmir</title>
+<meta name="description" content="無料ツール Ligastmir で、海外視聴者のコメントを日本語に自動翻訳して表示・読み上げする方法。言語は自動検出（英語・中国語・韓国語など）。自分の字幕に英訳を重ねる逆方向の翻訳も。無料エンジン標準・DeepLキーにも対応。Twitch / YouTube 両対応。">
+<link rel="canonical" href="https://curamar.space/feature-translate.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="curamar.space">
+<meta property="og:title" content="海外コメントを日本語に翻訳して読み上げる方法 — Ligastmir">
+<meta property="og:description" content="コメントを日本語に自動翻訳して表示・読み上げ。言語自動検出・無料。字幕の英訳も。">
+<meta property="og:url" content="https://curamar.space/feature-translate.html">
+<meta property="og:image" content="https://curamar.space/assets/shots/comment-overlay.webp">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="海外コメントを日本語に翻訳して読み上げる方法 — Ligastmir">
+<meta name="twitter:description" content="コメントを日本語に自動翻訳して表示・読み上げ。言語自動検出・無料。">
+<meta name="twitter:image" content="https://curamar.space/assets/shots/comment-overlay.webp">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"HowTo","name":"海外コメントを日本語に翻訳して読み上げる方法","description":"無料の配信支援ツール Ligastmir で、海外視聴者のコメントを日本語へ自動翻訳して表示・読み上げする手順。","totalTime":"PT3M","tool":[{"@type":"HowToTool","name":"Ligastmir（無料）"}],"step":[
+{"@type":"HowToStep","position":1,"name":"Ligastmir を起動して配信に接続する","text":"起動.bat から起動し、「配信」ページで Twitch のチャンネル名を入れて接続します（匿名でOK）。YouTube は配信URLとAPIキーで接続します。"},
+{"@type":"HowToStep","position":2,"name":"チャット翻訳をONにする","text":"「音声・コメント」ページの「コメント関連」で「チャット翻訳」をONにします。"},
+{"@type":"HowToStep","position":3,"name":"外国語コメントが2段表示＋日本語で読み上げ","text":"コメントビューに原文＋日本語訳が2段で表示され、日本語訳が読み上げられます。言語は自動検出です。"}]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+{"@type":"ListItem","position":1,"name":"トップ","item":"https://curamar.space/"},
+{"@type":"ListItem","position":2,"name":"Ligastmir","item":"https://curamar.space/ligastmir.html"},
+{"@type":"ListItem","position":3,"name":"コメント翻訳","item":"https://curamar.space/feature-translate.html"}]}
+</script>
+<style>
+  :root{
+    --bg:#0d1014;--bg-soft:#141a21;--bg-line:#1f2730;
+    --ink:#e8edf2;--ink-dim:#8a97a5;
+    --accent:#c8f542;--accent-cool:#5cc8ff;--warn:#ff6b6b;
+    --radius:14px;--maxw:820px;
+    --font-disp:"Zen Kaku Gothic New","Hiragino Kaku Gothic ProN",sans-serif;
+    --font-body:"Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;
+    --font-mono:"SFMono-Regular",Consolas,"Courier New",monospace;
+  }
+  @media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--ink);font-family:var(--font-body);line-height:1.9;-webkit-font-smoothing:antialiased}
+  a{color:var(--accent-cool)}
+  .grid-bg{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.4;
+    background-image:linear-gradient(var(--bg-line) 1px,transparent 1px),linear-gradient(90deg,var(--bg-line) 1px,transparent 1px);
+    background-size:48px 48px;
+    mask-image:radial-gradient(ellipse 80% 50% at 50% 0%,#000 20%,transparent 70%);
+    -webkit-mask-image:radial-gradient(ellipse 80% 50% at 50% 0%,#000 20%,transparent 70%)}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px;position:relative;z-index:1}
+  header{position:sticky;top:0;z-index:50;background:rgba(13,16,20,.82);backdrop-filter:blur(10px);border-bottom:1px solid var(--bg-line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:62px}
+  .logo{font-family:var(--font-mono);font-weight:700;letter-spacing:.05em;font-size:18px;text-decoration:none}
+  .logo .cura{color:var(--accent)}.logo .mar{color:var(--accent-cool)}
+  .back{font-size:14px;color:var(--ink-dim);text-decoration:none}.back:hover{color:var(--ink)}
+  article{padding:56px 0 40px}
+  .doc-eyebrow{font-family:var(--font-mono);font-size:13px;color:var(--accent-cool);letter-spacing:.16em;display:inline-flex;align-items:center;gap:10px;margin-bottom:16px}
+  .doc-eyebrow::before{content:"";width:28px;height:1px;background:var(--accent-cool)}
+  h1{font-family:var(--font-disp);font-size:clamp(25px,4.6vw,36px);font-weight:700;margin-bottom:10px}
+  h1 .hl{color:var(--accent)}
+  .lead{font-size:15.5px;color:var(--ink-dim);background:var(--bg-soft);border:1px solid var(--bg-line);border-radius:var(--radius);padding:20px 22px;margin:22px 0 36px}
+  .lead strong{color:var(--ink)}
+  h2{font-family:var(--font-disp);font-size:21px;font-weight:700;margin:44px 0 16px;padding-left:14px;border-left:3px solid var(--accent)}
+  p{margin-bottom:16px}
+  strong{color:var(--ink)}
+  code{font-family:var(--font-mono);font-size:.92em;background:var(--bg-soft);border:1px solid var(--bg-line);border-radius:6px;padding:1px 7px;color:var(--accent)}
+  ul,ol{margin:6px 0 16px 2px;padding-left:22px;color:var(--ink-dim)}
+  li{margin:5px 0}
+  .note{background:var(--bg-soft);border:1px solid var(--bg-line);border-radius:10px;padding:16px 18px;font-size:14px;color:var(--ink-dim);margin-bottom:18px}
+  .qsteps{counter-reset:qs;display:flex;flex-direction:column;gap:12px;margin:0 0 8px}
+  .qstep{counter-increment:qs;position:relative;background:var(--bg-soft);border:1px solid var(--bg-line);border-radius:12px;padding:16px 18px 16px 62px}
+  .qstep::before{content:counter(qs);position:absolute;left:16px;top:16px;width:30px;height:30px;display:grid;place-items:center;
+    background:var(--accent);color:#0d1014;font-family:var(--font-mono);font-weight:700;font-size:15px;border-radius:8px}
+  .qstep b{display:block;font-size:15.5px;color:var(--ink);margin-bottom:3px}
+  .qstep span{font-size:13.5px;color:var(--ink-dim);line-height:1.8}
+  .fshots{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:22px 0 26px}
+  .fshots figure{margin:0;background:var(--bg-soft);border:1px solid var(--bg-line);border-radius:12px;overflow:hidden}
+  .fshots figure.wide{grid-column:1 / -1}
+  .fshots img{width:100%;height:auto;display:block;background:#0b0e12}
+  .fshots figcaption{font-size:12.5px;color:var(--ink-dim);padding:9px 13px;line-height:1.6}
+  @media(max-width:640px){.fshots{grid-template-columns:1fr}}
+  .tcase{background:var(--bg-soft);border:1px solid var(--bg-line);border-radius:12px;padding:14px 18px;margin-bottom:12px;font-size:14px;color:var(--ink-dim)}
+  .tcase b{color:var(--ink);display:block;margin-bottom:3px;font-size:14.5px}
+  .cta-row{display:flex;gap:14px;flex-wrap:wrap;margin:30px 0 8px}
+  .cta{display:inline-flex;align-items:center;gap:9px;background:var(--accent);color:#0d1014;font-weight:700;font-size:15px;
+    padding:13px 26px;border-radius:10px;transition:transform .15s,box-shadow .2s;text-decoration:none}
+  .cta:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(200,245,66,.25)}
+  .cta.ghost{background:transparent;color:var(--ink);border:1px solid var(--bg-line)}
+  .cta.ghost:hover{border-color:var(--accent);box-shadow:none}
+  .related{margin:46px 0 0;padding-top:26px;border-top:1px solid var(--bg-line)}
+  .related .lab{font-family:var(--font-mono);font-size:12px;letter-spacing:.12em;color:var(--ink-dim);margin-bottom:14px}
+  .rcards{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .rcard{display:block;background:var(--bg-soft);border:1px solid var(--bg-line);border-radius:12px;padding:16px 18px;transition:transform .12s,border-color .2s;text-decoration:none}
+  .rcard:hover{transform:translateY(-2px);border-color:var(--accent)}
+  .rcard .t{font-size:15px;font-weight:700;color:var(--ink)}
+  .rcard .d{font-size:12.5px;color:var(--ink-dim);margin-top:3px;line-height:1.6}
+  @media(max-width:560px){.rcards{grid-template-columns:1fr}}
+  footer{border-top:1px solid var(--bg-line);padding:34px 0;margin-top:40px}
+  .foot{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px}
+  .foot .links{display:flex;gap:18px;font-size:14px;flex-wrap:wrap}
+  .foot .links a{color:var(--ink-dim);text-decoration:none}.foot .links a:hover{color:var(--accent)}
+  .foot .cp{font-family:var(--font-mono);font-size:12px;color:var(--ink-dim)}
+</style>
+</head>
+<body>
+<div class="grid-bg"></div>
+
+<header>
+  <div class="wrap nav">
+    <a href="index.html" class="logo"><span class="cura">cura</span><span class="mar">mar</span></a>
+    <a href="ligastmir.html" class="back">← Ligastmir について</a>
+  </div>
+</header>
+
+<div class="wrap">
+  <article>
+    <span class="doc-eyebrow">FEATURE / TRANSLATE</span>
+    <h1>海外コメントを<span class="hl">日本語に翻訳</span>して読み上げる方法</h1>
+
+    <div class="lead">
+      Ligastmir（無料）を使うと、海外視聴者のコメントが<strong>原文＋日本語訳の2段表示</strong>になり、
+      <strong>日本語訳が読み上げ</strong>られます。言語は<strong>自動検出</strong>——英語・中国語・韓国語・スペイン語など、
+      翻訳エンジンが対応する言語はすべて対象。逆方向に、<strong>自分の字幕へ英訳を重ねる</strong>こともできます。
+      APIキーなしの無料エンジンで動き、DeepL キーがあれば高品質になります。
+    </div>
+
+    <h2>できあがりの例</h2>
+    <div class="fshots">
+      <figure class="wide">
+        <img src="assets/shots/comment-overlay.webp" alt="コメントビューの翻訳表示例。英語のコメント This game looks so fun! の下に日本語訳「このゲームすごく楽しそう！」が2段で表示されている" width="1280" height="720" loading="lazy">
+        <figcaption>英語コメントの下に日本語訳が2段表示。この日本語が読み上げられます。</figcaption>
+      </figure>
+      <figure class="wide">
+        <img src="assets/shots/subtitle-obs.webp" alt="自分の音声認識字幕に英訳が重なった例。日本語字幕の下に英語の翻訳字幕" width="1920" height="1080" loading="lazy">
+        <figcaption>逆方向も：自分の話した日本語字幕の下に、英訳字幕を出せます（海外向け配信に）。</figcaption>
+      </figure>
+    </div>
+
+    <h2>最短手順（3ステップ）</h2>
+    <div class="qsteps">
+      <div class="qstep"><b>Ligastmir を起動して配信に接続する</b><span><code>起動.bat</code> から起動し、「配信」ページで Twitch のチャンネル名を入れて接続（<strong>匿名でOK</strong>）。YouTube は配信URLとAPIキーで接続します。</span></div>
+      <div class="qstep"><b>「チャット翻訳」をONにする</b><span>「音声・コメント」ページの「💬コメント関連」にあります。スイッチ1つだけです。</span></div>
+      <div class="qstep"><b>外国語コメントが自動で翻訳される</b><span>コメントビューに原文＋日本語訳の2段表示、読み上げは日本語訳。<strong>どの言語かを設定する必要はありません</strong>（自動検出）。</span></div>
+    </div>
+
+    <h2>翻訳エンジンについて</h2>
+    <ul>
+      <li><strong>無料エンジンが標準</strong> — APIキー登録なしでそのまま動きます。一時的に不調でも別エンジンへ自動フォールバックします。</li>
+      <li><strong>DeepL キー対応（任意）</strong> — 無料の DeepL API キーを設定すると、より自然な訳になります。</li>
+      <li><strong>読み上げ辞書と共存</strong> — 辞書登録した固有名詞は、翻訳を通しても読み方が保たれます。</li>
+    </ul>
+
+    <h2>うまくいかないとき</h2>
+    <div class="tcase"><b>翻訳されない</b>
+      「チャット翻訳」がOFFのことがほとんどです。「音声・コメント」ページで確認してください。→ <a href="guide.html#twitch">使い方 ⑤コメント連動・翻訳</a></div>
+    <div class="tcase"><b>短い日本語コメントが誤って翻訳される・スタンプが変に訳される</b>
+      判定は自動調整されており、スタンプ（エモート）のコードは翻訳対象から除外されます。気になる例があれば <a href="https://discord.gg/QtQcEgn9JF" target="_blank" rel="noopener">Discord</a> で教えてください。</div>
+
+    <div class="cta-row">
+      <a class="cta" href="download.html">⬇ Ligastmir をダウンロード（無料）</a>
+      <a class="cta ghost" href="quickstart.html">🔰 3分ではじめる</a>
+    </div>
+
+    <div class="related">
+      <div class="lab">RELATED — 関連する機能</div>
+      <div class="rcards">
+        <a class="rcard" href="feature-tts.html"><span class="t">🔊 コメント読み上げ</span><span class="d">翻訳した日本語を読み上げるための土台。</span></a>
+        <a class="rcard" href="feature-subtitle.html"><span class="t">🎤 音声認識字幕</span><span class="d">自分の声を字幕に。英訳字幕もここから。</span></a>
+        <a class="rcard" href="feature-commentview.html"><span class="t">💬 コメントビューをOBSに表示</span><span class="d">翻訳2段表示を画面に出す。</span></a>
+        <a class="rcard" href="guide.html"><span class="t">📖 使い方ガイド</span><span class="d">全機能の設定手順とトラブル対処。</span></a>
+      </div>
+    </div>
+  </article>
+</div>
+
+<footer>
+  <div class="wrap foot">
+    <a href="index.html" class="logo"><span class="cura">cura</span><span class="mar">mar</span></a>
+    <nav class="links">
+      <a href="index.html">トップ</a>
+      <a href="ligastmir.html">Ligastmir</a>
+      <a href="guide.html">使い方</a>
+      <a href="faq.html">FAQ</a>
+      <a href="download.html">ダウンロード</a>
+      <a href="https://discord.gg/QtQcEgn9JF" target="_blank" rel="noopener">Discord</a>
+      <a href="support.html">応援</a>
+      <a href="privacy.html">プライバシーポリシー</a>
+    </nav>
+    <div class="cp">© 2026 curamar</div>
+  </div>
+</footer>
+<script src="/sitemap.js" defer></script>
+</body>
+</html>

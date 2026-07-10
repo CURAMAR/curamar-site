@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>YouTube配信のコメントを読み上げ・翻訳・表示する方法 — Ligastmir</title>
+<meta name="description" content="無料ツール Ligastmir を YouTube Live で使う方法。ライブ配信のコメント取得・読み上げ・翻訳・コメビュー表示に対応。配信タイトルやカスタムサムネイルの変更もでき、Twitch と同時配信なら「両方へ反映」で一括更新できます。">
+<link rel="canonical" href="https://curamar.space/feature-youtube.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="curamar.space">
+<meta property="og:title" content="YouTube配信のコメントを読み上げ・翻訳・表示する方法 — Ligastmir">
+<meta property="og:description" content="YouTube Live のコメント取得・読み上げ・翻訳・表示に対応。タイトル/サムネ変更・Twitch同時配信も。無料。">
+<meta property="og:url" content="https://curamar.space/feature-youtube.html">
+<meta property="og:image" content="https://curamar.space/assets/shots/comment-overlay.webp">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="YouTube配信のコメントを読み上げ・翻訳・表示する方法 — Ligastmir">
+<meta name="twitter:description" content="YouTube Live のコメント取得・読み上げ・翻訳・表示に対応。無料。">
+<meta name="twitter:image" content="https://curamar.space/assets/shots/comment-overlay.webp">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"HowTo","name":"YouTube配信のコメントを読み上げ・翻訳・表示する方法","description":"無料の配信支援ツール Ligastmir を YouTube Live で使い、コメントを取得して読み上げ・翻訳・表示する手順。","totalTime":"PT10M","tool":[{"@type":"HowToTool","name":"Ligastmir（無料）"},{"@type":"HowToTool","name":"YouTube Data API キー（Google Cloud で無料取得）"}],"step":[
+{"@type":"HowToStep","position":1,"name":"YouTube Data API キーを取得する","text":"Google Cloud で YouTube Data API のキーを無料で取得します。"},
+{"@type":"HowToStep","position":2,"name":"配信ページで YouTube を選んで接続する","text":"「配信」ページの接続モードで YouTube を選び、ライブ配信のURLとAPIキーを入力します。"},
+{"@type":"HowToStep","position":3,"name":"読み上げ・翻訳・コメビューを設定する","text":"読み上げエンジンやチャット翻訳をON、コメビューのURLをOBSに貼るなど、使いたい機能を設定します。"},
+{"@type":"HowToStep","position":4,"name":"配信中に使う","text":"配信が始まるとコメントの取得が始まり、読み上げ・翻訳・表示が動きます。"}]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+{"@type":"ListItem","position":1,"name":"トップ","item":"https://curamar.space/"},
+{"@type":"ListItem","position":2,"name":"Ligastmir","item":"https://curamar.space/ligastmir.html"},
+{"@type":"ListItem","position":3,"name":"YouTube配信での使い方","item":"https://curamar.space/feature-youtube.html"}]}
+</script>
+<style>
+  :root{
+    --bg:#0d1014;--bg-soft:#141a21;--bg-line:#1f2730;
+    --ink:#e8edf2;--ink-dim:#8a97a5;
+    --accent:#c8f542;--accent-cool:#5cc8ff;--warn:#ff6b6b;
+    --radius:14px;--maxw:820px;
+    --font-disp:"Zen Kaku Gothic New","Hiragino Kaku Gothic ProN",sans-serif;
+    --font-body:"Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;
+    --font-mono:"SFMono-Regular",Consolas,"Courier New",monospace;
+  }
+  @media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--ink);font-family:var(--font-body);line-height:1.9;-webkit-font-smoothing:antialiased}
+  a{color:var(--accent-cool)}
+  .grid-bg{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.4;
+    background-image:linear-gradient(var(--bg-line) 1px,transparent 1px),linear-gradient(90deg,var(--bg-line) 1px,transparent 1px);
+    background-size:48px 48px;
+    mask-image:radial-gradient(ellipse 80% 50% at 50% 0%,#000 20%,transparent 70%);
+    -webkit-mask-image:radial-gradient(ellipse 80% 50% at 50% 0%,#000 20%,transparent 70%)}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px;position:relative;z-index:1}
+  header{position:sticky;top:0;z-index:50;background:rgba(13,16,20,.82);backdrop-filter:blur(10px);border-bottom:1px solid var(--bg-line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:62px}
+  .logo{font-family:var(--font-mono);font-weight:700;letter-spacing:.05em;font-size:18px;text-decoration:none}
+  .logo .cura{color:var(--accent)}.logo .mar{color:var(--accent-cool)}
+  .back{font-size:14px;color:var(--ink-dim);text-decoration:none}.back:hover{color:var(--ink)}
+  article{padding:56px 0 40px}
+  .doc-eyebrow{font-family:var(--font-mono);font-size:13px;color:var(--accent-cool);letter-spacing:.16em;display:inline-flex;align-items:center;gap:10px;margin-bottom:16px}
+  .doc-eyebrow::before{content:"";width:28px;height:1px;background:var(--accent-cool)}
+  h1{font-family:var(--font-disp);font-size:clamp(25px,4.6vw,36px);font-weight:700;margin-bottom:10px}
+  h1 .hl{color:var(--accent)}
+  .lead{font-size:15.5px;color:var(--ink-dim);background:var(--bg-soft);border:1px solid var(--bg-line);border-radius:var(--radius);padding:20px 22px;margin:22px 0 36px}
+  .lead strong{color:var(--ink)}
+  h2{font-family:var(--font-disp);font-size:21px;font-weight:700;margin:44px 0 16px;padding-left:14px;border-left:3px solid var(--accent)}
+  p{margin-bottom:16px}
+  strong{color:var(--ink)}
+  code{font-family:var(--font-mono);font-size:.92em;background:var(--bg-soft);border:1px solid var(--bg-line);border-radius:6px;padding:1px 7px;color:var(--accent)}
+  ul,ol{margin:6px 0 16px 2px;padding-left:22px;color:var(--ink-dim)}
+  li{margin:5px 0}
+  .note{background:var(--bg-soft);border:1px solid var(--bg-line);border-radius:10px;padding:16px 18px;font-size:14px;color:var(--ink-dim);margin-bottom:18px}
+  .note strong{color:var(--ink)}
+  .qsteps{counter-reset:qs;display:flex;flex-direction:column;gap:12px;margin:0 0 8px}
+  .qstep{counter-increment:qs;position:relative;background:var(--bg-soft);border:1px solid var(--bg-line);border-radius:12px;padding:16px 18px 16px 62px}
+  .qstep::before{content:counter(qs);position:absolute;left:16px;top:16px;width:30px;height:30px;display:grid;place-items:center;
+    background:var(--accent);color:#0d1014;font-family:var(--font-mono);font-weight:700;font-size:15px;border-radius:8px}
+  .qstep b{display:block;font-size:15.5px;color:var(--ink);margin-bottom:3px}
+  .qstep span{font-size:13.5px;color:var(--ink-dim);line-height:1.8}
+  .fshots{display:grid;grid-template-columns:1fr;gap:14px;margin:22px 0 26px}
+  .fshots figure{margin:0;background:var(--bg-soft);border:1px solid var(--bg-line);border-radius:12px;overflow:hidden}
+  .fshots img{width:100%;height:auto;display:block;background:#0b0e12}
+  .fshots figcaption{font-size:12.5px;color:var(--ink-dim);padding:9px 13px;line-height:1.6}
+  .canuse{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin:8px 0 18px;list-style:none;padding:0}
+  .canuse li{position:relative;padding:11px 14px 11px 40px;background:var(--bg-soft);border:1px solid var(--bg-line);border-radius:10px;font-size:14px;color:var(--ink-dim);line-height:1.7}
+  .canuse li::before{content:"✔";position:absolute;left:14px;color:var(--accent);font-weight:700}
+  .canuse li strong{color:var(--ink)}
+  @media(max-width:640px){.canuse{grid-template-columns:1fr}}
+  .tcase{background:var(--bg-soft);border:1px solid var(--bg-line);border-radius:12px;padding:14px 18px;margin-bottom:12px;font-size:14px;color:var(--ink-dim)}
+  .tcase b{color:var(--ink);display:block;margin-bottom:3px;font-size:14.5px}
+  .cta-row{display:flex;gap:14px;flex-wrap:wrap;margin:30px 0 8px}
+  .cta{display:inline-flex;align-items:center;gap:9px;background:var(--accent);color:#0d1014;font-weight:700;font-size:15px;
+    padding:13px 26px;border-radius:10px;transition:transform .15s,box-shadow .2s;text-decoration:none}
+  .cta:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(200,245,66,.25)}
+  .cta.ghost{background:transparent;color:var(--ink);border:1px solid var(--bg-line)}
+  .cta.ghost:hover{border-color:var(--accent);box-shadow:none}
+  .related{margin:46px 0 0;padding-top:26px;border-top:1px solid var(--bg-line)}
+  .related .lab{font-family:var(--font-mono);font-size:12px;letter-spacing:.12em;color:var(--ink-dim);margin-bottom:14px}
+  .rcards{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .rcard{display:block;background:var(--bg-soft);border:1px solid var(--bg-line);border-radius:12px;padding:16px 18px;transition:transform .12s,border-color .2s;text-decoration:none}
+  .rcard:hover{transform:translateY(-2px);border-color:var(--accent)}
+  .rcard .t{font-size:15px;font-weight:700;color:var(--ink)}
+  .rcard .d{font-size:12.5px;color:var(--ink-dim);margin-top:3px;line-height:1.6}
+  @media(max-width:560px){.rcards{grid-template-columns:1fr}}
+  footer{border-top:1px solid var(--bg-line);padding:34px 0;margin-top:40px}
+  .foot{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px}
+  .foot .links{display:flex;gap:18px;font-size:14px;flex-wrap:wrap}
+  .foot .links a{color:var(--ink-dim);text-decoration:none}.foot .links a:hover{color:var(--accent)}
+  .foot .cp{font-family:var(--font-mono);font-size:12px;color:var(--ink-dim)}
+</style>
+</head>
+<body>
+<div class="grid-bg"></div>
+
+<header>
+  <div class="wrap nav">
+    <a href="index.html" class="logo"><span class="cura">cura</span><span class="mar">mar</span></a>
+    <a href="ligastmir.html" class="back">← Ligastmir について</a>
+  </div>
+</header>
+
+<div class="wrap">
+  <article>
+    <span class="doc-eyebrow">FEATURE / YOUTUBE</span>
+    <h1>YouTube配信で<span class="hl">Ligastmir</span>を使う方法</h1>
+
+    <div class="lead">
+      Ligastmir（無料）は Twitch だけでなく <strong>YouTube Live</strong> にも対応しています。
+      ライブ配信の<strong>コメント取得・読み上げ・翻訳・コメビュー表示</strong>が使え、
+      <strong>配信タイトルやカスタムサムネイルの変更</strong>もツールから行えます。
+      Twitch と同時配信するときは「両方へ反映」で、片方の変え忘れも防げます。
+    </div>
+
+    <h2>YouTubeでできること</h2>
+    <ul class="canuse">
+      <li><strong>コメント取得</strong> — ライブ配信のチャットを読み込みます</li>
+      <li><strong>コメント読み上げ</strong> — VOICEVOX等で自動読み上げ</li>
+      <li><strong>翻訳</strong> — 海外コメントを日本語2段表示＋読み上げ</li>
+      <li><strong>コメビュー表示</strong> — OBSの画面にコメントを表示</li>
+      <li><strong>配信情報の編集</strong> — タイトル・カテゴリ・説明の変更</li>
+      <li><strong>カスタムサムネイル</strong> — 画像を選んで設定（自動で最適化）</li>
+    </ul>
+
+    <h2>できあがりの例</h2>
+    <div class="fshots">
+      <figure>
+        <img src="assets/shots/comment-overlay.webp" alt="コメントビューの表示例。YouTubeとTwitchのコメントがプラットフォーム別チップ付きで並び、翻訳2段表示や常連バッジもある" width="1280" height="720" loading="lazy">
+        <figcaption>YouTube のコメントも Twitch と同じように表示・読み上げ・翻訳できます（PFチップで区別）。</figcaption>
+      </figure>
+    </div>
+
+    <h2>接続の流れ（初回のみ準備あり）</h2>
+    <div class="qsteps">
+      <div class="qstep"><b>YouTube Data API キーを取得する</b><span>Google Cloud で YouTube Data API のキーを<strong>無料で取得</strong>します（初回のみ）。配信情報の編集など一部機能は Google 認証も使います。</span></div>
+      <div class="qstep"><b>配信ページで YouTube を選ぶ</b><span>「配信」ページの接続モードを YouTube にし、<strong>ライブ配信のURLとAPIキー</strong>を入力して接続します。</span></div>
+      <div class="qstep"><b>使いたい機能を設定する</b><span>読み上げエンジンの選択、チャット翻訳のON、コメビューURLをOBSに貼る——ここは Twitch と同じ操作です。</span></div>
+      <div class="qstep"><b>配信中に動く</b><span>ライブが始まるとコメントの取得が始まります（配信前は「接続待機中」）。</span></div>
+    </div>
+    <div class="note">
+      <strong>Twitch と同時配信する場合：</strong> 両方を接続しておけば、コメントは合流して表示・読み上げされ、
+      配信情報の変更は「<strong>両方へ反映</strong>」ボタンで一度に更新できます（片方だけ接続している時は、その配信だけに反映）。
+    </div>
+
+    <h2>うまくいかないとき</h2>
+    <div class="tcase"><b>Google 認証で「アクセスがブロックされました（403）」と出る</b>
+      アプリが「テスト中」でテストユーザー未登録だと出ます。Google の認証設定で、<strong>ログインに使う Gmail をテストユーザーに追加</strong>してください。手順はアプリ内のガイドに沿って進めます。</div>
+    <div class="tcase"><b>コメントが取得できない</b>
+      ライブ配信が始まっているか、URL とAPIキーが正しいかを確認してください（配信前は取得待機になります）。</div>
+    <div class="tcase"><b>カスタムサムネイルが設定できない</b>
+      YouTube 側でカスタムサムネイルの利用条件（電話番号確認など）を満たしている必要があります。画像は自動で 1280×720・2MB以内に最適化されます。</div>
+
+    <div class="cta-row">
+      <a class="cta" href="download.html">⬇ Ligastmir をダウンロード（無料）</a>
+      <a class="cta ghost" href="guide.html#advanced">📖 詳しい接続手順（使い方ガイド）</a>
+    </div>
+
+    <div class="related">
+      <div class="lab">RELATED — 関連する機能</div>
+      <div class="rcards">
+        <a class="rcard" href="feature-tts.html"><span class="t">🔊 コメント読み上げ</span><span class="d">YouTube のコメントも読み上げ。</span></a>
+        <a class="rcard" href="feature-translate.html"><span class="t">🌏 コメント翻訳</span><span class="d">海外コメントを日本語に。</span></a>
+        <a class="rcard" href="feature-commentview.html"><span class="t">💬 コメントビュー表示</span><span class="d">YouTube のコメントを画面に。</span></a>
+        <a class="rcard" href="guide.html"><span class="t">📖 使い方ガイド</span><span class="d">全機能の設定手順とトラブル対処。</span></a>
+      </div>
+    </div>
+  </article>
+</div>
+
+<footer>
+  <div class="wrap foot">
+    <a href="index.html" class="logo"><span class="cura">cura</span><span class="mar">mar</span></a>
+    <nav class="links">
+      <a href="index.html">トップ</a>
+      <a href="ligastmir.html">Ligastmir</a>
+      <a href="guide.html">使い方</a>
+      <a href="faq.html">FAQ</a>
+      <a href="download.html">ダウンロード</a>
+      <a href="https://discord.gg/QtQcEgn9JF" target="_blank" rel="noopener">Discord</a>
+      <a href="support.html">応援</a>
+      <a href="privacy.html">プライバシーポリシー</a>
+    </nav>
+    <div class="cp">© 2026 curamar</div>
+  </div>
+</footer>
+<script src="/sitemap.js" defer></script>
+</body>
+</html>

@@ -26,8 +26,12 @@
         { t: "コメント読み上げ", d: "VOICEVOX/棒読みちゃん対応", href: "/feature-tts.html" },
         { t: "コメント翻訳", d: "海外コメントを日本語に", href: "/feature-translate.html" },
         { t: "コメントビュー表示", d: "OBSにコメントを出す方法", href: "/feature-commentview.html" },
+        { t: "リアクション演出", d: "コメント/スタンプで演出を発火", href: "/feature-reaction.html" },
+        { t: "YouTube配信での使い方", d: "取得・読み上げ・翻訳・タイトル変更", href: "/feature-youtube.html" },
+        { t: "配信前チェック・ダッシュボード", d: "接続確認・一括スタート", href: "/feature-dashboard.html" },
         { t: "よくある質問", d: "導入前の不安・トラブル", href: "/faq.html" },
         { t: "更新履歴", d: "バージョンごとの変更点", href: "/changelog.html" },
+        { t: "進化マップ（これから）", d: "今後の構想・開発状況", href: "/roadmap.html" },
         { t: "本物の見分け方", d: "公式の入手先・偽配布の注意", href: "/verify.html" }
       ]
     },
@@ -40,6 +44,7 @@
         { t: "配信", d: "Twitch・Dead by Daylight", href: "/streaming.html" },
         { t: "SF小説", d: "アンチ・エントロピア（カクヨム）", href: "/novel.html" },
         { t: "ブログ・開発日誌", d: "個人開発と執筆の記録", href: "/blog.html" },
+        { t: "開発に協力する", d: "テスター・アイデア・紹介・素材", href: "/collaborate.html" },
         { t: "活動を応援する", d: "OFUSE でのファンレター（任意）", href: "/support.html" },
         { t: "クレジット", d: "協力者・利用素材", href: "/credits.html" },
         { t: "プライバシーポリシー", d: "データの取り扱い", href: "/privacy.html" }

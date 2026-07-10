@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ligastmir の開発に協力する — テスター・アイデア・紹介・素材募集</title>
+<meta name="description" content="Ligastmir はテスターやアイデア・紹介・素材協力など、いろいろな形の協力で育てている個人開発ツールです。ツールを使っていなくても参加できます。完璧な報告じゃなくてOK、気軽にどうぞ。">
+<link rel="canonical" href="https://curamar.space/collaborate.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="curamar.space">
+<meta property="og:title" content="Ligastmir の開発に協力する">
+<meta property="og:description" content="テスター・アイデア・紹介・素材づくり・初見目線チェック。ツールを使っていなくても参加できます。">
+<meta property="og:url" content="https://curamar.space/collaborate.html">
+<meta property="og:image" content="https://curamar.space/assets/og-ligastmir.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:type" content="image/png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Ligastmir の開発に協力する">
+<meta name="twitter:description" content="テスター・アイデア・紹介・素材づくり。ツール未使用でも参加OK。">
+<meta name="twitter:image" content="https://curamar.space/assets/og-ligastmir.png">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","name":"Ligastmir の開発に協力する","description":"テスター・不具合報告・アイデア・紹介・素材協力など、いろいろな形で Ligastmir の開発に参加できます。ツールを使っていなくても参加できます。","url":"https://curamar.space/collaborate.html","isPartOf":{"@type":"WebSite","name":"curamar.space","url":"https://curamar.space/"},"about":{"@type":"SoftwareApplication","name":"Ligastmir","url":"https://curamar.space/ligastmir.html"}}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+{"@type":"ListItem","position":1,"name":"トップ","item":"https://curamar.space/"},
+{"@type":"ListItem","position":2,"name":"Ligastmir","item":"https://curamar.space/ligastmir.html"},
+{"@type":"ListItem","position":3,"name":"協力する","item":"https://curamar.space/collaborate.html"}]}
+</script>
+<style>
+  :root{
+    --bg:#0d1014;--bg-soft:#141a21;--bg-line:#1f2730;
+    --ink:#e8edf2;--ink-dim:#8a97a5;
+    --accent:#c8f542;--accent-cool:#5cc8ff;--warn:#ff6b6b;
+    --radius:14px;--maxw:880px;
+    --font-disp:"Zen Kaku Gothic New","Hiragino Kaku Gothic ProN",sans-serif;
+    --font-body:"Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;
+    --font-mono:"SFMono-Regular",Consolas,"Courier New",monospace;
+  }
+  @media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--ink);font-family:var(--font-body);line-height:1.9;-webkit-font-smoothing:antialiased}
+  a{color:var(--accent-cool)}
+  .grid-bg{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.4;
+    background-image:linear-gradient(var(--bg-line) 1px,transparent 1px),linear-gradient(90deg,var(--bg-line) 1px,transparent 1px);
+    background-size:48px 48px;
+    mask-image:radial-gradient(ellipse 80% 50% at 50% 0%,#000 20%,transparent 70%);
+    -webkit-mask-image:radial-gradient(ellipse 80% 50% at 50% 0%,#000 20%,transparent 70%)}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px;position:relative;z-index:1}
+  header{position:sticky;top:0;z-index:50;background:rgba(13,16,20,.82);backdrop-filter:blur(10px);border-bottom:1px solid var(--bg-line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:62px}
+  .logo{font-family:var(--font-mono);font-weight:700;letter-spacing:.05em;font-size:18px;text-decoration:none}
+  .logo .cura{color:var(--accent)}.logo .mar{color:var(--accent-cool)}
+  .back{font-size:14px;color:var(--ink-dim);text-decoration:none}.back:hover{color:var(--ink)}
+  article{padding:56px 0 40px}
+  .doc-eyebrow{font-family:var(--font-mono);font-size:13px;color:var(--accent-cool);letter-spacing:.16em;display:inline-flex;align-items:center;gap:10px;margin-bottom:16px}
+  .doc-eyebrow::before{content:"";width:28px;height:1px;background:var(--accent-cool)}
+  h1{font-family:var(--font-disp);font-size:clamp(26px,5vw,38px);font-weight:700;margin-bottom:14px}
+  h1 .hl{color:var(--accent)}
+  .lead{font-size:15.5px;color:var(--ink-dim);max-width:720px;margin-bottom:26px}
+  .lead strong{color:var(--ink)}
+
+  h2{font-family:var(--font-disp);font-size:21px;font-weight:700;margin:46px 0 16px;padding-left:14px;border-left:3px solid var(--accent)}
+  p{margin-bottom:16px}
+  strong{color:var(--ink)}
+  ul{margin:6px 0 16px 2px;padding-left:22px;color:var(--ink-dim)}
+  li{margin:6px 0}
+
+  .accent-box{border-left:3px solid var(--accent-cool);background:var(--bg-soft);padding:18px 20px;border-radius:0 12px 12px 0;
+    margin:8px 0 18px;font-size:14.5px;color:var(--ink-dim)}
+  .accent-box strong{color:var(--ink)}
+
+  .types{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin:8px 0 14px}
+  .type{background:var(--bg-soft);border:1px solid var(--bg-line);border-radius:12px;padding:16px 18px;transition:transform .12s,border-color .2s}
+  .type:hover{transform:translateY(-2px);border-color:var(--accent)}
+  .type b{display:block;font-size:15px;color:var(--ink);margin-bottom:4px}
+  .type span{font-size:13.5px;color:var(--ink-dim);line-height:1.75}
+  @media(max-width:640px){.types{grid-template-columns:1fr}}
+  .flat{font-size:13.5px;color:var(--ink-dim);text-align:center;margin:4px 0 0}
+
+  .qsteps{counter-reset:qs;display:flex;flex-direction:column;gap:12px;margin:0 0 8px}
+  .qstep{counter-increment:qs;position:relative;background:var(--bg-soft);border:1px solid var(--bg-line);border-radius:12px;padding:16px 18px 16px 62px}
+  .qstep::before{content:counter(qs);position:absolute;left:16px;top:16px;width:30px;height:30px;display:grid;place-items:center;
+    background:var(--accent);color:#0d1014;font-family:var(--font-mono);font-weight:700;font-size:15px;border-radius:8px}
+  .qstep b{display:block;font-size:15.5px;color:var(--ink);margin-bottom:3px}
+  .qstep span{font-size:13.5px;color:var(--ink-dim);line-height:1.8}
+
+  .cta-row{display:flex;gap:14px;flex-wrap:wrap;margin:30px 0 8px}
+  .cta{display:inline-flex;align-items:center;gap:9px;background:var(--accent);color:#0d1014;font-weight:700;font-size:15px;
+    padding:13px 26px;border-radius:10px;transition:transform .15s,box-shadow .2s;text-decoration:none}
+  .cta:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(200,245,66,.25)}
+  .cta.ghost{background:transparent;color:var(--ink);border:1px solid var(--bg-line)}
+  .cta.ghost:hover{border-color:var(--accent);box-shadow:none}
+
+  .related{margin:46px 0 0;padding-top:26px;border-top:1px solid var(--bg-line)}
+  .related .lab{font-family:var(--font-mono);font-size:12px;letter-spacing:.12em;color:var(--ink-dim);margin-bottom:14px}
+  .rcards{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .rcard{display:block;background:var(--bg-soft);border:1px solid var(--bg-line);border-radius:12px;padding:16px 18px;transition:transform .12s,border-color .2s;text-decoration:none}
+  .rcard:hover{transform:translateY(-2px);border-color:var(--accent)}
+  .rcard .t{font-size:15px;font-weight:700;color:var(--ink)}
+  .rcard .d{font-size:12.5px;color:var(--ink-dim);margin-top:3px;line-height:1.6}
+  @media(max-width:560px){.rcards{grid-template-columns:1fr}}
+
+  footer{border-top:1px solid var(--bg-line);padding:34px 0;margin-top:40px}
+  .foot{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px}
+  .foot .links{display:flex;gap:18px;font-size:14px;flex-wrap:wrap}
+  .foot .links a{color:var(--ink-dim);text-decoration:none}.foot .links a:hover{color:var(--accent)}
+  .foot .cp{font-family:var(--font-mono);font-size:12px;color:var(--ink-dim)}
+</style>
+</head>
+<body>
+<div class="grid-bg"></div>
+
+<header>
+  <div class="wrap nav">
+    <a href="index.html" class="logo"><span class="cura">cura</span><span class="mar">mar</span></a>
+    <a href="ligastmir.html" class="back">← Ligastmir について</a>
+  </div>
+</header>
+
+<div class="wrap">
+  <article>
+    <span class="doc-eyebrow">COLLABORATE</span>
+    <h1>Ligastmir を、<span class="hl">一緒に育てる</span></h1>
+
+    <p class="lead">
+      Ligastmir は、配信者・視聴者・クリエイター・テスターの協力で少しずつ育てている個人開発ツールです。
+      <strong>実際にツールを使っていなくても大丈夫</strong>——アイデア出し、紹介、素材づくり、初見目線のチェックなど、
+      いろんな形で関わってもらえます。
+    </p>
+
+    <div class="cta-row" style="margin-top:0">
+      <a class="cta" href="https://discord.gg/QtQcEgn9JF" target="_blank" rel="noopener">💬 Discord に参加する</a>
+      <a class="cta ghost" href="https://forms.gle/RFj81KQe1nFik4L76" target="_blank" rel="noopener">📮 フォームで送る</a>
+    </div>
+
+    <h2>ツールを使っていなくても大丈夫</h2>
+    <div class="accent-box">
+      「ツールを使っていないと協力できない」ということはありません。実際に、Ligastmir をまだ使っていないけれど
+      <strong>配信で紹介して応援してくれている</strong>仲間もいます。<strong>「やってみようかな」の気持ちだけで十分</strong>です。
+    </div>
+
+    <h2>こんな協力があります</h2>
+    <div class="types">
+      <div class="type"><b>🧪 テスター</b><span>配信で使ってみて、動くか・使いやすいかを教えてくれる。</span></div>
+      <div class="type"><b>🐛 不具合報告</b><span>「ここで詰まった」「こう出た」を見つけたら知らせてくれる。</span></div>
+      <div class="type"><b>💡 アイデア出し</b><span>「こんな機能があったら」をくれる（実装は約束できないけど、全部読みます）。</span></div>
+      <div class="type"><b>📣 紹介・宣伝協力</b><span>配信やSNSで「こんなツールあるよ」と広めてくれる。</span></div>
+      <div class="type"><b>🎨 クリエイター・素材協力</b><span>アイコン・演出素材・テーマなどを提供してくれる。</span></div>
+      <div class="type"><b>🔰 初心者目線チェック</b><span>「はじめて触る人」の視点で、分かりにくいところを教えてくれる。</span></div>
+      <div class="type"><b>🔌 外部連携の検証</b><span>OBS・わんコメ・他のツールとの組み合わせを試してくれる（上級者向け）。</span></div>
+      <div class="type"><b>🙋 それ以外でも</b><span>「これって協力になる？」と思ったら、まず聞いてみてください。</span></div>
+    </div>
+    <p class="flat">協力の大小で優劣はつけません。どれもありがたいです。</p>
+
+    <h2>クレジット掲載について</h2>
+    <p>協力してくれた方は、希望があれば <a href="credits.html">クレジットページ</a> にお名前・活動リンク・配信チャンネルなどを掲載できます。</p>
+    <ul>
+      <li>掲載は<strong>任意</strong>です（載せない選択もOK）</li>
+      <li>掲載名・リンク・紹介文は<strong>ご本人の指定</strong>をもとに、<strong>本人確認のうえ</strong>掲載します</li>
+      <li><strong>後からの修正・削除</strong>にもいつでも対応します</li>
+    </ul>
+
+    <h2>参加の流れ</h2>
+    <div class="qsteps">
+      <div class="qstep"><b>公式 Discord に参加する</b><span>入口で、興味のある分野を選べます。<a href="https://discord.gg/QtQcEgn9JF" target="_blank" rel="noopener">公式Discord はこちら</a>。</span></div>
+      <div class="qstep"><b>気になることを、気軽に投げる</b><span><strong>完璧な報告じゃなくてOK</strong>です。「なんか変」「ここが分かりにくい」だけでも十分助かります。</span></div>
+      <div class="qstep"><b>Discord を使わない方はフォームで</b><span>不具合や要望だけサッと送りたい方は <a href="https://forms.gle/RFj81KQe1nFik4L76" target="_blank" rel="noopener">匿名フォーム</a> からどうぞ。</span></div>
+    </div>
+
+    <div class="cta-row">
+      <a class="cta" href="https://discord.gg/QtQcEgn9JF" target="_blank" rel="noopener">💬 Discord に参加する</a>
+      <a class="cta ghost" href="roadmap.html">🗺 進化マップを見る</a>
+    </div>
+
+    <div class="related">
+      <div class="lab">RELATED</div>
+      <div class="rcards">
+        <a class="rcard" href="ligastmir.html"><span class="t">Ligastmir とは</span><span class="d">製品紹介・できること・画面で見る。</span></a>
+        <a class="rcard" href="quickstart.html"><span class="t">3分ではじめる</span><span class="d">まず触ってみたい方へ。</span></a>
+        <a class="rcard" href="credits.html"><span class="t">クレジット</span><span class="d">協力してくれた方の紹介。</span></a>
+        <a class="rcard" href="roadmap.html"><span class="t">進化マップ</span><span class="d">これからの構想と「協力募集中」の項目。</span></a>
+      </div>
+    </div>
+  </article>
+</div>
+
+<footer>
+  <div class="wrap foot">
+    <a href="index.html" class="logo"><span class="cura">cura</span><span class="mar">mar</span></a>
+    <nav class="links">
+      <a href="index.html">トップ</a>
+      <a href="ligastmir.html">Ligastmir</a>
+      <a href="roadmap.html">進化マップ</a>
+      <a href="collaborate.html">協力する</a>
+      <a href="credits.html">クレジット</a>
+      <a href="https://discord.gg/QtQcEgn9JF" target="_blank" rel="noopener">Discord</a>
+      <a href="support.html">応援</a>
+      <a href="privacy.html">プライバシーポリシー</a>
+    </nav>
+    <div class="cp">© 2026 curamar</div>
+  </div>
+</footer>
+<script src="/sitemap.js" defer></script>
+</body>
+</html>

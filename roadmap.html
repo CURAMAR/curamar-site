@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ligastmir 進化マップ — これからの構想</title>
+<meta name="description" content="Ligastmir の今後の構想と開発状況。実装を約束するものではありませんが、どんな方向へ育てていきたいかを共有します。実装済み・開発中・検討中・アイデア段階・保留の5区分で公開中。">
+<link rel="canonical" href="https://curamar.space/roadmap.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="curamar.space">
+<meta property="og:title" content="Ligastmir 進化マップ — これからの構想">
+<meta property="og:description" content="今後の構想と開発状況をゆるく公開。実装を約束するものではありませんが、どんな方向へ育てたいかを共有します。">
+<meta property="og:url" content="https://curamar.space/roadmap.html">
+<meta property="og:image" content="https://curamar.space/assets/og-ligastmir.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:type" content="image/png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Ligastmir 進化マップ — これからの構想">
+<meta name="twitter:description" content="今後の構想と開発状況をゆるく公開。実装の約束ではありません。">
+<meta name="twitter:image" content="https://curamar.space/assets/og-ligastmir.png">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","name":"Ligastmir 進化マップ","description":"Ligastmir の今後の構想と開発状況。実装を約束するものではありません。","url":"https://curamar.space/roadmap.html","isPartOf":{"@type":"WebSite","name":"curamar.space","url":"https://curamar.space/"},"about":{"@type":"SoftwareApplication","name":"Ligastmir","url":"https://curamar.space/ligastmir.html"}}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+{"@type":"ListItem","position":1,"name":"トップ","item":"https://curamar.space/"},
+{"@type":"ListItem","position":2,"name":"Ligastmir","item":"https://curamar.space/ligastmir.html"},
+{"@type":"ListItem","position":3,"name":"進化マップ","item":"https://curamar.space/roadmap.html"}]}
+</script>
+<style>
+  :root{
+    --bg:#0d1014;--bg-soft:#141a21;--bg-line:#1f2730;
+    --ink:#e8edf2;--ink-dim:#8a97a5;
+    --accent:#c8f542;--accent-cool:#5cc8ff;--warn:#ff6b6b;
+    --st-review:#b78cff;--st-hold:#ff9d6e;
+    --radius:14px;--maxw:880px;
+    --font-disp:"Zen Kaku Gothic New","Hiragino Kaku Gothic ProN",sans-serif;
+    --font-body:"Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;
+    --font-mono:"SFMono-Regular",Consolas,"Courier New",monospace;
+  }
+  @media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--ink);font-family:var(--font-body);line-height:1.9;-webkit-font-smoothing:antialiased}
+  a{color:var(--accent-cool)}
+  .grid-bg{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.4;
+    background-image:linear-gradient(var(--bg-line) 1px,transparent 1px),linear-gradient(90deg,var(--bg-line) 1px,transparent 1px);
+    background-size:48px 48px;
+    mask-image:radial-gradient(ellipse 80% 50% at 50% 0%,#000 20%,transparent 70%);
+    -webkit-mask-image:radial-gradient(ellipse 80% 50% at 50% 0%,#000 20%,transparent 70%)}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px;position:relative;z-index:1}
+  header{position:sticky;top:0;z-index:50;background:rgba(13,16,20,.82);backdrop-filter:blur(10px);border-bottom:1px solid var(--bg-line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:62px}
+  .logo{font-family:var(--font-mono);font-weight:700;letter-spacing:.05em;font-size:18px;text-decoration:none}
+  .logo .cura{color:var(--accent)}.logo .mar{color:var(--accent-cool)}
+  .back{font-size:14px;color:var(--ink-dim);text-decoration:none}.back:hover{color:var(--ink)}
+  article{padding:56px 0 40px}
+  .doc-eyebrow{font-family:var(--font-mono);font-size:13px;color:var(--accent-cool);letter-spacing:.16em;display:inline-flex;align-items:center;gap:10px;margin-bottom:16px}
+  .doc-eyebrow::before{content:"";width:28px;height:1px;background:var(--accent-cool)}
+  h1{font-family:var(--font-disp);font-size:clamp(26px,5vw,38px);font-weight:700;margin-bottom:14px}
+  h1 .hl{color:var(--accent)}
+
+  .updated{display:inline-flex;align-items:center;gap:9px;font-family:var(--font-mono);font-size:13px;
+    color:var(--accent);background:rgba(200,245,66,.08);border:1px solid rgba(200,245,66,.32);
+    border-radius:999px;padding:6px 16px;margin-bottom:22px}
+  .disclaimer{border-left:3px solid var(--accent-cool);background:var(--bg-soft);padding:18px 20px;border-radius:0 12px 12px 0;
+    margin-bottom:16px;font-size:14.5px;color:var(--ink-dim)}
+  .disclaimer strong{color:var(--ink)}
+  .pairnote{background:var(--bg-soft);border:1px solid var(--bg-line);border-radius:10px;padding:14px 18px;font-size:13.5px;color:var(--ink-dim);margin-bottom:34px}
+  .pairnote strong{color:var(--ink)}
+
+  /* 凡例 */
+  .legend{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:34px}
+  .bdg{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:700;
+    border-radius:999px;padding:4px 12px;border:1px solid currentColor;white-space:nowrap}
+  .bdg.done{color:var(--accent)}
+  .bdg.dev{color:var(--accent-cool)}
+  .bdg.review{color:var(--st-review)}
+  .bdg.idea{color:var(--ink-dim)}
+  .bdg.hold{color:var(--st-hold)}
+
+  h2{font-family:var(--font-disp);font-size:20px;font-weight:700;margin:42px 0 14px;
+    padding-left:14px;border-left:3px solid var(--bg-line);display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+  h2.done{border-left-color:var(--accent)}
+  h2.dev{border-left-color:var(--accent-cool)}
+  h2.review{border-left-color:var(--st-review)}
+  h2.idea{border-left-color:var(--ink-dim)}
+  h2.hold{border-left-color:var(--st-hold)}
+  h2 .cnt{font-family:var(--font-mono);font-size:12px;color:var(--ink-dim);font-weight:400}
+
+  .items{display:flex;flex-direction:column;gap:10px}
+  .item{background:var(--bg-soft);border:1px solid var(--bg-line);border-radius:12px;padding:15px 18px}
+  .item .t{font-size:15px;font-weight:700;color:var(--ink);margin-bottom:4px}
+  .item .d{font-size:13.5px;color:var(--ink-dim);line-height:1.75}
+  .meta{display:flex;flex-wrap:wrap;gap:7px;margin-top:9px}
+  .ver{font-family:var(--font-mono);font-size:11px;color:var(--ink-dim);border:1px solid var(--bg-line);
+    border-radius:999px;padding:2px 10px;background:var(--bg)}
+  .help{font-size:11px;font-weight:700;color:#0d1014;background:var(--accent);border-radius:999px;
+    padding:2px 10px;text-decoration:none;transition:transform .12s}
+  .help:hover{transform:translateY(-1px)}
+
+  .cta-row{display:flex;gap:14px;flex-wrap:wrap;margin:40px 0 8px}
+  .cta{display:inline-flex;align-items:center;gap:9px;background:var(--accent);color:#0d1014;font-weight:700;font-size:15px;
+    padding:13px 26px;border-radius:10px;transition:transform .15s,box-shadow .2s;text-decoration:none}
+  .cta:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(200,245,66,.25)}
+  .cta.ghost{background:transparent;color:var(--ink);border:1px solid var(--bg-line)}
+  .cta.ghost:hover{border-color:var(--accent);box-shadow:none}
+
+  .related{margin:46px 0 0;padding-top:26px;border-top:1px solid var(--bg-line)}
+  .related .lab{font-family:var(--font-mono);font-size:12px;letter-spacing:.12em;color:var(--ink-dim);margin-bottom:14px}
+  .rcards{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .rcard{display:block;background:var(--bg-soft);border:1px solid var(--bg-line);border-radius:12px;padding:16px 18px;transition:transform .12s,border-color .2s;text-decoration:none}
+  .rcard:hover{transform:translateY(-2px);border-color:var(--accent)}
+  .rcard .t{font-size:15px;font-weight:700;color:var(--ink)}
+  .rcard .d{font-size:12.5px;color:var(--ink-dim);margin-top:3px;line-height:1.6}
+  @media(max-width:560px){.rcards{grid-template-columns:1fr}}
+
+  footer{border-top:1px solid var(--bg-line);padding:34px 0;margin-top:40px}
+  .foot{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px}
+  .foot .links{display:flex;gap:18px;font-size:14px;flex-wrap:wrap}
+  .foot .links a{color:var(--ink-dim);text-decoration:none}.foot .links a:hover{color:var(--accent)}
+  .foot .cp{font-family:var(--font-mono);font-size:12px;color:var(--ink-dim)}
+</style>
+</head>
+<body>
+<div class="grid-bg"></div>
+
+<header>
+  <div class="wrap nav">
+    <a href="index.html" class="logo"><span class="cura">cura</span><span class="mar">mar</span></a>
+    <a href="ligastmir.html" class="back">← Ligastmir について</a>
+  </div>
+</header>
+
+<div class="wrap">
+  <article>
+    <span class="doc-eyebrow">ROADMAP</span>
+    <h1>Ligastmir <span class="hl">進化マップ</span></h1>
+    <div class="updated">🕒 最終更新: 2026-07-10</div>
+
+    <div class="disclaimer">
+      このページは、Ligastmir の<strong>今後の構想</strong>を共有するためのものです。
+      ここに書かれている内容は<strong>実装を約束するものではありません</strong>。
+      開発状況・外部サービスの仕様・みなさんからのフィードバックによって、変わったり・順番が入れ替わったり・なくなったりします。
+      それでも「どんな方向へ育てていきたいか」が見えたほうが楽しいと思うので、ゆるく公開しています。
+    </div>
+    <div class="pairnote">
+      <strong>changelog は「確定した過去」／このページは「未確定の未来」</strong>です。
+      すでにリリースされた変更点は <a href="changelog.html">更新履歴</a> をご覧ください。
+    </div>
+
+    <div class="legend">
+      <span class="bdg done">✅ 実装済み</span>
+      <span class="bdg dev">🔨 開発中</span>
+      <span class="bdg review">🔍 検討中</span>
+      <span class="bdg idea">💭 アイデア段階</span>
+      <span class="bdg hold">⏸ 保留・条件待ち</span>
+      <span class="bdg done" style="color:var(--ink-dim);border-style:dashed">🙋 協力募集中 のラベルがある項目は、力を貸してもらえると助かります</span>
+    </div>
+
+    <h2 class="done">✅ 実装済み <span class="cnt">— 配布中の v0.7.0 で使えます</span></h2>
+    <div class="items">
+      <div class="item">
+        <div class="t">🎤 音声認識字幕</div>
+        <div class="d">話した内容をリアルタイムで OBS に字幕表示。フォント5種・表示位置・最大行数・縁取り・翻訳字幕の別配置まで調整できます。</div>
+        <div class="meta"><span class="ver">v0.7.0</span></div>
+      </div>
+      <div class="item">
+        <div class="t">🌏 翻訳と、翻訳した日本語の読み上げ</div>
+        <div class="d">海外コメントを日本語に自動翻訳して2段表示＋読み上げ。自分の字幕に英訳を重ねることもできます。読み上げは VOICEVOX / Windows標準 / 棒読みちゃん。</div>
+        <div class="meta"><span class="ver">v0.7.0</span></div>
+      </div>
+      <div class="item">
+        <div class="t">⚡ リアクションパレット</div>
+        <div class="d">コメントのキーワード・スタンプ・配信イベントをきっかけに、画像・効果音・絵文字の演出を自動で出せます。連打対策つき。</div>
+        <div class="meta"><span class="ver">v0.7.0</span></div>
+      </div>
+      <div class="item">
+        <div class="t">🏅 常連バッジ・ファン名簿</div>
+        <div class="d">コメント数に応じて進化するバッジ（段数・名前・色をカスタム可）。名簿と統合され、常連さんが一目で分かります。</div>
+        <div class="meta"><span class="ver">v0.7.0</span></div>
+      </div>
+      <div class="item">
+        <div class="t">🎬 OBS連携・わんコメ同伴起動・配信情報の編集</div>
+        <div class="d">シーン切替や配信開始/停止を手元から。ツールに合わせて OBS やわんコメを開閉。配信タイトル・カテゴリ・サムネイルの変更も（Twitch / YouTube 両方へ一度で反映）。</div>
+        <div class="meta"><span class="ver">v0.7.0</span></div>
+      </div>
+      <div class="item">
+        <div class="t">🛡 「本物の確認」と起動時の自己チェック</div>
+        <div class="d">起動時に本体ファイルの整合性を自分でチェックし、改変を見える化（壊さず警告のみ）。公式サイトの指紋と照合もできます。</div>
+        <div class="meta"><span class="ver">v0.7.0</span></div>
+      </div>
+    </div>
+
+    <h2 class="dev">🔨 開発中 <span class="cnt">— 完成したものから次のバージョンに入ります</span></h2>
+    <div class="items">
+      <div class="item">
+        <div class="t">⏸ セーフティ「軽い停止」</div>
+        <div class="d">配信中にワンボタンで、読み上げ・翻訳・演出だけを一時停止（コメント表示は続く）。「今ちょっと静かにしたい」を安全に。</div>
+        <div class="meta"><span class="ver">v0.8 予定</span></div>
+      </div>
+      <div class="item">
+        <div class="t">🎨 字幕の縁取りを、日本語と翻訳で個別に</div>
+        <div class="d">縁取りの色・太さを日本語字幕と翻訳字幕で別々に設定できるようにします。差別化したい人向け。</div>
+        <div class="meta"><span class="ver">v0.8 予定</span></div>
+      </div>
+      <div class="item">
+        <div class="t">🔧 OBS同伴起動の安定化</div>
+        <div class="d">OBS を管理者権限で使っている環境でも、同伴起動が動くように改善します。</div>
+        <div class="meta"><span class="ver">v0.8 予定</span></div>
+      </div>
+      <div class="item">
+        <div class="t">👀 いま動いている機能の見える化</div>
+        <div class="d">「今ONで実際に動いている機能」と、その前提条件（例：翻訳読み上げには翻訳ONが必要）を一覧で確認できるようにします。</div>
+        <div class="meta"><span class="ver">v0.8 予定</span></div>
+      </div>
+    </div>
+
+    <h2 class="review">🔍 検討中 <span class="cnt">— やる方向で設計・相談しています</span></h2>
+    <div class="items">
+      <div class="item">
+        <div class="t">🩺 エラーの日本語要約</div>
+        <div class="d">接続エラーなどを「原因の候補」「試すこと」の形でわかりやすく表示します。</div>
+        <div class="meta"><span class="ver">v0.8</span></div>
+      </div>
+      <div class="item">
+        <div class="t">🤝 協力者ページ・進化マップの整備</div>
+        <div class="d">このページや <a href="collaborate.html">協力する</a> ページを育てていきます。「ここが分かりにくい」も立派なフィードバックです。</div>
+        <div class="meta"><span class="ver">随時</span><a class="help" href="collaborate.html">🙋 協力募集中</a></div>
+      </div>
+      <div class="item">
+        <div class="t">🏷 クレジットの充実</div>
+        <div class="d">協力してくれた方の紹介文やタグを載せて、その人の配信を見つけやすくします。</div>
+        <div class="meta"><span class="ver">v0.8</span><a class="help" href="collaborate.html">🙋 協力募集中</a></div>
+      </div>
+      <div class="item">
+        <div class="t">🔌 外部イベント受信の入口</div>
+        <div class="d">外部のツールから、安全な範囲で演出を発火できる入口を検討しています。初期はOFF・限定的な動作のみ。</div>
+        <div class="meta"><span class="ver">v0.8〜</span><a class="help" href="collaborate.html">🙋 外部連携の検証</a></div>
+      </div>
+    </div>
+
+    <h2 class="idea">💭 アイデア段階 <span class="cnt">— やるか未定・種の段階です</span></h2>
+    <div class="items">
+      <div class="item">
+        <div class="t">🎉 配信後のふりかえり演出</div>
+        <div class="d">配信の終わりに、その日の配信をスタッフロール風にまとめて流す——そんな締めくくりがあったら楽しそう、という構想です。</div>
+        <div class="meta"><span class="ver">先の話</span></div>
+      </div>
+      <div class="item">
+        <div class="t">👥 視聴者アクション</div>
+        <div class="d">コメントやチャンネルポイントで、視聴者が画面に反応を起こせる仕組み。</div>
+        <div class="meta"><span class="ver">v1.0〜</span><a class="help" href="collaborate.html">🙋 協力募集中</a></div>
+      </div>
+      <div class="item">
+        <div class="t">📦 配布方法の改善</div>
+        <div class="d">インストーラーやストア版など、もっと入れやすい配り方を検討します。</div>
+        <div class="meta"><span class="ver">v0.9〜</span></div>
+      </div>
+    </div>
+
+    <h2 class="hold">⏸ 保留・条件待ち <span class="cnt">— 需要・コスト・前提が揃ってから</span></h2>
+    <div class="items">
+      <div class="item">
+        <div class="t">🧩 公式の視聴者参加型拡張</div>
+        <div class="d">需要が見えてから、別プロジェクトとして考えます。</div>
+        <div class="meta"><span class="ver">先の話</span></div>
+      </div>
+    </div>
+
+    <div class="cta-row">
+      <a class="cta" href="collaborate.html">🤝 開発に協力する</a>
+      <a class="cta ghost" href="changelog.html">📋 更新履歴（確定した過去）</a>
+    </div>
+
+    <div class="related">
+      <div class="lab">RELATED</div>
+      <div class="rcards">
+        <a class="rcard" href="ligastmir.html"><span class="t">Ligastmir とは</span><span class="d">製品紹介・できること・画面で見る。</span></a>
+        <a class="rcard" href="changelog.html"><span class="t">更新履歴</span><span class="d">リリース済みの変更点はこちら。</span></a>
+        <a class="rcard" href="collaborate.html"><span class="t">開発に協力する</span><span class="d">テスター・アイデア・紹介・素材、どれも歓迎。</span></a>
+        <a class="rcard" href="blog.html"><span class="t">開発日誌</span><span class="d">作っている裏側の話。</span></a>
+      </div>
+    </div>
+  </article>
+</div>
+
+<footer>
+  <div class="wrap foot">
+    <a href="index.html" class="logo"><span class="cura">cura</span><span class="mar">mar</span></a>
+    <nav class="links">
+      <a href="index.html">トップ</a>
+      <a href="ligastmir.html">Ligastmir</a>
+      <a href="roadmap.html">進化マップ</a>
+      <a href="collaborate.html">協力する</a>
+      <a href="changelog.html">更新履歴</a>
+      <a href="https://discord.gg/QtQcEgn9JF" target="_blank" rel="noopener">Discord</a>
+      <a href="credits.html">クレジット</a>
+      <a href="privacy.html">プライバシーポリシー</a>
+    </nav>
+    <div class="cp">© 2026 curamar</div>
+  </div>
+</footer>
+<script src="/sitemap.js" defer></script>
+</body>
+</html>

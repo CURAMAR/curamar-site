@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>コメントやスタンプで配信画面に演出を出す方法（リアクションパレット）— Ligastmir</title>
+<meta name="description" content="無料ツール Ligastmir のリアクションパレットで、コメントのキーワード・スタンプ・フォローなどの配信イベントをきっかけに、画像・効果音・絵文字の演出を自動で出す方法。チャンネルポイント報酬ごとの演出や、連打対策のクールダウンにも対応。">
+<link rel="canonical" href="https://curamar.space/feature-reaction.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="curamar.space">
+<meta property="og:title" content="コメントやスタンプで配信画面に演出を出す方法 — Ligastmir">
+<meta property="og:description" content="キーワード・スタンプ・イベントで画像/効果音/絵文字の演出を自動発火。連打対策つき・無料。">
+<meta property="og:url" content="https://curamar.space/feature-reaction.html">
+<meta property="og:image" content="https://curamar.space/assets/shots/reaction-alert.webp">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="コメントやスタンプで配信画面に演出を出す方法 — Ligastmir">
+<meta name="twitter:description" content="キーワード・スタンプ・イベントで演出を自動発火。連打対策つき・無料。">
+<meta name="twitter:image" content="https://curamar.space/assets/shots/reaction-alert.webp">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"HowTo","name":"コメントやスタンプで配信画面に演出を出す方法","description":"無料の配信支援ツール Ligastmir のリアクションパレットで、コメントやイベントをきっかけに演出を自動発火させる手順。","totalTime":"PT5M","tool":[{"@type":"HowToTool","name":"Ligastmir（無料）"},{"@type":"HowToTool","name":"OBS Studio"}],"step":[
+{"@type":"HowToStep","position":1,"name":"アラートのURLをOBSに追加する","text":"「ブラウザソース」ページからアラートのURLをコピーし、OBSのブラウザソースに貼り付けます。演出はこのソースに表示されます。"},
+{"@type":"HowToStep","position":2,"name":"着せ替えページのリアクションを開く","text":"「着せ替え」ページの「⚡ リアクション」で、演出を追加します。"},
+{"@type":"HowToStep","position":3,"name":"きっかけを決める","text":"キーワード（コメント本文）・スタンプ（エモート）・配信イベント（フォロー等）から、演出を出すきっかけを選びます。"},
+{"@type":"HowToStep","position":4,"name":"出す演出を割り当てる","text":"画像・効果音・絵文字を割り当てます。素材を用意しなくても既定の演出が出ます。"},
+{"@type":"HowToStep","position":5,"name":"クールダウンを設定してテストする","text":"連打で出すぎないようクールダウンと全体の最小間隔を設定し、「▶ テスト」で見え方を確認します。"}]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+{"@type":"ListItem","position":1,"name":"トップ","item":"https://curamar.space/"},
+{"@type":"ListItem","position":2,"name":"Ligastmir","item":"https://curamar.space/ligastmir.html"},
+{"@type":"ListItem","position":3,"name":"リアクション演出","item":"https://curamar.space/feature-reaction.html"}]}
+</script>
+<style>
+  :root{
+    --bg:#0d1014;--bg-soft:#141a21;--bg-line:#1f2730;
+    --ink:#e8edf2;--ink-dim:#8a97a5;
+    --accent:#c8f542;--accent-cool:#5cc8ff;--warn:#ff6b6b;
+    --radius:14px;--maxw:820px;
+    --font-disp:"Zen Kaku Gothic New","Hiragino Kaku Gothic ProN",sans-serif;
+    --font-body:"Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;
+    --font-mono:"SFMono-Regular",Consolas,"Courier New",monospace;
+  }
+  @media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--ink);font-family:var(--font-body);line-height:1.9;-webkit-font-smoothing:antialiased}
+  a{color:var(--accent-cool)}
+  .grid-bg{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.4;
+    background-image:linear-gradient(var(--bg-line) 1px,transparent 1px),linear-gradient(90deg,var(--bg-line) 1px,transparent 1px);
+    background-size:48px 48px;
+    mask-image:radial-gradient(ellipse 80% 50% at 50% 0%,#000 20%,transparent 70%);
+    -webkit-mask-image:radial-gradient(ellipse 80% 50% at 50% 0%,#000 20%,transparent 70%)}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px;position:relative;z-index:1}
+  header{position:sticky;top:0;z-index:50;background:rgba(13,16,20,.82);backdrop-filter:blur(10px);border-bottom:1px solid var(--bg-line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:62px}
+  .logo{font-family:var(--font-mono);font-weight:700;letter-spacing:.05em;font-size:18px;text-decoration:none}
+  .logo .cura{color:var(--accent)}.logo .mar{color:var(--accent-cool)}
+  .back{font-size:14px;color:var(--ink-dim);text-decoration:none}.back:hover{color:var(--ink)}
+  article{padding:56px 0 40px}
+  .doc-eyebrow{font-family:var(--font-mono);font-size:13px;color:var(--accent-cool);letter-spacing:.16em;display:inline-flex;align-items:center;gap:10px;margin-bottom:16px}
+  .doc-eyebrow::before{content:"";width:28px;height:1px;background:var(--accent-cool)}
+  h1{font-family:var(--font-disp);font-size:clamp(25px,4.6vw,36px);font-weight:700;margin-bottom:10px}
+  h1 .hl{color:var(--accent)}
+  .lead{font-size:15.5px;color:var(--ink-dim);background:var(--bg-soft);border:1px solid var(--bg-line);border-radius:var(--radius);padding:20px 22px;margin:22px 0 36px}
+  .lead strong{color:var(--ink)}
+  h2{font-family:var(--font-disp);font-size:21px;font-weight:700;margin:44px 0 16px;padding-left:14px;border-left:3px solid var(--accent)}
+  p{margin-bottom:16px}
+  strong{color:var(--ink)}
+  code{font-family:var(--font-mono);font-size:.92em;background:var(--bg-soft);border:1px solid var(--bg-line);border-radius:6px;padding:1px 7px;color:var(--accent)}
+  ul,ol{margin:6px 0 16px 2px;padding-left:22px;color:var(--ink-dim)}
+  li{margin:5px 0}
+  .note{background:var(--bg-soft);border:1px solid var(--bg-line);border-radius:10px;padding:16px 18px;font-size:14px;color:var(--ink-dim);margin-bottom:18px}
+  .note strong{color:var(--ink)}
+  .qsteps{counter-reset:qs;display:flex;flex-direction:column;gap:12px;margin:0 0 8px}
+  .qstep{counter-increment:qs;position:relative;background:var(--bg-soft);border:1px solid var(--bg-line);border-radius:12px;padding:16px 18px 16px 62px}
+  .qstep::before{content:counter(qs);position:absolute;left:16px;top:16px;width:30px;height:30px;display:grid;place-items:center;
+    background:var(--accent);color:#0d1014;font-family:var(--font-mono);font-weight:700;font-size:15px;border-radius:8px}
+  .qstep b{display:block;font-size:15.5px;color:var(--ink);margin-bottom:3px}
+  .qstep span{font-size:13.5px;color:var(--ink-dim);line-height:1.8}
+  .fshots{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:22px 0 26px}
+  .fshots figure{margin:0;background:var(--bg-soft);border:1px solid var(--bg-line);border-radius:12px;overflow:hidden}
+  .fshots figure.wide{grid-column:1 / -1}
+  .fshots img{width:100%;height:auto;display:block;background:#0b0e12}
+  .fshots figcaption{font-size:12.5px;color:var(--ink-dim);padding:9px 13px;line-height:1.6}
+  @media(max-width:640px){.fshots{grid-template-columns:1fr}}
+  .trio{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:8px 0 18px}
+  .tcard{background:var(--bg-soft);border:1px solid var(--bg-line);border-radius:12px;padding:16px 18px}
+  .tcard b{display:block;color:var(--ink);font-size:15px;margin-bottom:6px}
+  .tcard p{font-size:13px;color:var(--ink-dim);line-height:1.7;margin:0}
+  @media(max-width:640px){.trio{grid-template-columns:1fr}}
+  .tcase{background:var(--bg-soft);border:1px solid var(--bg-line);border-radius:12px;padding:14px 18px;margin-bottom:12px;font-size:14px;color:var(--ink-dim)}
+  .tcase b{color:var(--ink);display:block;margin-bottom:3px;font-size:14.5px}
+  .cta-row{display:flex;gap:14px;flex-wrap:wrap;margin:30px 0 8px}
+  .cta{display:inline-flex;align-items:center;gap:9px;background:var(--accent);color:#0d1014;font-weight:700;font-size:15px;
+    padding:13px 26px;border-radius:10px;transition:transform .15s,box-shadow .2s;text-decoration:none}
+  .cta:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(200,245,66,.25)}
+  .cta.ghost{background:transparent;color:var(--ink);border:1px solid var(--bg-line)}
+  .cta.ghost:hover{border-color:var(--accent);box-shadow:none}
+  .related{margin:46px 0 0;padding-top:26px;border-top:1px solid var(--bg-line)}
+  .related .lab{font-family:var(--font-mono);font-size:12px;letter-spacing:.12em;color:var(--ink-dim);margin-bottom:14px}
+  .rcards{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .rcard{display:block;background:var(--bg-soft);border:1px solid var(--bg-line);border-radius:12px;padding:16px 18px;transition:transform .12s,border-color .2s;text-decoration:none}
+  .rcard:hover{transform:translateY(-2px);border-color:var(--accent)}
+  .rcard .t{font-size:15px;font-weight:700;color:var(--ink)}
+  .rcard .d{font-size:12.5px;color:var(--ink-dim);margin-top:3px;line-height:1.6}
+  @media(max-width:560px){.rcards{grid-template-columns:1fr}}
+  footer{border-top:1px solid var(--bg-line);padding:34px 0;margin-top:40px}
+  .foot{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px}
+  .foot .links{display:flex;gap:18px;font-size:14px;flex-wrap:wrap}
+  .foot .links a{color:var(--ink-dim);text-decoration:none}.foot .links a:hover{color:var(--accent)}
+  .foot .cp{font-family:var(--font-mono);font-size:12px;color:var(--ink-dim)}
+</style>
+</head>
+<body>
+<div class="grid-bg"></div>
+
+<header>
+  <div class="wrap nav">
+    <a href="index.html" class="logo"><span class="cura">cura</span><span class="mar">mar</span></a>
+    <a href="ligastmir.html" class="back">← Ligastmir について</a>
+  </div>
+</header>
+
+<div class="wrap">
+  <article>
+    <span class="doc-eyebrow">FEATURE / REACTION</span>
+    <h1>コメントやスタンプで<span class="hl">画面に演出</span>を出す方法</h1>
+
+    <div class="lead">
+      Ligastmir（無料）の「<strong>リアクションパレット</strong>」を使うと、
+      視聴者のコメントやスタンプ、フォローなどのイベントをきっかけに、
+      <strong>画像・効果音・絵文字の演出を自動で出せます</strong>。
+      たとえば「<code>888</code> と打たれたら拍手の音」「このスタンプで絵文字が舞う」といった仕掛けを、
+      配信を止めずに用意できます。素材を持っていなくても、既定の演出で今すぐ試せます。
+    </div>
+
+    <h2>できあがりの例</h2>
+    <div class="fshots">
+      <figure class="wide">
+        <img src="assets/shots/reaction-alert.webp" alt="リアクション演出の表示例。コメントのキーワードに反応して、画面中央に稲妻アイコンとReaction!の文字、コメントした人の名前が表示されている" width="1280" height="720" loading="lazy">
+        <figcaption>キーワードに反応して演出カードが出た例。画像・効果音を割り当てれば自分の演出になります。</figcaption>
+      </figure>
+      <figure class="wide">
+        <img src="assets/shots/skin-reaction.webp" alt="Ligastmirの着せ替えページにあるリアクション設定UI。きっかけの種別・対象・画像・効果音・クールダウンを行ごとに設定できる" width="1440" height="900" loading="lazy">
+        <figcaption>設定は「着せ替え」ページの「⚡ リアクション」。1行ずつ足していきます。</figcaption>
+      </figure>
+    </div>
+
+    <h2>3つの「きっかけ」から選べます</h2>
+    <div class="trio">
+      <div class="tcard"><b>💬 キーワード</b><p>コメント本文に特定の語が含まれたら発火。「含む／完全一致／前方一致」を選べます。</p></div>
+      <div class="tcard"><b>😀 スタンプ</b><p>特定のエモートが使われたら発火（Twitch）。</p></div>
+      <div class="tcard"><b>🎉 配信イベント</b><p>フォロー・サブスク・レイドなどのイベントで発火。</p></div>
+    </div>
+    <div class="note">
+      <strong>チャンネルポイント報酬ごとの演出</strong>も同じページから設定できます（「🎉 報酬演出」）。
+      報酬ごとに違う画像・音を割り当てられます。
+    </div>
+
+    <h2>最短手順（5ステップ）</h2>
+    <div class="qsteps">
+      <div class="qstep"><b>アラートのURLをOBSに追加する</b><span>「ブラウザソース」ページからアラートのURLをコピーし、OBSの「ブラウザ」ソースに貼ります（推奨 800×600）。演出はこのソースに出ます。</span></div>
+      <div class="qstep"><b>「着せ替え」→「⚡ リアクション」を開く</b><span>ここに演出を1行ずつ足していきます。</span></div>
+      <div class="qstep"><b>きっかけを決める</b><span>キーワード／スタンプ／イベントから選び、対象（例：<code>888</code>）を入力します。</span></div>
+      <div class="qstep"><b>出す演出を割り当てる</b><span>画像・効果音・絵文字を指定。<strong>何も割り当てなくても既定の演出が出る</strong>ので、まず試すだけならこのままでOKです。</span></div>
+      <div class="qstep"><b>クールダウンを決めてテスト</b><span>「▶ テスト」ボタンでOBSの見え方をその場で確認できます。</span></div>
+    </div>
+
+    <h2>荒れた時に出しすぎない工夫</h2>
+    <ul>
+      <li><strong>個別のクールダウン</strong> — そのリアクションを連続で出さない待ち時間。</li>
+      <li><strong>全体の最小間隔</strong> — すべてのリアクション共通の間隔。連投の洪水を防ぎます。</li>
+      <li><strong>優先度</strong> — リストの並び順が優先度。1つのコメントで発火するのは1つだけです。</li>
+    </ul>
+    <div class="note"><strong>何も設定しなければ演出は一切出ません</strong>（動作も軽いままです）。使いたい人だけ足していく方式なので、気軽に試せます。</div>
+
+    <h2>うまくいかないとき</h2>
+    <div class="tcase"><b>演出が画面に出ない</b>
+      アラートのブラウザソースがOBSに追加されているか確認してください（リアクション・報酬演出はアラートと同じソースに出ます）。→ <a href="guide.html#obs-source">使い方 ②OBSに表示する</a></div>
+    <div class="tcase"><b>スタンプのきっかけが反応しない</b>
+      スタンプ（エモート）トリガーは Twitch のコメントで動きます。エモートのコード名が正確か確認してください。</div>
+    <div class="tcase"><b>演出が出すぎる／出なさすぎる</b>
+      クールダウンと全体の最小間隔を調整してください。→ <a href="guide.html#reaction">使い方 ⑦-2 リアクション演出</a></div>
+
+    <div class="note" style="border-color:rgba(200,245,66,.3)">
+      <strong>素材の権利について：</strong> 演出に使う画像・効果音は、<strong>ご自身が利用権を持つ素材</strong>をお使いください。
+      フリー素材の場合も配布元の規約（再配布可否・クレジット要否・商用可否）をご確認ください。
+      ※Ligastmir 自体に演出用の画像・音は同梱されていません。
+    </div>
+
+    <div class="cta-row">
+      <a class="cta" href="download.html">⬇ Ligastmir をダウンロード（無料）</a>
+      <a class="cta ghost" href="quickstart.html">🔰 3分ではじめる</a>
+    </div>
+
+    <div class="related">
+      <div class="lab">RELATED — 関連する機能</div>
+      <div class="rcards">
+        <a class="rcard" href="feature-commentview.html"><span class="t">💬 コメントビューをOBSに表示</span><span class="d">演出と一緒にコメントも画面に。</span></a>
+        <a class="rcard" href="feature-tts.html"><span class="t">🔊 コメント読み上げ</span><span class="d">音でも反応する。</span></a>
+        <a class="rcard" href="feature-dashboard.html"><span class="t">🎛 配信前チェック・ダッシュボード</span><span class="d">演出のテスト発火もここから。</span></a>
+        <a class="rcard" href="guide.html"><span class="t">📖 使い方ガイド</span><span class="d">全機能の設定手順とトラブル対処。</span></a>
+      </div>
+    </div>
+  </article>
+</div>
+
+<footer>
+  <div class="wrap foot">
+    <a href="index.html" class="logo"><span class="cura">cura</span><span class="mar">mar</span></a>
+    <nav class="links">
+      <a href="index.html">トップ</a>
+      <a href="ligastmir.html">Ligastmir</a>
+      <a href="guide.html">使い方</a>
+      <a href="faq.html">FAQ</a>
+      <a href="download.html">ダウンロード</a>
+      <a href="https://discord.gg/QtQcEgn9JF" target="_blank" rel="noopener">Discord</a>
+      <a href="support.html">応援</a>
+      <a href="privacy.html">プライバシーポリシー</a>
+    </nav>
+    <div class="cp">© 2026 curamar</div>
+  </div>
+</footer>
+<script src="/sitemap.js" defer></script>
+</body>
+</html>

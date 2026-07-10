@@ -151,11 +151,13 @@
     <!-- ===================== セクションA：使い方 ===================== -->
 
     <h2 id="start">① まず起動する</h2>
+    <div class="safe"><strong>起動は必ず <code>起動.bat</code> から。</strong> <code>Ligastmir.exe</code> を直接ダブルクリックしないでください。<span class="muted">初回は「ネットからダウンロードしたファイルのブロック」が付いていて、exe を直接起動すると <code>Failed to resolve … Python.Runtime.dll</code> のようなエラーで<strong>すぐ閉じてしまう</strong>ことがあります。<code>起動.bat</code> はこのブロックを自動で解除してから起動するので確実です。</span></div>
     <ol>
-      <li><code>Ligastmir.exe</code> をダブルクリック。</li>
+      <li>解凍したフォルダの中の <code>起動.bat</code> を<strong>ダブルクリック</strong>します。<span class="muted">（<code>Ligastmir.exe</code> ではなく <code>起動.bat</code> です）</span></li>
       <li>初回は「<strong>WindowsによってPCが保護されました</strong>」と出ることがあります → <strong>「詳細情報」→「実行」</strong>で開けます（署名のない自作アプリのため・問題ありません）。</li>
       <li>少し待つと操作画面（コマンドセンター）が開きます。</li>
     </ol>
+    <div class="note">どうしても <code>起動.bat</code> で開けない・エラーが消えない時は、<a href="download.html">ダウンロードページの「起動できない時（ブロックの解除）」</a>に、zip を先にブロック解除してから解凍する確実な方法をまとめています。</div>
     <div class="safe"><strong>置き場所に注意：</strong> デスクトップや「ドキュメント」など普通のフォルダに置いてください。<span class="muted">（Program Files の中やZIPの中から直接起動すると、設定の保存に失敗することがあります）</span></div>
     <div class="note">設定ファイル（<code>config.json</code> など）や記録ログは、exe と<strong>同じフォルダ</strong>に自動で作られます。</div>
 
@@ -206,6 +208,7 @@
       <li><strong>OBSを一緒に起動する：</strong> Ligastmir の起動時に<strong>OBSも自動で立ち上げる</strong>設定ができます（<span class="pill">OBS連携</span>ページ・任意）。OBSの実行ファイルの場所を一度指定しておくだけ。<span class="muted">配信中は誤操作防止のため終了させない安全策付き。閉じる時に一緒に終了させるかも選べます。</span></li>
     </ul>
     <div class="note">これらの連携は<strong>自動でつなぎません</strong>。使いたい時にボタン/トグルで明示的にONにする設計です（OBS同伴起動だけは、事前に有効化しておけば起動時に立ち上がります）。</div>
+    <div class="warn-box"><strong>OBSを「管理者として実行」にしている場合の注意：</strong> 同伴起動のたびに Windows の確認（UAC）が出て、閉じる時の<strong>自動終了も使えません</strong>。<span class="muted">OBSは<strong>もともと管理者権限は不要</strong>で、既定でもオフです（管理者が必要なのは、管理者権限で動くゲームを「ゲームキャプチャ」する場合など、限られたケースだけ）。心当たりがなければ、OBSのショートカット/exe を右クリック →「プロパティ」→「互換性」で<strong>「管理者としてこのプログラムを実行する」のチェックを外す</strong>と、確認なしで同伴起動も自動終了も使えます。外して困るのは、そのゲームのゲームキャプチャが真っ黒になった時だけ（その場合は戻してください）。※シーン切替など OBS連携（WebSocket）は、管理者でもそうでなくても問題なく動きます。</span></div>
     <div class="safe"><strong>アラート用の画像・音声素材について：</strong> アラート演出に表示する画像や効果音は、<strong>ご自身が利用権を持つ素材</strong>をご使用ください。フリー素材を使う場合も配布元の利用規約（再配布可否・クレジット要否・商用可否など）を必ずご確認ください。<span class="muted">※Ligastmir 自体にアラート用の画像・音は同梱されていません。</span></div>
 
     <h2 id="skin">⑦ 見た目を着せ替える（画像・効果音）</h2>

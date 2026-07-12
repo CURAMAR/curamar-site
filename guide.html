@@ -193,8 +193,8 @@
     <h2 id="tts">④ コメントの読み上げ（TTS）</h2>
     <ul>
       <li><strong>Windows標準の声（SAPI5）：</strong> 追加準備なしでそのまま使えます。</li>
-      <li><strong>VOICEVOX（ずんだもん等のキャラ声）：</strong> ① VOICEVOX（無料）を <a href="https://voicevox.hiroshiba.jp/" target="_blank" rel="noopener">公式サイト</a>からインストール → ② <span class="pill">音声・コメント</span>ページの「VOICEVOX自動起動」をON →「自動検出」でパス設定 → ③ 次回から一緒に立ち上がります。</li>
-      <li><strong>棒読みちゃんを既にお使いの場合：</strong> 本体を起動してから音声エンジンで<strong>「棒読みちゃん」</strong>を選ぶだけ。<strong>読み方辞書・声・速度は棒読みちゃん側の設定がそのまま使えます</strong>（音量のみ Ligastmir のスライダーを反映）。自動起動・終了も同ページ。</li>
+      <li><strong>VOICEVOX（ずんだもん等のキャラ声）：</strong> ① VOICEVOX（無料）を <a href="https://voicevox.hiroshiba.jp/" target="_blank" rel="noopener">公式サイト</a>からインストール → ② <span class="pill">詳細設定 → 同伴機能</span>ページの「VOICEVOX 同伴起動」をON →「自動検出」でパス設定 → ③ 次回から一緒に立ち上がります。<span class="muted">（声・速度など読み上げ自体の設定は<span class="pill">音声・コメント</span>ページ）</span></li>
+      <li><strong>棒読みちゃんを既にお使いの場合：</strong> 本体を起動してから音声エンジンで<strong>「棒読みちゃん」</strong>を選ぶだけ。<strong>読み方辞書・声・速度は棒読みちゃん側の設定がそのまま使えます</strong>（音量のみ Ligastmir のスライダーを反映）。一緒に起動する（同伴起動）は <span class="pill">詳細設定 → 同伴機能</span>ページにまとまっています。</li>
       <li><strong>スタンプ（エモート）の読み：</strong> コード（例: <code>curama1Neko0</code>）のまま読まれます。TTS辞書（またはチャットの <code>!教育</code> コマンド）で読みを登録できます。</li>
     </ul>
     <div class="note">音量・話者・読み上げ前のお知らせ音などは<span class="pill">音声・コメント</span>ページで調整できます。設定は自動保存されます。</div>
@@ -204,6 +204,7 @@
       <li><strong>コメント読み上げ（匿名でOK）：</strong> <span class="pill">配信</span>ページでチャンネル名を入れて「接続」。</li>
       <li><strong>海外コメントの翻訳：</strong> <span class="pill">音声・コメント</span>ページの「💬コメント関連」で「チャット翻訳」をON。コメビューに<strong>原文＋日本語訳が2段</strong>で出て、<strong>日本語訳を読み上げ</strong>ます。<strong>言語は自動検出</strong>＝英語・中国語・韓国語・アラビア語など、翻訳エンジンが対応する言語はすべて対象です。</li>
       <li><strong>コメビューの見た目：</strong> 文字サイズ・色・不透明度・表示件数や「ずっと表示」は<span class="pill">🖥 ブラウザソース</span>ページでまとめて調整できます（③参照）。</li>
+      <li><strong>表示するプラットフォームの切替：</strong> コメビュー・弾幕・エモートに出すコメントを「<strong>両方／Twitchのみ／YouTubeのみ</strong>」で選べます（コメビュー見た目設定）。同時配信で結合したコメントを画面に出す扱いは各社のルールが関わるため、必要に応じて分けられます。<span class="muted">※<strong>画面表示だけ</strong>の切替で、読み上げ・ログには影響しません。</span></li>
     </ul>
 
     <h2 id="advanced">⑥ もっと使う（任意・各自で登録が必要）</h2>
@@ -212,8 +213,9 @@
       <li><strong>YouTubeのコメント取り込み：</strong> Google Cloud で YouTube Data API キーを取得 → <span class="pill">配信</span>ページの接続モードで YouTube を選び、URLとキーを入力。</li>
       <li><strong>配信タイトル・カテゴリの変更（Twitch / YouTube）：</strong> <span class="pill">配信</span>ページからツールを離れずに<strong>タイトル・カテゴリ（ゲーム）・説明・サムネイル</strong>を書き換えられます。Twitch と YouTube の<strong>両方に一度で反映</strong>するボタンもあります（片方だけ接続している時は、その配信だけに反映）。<span class="muted">※Twitch は初回に「タイトル変更の権限」を追加で認証、YouTube は Google 認証（デスクトップ用）が必要です。ページ内の手順に従ってください。</span></li>
       <li><strong>OBS操作（シーン切替・配信開始/停止）：</strong> OBSの<strong>「ツール → WebSocketサーバー設定」</strong>でサーバーを有効化（ポート/パスワード確認）→ <span class="pill">OBS連携</span>ページで接続。</li>
-      <li><strong>OBSを一緒に起動する：</strong> Ligastmir の起動時に<strong>OBSも自動で立ち上げる</strong>設定ができます（<span class="pill">OBS連携</span>ページ・任意）。OBSの実行ファイルの場所を一度指定しておくだけ。<span class="muted">配信中は誤操作防止のため終了させない安全策付き。閉じる時に一緒に終了させるかも選べます。</span></li>
+      <li><strong>OBSを一緒に起動する：</strong> Ligastmir の起動時に<strong>OBSも自動で立ち上げる</strong>設定ができます（<span class="pill">詳細設定 → 同伴機能</span>ページ・任意）。OBSの実行ファイルの場所を一度指定しておくだけ。<span class="muted">配信中は誤操作防止のため終了させない安全策付き。閉じる時に一緒に終了させるかも選べます。接続・シーン切替は<span class="pill">OBS連携</span>ページです。</span></li>
     </ul>
+    <div class="note"><strong>「同伴機能」ページ（<span class="pill">詳細設定 → 同伴機能</span>）：</strong> VOICEVOX・棒読みちゃん・わんコメ・OBS を <strong>Ligastmir と一緒に起動する</strong>設定をここにまとめています。起動の順番（Ligastmir を先に→OBS）や OBS の管理者権限の注意もこのページに記載しています。各アプリ本体の設定（声・接続・シーン切替）は、それぞれのページにあります。</div>
     <div class="note">これらの連携は<strong>自動でつなぎません</strong>。使いたい時にボタン/トグルで明示的にONにする設計です（OBS同伴起動だけは、事前に有効化しておけば起動時に立ち上がります）。</div>
     <div class="warn-box"><strong>OBSを「管理者として実行」にしている場合の注意：</strong> 同伴起動のたびに Windows の確認（UAC）が出て、閉じる時の<strong>自動終了も使えません</strong>。<span class="muted">OBSは<strong>もともと管理者権限は不要</strong>で、既定でもオフです（管理者が必要なのは、管理者権限で動くゲームを「ゲームキャプチャ」する場合など、限られたケースだけ）。心当たりがなければ、OBSのショートカット/exe を右クリック →「プロパティ」→「互換性」で<strong>「管理者としてこのプログラムを実行する」のチェックを外す</strong>と、確認なしで同伴起動も自動終了も使えます。外して困るのは、そのゲームのゲームキャプチャが真っ黒になった時だけ（その場合は戻してください）。※シーン切替など OBS連携（WebSocket）は、管理者でもそうでなくても問題なく動きます。</span></div>
     <div class="safe"><strong>アラート用の画像・音声素材について：</strong> アラート演出に表示する画像や効果音は、<strong>ご自身が利用権を持つ素材</strong>をご使用ください。フリー素材を使う場合も配布元の利用規約（再配布可否・クレジット要否・商用可否など）を必ずご確認ください。<span class="muted">※Ligastmir 自体にアラート用の画像・音は同梱されていません。</span></div>

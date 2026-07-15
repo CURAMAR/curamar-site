@@ -220,13 +220,17 @@
       <div class="card"><div class="k">ALERT</div><h3>アラート演出</h3><p>フォロー・サブスク・レイド・チャンネルポイント交換で画面に演出。報酬ごとに画像・音を割り当てられます。</p></div>
       <div class="card"><div class="k">OBS</div><h3>OBS 連携</h3><p>WebSocket で接続して、ダッシュボードからシーン切替・配信開始/停止。OBSウィンドウに戻らず手元で操作。</p></div>
       <div class="card"><div class="k">VIEWERS</div><h3>常連バッジ・視聴者演出</h3><p>コメント数に応じた進化バッジや、チャンネルポイント報酬ごとの演出で、視聴者との時間を彩ります。</p></div>
-      <div class="card"><div class="k">DASHBOARD</div><h3>配信支援ダッシュボード</h3><p>配信前チェック・定期コメント・一括スタート・イベント発火テストなど、配信まわりの段取りを一画面に。</p></div>
+      <div class="card"><div class="k">DASHBOARD</div><h3>配信支援ダッシュボード</h3><p>配信前チェック・定期コメント・一括スタート・イベント発火テストを一画面に。「今どの機能が動いているか」「ONにしたのに前提が足りず動いていない箇所」も見える化。</p></div>
+      <div class="card"><div class="k">SAFETY</div><h3>安心セーフティ</h3><p>配信中に困ったら、全ページのヘッダから「軽い停止」で読み上げ・翻訳・演出をワンボタン停止（コメント表示は続く）。外部接続の一括切断や、負荷を下げる軽量モードも。</p></div>
+      <div class="card"><div class="k">RECOVERY</div><h3>診断・セーフモード</h3><p>うまく動かない時は総合診断が主要機能を実際に確認し、日本語で「原因かも／試すこと」を提示。最小構成で立ち上げ直すセーフモード起動や、配信前のマイクチェックも。</p></div>
+      <div class="card"><div class="k">SHARE</div><h3>辞書・構成の共有</h3><p>読み上げ辞書（用語や名前の読み）やダッシュボードの構成を、配信者どうしでファイル共有。視聴者名やパスワードは含めない安全設計です。</p></div>
+      <div class="card"><div class="k">PICKUP</div><h3>コメントピックアップ</h3><p>気になったコメントを検索して、選んだ1件を OBS に質問カードとして大きく表示。原文＋翻訳を併記し、配信終了で自動的に消えます。</p></div>
     </div>
     <p class="txt" style="margin-top:22px">各機能の詳しい設定方法は <a href="guide.html" style="color:var(--accent-cool)">使い方ガイド</a> に、導入前のよくある質問は <a href="faq.html" style="color:var(--accent-cool)">FAQ</a> にまとめています。</p>
 
-    <!-- 画面で見る（実画面スクショ・2026-07-10） -->
+    <!-- 画面で見る（実画面スクショ・2026-07-15 v0.8.0 再撮影） -->
     <h3 style="font-family:var(--font-disp);font-size:20px;font-weight:700;margin:44px 0 6px">📸 画面で見る</h3>
-    <p class="txt">実際の画面です（v0.7.0）。多機能ですが、<strong>使う機能だけONにすればいい</strong>ので、見た目ほど難しくありません。</p>
+    <p class="txt">実際の画面です（v0.8.0）。多機能ですが、<strong>使う機能だけONにすればいい</strong>ので、見た目ほど難しくありません。</p>
     <div class="shots">
       <figure>
         <img src="assets/shots/dashboard.webp" alt="Ligastmirのダッシュボード画面。配信ステータス・コメント欄・クイック操作・音量・ライブログをウィジェットで1画面に集約" width="1440" height="900" loading="lazy">
@@ -247,6 +251,10 @@
       <figure>
         <img src="assets/shots/reaction-alert.webp" class="fit-full" alt="リアクション演出の表示例。コメントのキーワードに反応して画面に演出カードが表示されている" width="1280" height="720" loading="lazy">
         <figcaption><strong>リアクション演出</strong> — コメントのキーワードやスタンプをきっかけに演出を自動発火。</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/shots/pickup-card.webp" class="fit-full" alt="コメントピックアップの表示例。選んだコメントがOBSに質問カードとして大きく表示され、英語の質問に日本語訳が併記されている" width="1280" height="720" loading="lazy">
+        <figcaption><strong>コメントピックアップ</strong>（v0.8.0）— 気になったコメントを検索して、選んだ1件をOBSに質問カード表示。原文＋翻訳を併記。</figcaption>
       </figure>
       <figure>
         <img src="assets/shots/bsource-urls.webp" alt="ブラウザソースURL一覧の画面。字幕・コメビュー・アラートなど各オーバーレイのURLがコピーボタン付きで並ぶ" width="1440" height="900" loading="lazy">

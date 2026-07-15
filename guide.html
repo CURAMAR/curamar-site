@@ -214,6 +214,8 @@
       <li><strong>配信タイトル・カテゴリの変更（Twitch / YouTube）：</strong> <span class="pill">配信</span>ページからツールを離れずに<strong>タイトル・カテゴリ（ゲーム）・説明・サムネイル</strong>を書き換えられます。Twitch と YouTube の<strong>両方に一度で反映</strong>するボタンもあります（片方だけ接続している時は、その配信だけに反映）。<span class="muted">※Twitch は初回に「タイトル変更の権限」を追加で認証、YouTube は Google 認証（デスクトップ用）が必要です。ページ内の手順に従ってください。</span></li>
       <li><strong>OBS操作（シーン切替・配信開始/停止）：</strong> OBSの<strong>「ツール → WebSocketサーバー設定」</strong>でサーバーを有効化（ポート/パスワード確認）→ <span class="pill">OBS連携</span>ページで接続。</li>
       <li><strong>OBSを一緒に起動する：</strong> Ligastmir の起動時に<strong>OBSも自動で立ち上げる</strong>設定ができます（<span class="pill">詳細設定 → 同伴機能</span>ページ・任意）。OBSの実行ファイルの場所を一度指定しておくだけ。<span class="muted">配信中は誤操作防止のため終了させない安全策付き。閉じる時に一緒に終了させるかも選べます。接続・シーン切替は<span class="pill">OBS連携</span>ページです。</span></li>
+      <li><strong>📌 コメントピックアップ：</strong> ダッシュボードの「<strong>コメントピックアップ</strong>」ウィジェットで、気になったコメントを<strong>検索</strong>して、選んだ1件を OBS に<strong>質問カード</strong>として大きく表示できます（原文＋翻訳を併記・配信終了で自動的に消えます）。「さっきの質問をもう一度出したい」に。<span class="muted">直近コメントはメモリにだけ一時保持し、ファイルには保存しません。</span></li>
+      <li><strong>📚 辞書・構成の共有：</strong> 読み上げ辞書（用語や名前の読み）を配信者どうしで<strong>ファイルで受け渡し</strong>できます（<span class="pill">読み上げ設定</span>の「辞書パック」）。ダッシュボードの<strong>構成（レイアウト）</strong>も書き出し・取り込みで共有できます。<span class="muted">どちらも視聴者名やパスワード等の機微情報は含めない安全設計です。</span></li>
     </ul>
     <div class="note"><strong>「同伴機能」ページ（<span class="pill">詳細設定 → 同伴機能</span>）：</strong> VOICEVOX・棒読みちゃん・わんコメ・OBS を <strong>Ligastmir と一緒に起動する</strong>設定をここにまとめています。起動の順番（Ligastmir を先に→OBS）や OBS の管理者権限の注意もこのページに記載しています。各アプリ本体の設定（声・接続・シーン切替）は、それぞれのページにあります。</div>
     <div class="note">これらの連携は<strong>自動でつなぎません</strong>。使いたい時にボタン/トグルで明示的にONにする設計です（OBS同伴起動だけは、事前に有効化しておけば起動時に立ち上がります）。</div>
@@ -250,10 +252,15 @@
     <div class="note">「▶ テスト」ボタンでOBSの見え方をその場で確認できます。<strong>何も設定しなければ演出は一切出ません</strong>（動作も軽いまま）。使いたい人だけ足していく方式です。</div>
 
     <h2 id="trouble-basic">⑧ 困ったとき（基本）</h2>
+    <p style="margin-top:-4px">配信中や配信前に「あれ？」となった時に、落ち着いて対処するための道具をひと通り用意しています（v0.8.0〜）。</p>
     <ul>
+      <li><strong>🛟 配信中に困ったら「軽い停止」：</strong> どのページでも<strong>ヘッダのボタン</strong>から、読み上げ・翻訳・演出だけをワンボタンで一時停止できます（<strong>コメント表示は続きます</strong>）。「今ちょっと静かにしたい」を安全に。外部接続（Twitch/YouTube/OBS）の<strong>一括切断</strong>や、負荷を下げる<strong>軽量モード</strong>も同じ場所から。</li>
+      <li><strong>🩺 まず「総合診断」：</strong> <span class="pill">詳細設定 → テスト/ログ</span>の「総合診断」で、主要機能の状態をまとめて確認できます。うまくいかない項目には<strong>日本語で「原因かも／試すこと」</strong>が表示され、結果は<strong>Discord報告用にワンクリックでコピー</strong>できます。</li>
+      <li><strong>🔧 設定が壊れて開けない時は「セーフモード起動」：</strong> 最小構成で立ち上げ直し、<strong>壊れた設定だけ</strong>を個別に初期化して復旧できます（<span class="pill">詳細設定 → テスト/ログ</span>／次回セーフモードで起動、または <code>Ligastmir.exe --safe</code>）。</li>
+      <li><strong>🎙 配信前に「マイクチェック」：</strong> 声の大きさ・音割れ・ノイズを判定してくれます（PC内で完結・<strong>録音は保存しません</strong>）。</li>
       <li><strong>画面が真っ白／開かない：</strong> 「Edge WebView2 ランタイム」（無料）を <a href="https://developer.microsoft.com/microsoft-edge/webview2/" target="_blank" rel="noopener">Microsoftのサイト</a>から入れてください<span class="muted">（最近のWindowsなら大抵入っています）</span>。</li>
       <li><strong>声が出ない：</strong> Windowsの音量・出力先を確認。VOICEVOXの声なら VOICEVOX が起動しているか確認。</li>
-      <li><strong>動きがおかしい：</strong> exe と同じフォルダの <code>ust_debug.log</code> を開く（または作者に送る）と原因が分かります。</li>
+      <li><strong>動きがおかしい：</strong> exe と同じフォルダの <code>ust_debug.log</code> を開く（または作者に送る）と原因が分かります。<span class="muted">「総合診断」から報告用ログを zip でまとめて書き出すこともできます。</span></li>
       <li><strong>別のPCに渡したとき：</strong> セキュリティ上、APIキーやトークンは<strong>そのPCごとに入力し直し</strong>が必要です<span class="muted">（設定ごとコピーしても暗号化で読めない仕組み）</span>。</li>
     </ul>
 

@@ -159,7 +159,7 @@
       <span class="bdg done" style="color:var(--ink-dim);border-style:dashed">🙋 協力募集中 のラベルがある項目は、力を貸してもらえると助かります</span>
     </div>
 
-    <h2 class="done">✅ 実装済み <span class="cnt">— 配布中の v0.7.2 で使えます</span></h2>
+    <h2 class="done">✅ 実装済み <span class="cnt">— 配布中の v0.8.0 で使えます</span></h2>
     <div class="items">
       <div class="item">
         <div class="t">🎤 音声認識字幕</div>
@@ -211,39 +211,49 @@
         <div class="d">コメビュー・弾幕・エモートに出すコメントを「両方／Twitchのみ／YouTubeのみ」で切替。同時配信のルールに合わせて画面表示だけを分けられます（読み上げ・ログには影響なし）。</div>
         <div class="meta"><span class="ver">v0.7.2</span></div>
       </div>
+      <div class="item">
+        <div class="t">🛟 セーフティ（緊急時の停止・切断・軽量モード）</div>
+        <div class="d">配信中にワンボタンで、読み上げ・翻訳・演出だけを一時停止（コメント表示は続く）できる「軽い停止」を全ページのヘッダに常設。さらに外部接続（Twitch/YouTube/OBS）の一括切断、負荷を下げる軽量モードも。トラブル時に落ち着いて対処できます。</div>
+        <div class="meta"><span class="ver">v0.8.0</span></div>
+      </div>
+      <div class="item">
+        <div class="t">🔧 セーフモード起動・強化した総合診断・マイクチェック</div>
+        <div class="d">トラブル時に最小構成で立ち上げ直し、壊れた設定だけ初期化して復旧できる「セーフモード起動」。総合診断は主要機能を実際に確認し、うまくいかない時は日本語で「原因かも／試すこと」を表示・結果をそのまま報告用にコピー。配信前のマイクチェック（音量・音割れ判定）も追加。</div>
+        <div class="meta"><span class="ver">v0.8.0</span></div>
+      </div>
+      <div class="item">
+        <div class="t">👀 いま動いている機能の見える化</div>
+        <div class="d">「今ONで実際に動いている機能」と、その前提条件（例：翻訳読み上げには翻訳ONが必要）を一覧で確認。「ONにしたのに前提が足りずに動いていない」箇所も見つけられます。</div>
+        <div class="meta"><span class="ver">v0.8.0</span></div>
+      </div>
+      <div class="item">
+        <div class="t">📚 辞書パック・構成の共有</div>
+        <div class="d">読み上げ辞書（ゲーム用語や名前の読み）を配信者どうしでファイルで受け渡しできる「辞書パック」。ダッシュボードの構成（レイアウト）も書き出し・取り込みで共有できます。どちらも視聴者名・パスワード等の機微情報は含まない安全設計です。</div>
+        <div class="meta"><span class="ver">v0.8.0</span></div>
+      </div>
+      <div class="item">
+        <div class="t">📌 コメントピックアップ</div>
+        <div class="d">気になったコメントを検索して、選んだ1件を OBS に質問カードとして大きく表示。原文＋翻訳を併記し、配信終了で自動的に消えます。「さっきの質問をもう一度出したい」に。</div>
+        <div class="meta"><span class="ver">v0.8.0</span></div>
+      </div>
     </div>
 
     <h2 class="dev">🔨 開発中 <span class="cnt">— 完成したものから次のバージョンに入ります</span></h2>
     <div class="items">
       <div class="item">
-        <div class="t">⏸ セーフティ「軽い停止」</div>
-        <div class="d">配信中にワンボタンで、読み上げ・翻訳・演出だけを一時停止（コメント表示は続く）。「今ちょっと静かにしたい」を安全に。</div>
-        <div class="meta"><span class="ver">v0.8 予定</span></div>
-      </div>
-      <div class="item">
         <div class="t">🎨 字幕の縁取りを、日本語と翻訳で個別に</div>
         <div class="d">縁取りの色・太さを日本語字幕と翻訳字幕で別々に設定できるようにします。差別化したい人向け。</div>
-        <div class="meta"><span class="ver">v0.8 予定</span></div>
+        <div class="meta"><span class="ver">v0.9 予定</span></div>
       </div>
       <div class="item">
-        <div class="t">🔧 OBS同伴起動の安定化</div>
-        <div class="d">OBS を管理者権限で使っている環境でも、同伴起動が動くように改善します。</div>
-        <div class="meta"><span class="ver">v0.8 予定</span></div>
-      </div>
-      <div class="item">
-        <div class="t">👀 いま動いている機能の見える化</div>
-        <div class="d">「今ONで実際に動いている機能」と、その前提条件（例：翻訳読み上げには翻訳ONが必要）を一覧で確認できるようにします。</div>
-        <div class="meta"><span class="ver">v0.8 予定</span></div>
+        <div class="t">🔧 OBS同伴起動のさらなる安定化</div>
+        <div class="d">OBS を管理者権限で使っている環境など、さまざまな構成でも同伴起動・自動終了が安定して動くよう改善を続けます。</div>
+        <div class="meta"><span class="ver">v0.9 予定</span></div>
       </div>
     </div>
 
     <h2 class="review">🔍 検討中 <span class="cnt">— やる方向で設計・相談しています</span></h2>
     <div class="items">
-      <div class="item">
-        <div class="t">🩺 エラーの日本語要約</div>
-        <div class="d">接続エラーなどを「原因の候補」「試すこと」の形でわかりやすく表示します。</div>
-        <div class="meta"><span class="ver">v0.8</span></div>
-      </div>
       <div class="item">
         <div class="t">🤝 協力者ページ・進化マップの整備</div>
         <div class="d">このページや <a href="collaborate.html">協力する</a> ページを育てていきます。「ここが分かりにくい」も立派なフィードバックです。</div>

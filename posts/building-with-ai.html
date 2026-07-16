@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>「AIと一緒に作る」って、正直どうなの — 開発日誌 第2話 | curamar</title>
+<meta name="description" content="配信支援ツール Ligastmir はコードの大半をAI（Claude）と一緒に書いています。丸投げで勝手にできる——わけではない。決めること、確かめること、そして『動いているように見えて実は動いていなかった』機能の話。開発日誌 第2話。">
+<link rel="canonical" href="https://curamar.space/posts/building-with-ai.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="curamar.space">
+<meta property="og:title" content="「AIと一緒に作る」って、正直どうなの — 開発日誌 第2話">
+<meta property="og:description" content="AIと二人三脚でツールを作る、その正直なところ。丸投げでは動かない。決めることと、確かめることの話。">
+<meta property="og:url" content="https://curamar.space/posts/building-with-ai.html">
+<meta property="og:image" content="https://curamar.space/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:type" content="image/png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="「AIと一緒に作る」って、正直どうなの — curamar 開発日誌 第2話">
+<meta name="twitter:image" content="https://curamar.space/assets/og-image.png">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<style>
+  :root{
+    --bg:#0d1014;--bg-soft:#141a21;--bg-line:#1f2730;
+    --ink:#e8edf2;--ink-dim:#8a97a5;
+    --accent:#c8f542;--accent-cool:#5cc8ff;
+    --radius:14px;--maxw:760px;
+    --font-disp:"Zen Kaku Gothic New","Hiragino Kaku Gothic ProN",sans-serif;
+    --font-body:"Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;
+    --font-mono:"SFMono-Regular",Consolas,"Courier New",monospace;
+    --cat-dev:#c8f542;--cat-write:#5cc8ff;--cat-note:#b78cff;
+  }
+  @media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--ink);font-family:var(--font-body);line-height:1.9;-webkit-font-smoothing:antialiased}
+  a{color:var(--accent-cool)}
+  .grid-bg{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.4;
+    background-image:linear-gradient(var(--bg-line) 1px,transparent 1px),linear-gradient(90deg,var(--bg-line) 1px,transparent 1px);
+    background-size:48px 48px;
+    mask-image:radial-gradient(ellipse 80% 50% at 50% 0%,#000 20%,transparent 70%);
+    -webkit-mask-image:radial-gradient(ellipse 80% 50% at 50% 0%,#000 20%,transparent 70%)}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px;position:relative;z-index:1}
+  header{position:sticky;top:0;z-index:50;background:rgba(13,16,20,.82);backdrop-filter:blur(10px);border-bottom:1px solid var(--bg-line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:62px}
+  .logo{font-family:var(--font-mono);font-weight:700;letter-spacing:.05em;font-size:18px}
+  .logo .cura{color:var(--accent)}.logo .mar{color:var(--accent-cool)}
+  .back{font-size:14px;color:var(--ink-dim)}
+  .back:hover{color:var(--ink)}
+  article{padding:60px 0 40px}
+  .a-meta{display:flex;align-items:center;gap:12px;margin-bottom:20px}
+  .cat{font-family:var(--font-mono);font-size:11px;letter-spacing:.08em;padding:3px 10px;border-radius:999px;font-weight:700}
+  .cat.dev{color:var(--cat-dev);border:1px solid color-mix(in srgb,var(--cat-dev) 40%,transparent)}
+  .a-date{font-family:var(--font-mono);font-size:12px;color:var(--ink-dim)}
+  .a-title{font-family:var(--font-disp);font-size:clamp(26px,5vw,38px);font-weight:700;line-height:1.4;margin-bottom:40px}
+  .body p{margin-bottom:22px;font-size:16px}
+  .body strong{color:var(--ink)}
+  .body .aside{background:var(--bg-soft);border:1px solid var(--bg-line);border-left:3px solid var(--accent);border-radius:0 10px 10px 0;padding:16px 20px;margin:0 0 22px;color:var(--ink-dim);font-size:15px}
+  .a-foot{border-top:1px solid var(--bg-line);margin-top:50px;padding-top:30px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+  .a-foot .back-btn{font-size:14px;color:var(--accent-cool)}
+  .a-foot .share{font-family:var(--font-mono);font-size:12px;color:var(--ink-dim)}
+  footer{border-top:1px solid var(--bg-line);padding:34px 0;margin-top:30px}
+  .foot{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px}
+  .foot .links{display:flex;gap:18px;font-size:14px}
+  .foot .links a{color:var(--ink-dim)}.foot .links a:hover{color:var(--accent)}
+  .foot .cp{font-family:var(--font-mono);font-size:12px;color:var(--ink-dim)}
+</style>
+</head>
+<body>
+<div class="grid-bg"></div>
+
+<header>
+  <div class="wrap nav">
+    <a href="../index.html" class="logo"><span class="cura">cura</span><span class="mar">mar</span></a>
+    <a href="../blog.html" class="back">← ブログ一覧</a>
+  </div>
+</header>
+
+<div class="wrap">
+  <article>
+    <div class="a-meta">
+      <span class="cat dev">開発日誌</span>
+      <span class="a-date">2026.07.16</span>
+    </div>
+
+    <h1 class="a-title">「AIと一緒に作る」って、正直どうなの</h1>
+
+    <div class="body">
+      <p>前回の最後に、「AIと一緒に作るってどういうことなのか、正直なところを書く」と言いました。有言実行です。えらい。</p>
+      <p>Ligastmir のコードは、その大半を AI（Claude）と一緒に書いています。これは事実です。</p>
+      <p>で、こう書くと、たぶん一定数の人がこう思うわけですよ。</p>
+      <p><strong>「じゃあAIに丸投げしたら、勝手にツールができるんでしょ？」</strong></p>
+      <p>……できません。少なくとも、俺のやり方では。</p>
+      <p>正直に書くと、これはけっこう誤解されがちなところだと思っています。</p>
+
+      <p>まず、AIが本当に得意なことは何かというと、<strong>実装のスピード</strong>です。</p>
+      <p>「こういう動きをするパネルが欲しい」と伝えると、たたき台をものすごい速さで出してくれる。疲れないし、深夜でも文句を言わない。調べ物も速い。相棒としては最高です。</p>
+      <p>でも、そこには大きな「ただし書き」がつきます。</p>
+
+      <p><strong>何を作るか、そして何を"作らない"かを決めるのは、最後まで自分の仕事</strong>でした。</p>
+      <p>前回書いた「全部入りの重いツールにはしない」という縛り。あれをAIは勝手には守ってくれません。放っておくと、良かれと思って機能をどんどん盛ってきます。親切なんですよ、AIって。</p>
+      <p>だから「それは要らない」「ここはもっとシンプルに」「この機能とこの機能は繋げない」と、俺がずっと言い続ける。方向を決めて、要らないものを削るのは、人間の側の役目でした。</p>
+      <p>言い換えると、<strong>「面倒くさい性分」で作りたいものの輪郭を持っている</strong>ことが、たぶん一番効いています。作りたいものが自分の中にないと、AIがいくら速くても、ただ速く迷子になるだけなので。</p>
+
+      <p>そして、これが今日いちばん書きたかったこと。</p>
+      <p><strong>AIは、平気な顔で「壊れているもの」を渡してくることがあります。</strong></p>
+      <p>しかも厄介なのは、それが<strong>ちゃんと動いているように"見える"</strong>ことなんです。</p>
+
+      <div class="aside">実際にあった話をひとつ。Ligastmir には「OBSのシーンを手元から切り替えるパネル」があります。ある時ふと動作を端から確かめていたら——このパネル、<strong>数週間ずっと、一度も動いていなかった</strong>ことが分かりました。ボタンは表示されている。押せる。でも、裏側の配線が一箇所ズレていて、押しても本当は何も起きていなかった。エラーも出ない。だから誰も気づかない。静かに壊れていたんです。</div>
+
+      <p>これ、コードを書いたのがAIだろうと人間だろうと起こります。むしろAIは「それっぽく動くもの」を作るのが上手いぶん、<strong>「動いているように見えて、実は動いていない」</strong>が生まれやすい。</p>
+      <p>だから最近は、実装が終わったあとに<strong>「主要な機能を片っ端から自分で叩いて、本当に動くか確かめる」</strong>という地味な作業を、意識してやるようにしています。さっきのシーン切替も、それで見つけました。ついでに、同じ種類の壊れ方を機械的に検出する仕組みも入れて、二度と静かに壊れないようにしました。</p>
+      <p><strong>「動くように見える」と「動く」は、ぜんぜん違う。</strong></p>
+      <p>これはAIと作るようになって、いちばん身に沁みたことかもしれません。</p>
+
+      <p>そう考えると、作るときの"詰まりどころ"が、昔と変わったなと思います。</p>
+      <p>昔は「コードを書くのが遅い」がボトルネックでした。今は書くのは速い。代わりに、<strong>「何を作るか決める」と「本当に動くか確かめる」</strong>が、いちばん時間と頭を使うところになりました。</p>
+      <p>手を動かすところをAIが引き受けてくれたぶん、人間は「判断する人」と「疑ってかかる人」に専念できる、という感じでしょうか。</p>
+
+      <p>だから、Ligastmir は「AIが作ったツール」ではなくて、<strong>「俺が決めて、AIと二人三脚で作って、俺が最後に動作を確かめているツール」</strong>です。ちょっと長いですが、これがいちばん正直な言い方だと思います。</p>
+      <p>魔法みたいに勝手にできあがったわけじゃない。でも、一人でやっていたら、たぶんここまで形にはできていなかった。両方とも本当です。</p>
+      <p>そして——これはもう性分なんですが、この「決める・確かめる」の往復が、普通に楽しいんですよね。めんどくさがりのくせに。</p>
+
+      <p>次回は、そうやって作った機能の中でも特に気に入っている「配信中に困ったとき、落ち着いて対処するための仕組み」まわりの話でも書こうかなと思います。地味だけど、いちばん"配信者のことを考えて作った"ところなので。</p>
+      <p>それでは、また。</p>
+    </div>
+
+    <div class="a-foot">
+      <a href="../blog.html" class="back-btn">← ブログ一覧へ戻る</a>
+      <span class="share">curamar.space</span>
+    </div>
+  </article>
+</div>
+
+<footer>
+  <div class="wrap foot">
+    <a href="../index.html" class="logo"><span class="cura">cura</span><span class="mar">mar</span></a>
+    <nav class="links">
+      <a href="../blog.html">ブログ</a>
+      <a href="../ligastmir.html">Ligastmir</a>
+      <a href="https://www.twitch.tv/curamar" target="_blank" rel="noopener">Twitch</a>
+      <a href="https://kakuyomu.jp/users/CURAMAR" target="_blank" rel="noopener">カクヨム</a>
+    </nav>
+    <div class="cp">© 2026 curamar</div>
+  </div>
+</footer>
+<script src="/sitemap.js" defer></script>
+</body>
+</html>

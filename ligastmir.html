@@ -90,6 +90,12 @@
   .trust-list li strong{color:var(--ink)}
   @media(max-width:640px){.trust-list{grid-template-columns:1fr}}
   .grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+  /* 機能マップ（相関図SVG・クリックで拡大＝lightbox.js） */
+  .fmap{margin:20px 0 0;background:var(--bg-soft);border:1px solid var(--bg-line);border-radius:12px;overflow:hidden;transition:border-color .2s}
+  .fmap:hover{border-color:var(--accent)}
+  .fmap img{width:100%;height:auto;display:block;background:#0d1014}
+  .fmap figcaption{font-size:12.5px;color:var(--ink-dim);padding:9px 13px;line-height:1.6}
+  .fmap figcaption strong{color:var(--ink);font-size:13px}
   /* 画面で見る（実画面スクショギャラリー・2026-07-10） */
   .shots{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:8px}
   .shots figure{margin:0;background:var(--bg-soft);border:1px solid var(--bg-line);border-radius:12px;overflow:hidden;transition:border-color .2s,transform .2s}
@@ -226,6 +232,12 @@
       <div class="card"><div class="k">SHARE</div><h3>辞書・構成の共有</h3><p>読み上げ辞書（用語や名前の読み）やダッシュボードの構成を、配信者どうしでファイル共有。視聴者名やパスワードは含めない安全設計です。</p></div>
       <div class="card"><div class="k">PICKUP</div><h3>コメントピックアップ</h3><p>気になったコメントを検索して、選んだ1件を OBS に質問カードとして大きく表示。原文＋翻訳を併記し、配信終了で自動的に消えます。</p></div>
     </div>
+
+    <figure class="fmap">
+      <img src="assets/diagrams/feature-map.svg" alt="Ligastmirの機能マップ。①主要機能（音声認識字幕・翻訳・コメント読み上げ・コメビュー弾幕・OBS連携・セーフティ診断）、②それぞれに付随する機能、③カスタム次第でできること（リアクション演出・チャネポ演出・着せ替え・常連バッジ・コメントピックアップ・定期コメント・辞書やダッシュボード構成の共有）の3層構造。コメントを使う機能はTwitchかYouTubeのどちらかの接続でOK、通知演出とチャネポはTwitch認証が必要、字幕はマイクだけで動く。" width="980" height="690" loading="lazy">
+      <figcaption><strong>機能マップ</strong> — ①主要機能 → ②付随する機能 → ③カスタム次第でできること。何と何がつながっているかを1枚に。<strong>クリックで拡大できます。</strong></figcaption>
+    </figure>
+
     <p class="txt" style="margin-top:22px">各機能の詳しい設定方法は <a href="guide.html" style="color:var(--accent-cool)">使い方ガイド</a> に、導入前のよくある質問は <a href="faq.html" style="color:var(--accent-cool)">FAQ</a> にまとめています。</p>
 
     <!-- 画面で見る（実画面スクショ・2026-07-15 v0.8.0 再撮影） -->

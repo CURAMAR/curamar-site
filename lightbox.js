@@ -1,6 +1,7 @@
 /* lightbox.js — スクショをクリックで拡大表示（サイト共通・単一ソース）2026-07-15
  *
- * 対象: assets/shots/ 配下の画像（.shots / .qshots / .fshots の figure 内）。
+ * 対象: assets/shots/（スクショ）と assets/diagrams/（機能マップ等のSVG図）配下の画像。
+ *   図はSVGなので拡大しても鮮明＝スマホで小さく見える問題もタップ拡大で解決する。
  * 依存なし・自己完結（CSSもJSで注入）。各ページで <script src="/lightbox.js" defer> するだけ。
  * 操作: 画像クリックで拡大／背景クリック・×ボタン・Esc で閉じる。
  * アクセシビリティ: role=dialog / aria-modal、開いた画像へフォーカス復帰、body スクロール抑止。
@@ -13,13 +14,15 @@
   var STYLE = [
     '.sc-lb-zoom{cursor:zoom-in}',
     '.sc-lb-ov{position:fixed;inset:0;z-index:9999;display:flex;flex-direction:column;',
-    '  align-items:center;justify-content:center;gap:14px;padding:24px;box-sizing:border-box;',
+    '  align-items:center;justify-content:center;gap:14px;padding:24px;box-sizing:border-box;overflow:auto;',
     '  background:rgba(6,9,13,.92);backdrop-filter:blur(4px);opacity:0;transition:opacity .18s ease}',
     '.sc-lb-ov.on{opacity:1}',
-    '.sc-lb-img{max-width:min(1600px,94vw);max-height:86vh;width:auto;height:auto;',
+    '.sc-lb-ov.zoom{align-items:flex-start;justify-content:flex-start}',
+    '.sc-lb-img{max-width:min(1600px,94vw);max-height:86vh;width:auto;height:auto;cursor:zoom-in;',
     '  border-radius:10px;box-shadow:0 18px 60px rgba(0,0,0,.6);',
     '  transform:scale(.97);transition:transform .18s ease;background:#0b0e12}',
     '.sc-lb-ov.on .sc-lb-img{transform:scale(1)}',
+    '.sc-lb-img.zoomed{max-width:none;max-height:none;width:auto;flex:none;cursor:zoom-out}',
     '.sc-lb-cap{max-width:min(1600px,94vw);color:#e8eef5;font-size:13.5px;line-height:1.6;',
     '  text-align:center;text-shadow:0 1px 2px rgba(0,0,0,.5)}',
     '.sc-lb-cap strong{color:#fff}',
@@ -61,13 +64,28 @@
 
     var hint = document.createElement('div');
     hint.className = 'sc-lb-hint';
-    hint.textContent = 'クリックまたは Esc で閉じる';
+    hint.textContent = '画像をクリックで原寸ズーム（もう一度で戻す）／背景・Esc で閉じる';
 
     ov.appendChild(close);
     ov.appendChild(imgEl);
     ov.appendChild(capEl);
     ov.appendChild(hint);
     document.body.appendChild(ov);
+
+    // 画像クリック＝原寸ズームのトグル。
+    // 画面に収める既定表示だと、スマホでは拡大しても元と同じ大きさにしかならず
+    // 図や画面写真の文字が読めないため、原寸へ拡大してスクロール（パン）できるようにする。
+    imgEl.addEventListener('click', function () {
+      var z = imgEl.classList.toggle('zoomed');
+      ov.classList.toggle('zoom', z);
+      if (z) {
+        // 拡大直後は中央あたりを見せる（端から始まると迷子になる）
+        ov.scrollLeft = Math.max(0, (imgEl.offsetWidth - ov.clientWidth) / 2);
+        ov.scrollTop = 0;
+      } else {
+        ov.scrollLeft = 0; ov.scrollTop = 0;
+      }
+    });
 
     // 背景クリックで閉じる（画像・キャプション自体のクリックは無視）
     ov.addEventListener('click', function (e) {
@@ -83,6 +101,9 @@
   function openLb(src, alt, captionHtml, trigger) {
     if (!ov) build();
     lastFocus = trigger || null;
+    imgEl.classList.remove('zoomed');   // 前回のズーム状態を持ち越さない
+    ov.classList.remove('zoom');
+    ov.scrollLeft = 0; ov.scrollTop = 0;
     imgEl.src = src;
     imgEl.alt = alt || '';
     if (captionHtml) { capEl.innerHTML = captionHtml; capEl.style.display = ''; }
@@ -105,7 +126,7 @@
 
   function enhance() {
     injectStyle();
-    var imgs = document.querySelectorAll('img[src*="assets/shots/"]');
+    var imgs = document.querySelectorAll('img[src*="assets/shots/"],img[src*="assets/diagrams/"]');
     Array.prototype.forEach.call(imgs, function (img) {
       if (img.dataset.scLb) return;
       img.dataset.scLb = '1';
@@ -119,7 +140,7 @@
       // キーボード操作可能に（画像を button 相当に）
       img.setAttribute('role', 'button');
       img.setAttribute('tabindex', '0');
-      img.setAttribute('aria-label', (img.alt || 'スクリーンショット') + '（クリックで拡大）');
+      img.setAttribute('aria-label', (img.alt || '画像') + '（クリックで拡大）');
       img.addEventListener('click', function () { openLb(full, img.alt, capHtml, img); });
       img.addEventListener('keydown', function (e) {
         if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openLb(full, img.alt, capHtml, img); }

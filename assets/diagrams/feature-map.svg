@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 690" width="980" height="690" font-family="'Hiragino Kaku Gothic ProN','Noto Sans JP','Yu Gothic',sans-serif" role="img" aria-labelledby="fmTitle fmDesc">
+<title id="fmTitle">Ligastmir 機能マップ（主要機能・付随する機能・カスタム次第でできること）</title>
+<desc id="fmDesc">6つの主要機能（音声認識字幕・翻訳・コメント読み上げ・コメビュー弾幕・OBS連携・セーフティ診断）それぞれに付随する機能がぶら下がり、さらにカスタム次第でリアクション演出・チャネポ演出・着せ替え・常連バッジ・コメントピックアップ・定期コメント・辞書やダッシュボード構成の共有ができる、3層構造の機能マップ。コメントを使う機能は Twitch か YouTube のどちらかの接続で動き、通知演出とチャネポは Twitch 認証が必要、字幕はマイクだけで動く。</desc>
+<rect x="0" y="0" width="980" height="690" rx="16" fill="#0d1014"/>
+<rect x="0.5" y="0.5" width="979" height="689" rx="16" fill="none" stroke="#1f2730"/>
+<text x="30" y="40" fill="#e8edf2" font-size="20" font-weight="700">Ligastmir 機能マップ</text>
+<text x="30" y="63" fill="#8a97a5" font-size="12.5">使いたい機能だけONにすればOK。それぞれに付随機能があり、カスタム次第でさらに広がります。</text>
+
+<rect x="30" y="82" width="112" height="20" rx="5" fill="#151d16" stroke="#c8f542" stroke-opacity="0.5"/>
+<text x="42" y="96" fill="#c8f542" font-size="11.5" font-weight="700">① 主要機能</text>
+
+<g>
+<rect x="30" y="112" width="150" height="44" rx="9" fill="#151d16" stroke="#c8f542" stroke-opacity="0.55"/><text x="46" y="132" fill="#e8edf2" font-size="12.5" font-weight="700">音声認識字幕</text><text x="46" y="148" fill="#8a97a5" font-size="10.5">話した声を字幕に</text>
+<rect x="188" y="112" width="150" height="44" rx="9" fill="#151d16" stroke="#c8f542" stroke-opacity="0.55"/><text x="204" y="132" fill="#e8edf2" font-size="12.5" font-weight="700">翻訳</text><text x="204" y="148" fill="#8a97a5" font-size="10.5">字幕・コメントを訳す</text>
+<rect x="346" y="112" width="150" height="44" rx="9" fill="#151d16" stroke="#c8f542" stroke-opacity="0.55"/><text x="362" y="132" fill="#e8edf2" font-size="12.5" font-weight="700">コメント読み上げ</text><text x="362" y="148" fill="#8a97a5" font-size="10.5">コメントを声で</text>
+<rect x="504" y="112" width="150" height="44" rx="9" fill="#151d16" stroke="#c8f542" stroke-opacity="0.55"/><text x="520" y="132" fill="#e8edf2" font-size="12.5" font-weight="700">コメビュー・弾幕</text><text x="520" y="148" fill="#8a97a5" font-size="10.5">画面にコメント</text>
+<rect x="662" y="112" width="150" height="44" rx="9" fill="#151d16" stroke="#c8f542" stroke-opacity="0.55"/><text x="678" y="132" fill="#e8edf2" font-size="12.5" font-weight="700">OBS連携</text><text x="678" y="148" fill="#8a97a5" font-size="10.5">手元から操作</text>
+<rect x="820" y="112" width="150" height="44" rx="9" fill="#151d16" stroke="#c8f542" stroke-opacity="0.55"/><text x="836" y="132" fill="#e8edf2" font-size="12.5" font-weight="700">セーフティ・診断</text><text x="836" y="148" fill="#8a97a5" font-size="10.5">困ったときに</text>
+</g>
+
+<g stroke="#2e3a44" stroke-width="1.2">
+<path d="M105,156 L105,180"/><path d="M263,156 L263,180"/><path d="M421,156 L421,180"/><path d="M579,156 L579,180"/><path d="M737,156 L737,180"/><path d="M895,156 L895,180"/>
+</g>
+
+<rect x="30" y="186" width="142" height="20" rx="5" fill="#101a20" stroke="#5cc8ff" stroke-opacity="0.4"/>
+<text x="42" y="200" fill="#5cc8ff" font-size="11.5" font-weight="700">② 付随する機能</text>
+
+<g font-size="11.5" fill="#b9c6d1">
+<rect x="30" y="216" width="150" height="28" rx="7" fill="#101a20" stroke="#26343d"/><text x="42" y="234">翻訳字幕を別位置に</text>
+<rect x="30" y="249" width="150" height="28" rx="7" fill="#101a20" stroke="#26343d"/><text x="42" y="267">フォント5種</text>
+<rect x="30" y="282" width="150" height="28" rx="7" fill="#101a20" stroke="#26343d"/><text x="42" y="300">位置・行数・縁取り</text>
+
+<rect x="188" y="216" width="150" height="28" rx="7" fill="#101a20" stroke="#26343d"/><text x="200" y="234">字幕の英訳を2段で</text>
+<rect x="188" y="249" width="150" height="28" rx="7" fill="#101a20" stroke="#26343d"/><text x="200" y="267">海外コメントを和訳</text>
+<rect x="188" y="282" width="150" height="28" rx="7" fill="#101a20" stroke="#26343d"/><text x="200" y="300">DeepLキーで高品質</text>
+
+<rect x="346" y="216" width="150" height="28" rx="7" fill="#101a20" stroke="#26343d"/><text x="358" y="234">読み上げ辞書</text>
+<rect x="346" y="249" width="150" height="28" rx="7" fill="#101a20" stroke="#26343d"/><text x="358" y="267">NGワード・NGユーザー</text>
+<rect x="346" y="282" width="150" height="28" rx="7" fill="#101a20" stroke="#26343d"/><text x="358" y="300">声を3種から選ぶ</text>
+
+<rect x="504" y="216" width="150" height="28" rx="7" fill="#101a20" stroke="#26343d"/><text x="516" y="234">エモートふわふわ</text>
+<rect x="504" y="249" width="150" height="28" rx="7" fill="#101a20" stroke="#26343d"/><text x="516" y="267">常連バッジ</text>
+<rect x="504" y="282" width="150" height="28" rx="7" fill="#101a20" stroke="#26343d"/><text x="516" y="300">表示するPFを選ぶ</text>
+
+<rect x="662" y="216" width="150" height="28" rx="7" fill="#101a20" stroke="#26343d"/><text x="674" y="234">シーン切替</text>
+<rect x="662" y="249" width="150" height="28" rx="7" fill="#101a20" stroke="#26343d"/><text x="674" y="267">配信開始・停止</text>
+<rect x="662" y="282" width="150" height="28" rx="7" fill="#101a20" stroke="#26343d"/><text x="674" y="300">同伴起動・配信情報</text>
+
+<rect x="820" y="216" width="150" height="28" rx="7" fill="#101a20" stroke="#26343d"/><text x="832" y="234">軽い停止・一括切断</text>
+<rect x="820" y="249" width="150" height="28" rx="7" fill="#101a20" stroke="#26343d"/><text x="832" y="267">軽量モード</text>
+<rect x="820" y="282" width="150" height="28" rx="7" fill="#101a20" stroke="#26343d"/><text x="832" y="300">セーフモード・総合診断</text>
+</g>
+
+<g stroke="#2e3a44" stroke-width="1.2" stroke-dasharray="3 3">
+<path d="M105,310 L105,352"/><path d="M263,310 L263,352"/><path d="M421,310 L421,352"/><path d="M579,310 L579,352"/><path d="M737,310 L737,352"/><path d="M895,310 L895,352"/>
+</g>
+
+<rect x="30" y="356" width="940" height="242" rx="12" fill="#16121c" stroke="#b78cff" stroke-opacity="0.38"/>
+<rect x="46" y="372" width="220" height="20" rx="5" fill="#1d1726" stroke="#b78cff" stroke-opacity="0.5"/>
+<text x="58" y="386" fill="#b78cff" font-size="11.5" font-weight="700">③ カスタム次第でできること</text>
+<text x="280" y="386" fill="#8a97a5" font-size="11">使わなければ何も出ません。足したい人だけ足していく方式です。</text>
+
+<g font-size="12" fill="#e8edf2">
+<rect x="46" y="402" width="290" height="52" rx="8" fill="#120f18" stroke="#332a42"/><text x="60" y="422" font-weight="700">リアクション演出</text><text x="60" y="440" fill="#8a97a5" font-size="10.5">キーワード・スタンプ → 画像/音/絵文字</text>
+<rect x="346" y="402" width="290" height="52" rx="8" fill="#120f18" stroke="#332a42"/><text x="360" y="422" font-weight="700">チャネポ報酬で演出・辞書教育</text><text x="360" y="440" fill="#8a97a5" font-size="10.5">報酬ごとの画像/音・視聴者が読みを登録</text>
+<rect x="646" y="402" width="290" height="52" rx="8" fill="#120f18" stroke="#332a42"/><text x="660" y="422" font-weight="700">着せ替え</text><text x="660" y="440" fill="#8a97a5" font-size="10.5">アラート画像・効果音・吹き出し</text>
+
+<rect x="46" y="464" width="290" height="52" rx="8" fill="#120f18" stroke="#332a42"/><text x="60" y="484" font-weight="700">進化する常連バッジ</text><text x="60" y="502" fill="#8a97a5" font-size="10.5">段数・名前・色を自分好みに</text>
+<rect x="346" y="464" width="290" height="52" rx="8" fill="#120f18" stroke="#332a42"/><text x="360" y="484" font-weight="700">コメントピックアップ</text><text x="360" y="502" fill="#8a97a5" font-size="10.5">選んだコメントを質問カードで表示</text>
+<rect x="646" y="464" width="290" height="52" rx="8" fill="#120f18" stroke="#332a42"/><text x="660" y="484" font-weight="700">定期コメント・チャットコマンド</text><text x="660" y="502" fill="#8a97a5" font-size="10.5">自動投稿・「!教育」等の権限設定</text>
+
+<rect x="46" y="526" width="440" height="52" rx="8" fill="#120f18" stroke="#332a42"/><text x="60" y="546" font-weight="700">辞書パック・構成の共有</text><text x="60" y="564" fill="#8a97a5" font-size="10.5">配信者どうしで受け渡し（機微情報は含まない）</text>
+<rect x="496" y="526" width="440" height="52" rx="8" fill="#120f18" stroke="#332a42"/><text x="510" y="546" font-weight="700">ダッシュボードを自分好みに</text><text x="510" y="564" fill="#8a97a5" font-size="10.5">ウィジェット自由配置・稼働中表示・機能依存</text>
+</g>
+
+<rect x="30" y="612" width="940" height="58" rx="10" fill="#1c1410" stroke="#5a3a1a"/>
+<text x="46" y="632" fill="#e6b877" font-size="11.5" font-weight="700">つながり（何が要る？）</text>
+<g>
+<text x="46" y="653" fill="#e6b877" font-size="10.5">コメントを使う機能</text>
+<text x="46" y="666" fill="#a98862" font-size="10">読み上げ・翻訳・弾幕・バッジ → Twitch / YouTube どちらかでOK</text>
+</g>
+<g>
+<text x="420" y="653" fill="#e6b877" font-size="10.5">通知演出・チャネポ</text>
+<text x="420" y="666" fill="#a98862" font-size="10">→ Twitch 認証が必要</text>
+</g>
+<g>
+<text x="700" y="653" fill="#e6b877" font-size="10.5">字幕</text>
+<text x="700" y="666" fill="#a98862" font-size="10">→ マイクだけで動きます</text>
+</g>
+</svg>

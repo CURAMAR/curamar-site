@@ -70,6 +70,12 @@
   .cred-ava{width:38px;height:38px;border-radius:50%;object-fit:cover;background:var(--bg-line);flex:none}
   .cred-name{font-size:14.5px;font-weight:600;color:var(--ink)}
   .cred-empty{color:var(--ink-dim);font-size:14px}
+  /* 拡張カード（tags/comment がある協力者＝紹介つき）。無い人は従来のピルのまま */
+  .cred-card.rich{flex-direction:column;align-items:flex-start;border-radius:14px;padding:14px 16px;gap:8px;max-width:320px}
+  .cred-card.rich .cred-head{display:flex;align-items:center;gap:10px}
+  .cred-tags{display:flex;flex-wrap:wrap;gap:5px}
+  .cred-tag{font-size:10.5px;color:var(--accent-cool);border:1px solid rgba(92,200,255,.35);border-radius:999px;padding:1px 9px;white-space:nowrap}
+  .cred-note{font-size:12px;color:var(--ink-dim);line-height:1.7}
 
   footer{border-top:1px solid var(--bg-line);padding:34px 0;margin-top:44px}
   .foot{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px}
@@ -164,8 +170,22 @@
         // アイコンのフォールバック: icon が空なら名前だけ（崩れない）。本人アイコンは色を染めない。
         var hasIcon = !!(c.icon && String(c.icon).trim());
         var ava = hasIcon ? '<img class="cred-ava" src="' + esc(c.icon) + '" alt="' + name + '" loading="lazy">' : '';
-        html += '<a class="cred-card' + (hasIcon ? '' : ' no-ava') + '" href="' + url + '" target="_blank" rel="noopener">' +
-                ava + '<span class="cred-name">' + name + '</span></a>';
+        // 拡張スキーマ（すべて任意・後方互換）: tags=配列（本人確認済みのみ・表示は最大7）／comment=一言紹介。
+        // どちらかがあればリッチカード、無ければ従来のピル表示。
+        var tags = Array.isArray(c.tags) ? c.tags.slice(0, 7) : [];
+        var note = (c.comment && String(c.comment).trim()) ? String(c.comment).trim() : '';
+        if (tags.length || note) {
+          var tagHtml = tags.length
+            ? '<span class="cred-tags">' + tags.map(function(t){ return '<span class="cred-tag">' + esc(t) + '</span>'; }).join('') + '</span>'
+            : '';
+          var noteHtml = note ? '<span class="cred-note">' + esc(note) + '</span>' : '';
+          html += '<a class="cred-card rich' + (hasIcon ? '' : ' no-ava') + '" href="' + url + '" target="_blank" rel="noopener">' +
+                  '<span class="cred-head">' + ava + '<span class="cred-name">' + name + '</span></span>' +
+                  tagHtml + noteHtml + '</a>';
+        } else {
+          html += '<a class="cred-card' + (hasIcon ? '' : ' no-ava') + '" href="' + url + '" target="_blank" rel="noopener">' +
+                  ava + '<span class="cred-name">' + name + '</span></a>';
+        }
       });
       html += '</div></section>';
     });

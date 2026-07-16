@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 350" width="780" height="350" font-family="'Hiragino Kaku Gothic ProN','Noto Sans JP','Yu Gothic',sans-serif" role="img" aria-labelledby="fmrcTitle fmrcDesc">
+<title id="fmrcTitle">リアクション演出の相関図</title>
+<desc id="fmrcDesc">コメント取得（キーワードやスタンプの発火元）があればコメントで演出を出せる。フォローなどのイベント発火にはTwitch認証と通知（任意）。付随機能はクールダウンによる連打対策・テスト発火・素材なしでも動く既定演出。カスタム次第で画像や効果音や絵文字の割り当て・チャネポ報酬ごとの専用演出・イベントでの発火まで広がる。</desc>
+<defs>
+<marker id="ahrc" markerWidth="7" markerHeight="7" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#4a5a68"/></marker>
+</defs>
+<rect x="0" y="0" width="780" height="350" rx="14" fill="#0d1014"/>
+<rect x="0.5" y="0.5" width="779" height="349" rx="14" fill="none" stroke="#1f2730"/>
+
+<rect x="20" y="16" width="104" height="20" rx="5" fill="#151d16" stroke="#c8f542" stroke-opacity="0.5"/>
+<text x="32" y="30" fill="#c8f542" font-size="11.5" font-weight="700">必要なもの</text>
+
+<rect x="20" y="46" width="220" height="46" rx="9" fill="#151d16" stroke="#c8f542" stroke-opacity="0.55"/>
+<text x="34" y="66" fill="#e8edf2" font-size="12.5" font-weight="700">コメント取得</text>
+<text x="34" y="83" fill="#8a97a5" font-size="10.5">キーワード・スタンプの発火元</text>
+
+<rect x="20" y="104" width="220" height="46" rx="9" fill="#151d16" stroke="#c8f542" stroke-opacity="0.55"/>
+<text x="34" y="124" fill="#e8edf2" font-size="12.5" font-weight="700">Twitch認証＋通知</text>
+<text x="34" y="141" fill="#8a97a5" font-size="10.5">イベント発火に使う場合のみ（任意）</text>
+
+<g stroke="#38444f" fill="none" marker-end="url(#ahrc)" stroke-width="1.4">
+<path d="M240,69 C265,69 265,85 288,88"/>
+<path d="M240,127 C265,127 265,110 288,106"/>
+<path d="M480,97 C505,97 505,61 528,61"/>
+<path d="M480,97 L528,97"/>
+<path d="M480,97 C505,97 505,133 528,133"/>
+</g>
+<path d="M385,130 L385,192" stroke="#38444f" fill="none" marker-end="url(#ahrc)" stroke-width="1.4" stroke-dasharray="3 3"/>
+
+<rect x="290" y="64" width="190" height="64" rx="10" fill="#101a20" stroke="#5cc8ff" stroke-opacity="0.6"/>
+<text x="308" y="92" fill="#e8edf2" font-size="13.5" font-weight="700">コメントで演出を出す</text>
+<text x="308" y="111" fill="#5cc8ff" font-size="10.5">このページの機能</text>
+
+<rect x="528" y="16" width="126" height="20" rx="5" fill="#101a20" stroke="#5cc8ff" stroke-opacity="0.4"/>
+<text x="540" y="30" fill="#5cc8ff" font-size="11.5" font-weight="700">付随する機能</text>
+
+<g font-size="11.5" fill="#b9c6d1">
+<rect x="528" y="46" width="232" height="30" rx="7" fill="#101a20" stroke="#26343d"/><text x="542" y="65">クールダウン（連打対策）</text>
+<rect x="528" y="82" width="232" height="30" rx="7" fill="#101a20" stroke="#26343d"/><text x="542" y="101">テスト発火で見た目を確認</text>
+<rect x="528" y="118" width="232" height="30" rx="7" fill="#101a20" stroke="#26343d"/><text x="542" y="137">素材なしでも既定演出で動く</text>
+</g>
+
+<rect x="20" y="196" width="740" height="134" rx="12" fill="#16121c" stroke="#b78cff" stroke-opacity="0.38"/>
+<rect x="36" y="210" width="196" height="20" rx="5" fill="#1d1726" stroke="#b78cff" stroke-opacity="0.5"/>
+<text x="48" y="224" fill="#b78cff" font-size="11.5" font-weight="700">カスタム次第で広がる</text>
+<text x="246" y="224" fill="#8a97a5" font-size="10.5">何も登録しなければ演出は出ません（動作も軽いまま）</text>
+
+<g font-size="12" fill="#e8edf2">
+<rect x="36" y="242" width="232" height="56" rx="8" fill="#120f18" stroke="#332a42"/>
+<text x="50" y="264" font-weight="700">画像・音・絵文字を割当</text>
+<text x="50" y="283" fill="#8a97a5" font-size="10">自分の素材で演出を作れる</text>
+<rect x="278" y="242" width="232" height="56" rx="8" fill="#120f18" stroke="#332a42"/>
+<text x="292" y="264" font-weight="700">チャネポ報酬ごとの演出</text>
+<text x="292" y="283" fill="#8a97a5" font-size="10">報酬づかいに専用の画像・音を</text>
+<rect x="520" y="242" width="232" height="56" rx="8" fill="#120f18" stroke="#332a42"/>
+<text x="534" y="264" font-weight="700">イベントでも発火</text>
+<text x="534" y="283" fill="#8a97a5" font-size="10">フォロー・サブスク・レイドで演出</text>
+</g>
+</svg>

@@ -1,6 +1,8 @@
 [
   { "name": "もるふぉ_ゆかり", "url": "https://www.twitch.tv/morpho_07",      "category": "tool",    "icon": "" },
-  { "name": "くろい人",        "url": "https://www.twitch.tv/black_3600",     "category": "tool",    "icon": "" },
+  { "name": "くろい人", "url": "https://www.twitch.tv/black_3600", "category": "tool", "icon": "",
+    "tags": ["テスター"],
+    "comment": "FPS・シミュレーション・TRPG など、PCゲームをジャンル問わず遊ぶ人。curamar とは配信最初期から6〜7年の付き合いで、トークが達者。" },
   { "name": "ねこだんちょ",     "url": "https://www.twitch.tv/nekodancyo0615", "category": "tool",    "icon": "" },
   { "name": "ずさんな嫁田",     "url": "https://www.twitch.tv/zusanmayomeda",  "category": "tool",    "icon": "" },
   { "name": "うばちゃんちゃん",  "url": "https://www.twitch.tv/uvertyan2525",   "category": "tool",    "icon": "" }

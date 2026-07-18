@@ -69,6 +69,27 @@
   .qa .a strong{color:var(--ink)}
   .qa .more{font-size:13px;margin-top:8px;font-family:var(--font-mono)}
 
+  /* 絞り込み・ジャンプ（2026-07-18） */
+  .faq-tools{margin-bottom:26px}
+  .faq-search{position:relative;margin-bottom:12px}
+  .faq-search input{width:100%;background:var(--bg-soft);border:1px solid var(--bg-line);border-radius:10px;
+    color:var(--ink);font-family:var(--font-body);font-size:15px;padding:12px 14px 12px 40px;line-height:1.6}
+  .faq-search input:focus{outline:none;border-color:var(--accent-cool)}
+  .faq-search input::placeholder{color:var(--ink-dim)}
+  .faq-search::before{content:"🔍";position:absolute;left:14px;top:50%;transform:translateY(-50%);font-size:14px;opacity:.7}
+  .faq-chips{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+  .faq-chips a{font-size:13px;color:var(--ink-dim);border:1px solid var(--bg-line);background:var(--bg-soft);
+    border-radius:999px;padding:6px 13px;text-decoration:none}
+  .faq-chips a:hover{color:var(--ink);border-color:var(--accent-cool)}
+  .faq-count{font-family:var(--font-mono);font-size:12px;color:var(--ink-dim);margin-left:auto}
+  .faq-empty{background:var(--bg-soft);border:1px dashed var(--bg-line);border-radius:12px;
+    padding:22px;text-align:center;color:var(--ink-dim);font-size:14px}
+
+  /* 画面で見る */
+  figure{margin:18px 0 22px}
+  figure img{width:100%;height:auto;display:block;border:1px solid var(--bg-line);border-radius:10px;cursor:zoom-in}
+  figcaption{font-size:13px;color:var(--ink-dim);margin-top:8px}
+
   .lead-card{border-left:3px solid var(--accent-cool);background:var(--bg-soft);padding:14px 18px;border-radius:0 10px 10px 0;margin-bottom:24px;font-size:14px;color:var(--ink-dim)}
   .lead-card strong{color:var(--ink)}
 
@@ -110,7 +131,20 @@
       詳しい手順は<strong><a href="guide.html">使い方ページ</a></strong>、最短で始めるなら<strong><a href="quickstart.html">3分ではじめる</a></strong>へ。
     </div>
 
-    <h2>💡 導入前の疑問</h2>
+    <div class="faq-tools">
+      <div class="faq-search">
+        <label for="faq-q" class="sr-only" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">質問を絞り込む</label>
+        <input id="faq-q" type="search" placeholder="キーワードで絞り込む（例：字幕 / 翻訳 / VOICEVOX / OBS）" autocomplete="off">
+      </div>
+      <div class="faq-chips">
+        <a href="#before">💡 導入前</a>
+        <a href="#symptom">🔧 症状から</a>
+        <a href="#goal">🎯 目的から</a>
+        <span class="faq-count" id="faq-count"></span>
+      </div>
+    </div>
+
+    <h2 id="before">💡 導入前の疑問</h2>
 
     <div class="qa">
       <div class="q">今使っている配信ツール（わんコメ等）と併用できる?</div>
@@ -182,12 +216,16 @@
       <div class="more">→ <a href="verify.html">本物の見分け方・偽配布の注意</a></div>
     </div>
 
-    <h2 class="sym">🔧 症状から探す</h2>
+    <h2 class="sym" id="symptom">🔧 症状から探す</h2>
 
     <div class="qa">
       <div class="q">OBSに字幕やコメビューが表示されない</div>
       <div class="a">ブラウザソースの<strong>「非アクティブ時にソースをシャットダウンする」のチェックを外す</strong>のが第一手。次に Ligastmir が起動しているか（ソース右上の赤ドットが消える＝接続）、URLが正しいかを確認します。<strong>Ligastmir を OBS より先に起動</strong>（またはOBSの同伴起動を使用）すると確実です。</div>
       <div class="more">→ <a href="guide.html#obs-source">使い方 ② OBSに表示する</a></div>
+      <figure>
+        <img src="assets/shots/bsource-urls.webp" alt="Ligastmirのブラウザソース一覧画面。字幕・コメントビュー・アラートなどOBSに貼るURLがコピーボタン付きで並んでいる" width="1440" height="900" loading="lazy">
+        <figcaption>OBSに貼るURLはこの一覧からコピーします（クリックで拡大）。</figcaption>
+      </figure>
     </div>
 
     <div class="qa">
@@ -232,6 +270,10 @@
       <div class="q">字幕だけ使いたい</div>
       <div class="a">マイクを選んで音声認識をON → 字幕URLをOBSに貼るだけ。チャット接続は不要です。</div>
       <div class="more">→ <a href="feature-subtitle.html">OBSに音声認識字幕を表示する方法</a></div>
+      <figure>
+        <img src="assets/shots/subtitle-obs.webp" alt="OBSに表示された音声認識字幕の例。日本語字幕の下に英語の翻訳字幕が出ている" width="1920" height="1080" loading="lazy">
+        <figcaption>できあがりの例：話すとこんなふうに字幕が出ます（翻訳ON時は英訳も）。</figcaption>
+      </figure>
     </div>
 
     <div class="qa">
@@ -295,5 +337,47 @@
   </div>
 </footer>
 <script src="/sitemap.js" defer></script>
+<script src="/lightbox.js" defer></script>
+<script>
+// FAQ 絞り込み（自己完結・依存なし）：質問＋回答のテキストで即時フィルタ。
+(function(){
+  var input = document.getElementById('faq-q');
+  var count = document.getElementById('faq-count');
+  if(!input) return;
+  var article = input.closest('article');
+  var items = [].slice.call(article.querySelectorAll('.qa')).map(function(el){
+    return {el: el, text: (el.textContent || '').toLowerCase()};
+  });
+  var heads = [].slice.call(article.querySelectorAll('h2'));
+  var empty = document.createElement('div');
+  empty.className = 'faq-empty';
+  empty.hidden = true;
+  empty.innerHTML = '該当する質問が見つかりませんでした。<a href="guide.html">使い方ページ</a>や<a href="https://discord.gg/QtQcEgn9JF" target="_blank" rel="noopener">Discord</a>で聞いてください。';
+  article.appendChild(empty);
+
+  function apply(){
+    var q = input.value.trim().toLowerCase();
+    var hit = 0;
+    items.forEach(function(it){
+      var show = !q || it.text.indexOf(q) !== -1;
+      it.el.hidden = !show;
+      if(show) hit++;
+    });
+    // 中身が全部隠れた見出しは畳む
+    heads.forEach(function(h){
+      var any = false;
+      for(var n = h.nextElementSibling; n && n.tagName !== 'H2'; n = n.nextElementSibling){
+        if(n.classList.contains('qa') && !n.hidden){ any = true; break; }
+      }
+      h.hidden = !any;
+    });
+    empty.hidden = hit !== 0;
+    count.textContent = q ? hit + ' / ' + items.length + ' 件' : items.length + ' 件の質問';
+  }
+  input.addEventListener('input', apply);
+  input.addEventListener('keydown', function(e){ if(e.key === 'Escape'){ input.value = ''; apply(); } });
+  apply();
+})();
+</script>
 </body>
 </html>

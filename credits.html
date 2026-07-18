@@ -196,9 +196,11 @@
         // アイコンのフォールバック: icon が空なら名前だけ（崩れない）。本人アイコンは色を染めない。
         var hasIcon = !!(c.icon && String(c.icon).trim());
         var ava = hasIcon ? '<img class="cred-ava" src="' + esc(c.icon) + '" alt="' + name + '" loading="lazy">' : '';
-        // 拡張スキーマ（すべて任意・後方互換）: tags=配列（本人確認済みのみ・表示は最大7）／comment=一言紹介。
+        // 拡張スキーマ（すべて任意・後方互換）: tags=配列（本人確認済みのみ・表示は最大12）／comment=一言紹介。
+        // A〜G を全部選ぶ人＋ゲームタグ複数、が普通にあり得るので上限は余裕を持たせる
+        // （タグ行は折り返すので、増えてもカードが縦に伸びるだけで崩れない）。
         // どちらかがあればリッチカード、無ければ従来のピル表示。
-        var tags = Array.isArray(c.tags) ? c.tags.slice(0, 7) : [];
+        var tags = Array.isArray(c.tags) ? c.tags.slice(0, 12) : [];
         var note = (c.comment && String(c.comment).trim()) ? String(c.comment).trim() : '';
         // links=[{label,url}]（任意）: 同時配信などで掲載先が複数ある人の2本目以降。
         // リンクを入れ子にできないので、links があるカードは <a> ではなく <div> で組む。

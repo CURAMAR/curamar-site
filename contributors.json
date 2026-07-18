@@ -1,5 +1,9 @@
 [
-  { "name": "もるふぉ_ゆかり", "url": "https://www.twitch.tv/morpho_07",      "category": "tool",    "icon": "" },
+  { "name": "もるふぉ_ゆかり", "url": "https://www.twitch.tv/morpho_07", "category": "tool",
+    "icon": "assets/contributors/morpho_yukari.png",
+    "tags": ["テスター", "不具合報告", "アイデア出し", "紹介・宣伝協力", "クリエイター・素材協力", "初心者目線チェック", "外部連携の検証", "DBD", "マイクラ", "モンハン"],
+    "comment": "ゲームしながらおしゃべりするの大好きです☆ Twitch＆YouTube でゆるっと、まったり配信なのでコメントお待ちしてます！",
+    "links": [{ "label": "YouTube でも配信中", "url": "https://www.youtube.com/@%E3%82%82%E3%82%8B%E3%81%B5%E3%81%89_%E3%82%86%E3%81%8B%E3%82%8A" }] },
   { "name": "くろい人", "url": "https://www.twitch.tv/black_3600", "category": "tool", "icon": "assets/contributors/kuroihito.png",
     "tags": ["テスター", "不具合報告", "アイデア出し"],
     "comment": "FPS・シミュレーション・TRPG など、PCゲームをジャンル問わず遊ぶ人。curamar とは配信最初期から6〜7年の付き合いで、トークが達者。" },

@@ -23,6 +23,9 @@
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"SoftwareApplication","name":"Ligastmir","applicationCategory":"MultimediaApplication","operatingSystem":"Windows 10, Windows 11","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"},"description":"Twitch / YouTube 対応の個人配信支援ツール。コメント読み上げ（VOICEVOX / SAPI5 / 棒読みちゃん）、字幕翻訳、コメビュー、OBS連携、視聴者バッジ・チャンネルポイント演出。","url":"https://curamar.space/ligastmir.html","author":{"@type":"Person","name":"curamar","url":"https://curamar.space/"}}
 </script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"VideoObject","name":"Ligastmir の機能構造 — コメント・視聴者アクション・声をまとめて配信支援","description":"配信支援ツール Ligastmir が、Twitch / YouTube のコメント、フォローやサブスクなどの視聴者アクション、マイクの声をまとめ、字幕・翻訳・読み上げ・コメビュー・演出・セーフティに分けて出力する仕組みを示した説明アニメーション。","thumbnailUrl":"https://curamar.space/assets/video/structure-poster.jpg","uploadDate":"2026-07-18","contentUrl":"https://curamar.space/assets/video/structure.mp4","publisher":{"@type":"Person","name":"curamar","url":"https://curamar.space/"}}
+</script>
 <style>
   :root{
     --bg:#0d1014;--bg-soft:#141a21;--bg-line:#1f2730;
@@ -129,6 +132,12 @@
   .cta p{color:var(--ink-dim);font-size:14px;margin-bottom:22px}
   .cta .btn-row{justify-content:center}
 
+  /* ヒーロー動画（機能構造の説明アニメ） */
+  .hero-media{max-width:var(--maxw);margin:34px auto 0;position:relative}
+  .hero-media video{display:block;width:100%;height:auto;border-radius:16px;border:1px solid var(--bg-line);background:#0d1014;box-shadow:0 20px 60px rgba(0,0,0,.4)}
+  .hero-media figcaption{margin-top:13px;text-align:center;font-size:13.5px;color:var(--ink-dim);line-height:1.8;max-width:760px;margin-left:auto;margin-right:auto}
+  .hero-media figcaption strong{color:var(--ink)}
+
   footer{border-top:1px solid var(--bg-line);padding:36px 0;margin-top:48px}
   .foot{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
   .foot .links{display:flex;gap:18px;font-size:14px;flex-wrap:wrap}
@@ -173,6 +182,12 @@
       <a class="btn ghost" href="guide.html">使い方を見る</a>
     </div>
   </section>
+
+  <figure class="hero-media">
+    <video src="assets/video/structure.mp4" poster="assets/video/structure-poster.jpg" autoplay loop muted playsinline preload="metadata"
+           aria-label="Ligastmir の機能構造アニメーション。Twitch / YouTube のコメント、フォローやサブスクなどの視聴者アクション、マイクの声を Ligastmir がまとめ、字幕・翻訳・読み上げ・コメビュー・演出・セーフティに分けて出力する様子。"></video>
+    <figcaption><strong>コメント・視聴者アクション・マイクの声</strong>を Ligastmir がまとめ、<strong>字幕 / 翻訳 / 読み上げ / コメビュー / 演出 / セーフティ</strong>へ。使いたい機能だけONにできます。</figcaption>
+  </figure>
 </div>
 
 <hr class="divider">

@@ -84,6 +84,13 @@
   .cred-tags{display:flex;flex-wrap:wrap;gap:5px}
   .cred-tag{font-size:10.5px;color:var(--accent-cool);border:1px solid rgba(92,200,255,.35);border-radius:999px;padding:1px 9px;white-space:nowrap}
   .cred-note{font-size:12px;color:var(--ink-dim);line-height:1.7}
+  /* 追加リンク（同時配信など、掲載先が複数ある人の2本目以降） */
+  .cred-links{display:flex;flex-wrap:wrap;gap:6px}
+  .cred-link{font-size:11px;color:var(--ink-dim);border:1px solid var(--bg-line);
+    border-radius:999px;padding:2px 10px;text-decoration:none;white-space:nowrap}
+  .cred-link:hover{color:var(--ink);border-color:var(--accent-cool)}
+  .cred-card.rich .cred-name{text-decoration:none;color:var(--ink);align-self:flex-start}
+  .cred-card.rich .cred-name:hover{text-decoration:underline;text-underline-offset:3px}
 
   footer{border-top:1px solid var(--bg-line);padding:34px 0;margin-top:44px}
   .foot{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px}
@@ -182,7 +189,12 @@
         // どちらかがあればリッチカード、無ければ従来のピル表示。
         var tags = Array.isArray(c.tags) ? c.tags.slice(0, 7) : [];
         var note = (c.comment && String(c.comment).trim()) ? String(c.comment).trim() : '';
-        if (tags.length || note) {
+        // links=[{label,url}]（任意）: 同時配信などで掲載先が複数ある人の2本目以降。
+        // リンクを入れ子にできないので、links があるカードは <a> ではなく <div> で組む。
+        var links = Array.isArray(c.links)
+          ? c.links.filter(function(l){ return l && l.url && l.label; }).slice(0, 3)
+          : [];
+        if (tags.length || note || links.length) {
           var tagHtml = tags.length
             ? '<span class="cred-tags">' + tags.map(function(t){ return '<span class="cred-tag">' + esc(t) + '</span>'; }).join('') + '</span>'
             : '';
@@ -191,10 +203,20 @@
           var portrait = hasIcon
             ? '<img class="cred-portrait" src="' + esc(c.icon) + '" alt="' + name + '" loading="lazy">'
             : '';
-          html += '<a class="cred-card rich' + (hasIcon ? '' : ' no-ava') + '" href="' + url + '" target="_blank" rel="noopener">' +
-                  portrait +
-                  '<span class="cred-body"><span class="cred-name">' + name + '</span>' +
-                  tagHtml + noteHtml + '</span></a>';
+          var linkHtml = links.length
+            ? '<span class="cred-links">' + links.map(function(l){
+                return '<a class="cred-link" href="' + esc(l.url) + '" target="_blank" rel="noopener">' +
+                       esc(l.label) + '</a>';
+              }).join('') + '</span>'
+            : '';
+          var portraitHtml = portrait
+            ? '<a href="' + url + '" target="_blank" rel="noopener">' + portrait + '</a>'
+            : '';
+          html += '<div class="cred-card rich' + (hasIcon ? '' : ' no-ava') + '">' +
+                  portraitHtml +
+                  '<span class="cred-body">' +
+                  '<a class="cred-name" href="' + url + '" target="_blank" rel="noopener">' + name + '</a>' +
+                  tagHtml + noteHtml + linkHtml + '</span></div>';
         } else {
           html += '<a class="cred-card' + (hasIcon ? '' : ' no-ava') + '" href="' + url + '" target="_blank" rel="noopener">' +
                   ava + '<span class="cred-name">' + name + '</span></a>';

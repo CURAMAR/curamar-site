@@ -7,5 +7,9 @@
     "tags": ["テスター", "不具合報告", "紹介・宣伝協力"],
     "comment": "Twitch にて DBD（Dead by Daylight）サバイバーメインで配信中。絵もゲームもうまく、軽快なトークでリスナーに愛されている配信者。" },
   { "name": "ずさんな嫁田",     "url": "https://www.twitch.tv/zusanmayomeda",  "category": "tool",    "icon": "" },
-  { "name": "うばちゃんちゃん",  "url": "https://www.twitch.tv/uvertyan2525",   "category": "tool",    "icon": "" }
+  { "name": "うばちゃんちゃん",  "url": "https://www.twitch.tv/uvertyan2525",   "category": "tool",    "icon": "" },
+  { "name": "KICK",             "url": "https://www.twitch.tv/kick_bmt",       "category": "tool",    "icon": "" },
+  { "name": "ももちくん",        "url": "https://www.twitch.tv/momochikun0",    "category": "tool",    "icon": "" },
+  { "name": "ドテラ小僧", "url": "https://www.youtube.com/@asaki-dotera", "category": "tool", "icon": "",
+    "links": [{ "label": "Twitch でも配信中", "url": "https://www.twitch.tv/dotera_kozo_asaki" }] }
 ]

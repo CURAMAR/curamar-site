@@ -98,6 +98,18 @@
   .tcase{background:var(--bg-soft);border:1px solid var(--bg-line);border-radius:12px;padding:16px 20px;margin-bottom:14px;scroll-margin-top:74px}
   .tcase .cause{font-size:13px;color:var(--ink-dim);margin-bottom:8px}
   .tcase ul,.tcase ol{font-size:14px;margin:6px 0}
+  /* 説明動画 */
+  .gvid{margin:22px 0 26px;background:var(--bg-soft);border:1px solid var(--bg-line);border-radius:12px;overflow:hidden}
+  .gvid video{display:block;width:100%;height:auto;background:#0d1014}
+  .gvid figcaption{font-size:12.5px;color:var(--ink-dim);padding:9px 13px;line-height:1.6}
+  .gvid figcaption strong{color:var(--ink)}
+  /* 症状から探す＝折りたたみ（開くまでは一覧として読める） */
+  details.tcase>summary{cursor:pointer;list-style:none;display:flex;align-items:flex-start;gap:9px}
+  details.tcase>summary::-webkit-details-marker{display:none}
+  details.tcase>summary::before{content:"▶";color:var(--accent-cool);font-size:11px;line-height:1.9;transition:transform .15s;flex:none}
+  details.tcase[open]>summary::before{transform:rotate(90deg)}
+  details.tcase>summary h3{margin:0}
+  details.tcase[open]>summary{margin-bottom:10px;padding-bottom:9px;border-bottom:1px solid var(--bg-line)}
   .jump{font-size:14px;margin-top:12px;color:var(--ink-dim);display:flex;align-items:center;flex-wrap:wrap;gap:4px}
   .jump a{font-family:var(--font-body);display:inline-flex;align-items:center;gap:6px;background:var(--bg);border:1px solid var(--bg-line);border-radius:999px;padding:5px 13px;margin:2px 4px 2px 0;color:var(--accent-cool);font-size:13.5px;transition:border-color .2s,color .2s}
   .jump a:hover{border-color:var(--accent-cool);color:var(--ink)}
@@ -155,6 +167,13 @@
     </div>
 
     <!-- ===================== セクションA：使い方 ===================== -->
+
+    <figure class="gvid">
+      <video src="assets/video/structure.mp4" poster="assets/video/structure-poster.jpg" autoplay loop muted playsinline preload="metadata"
+             aria-label="Ligastmir の機能構造アニメーション。コメント・視聴者アクション・マイクの声をまとめ、字幕・翻訳・読み上げ・コメビュー・演出・セーフティに分けて出力する様子。"></video>
+      <figcaption><strong>全体像</strong> — コメント・視聴者アクション・声を Ligastmir がまとめ、字幕 / 翻訳 / 読み上げ / コメビュー / 演出 / セーフティ へ。<strong>使いたい機能だけ</strong>ONにすればOKです。</figcaption>
+    </figure>
+
 
     <h2 id="start">① まず起動する</h2>
     <div class="safe"><strong>起動は必ず <code>起動.bat</code> から。</strong> <code>Ligastmir.exe</code> を直接ダブルクリックしないでください。<span class="muted">初回は「ネットからダウンロードしたファイルのブロック」が付いていて、exe を直接起動すると <code>Failed to resolve … Python.Runtime.dll</code> のようなエラーで<strong>すぐ閉じてしまう</strong>ことがあります。<code>起動.bat</code> はこのブロックを自動で解除してから起動するので確実です。</span></div>
@@ -222,6 +241,12 @@
     <div class="warn-box"><strong>OBSを「管理者として実行」にしている場合の注意：</strong> 同伴起動のたびに Windows の確認（UAC）が出て、閉じる時の<strong>自動終了も使えません</strong>。<span class="muted">OBSは<strong>もともと管理者権限は不要</strong>で、既定でもオフです（管理者が必要なのは、管理者権限で動くゲームを「ゲームキャプチャ」する場合など、限られたケースだけ）。心当たりがなければ、OBSのショートカット/exe を右クリック →「プロパティ」→「互換性」で<strong>「管理者としてこのプログラムを実行する」のチェックを外す</strong>と、確認なしで同伴起動も自動終了も使えます。外して困るのは、そのゲームのゲームキャプチャが真っ黒になった時だけ（その場合は戻してください）。※シーン切替など OBS連携（WebSocket）は、管理者でもそうでなくても問題なく動きます。</span></div>
     <div class="safe"><strong>アラート用の画像・音声素材について：</strong> アラート演出に表示する画像や効果音は、<strong>ご自身が利用権を持つ素材</strong>をご使用ください。フリー素材を使う場合も配布元の利用規約（再配布可否・クレジット要否・商用可否など）を必ずご確認ください。<span class="muted">※Ligastmir 自体にアラート用の画像・音は同梱されていません。</span></div>
 
+    <figure class="gvid">
+      <video src="assets/video/companion.mp4" poster="assets/video/companion-poster.jpg" autoplay loop muted playsinline preload="metadata"
+             aria-label="Ligastmir を起動すると OBS・VOICEVOX・棒読みちゃん・わんコメが一緒に立ち上がり、配信中は守り、終了時に一緒に閉じる同伴機能のアニメーション。"></video>
+      <figcaption><strong>同伴機能</strong> — Ligastmir を起動すると、OBS・VOICEVOX・棒読みちゃん・わんコメも一緒に立ち上がります。起動の順番も管理し、終わったら一緒に後片付け。</figcaption>
+    </figure>
+
     <h2 id="skin">⑦ 見た目を着せ替える（画像・効果音）</h2>
     <p>「<span class="pill">🎨 着せ替え</span>」ページで、アラートやコメビューに<strong>自分の画像・効果音を割り当てて</strong>見た目を変えられます。絵を描く機能ではなく、用意した素材を決まった場所にはめ込む方式です。<span class="muted">使わない場合はスキップでOK（既定の見た目のまま動きます）。</span></p>
     <ol>
@@ -268,8 +293,8 @@
 
     <h2 id="troubleshoot" class="ts">こんな時は（症状から探す）</h2>
 
-    <div class="tcase">
-      <h3>読み上げ（TTS）が遅い・コメントから遅れて読まれる</h3>
+    <details class="tcase">
+      <summary><h3>読み上げ（TTS）が遅い・コメントから遅れて読まれる</h3></summary>
       <div class="cause">原因は主に2つ：賑やかな時の「順番待ち（キュー渋滞）」と、エンジン合成の重さ（特にVOICEVOXはPC性能に依存）。</div>
       <ul>
         <li>VOICEVOX を使っていてPCに対応GPUがあるなら、VOICEVOX設定→オプションで<strong>演算デバイスをGPUに</strong>（合成が速くなる。GPU版インストールが必要・対応GPUが無い場合は切り替えない）。</li>
@@ -280,27 +305,27 @@
       </ul>
       <div class="muted" style="font-size:13px">※どれが効くかはPC環境による。VOICEVOX利用時に起きやすい。</div>
       <div class="jump">→ 関連: <a href="#tts">④ コメント読み上げ</a></div>
-    </div>
+    </details>
 
-    <div class="tcase">
-      <h3>海外コメントが翻訳・読み上げされない</h3>
+    <details class="tcase">
+      <summary><h3>海外コメントが翻訳・読み上げされない</h3></summary>
       <div class="cause">「チャット翻訳」がOFFのことが多いです。</div>
       <ul><li>「チャット翻訳」がONか確認（音声・コメントページ）。言語は自動検出。翻訳エンジンの一時不調時は別エンジンへフォールバックします。</li></ul>
       <div class="jump">→ 関連: <a href="#twitch">⑤ コメント連動・翻訳</a></div>
-    </div>
+    </details>
 
-    <div class="tcase">
-      <h3>本番の字幕が出ない（テスト字幕は出るのに）</h3>
+    <details class="tcase">
+      <summary><h3>本番の字幕が出ない（テスト字幕は出るのに）</h3></summary>
       <div class="cause">クラウド同期やマイクの形式が干渉していることがあります。</div>
       <ul>
         <li>アプリを <strong>OneDrive 等のクラウド同期フォルダ直下に置かない</strong>（同期がファイルを掴むと音声認識が止まることがある。同期対象外フォルダ例 <code>C:\Ligastmir\</code> へ）。</li>
         <li>マイクを <strong>16bit・48000Hz（または44100Hz）・モノラル</strong>に（外部ミキサーや 24bit/96kHz・マルチチャンネル固定だと認識が始まらないことがある）。</li>
       </ul>
       <div class="jump">→ 関連: <a href="#trouble-basic">⑧ 困ったとき（基本）</a> / <a href="#start">① まず起動する</a></div>
-    </div>
+    </details>
 
-    <div class="tcase">
-      <h3>SmartScreen / ウイルス対策ソフトの警告が出る・隔離される</h3>
+    <details class="tcase">
+      <summary><h3>SmartScreen / ウイルス対策ソフトの警告が出る・隔離される</h3></summary>
       <div class="cause">署名なしの個人開発EXEのため、誤検知が出ることがあります。</div>
       <ul>
         <li>SmartScreen は「詳細情報」→「実行」で開けます。</li>
@@ -308,48 +333,48 @@
         <li>隔離された場合は、対策ソフトでそのフォルダを「除外」に追加してください。</li>
       </ul>
       <div class="jump">→ 関連: <a href="#start">① まず起動する</a></div>
-    </div>
+    </details>
 
-    <div class="tcase">
-      <h3>画面が真っ白／開かない</h3>
+    <details class="tcase">
+      <summary><h3>画面が真っ白／開かない</h3></summary>
       <div class="cause">Edge WebView2 ランタイムが入っていないことがあります。</div>
       <ul><li>Edge WebView2 ランタイム（無料）を <a href="https://developer.microsoft.com/microsoft-edge/webview2/" target="_blank" rel="noopener">Microsoft のサイト</a>から入れてください。</li></ul>
       <div class="jump">→ 関連: <a href="#trouble-basic">⑧ 困ったとき（基本）</a></div>
-    </div>
+    </details>
 
-    <div class="tcase">
-      <h3>新しいバージョンへの更新／別PCに移したら設定が消えた</h3>
+    <details class="tcase">
+      <summary><h3>新しいバージョンへの更新／別PCに移したら設定が消えた</h3></summary>
       <div class="cause">設定の保存場所と暗号化の仕組みを押さえると解決します。</div>
       <ul>
         <li>設定・辞書・着せ替え素材は exe と同じフォルダに保存されます。更新は exe（または配布フォルダ）を新しいものにするだけ。詳しい手順は <a href="download.html">ダウンロード・更新方法</a>へ。</li>
         <li><strong>別PCに移すと API キー/トークンは入力し直しが必要</strong>（そのPC固有の鍵で暗号化しているため復号できない＝仕様）。</li>
       </ul>
       <div class="jump">→ 関連: <a href="download.html">ダウンロードと更新方法</a></div>
-    </div>
+    </details>
 
-    <div class="tcase">
-      <h3>VOICEVOX が起動しない／エラー</h3>
+    <details class="tcase">
+      <summary><h3>VOICEVOX が起動しない／エラー</h3></summary>
       <div class="cause">本体未起動か、GPUモードの環境不一致が多いです。</div>
       <ul><li>VOICEVOX 本体が起動しているか確認。自動起動はパス設定（音声・コメントページ）。GPUモードは GPU が無い環境ではエラーになるので CPU モードに。</li></ul>
       <div class="jump">→ 関連: <a href="#tts">④ コメント読み上げ</a></div>
-    </div>
+    </details>
 
-    <div class="tcase">
-      <h3>棒読みちゃんが繋がらない</h3>
+    <details class="tcase">
+      <summary><h3>棒読みちゃんが繋がらない</h3></summary>
       <div class="cause">起動順と選択の問題が多いです。</div>
       <ul><li>棒読みちゃん本体を先に起動してから、音声エンジンで「棒読みちゃん」を選びます。読み/声/速度は棒読みちゃん側の設定が反映されます。</li></ul>
       <div class="jump">→ 関連: <a href="#tts">④ コメント読み上げ</a></div>
-    </div>
+    </details>
 
-    <div class="tcase">
-      <h3>OBSにアラート等が表示されない／映像が止まる</h3>
+    <details class="tcase">
+      <summary><h3>OBSにアラート等が表示されない／映像が止まる</h3></summary>
       <div class="cause">「非アクティブ時シャットダウン」のチェックや、URL/起動状態が原因のことが多いです。</div>
       <ul><li>ブラウザソースのプロパティで「<strong>非アクティブ時にソースをシャットダウンする</strong>」のチェックを外す。URLが正しいか・Ligastmir が起動しているか（右上ドットが消える＝接続）を確認。</li></ul>
       <div class="jump">→ 関連: <a href="#obs-source">② OBSに表示する</a></div>
-    </div>
+    </details>
 
-    <div class="tcase">
-      <h3>手元のファイルが本物か／改変版でないか確かめたい</h3>
+    <details class="tcase">
+      <summary><h3>手元のファイルが本物か／改変版でないか確かめたい</h3></summary>
       <div class="cause">公式の入手先は<strong>このサイトと公式Discordだけ</strong>です。念のため中身を確かめたい時のために、自己チェック機能があります。</div>
       <ul>
         <li>Ligastmir は<strong>起動時に本体の中身を自己チェック</strong>し、書き換えを検知すると警告を出します（警告だけで動作は止めません）。</li>
@@ -357,13 +382,13 @@
         <li>入手先や見分け方の詳細は <a href="verify.html">本物の見分け方・偽配布の注意</a> にまとめています。</li>
       </ul>
       <div class="jump">→ 関連: <a href="verify.html">本物の見分け方</a></div>
-    </div>
+    </details>
 
     <!-- ★（将来）視聴者バッジが出ない — バッジ機能実装後に追記するプレースホルダ
-    <div class="tcase">
-      <h3>視聴者バッジが出ない</h3>
+    <details class="tcase">
+      <summary><h3>視聴者バッジが出ない</h3></summary>
       <div class="cause">（バッジ機能実装後に記載）</div>
-    </div>
+    </details>
     -->
 
   </article>

@@ -71,8 +71,12 @@
   .cred-name{font-size:14.5px;font-weight:600;color:var(--ink)}
   .cred-empty{color:var(--ink-dim);font-size:14px}
   /* 拡張カード（tags/comment がある協力者＝紹介つき）。無い人は従来のピルのまま */
-  .cred-card.rich{flex-direction:column;align-items:flex-start;border-radius:14px;padding:14px 16px;gap:8px;max-width:320px}
-  .cred-card.rich .cred-head{display:flex;align-items:center;gap:10px}
+  /* 紹介つきカード。イラストをもらった人は全身が見えるよう大きめに（横型） */
+  .cred-card.rich{align-items:flex-start;border-radius:14px;padding:14px 16px;gap:14px;max-width:420px}
+  .cred-card.rich .cred-body{display:flex;flex-direction:column;gap:8px;min-width:0}
+  .cred-portrait{width:104px;height:104px;flex:none;border-radius:12px;object-fit:contain;
+    background:linear-gradient(160deg,#182430,#0f141a);border:1px solid var(--bg-line);padding:4px}
+  @media(max-width:520px){.cred-card.rich{max-width:100%}.cred-portrait{width:84px;height:84px}}
   .cred-tags{display:flex;flex-wrap:wrap;gap:5px}
   .cred-tag{font-size:10.5px;color:var(--accent-cool);border:1px solid rgba(92,200,255,.35);border-radius:999px;padding:1px 9px;white-space:nowrap}
   .cred-note{font-size:12px;color:var(--ink-dim);line-height:1.7}
@@ -179,9 +183,14 @@
             ? '<span class="cred-tags">' + tags.map(function(t){ return '<span class="cred-tag">' + esc(t) + '</span>'; }).join('') + '</span>'
             : '';
           var noteHtml = note ? '<span class="cred-note">' + esc(note) + '</span>' : '';
+          // 紹介つきは横型: 左に全身ポートレート（もらった絵をそのまま見せる）／右に名前・タグ・紹介
+          var portrait = hasIcon
+            ? '<img class="cred-portrait" src="' + esc(c.icon) + '" alt="' + name + '" loading="lazy">'
+            : '';
           html += '<a class="cred-card rich' + (hasIcon ? '' : ' no-ava') + '" href="' + url + '" target="_blank" rel="noopener">' +
-                  '<span class="cred-head">' + ava + '<span class="cred-name">' + name + '</span></span>' +
-                  tagHtml + noteHtml + '</a>';
+                  portrait +
+                  '<span class="cred-body"><span class="cred-name">' + name + '</span>' +
+                  tagHtml + noteHtml + '</span></a>';
         } else {
           html += '<a class="cred-card' + (hasIcon ? '' : ' no-ava') + '" href="' + url + '" target="_blank" rel="noopener">' +
                   ava + '<span class="cred-name">' + name + '</span></a>';

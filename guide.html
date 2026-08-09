@@ -156,6 +156,8 @@
         <li><a href="#advanced">⑥ もっと使う</a></li>
         <li><a href="#skin">⑦ 着せ替え</a></li>
         <li><a href="#reaction">⑦-2 リアクション演出</a></li>
+        <li><a href="#look">⑦-3 配色・プリセット・看板</a></li>
+        <li><a href="#advanced-actions">⑦-4 上級者アクション</a></li>
         <li><a href="#trouble-basic">⑧ 困ったとき（基本）</a></li>
       </ul>
     </div>
@@ -235,6 +237,8 @@
       <li><strong>OBSを一緒に起動する：</strong> Ligastmir の起動時に<strong>OBSも自動で立ち上げる</strong>設定ができます（<span class="pill">詳細設定 → 同伴機能</span>ページ・任意）。OBSの実行ファイルの場所を一度指定しておくだけ。<span class="muted">配信中は誤操作防止のため終了させない安全策付き。閉じる時に一緒に終了させるかも選べます。接続・シーン切替は<span class="pill">OBS連携</span>ページです。</span></li>
       <li><strong>📌 コメントピックアップ：</strong> ダッシュボードの「<strong>コメントピックアップ</strong>」ウィジェットで、気になったコメントを<strong>検索</strong>して、選んだ1件を OBS に<strong>質問カード</strong>として大きく表示できます（原文＋翻訳を併記・配信終了で自動的に消えます）。「さっきの質問をもう一度出したい」に。<span class="muted">直近コメントはメモリにだけ一時保持し、ファイルには保存しません。</span></li>
       <li><strong>📚 辞書・構成の共有：</strong> 読み上げ辞書（用語や名前の読み）を配信者どうしで<strong>ファイルで受け渡し</strong>できます（<span class="pill">読み上げ設定</span>の「辞書パック」）。ダッシュボードの<strong>構成（レイアウト）</strong>も書き出し・取り込みで共有できます。<span class="muted">どちらも視聴者名やパスワード等の機微情報は含めない安全設計です。</span></li>
+      <li><strong>🎵 BGM 再生（v0.9.0〜）：</strong> 取り込んだ音源を<span class="pill">音声・コメント</span>ページから再生できます。<strong>読み上げ中は自動で音量を下げます</strong>（下げ幅は調整可・上げ下げもなめらか）。くり返し／シャッフル／前回の曲の復元つき。<span class="muted">音は「パソコンの音」として出るので、OBSで<strong>「デスクトップ音声」を取り込んでいれば</strong>配信に乗ります。音源はツールに同梱していません（権利はお使いになる方の責任です）。</span></li>
+      <li><strong>🌐 翻訳字幕の言語（v0.9.0〜）：</strong> 自分の字幕の<strong>翻訳先を12言語から選べます</strong>（English／中文（简体・繁體）／한국어／Русский／Español／Français／Deutsch／Português／Italiano／Tiếng Việt／Bahasa Indonesia）。<span class="muted">これまでは英語固定でした。</span></li>
     </ul>
     <div class="note"><strong>「同伴機能」ページ（<span class="pill">詳細設定 → 同伴機能</span>）：</strong> VOICEVOX・棒読みちゃん・わんコメ・OBS を <strong>Ligastmir と一緒に起動する</strong>設定をここにまとめています。起動の順番（Ligastmir を先に→OBS）や OBS の管理者権限の注意もこのページに記載しています。各アプリ本体の設定（声・接続・シーン切替）は、それぞれのページにあります。</div>
     <div class="note">これらの連携は<strong>自動でつなぎません</strong>。使いたい時にボタン/トグルで明示的にONにする設計です（OBS同伴起動だけは、事前に有効化しておけば起動時に立ち上がります）。</div>
@@ -250,7 +254,7 @@
     <h2 id="skin">⑦ 見た目を着せ替える（画像・効果音）</h2>
     <p>「<span class="pill">🎨 着せ替え</span>」ページで、アラートやコメビューに<strong>自分の画像・効果音を割り当てて</strong>見た目を変えられます。絵を描く機能ではなく、用意した素材を決まった場所にはめ込む方式です。<span class="muted">使わない場合はスキップでOK（既定の見た目のまま動きます）。</span></p>
     <ol>
-      <li>着せ替えページで「🖼 画像...」「🎵 効果音...」を押してファイルを選ぶ（自動で取り込み＆保存）。</li>
+      <li>着せ替えページで「🖼 画像...」「🎵 効果音...」を押してファイルを選ぶ（<strong>取り込み時に自動でサイズを調整</strong>して保存）。効果音は<strong>取り込み済みの一覧からも選べます</strong>（▶で試聴）。</li>
       <li>「▶ テスト」「💬 テストコメント」でOBSの表示を確認。</li>
       <li>外したい時は <strong>✕</strong> で解除（既定の見た目に戻ります）。</li>
     </ol>
@@ -272,7 +276,7 @@
         <li><strong>イラスト：</strong> <a href="https://www.irasutoya.com/" target="_blank" rel="noopener">いらすとや</a> … かわいい素材が大量（配信利用OK）。</li>
         <li><strong>背景・枠・テクスチャ：</strong> <a href="https://kenney.nl/" target="_blank" rel="noopener">Kenney</a>／<a href="https://polyhaven.com/" target="_blank" rel="noopener">Poly Haven</a> … CC0で安心（海外・英語）。</li>
       </ul>
-      <span class="muted">拾った素材は Ligastmir に<strong>放り込むだけで使えます</strong>。サイトごとに条件が違うので、各サイトの利用規約もあわせてご確認ください。</span>
+      <span class="muted">拾った素材は Ligastmir に<strong>放り込むだけで使えます（取り込み時に自動でサイズを調整します）</strong>。サイトごとに条件が違うので、各サイトの利用規約もあわせてご確認ください。</span>
     </div>
     <div class="safe"><strong>素材の権利：</strong> ⑥と同じく、<strong>ご自身が利用権を持つ素材</strong>を使い、フリー素材は配布元の規約をご確認ください。</div>
 
@@ -285,6 +289,29 @@
       <li><strong>チャンネルポイント報酬ごとの演出：</strong> 同じページの「🎉 報酬演出」で、Twitchのチャンネルポイント報酬が使われた時の専用演出も割り当てられます。</li>
     </ul>
     <div class="note">「▶ テスト」ボタンでOBSの見え方をその場で確認できます。<strong>何も設定しなければ演出は一切出ません</strong>（動作も軽いまま）。使いたい人だけ足していく方式です。</div>
+    <ul style="margin-top:10px">
+      <li><strong>音のタイミングをずらす（v0.9.0〜）：</strong> 各行の「<strong>音のずれ</strong>」に数値（ミリ秒）を入れると、効果音を見た目に対して前後にずらせます。<strong>マイナスで音が先／プラスで音が後／0で同時</strong>。たとえば <code>200</code> なら、絵が出た0.2秒あとに音が鳴ります。</li>
+      <li><strong>かんたんプリセット（v0.9.0〜）：</strong> 同梱の効果音6種を<strong>1クリックで追加</strong>できます（こんにちは→ピンポーン／888→キラキラ 等）。「<strong>w が3個以上</strong>」のような個数の条件でも出せます。</li>
+    </ul>
+
+    <h2 id="look">⑦-3 見た目をもっと変える（配色・プリセット・看板）</h2>
+    <p><span class="muted">v0.9.0〜。どれも使わなくて大丈夫です。</span></p>
+    <ul>
+      <li><strong>🖥 アプリの配色（テーマ）：</strong> <strong>このツールの画面</strong>を7種類（ライム＝既定／オーシャン／サクラ／アンバー／ヴァイオレット／モノクロ／<strong>ライト</strong>）から選べます。好きな色をアクセントに指定することも。<span class="muted">⚠ 変わるのはツールの画面だけで、<strong>配信画面（OBS）の見た目は変わりません</strong>。</span></li>
+      <li><strong>🎨 見た目プリセット：</strong> <strong>配信画面</strong>（コメビュー・字幕・アラート枠）の色とフォントを5種類（ネオン／パステル／モノクロ／レトロ／オーシャン）から一括で変更できます。全体にも、コメ・字幕・枠の<strong>面ごと</strong>にも適用でき、自分の見た目を保存できます。</li>
+      <li><strong>🪧 看板テロップ：</strong> 画面に<strong>固定の看板／テロップ</strong>（お知らせ・配信テーマなど）を出せます。同梱の図形5種（吊るし看板・木札・リボン・雲・色板）＋任意画像。設定画面にプレビューが付いています。<span class="muted">⚠ <strong>専用のブラウザソース</strong>をOBSに追加してください（既存のソースには出ません）。</span></li>
+      <li><strong>🏅 常連バッジに画像：</strong> 進化バッジの各段階に好きな画像を割り当てられます（Twitchのサブスクバッジのようなイメージ）。</li>
+    </ul>
+
+    <h2 id="advanced-actions">⑦-4 上級者アクション（歌わせる・正規表現）</h2>
+    <p><span class="muted">v0.9.0〜。少し踏み込んだ機能を集めたページです。<strong>使わなくても大丈夫</strong>です。</span></p>
+    <ul>
+      <li><strong>① ちょい足し歌わせ：</strong> 文章をメロディに乗せて読み上げます（VOICEVOX）。<strong>短いフレーズ向き</strong>です<span class="muted">（長く伸ばす音は声がかすれます＝仕組み上の限界）</span>。</li>
+      <li><strong>② がっつり歌唱：</strong> VOICEVOX の<strong>本物の歌う機能</strong>を使うので、伸ばしてもかすれません。<strong>「歌える声（ソング／ハミング）」が VOICEVOX に入っている場合のみ</strong>使えます（一覧に自動で出ます）。</li>
+      <li><strong>③ 正規表現の読み替え：</strong> パターンで読み上げをまとめて変換します（例: <code>ｗｗ+</code> → <code>わらわら</code>）。書式を間違えた行は自動でスキップします。<span class="muted">わからなければ通常の読み上げ辞書で十分です。</span></li>
+      <li>①②とも <strong>WAVで書き出し</strong>でき、書き出した音は<strong>リアクション／アラート／報酬演出の「🎵 効果音...」からそのまま選べます</strong>。</li>
+    </ul>
+    <div class="safe"><strong>曲は同梱していません。</strong>既存曲のメロディには著作権があるためです。「楽器はツール／楽譜はあなた」とお考えください。</div>
 
     <h2 id="trouble-basic">⑧ 困ったとき（基本）</h2>
     <p style="margin-top:-4px">配信中や配信前に「あれ？」となった時に、落ち着いて対処するための道具をひと通り用意しています（v0.8.0〜）。</p>
@@ -293,6 +320,7 @@
       <li><strong>🩺 まず「総合診断」：</strong> <span class="pill">詳細設定 → テスト/ログ</span>の「総合診断」で、主要機能の状態をまとめて確認できます。うまくいかない項目には<strong>日本語で「原因かも／試すこと」</strong>が表示され、結果は<strong>Discord報告用にワンクリックでコピー</strong>できます。</li>
       <li><strong>🔧 設定が壊れて開けない時は「セーフモード起動」：</strong> 最小構成で立ち上げ直し、<strong>壊れた設定だけ</strong>を個別に初期化して復旧できます（<span class="pill">詳細設定 → テスト/ログ</span>／次回セーフモードで起動、または <code>Ligastmir.exe --safe</code>）。</li>
       <li><strong>🎙 配信前に「マイクチェック」：</strong> 声の大きさ・音割れ・ノイズを判定してくれます（PC内で完結・<strong>録音は保存しません</strong>）。</li>
+      <li><strong>💾 設定が消えた・元に戻したい（v0.9.0〜）：</strong> 設定・読み上げ辞書・名簿・集計の4つは<strong>起動のたびに自動で控えて</strong>います。<span class="pill">詳細設定 → テスト/ログ</span>の「設定・名簿のバックアップ」から<strong>前の状態に戻せます</strong>。戻す前に今の状態も控えるので<strong>やり直しもできます</strong>（反映は再起動後）。控えはパソコンの中だけに置かれ、どこにも送信しません。</li>
       <li><strong>画面が真っ白／開かない：</strong> 「Edge WebView2 ランタイム」（無料）を <a href="https://developer.microsoft.com/microsoft-edge/webview2/" target="_blank" rel="noopener">Microsoftのサイト</a>から入れてください<span class="muted">（最近のWindowsなら大抵入っています）</span>。</li>
       <li><strong>声が出ない：</strong> Windowsの音量・出力先を確認。VOICEVOXの声なら VOICEVOX が起動しているか確認。</li>
       <li><strong>動きがおかしい：</strong> exe と同じフォルダの <code>ust_debug.log</code> を開く（または作者に送る）と原因が分かります。<span class="muted">「総合診断」から報告用ログを zip でまとめて書き出すこともできます。</span></li>

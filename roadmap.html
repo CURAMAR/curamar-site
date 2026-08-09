@@ -159,7 +159,7 @@
       <span class="bdg done" style="color:var(--ink-dim);border-style:dashed">🙋 協力募集中 のラベルがある項目は、力を貸してもらえると助かります</span>
     </div>
 
-    <h2 class="done">✅ 実装済み <span class="cnt">— 配布中の v0.8.0 で使えます</span></h2>
+    <h2 class="done">✅ 実装済み <span class="cnt">— 配布中の v0.9.0 で使えます</span></h2>
     <div class="items">
       <div class="item">
         <div class="t">🎤 音声認識字幕</div>
@@ -236,6 +236,41 @@
         <div class="d">気になったコメントを検索して、選んだ1件を OBS に質問カードとして大きく表示。原文＋翻訳を併記し、配信終了で自動的に消えます。「さっきの質問をもう一度出したい」に。</div>
         <div class="meta"><span class="ver">v0.8.0</span></div>
       </div>
+      <div class="item">
+        <div class="t">🩹 長時間配信で字幕が消える不具合の修正</div>
+        <div class="d">ネットの一瞬の不調で音声認識が止まったあと、自動で復帰できていませんでした。約8秒での自動復旧と3分の見張りを入れ、「喋っている間は放置とみなさない」よう修正。翻訳が続けて失敗したときは画面でお知らせします。</div>
+        <div class="meta"><span class="ver">v0.9.0</span></div>
+      </div>
+      <div class="item">
+        <div class="t">🎼 上級者アクション（歌わせる・正規表現）</div>
+        <div class="d">使わなくても大丈夫な、少し踏み込んだ機能を集めたページ。文章をメロディに乗せる「ちょい足し歌わせ」、VOICEVOX の歌う機能を使う「がっつり歌唱」、パターンで読み替える正規表現辞書。歌は WAV に書き出して効果音としても使えます（曲は同梱していません）。</div>
+        <div class="meta"><span class="ver">v0.9.0</span></div>
+      </div>
+      <div class="item">
+        <div class="t">🖥 アプリの配色（テーマ）</div>
+        <div class="d">このツールの画面を7種類（ライム／オーシャン／サクラ／アンバー／ヴァイオレット／モノクロ／ライト）から選べます。好きな色をアクセントに指定することも。配信画面（OBS）の見た目は別です。</div>
+        <div class="meta"><span class="ver">v0.9.0</span></div>
+      </div>
+      <div class="item">
+        <div class="t">🪧 看板テロップ・見た目プリセット・バッジ画像</div>
+        <div class="d">画面に固定の看板／テロップを出せる専用ブラウザソース（同梱の図形5種＋任意画像・プレビュー付き）。配信画面の色とフォントを5種から一括変更する「見た目プリセット」。常連バッジの各段階に好きな画像も割り当てられます。</div>
+        <div class="meta"><span class="ver">v0.9.0</span></div>
+      </div>
+      <div class="item">
+        <div class="t">🌐 翻訳字幕の言語を選べるように・BGM再生</div>
+        <div class="d">字幕の翻訳先を12言語から選択（これまでは英語固定）。取り込んだ音源をツール内で再生し、読み上げ中は自動で音量を下げる BGM 機能も追加しました。</div>
+        <div class="meta"><span class="ver">v0.9.0</span></div>
+      </div>
+      <div class="item">
+        <div class="t">⚡ 演出のレスポンス改善・「音のずれ」</div>
+        <div class="d">効果音と画像をあらかじめ読み込んでおくようにして、出だしを速く・カクつきにくくしました。さらに効果音のタイミングを見た目に対して前後にずらせます（マイナスで音が先／プラスで音が後）。</div>
+        <div class="meta"><span class="ver">v0.9.0</span></div>
+      </div>
+      <div class="item">
+        <div class="t">💾 設定・名簿のバックアップ</div>
+        <div class="d">設定・読み上げ辞書・名簿・集計の4つを起動のたびに自動で控え、前の状態に戻せます。戻す前に今の状態も控えるのでやり直しも可能。控えはパソコンの中だけに置かれます。</div>
+        <div class="meta"><span class="ver">v0.9.0</span></div>
+      </div>
     </div>
 
     <h2 class="dev">🔨 開発中 <span class="cnt">— 完成したものから次のバージョンに入ります</span></h2>
@@ -243,12 +278,12 @@
       <div class="item">
         <div class="t">🎨 字幕の縁取りを、日本語と翻訳で個別に</div>
         <div class="d">縁取りの色・太さを日本語字幕と翻訳字幕で別々に設定できるようにします。差別化したい人向け。</div>
-        <div class="meta"><span class="ver">v0.9 予定</span></div>
+        <div class="meta"><span class="ver">v1.0 予定</span></div>
       </div>
       <div class="item">
         <div class="t">🔧 OBS同伴起動のさらなる安定化</div>
         <div class="d">OBS を管理者権限で使っている環境など、さまざまな構成でも同伴起動・自動終了が安定して動くよう改善を続けます。</div>
-        <div class="meta"><span class="ver">v0.9 予定</span></div>
+        <div class="meta"><span class="ver">v1.0 予定</span></div>
       </div>
     </div>
 
@@ -262,12 +297,12 @@
       <div class="item">
         <div class="t">🏷 クレジットの充実</div>
         <div class="d">協力してくれた方の紹介文やタグを載せて、その人の配信を見つけやすくします。</div>
-        <div class="meta"><span class="ver">v0.8</span><a class="help" href="collaborate.html">🙋 協力募集中</a></div>
+        <div class="meta"><span class="ver">随時</span><a class="help" href="collaborate.html">🙋 協力募集中</a></div>
       </div>
       <div class="item">
         <div class="t">🔌 外部イベント受信の入口</div>
         <div class="d">外部のツールから、安全な範囲で演出を発火できる入口を検討しています。初期はOFF・限定的な動作のみ。</div>
-        <div class="meta"><span class="ver">v0.8〜</span><a class="help" href="collaborate.html">🙋 外部連携の検証</a></div>
+        <div class="meta"><span class="ver">要望しだい</span><a class="help" href="collaborate.html">🙋 外部連携の検証</a></div>
       </div>
     </div>
 
@@ -286,7 +321,7 @@
       <div class="item">
         <div class="t">📦 配布方法の改善</div>
         <div class="d">インストーラーやストア版など、もっと入れやすい配り方を検討します。</div>
-        <div class="meta"><span class="ver">v0.9〜</span></div>
+        <div class="meta"><span class="ver">v1.0〜</span></div>
       </div>
     </div>
 

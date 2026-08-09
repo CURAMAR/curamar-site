@@ -253,6 +253,41 @@
     </div>
 
     <div class="qa">
+      <div class="q">演出（効果音・画像）が出るときに一瞬カクつく・音が遅れて鳴る</div>
+      <div class="a">
+        <strong>v0.9.0 で仕組みから直しました。</strong>割り当てた効果音と画像を<strong>あらかじめ読み込んでおく</strong>ようにしたので、
+        本番の発火では待たされません。まずは新しい版に入れ替えてみてください。<br>
+        それでも気になるときは、次の順に見直すと効きます。
+        <ol style="margin:8px 0 0;padding-left:1.4em;line-height:1.9">
+          <li><strong>素材を軽くする</strong>：効果音は 1〜3秒・数百KB（MP3/OGG）、画像は 512px 四方くらいまでが目安。
+            <strong>GIF はアニメを保つためリサイズされない</strong>ので、長尺・高解像度の GIF は特に重くなります。</li>
+          <li><strong>OBS のブラウザソース</strong>：「非アクティブ時にソースをシャットダウンする」を<strong>オフ</strong>に。
+            オンだと切り替えのたびに読み込み直しになり、毎回もたつきます。</li>
+          <li><strong>OBS のハードウェアアクセラレーション</strong>：ブラウザソースの描画が重いときは、
+            OBS の「設定 → 詳細設定」やグラフィックドライバの更新で改善することがあります。</li>
+          <li><strong>Windows の電源プラン</strong>：ノートPCの省電力設定だと、配信中にCPUが絞られて全体がもたつくことがあります。
+            「バランス」以上を目安に。</li>
+          <li><strong>同時に走らせているものを減らす</strong>：ゲーム・ブラウザのタブ・録画などが重なると、
+            演出に回る余力が減ります。Ligastmir の<strong>軽量モード</strong>も使えます。</li>
+        </ol>
+        <p style="margin:8px 0 0">
+          なお、素材のサイズに<strong>上限はありません</strong>。上の数字は「これくらいだと軽い」という目安です。
+        </p>
+      </div>
+      <div class="more">→ <a href="feature-reaction.html">リアクション演出の設定方法</a></div>
+    </div>
+
+    <div class="qa">
+      <div class="q">効果音と画像のタイミングを合わせたい／わざとずらしたい</div>
+      <div class="a">
+        <strong>v0.9.0 から「音のずれ」を設定できます。</strong>アラート・チャネポ報酬・リアクションのそれぞれの行に、
+        ミリ秒で指定する欄があります。<strong>マイナスで音が先、プラスで音が後、0 で同時</strong>です。
+        たとえば <code>200</code> にすると、絵が出た 0.2 秒あとに音が鳴ります（溜めを作りたいときは音を先に）。
+      </div>
+      <div class="more">→ <a href="feature-reaction.html">リアクション演出の設定方法</a></div>
+    </div>
+
+    <div class="qa">
       <div class="q">VOICEVOX が起動しない・エラーになる</div>
       <div class="a">「自動検出」でパスを設定し直す／VOICEVOX の<strong>GPUモードは対応GPUが無い環境ではCPUモードに</strong>変更してください。</div>
       <div class="more">→ <a href="guide.html#troubleshoot">こんな時は（VOICEVOX）</a></div>

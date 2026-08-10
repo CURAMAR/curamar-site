@@ -26,5 +26,8 @@
   { "name": "ドテラ小僧", "url": "https://www.youtube.com/@asaki-dotera", "category": "tool", "icon": "assets/contributors/dotera.png",
     "tags": ["テスター", "不具合報告", "紹介・宣伝協力", "龍が如く", "DBD", "EF"],
     "comment": "龍が如くシリーズをメインに動画投稿。配信は DBD と EF（エンドフィールド）を中心にしています。",
-    "links": [{ "label": "Twitch でも配信中", "url": "https://www.twitch.tv/dotera_kozo_asaki" }] }
+    "links": [{ "label": "Twitch でも配信中", "url": "https://www.twitch.tv/dotera_kozo_asaki" }] },
+  { "name": "碧渚すな", "url": "https://www.twitch.tv/aonagi_suna", "category": "tool", "icon": "assets/contributors/aonagi_suna.png",
+    "tags": ["テスター", "アイデア出し", "紹介・宣伝協力", "R6S"],
+    "comment": "遠慮も敬語もいりません気軽に話しかけてね♪" }
 ]

@@ -322,6 +322,8 @@
       <li><strong>🔧 設定が壊れて開けない時は「セーフモード起動」：</strong> 最小構成で立ち上げ直し、<strong>壊れた設定だけ</strong>を個別に初期化して復旧できます（<span class="pill">詳細設定 → テスト/ログ</span>／次回セーフモードで起動、または <code>Ligastmir.exe --safe</code>）。</li>
       <li><strong>🎙 配信前に「マイクチェック」：</strong> 声の大きさ・音割れ・ノイズを判定してくれます（PC内で完結・<strong>録音は保存しません</strong>）。</li>
       <li><strong>💾 設定が消えた・元に戻したい（v0.9.0〜）：</strong> 設定・読み上げ辞書・名簿・集計の4つは<strong>起動のたびに自動で控えて</strong>います。<span class="pill">詳細設定 → テスト/ログ</span>の「設定・名簿のバックアップ」から<strong>前の状態に戻せます</strong>。戻す前に今の状態も控えるので<strong>やり直しもできます</strong>（反映は再起動後）。控えはパソコンの中だけに置かれ、どこにも送信しません。</li>
+      <li><strong>⏹ 一括ストップ（v0.9.2〜）：</strong> 「ちょっと待って、設定し直したいから一回全部止めたい」ときは、<strong>いまＯＮになっているものだけ</strong>をまとめてＯＦ／切断できます。止める前に対象を一覧で確認します。<span class="muted">※ VOICEVOX・棒読みちゃん・わんコメは別のアプリなのでここでは閉じません。</span></li>
+      <li><strong>🎙 マイクをミュートしたら字幕も止める（v0.9.2〜）：</strong> 配信では無音なのに<strong>字幕だけ出続ける</strong>のを防げます。<span class="pill">OBS連携</span>で接続したうえで、<span class="pill">音声・コメント</span>ページで対象のマイクを選ぶと有効になります（ＯＢＳ側でミュートを押すと、字幕の認識も止まります）。</li>
       <li><strong>画面が真っ白／開かない：</strong> 「Edge WebView2 ランタイム」（無料）を <a href="https://developer.microsoft.com/microsoft-edge/webview2/" target="_blank" rel="noopener">Microsoftのサイト</a>から入れてください<span class="muted">（最近のWindowsなら大抵入っています）</span>。</li>
       <li><strong>声が出ない：</strong> Windowsの音量・出力先を確認。VOICEVOXの声なら VOICEVOX が起動しているか確認。</li>
       <li><strong>動きがおかしい：</strong> exe と同じフォルダの <code>ust_debug.log</code> を開く（または作者に送る）と原因が分かります。<span class="muted">「総合診断」から報告用ログを zip でまとめて書き出すこともできます。</span></li>

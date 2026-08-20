@@ -168,6 +168,13 @@
     <h2>うまくいかないとき</h2>
     <div class="tcase"><b>Google 認証で「アクセスがブロックされました（403）」と出る</b>
       アプリが「テスト中」でテストユーザー未登録だと出ます。Google の認証設定で、<strong>ログインに使う Gmail をテストユーザーに追加</strong>してください。手順はアプリ内のガイドに沿って進めます。</div>
+    <div class="tcase"><b>「YouTubeの認証が切れています」と出る／サムネイルや配信情報が反映できない</b>
+      もう一度「YouTubeで認証する」を押せばその場で直ります。
+      <strong>7日ごとに繰り返す場合</strong>は、Google 側の公開ステータスが「テスト」のままです
+      ——テスト中は Google の仕様で<strong>認証が7日で切れます</strong>。
+      Google Cloud の「Google Auth Platform → 対象」で<strong>「本番」に切り替える</strong>と切れなくなります（審査は不要）。
+      <span style="color:var(--ink-dim)">※ コメントの取得は APIキーで動いているので、認証が切れてもコメントは止まりません。
+      止まるのは「サムネイル」「配信タイトル・説明の変更」だけです。</span></div>
     <div class="tcase"><b>コメントが取得できない</b>
       ライブ配信が始まっているか、URL とAPIキーが正しいかを確認してください（配信前は取得待機になります）。</div>
     <div class="tcase"><b>カスタムサムネイルが設定できない</b>

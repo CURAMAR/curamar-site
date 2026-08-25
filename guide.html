@@ -191,7 +191,7 @@
     <h2 id="obs-source">② OBSに表示する（字幕・コメビュー・アラート）</h2>
     <p>OBSで <strong>ソース欄の「＋」→「ブラウザ」</strong>を追加し、下のURLを貼り付けます。<span class="muted">（アプリの「🖥 ブラウザソース」ページに「コピー」ボタン付きでまとまっています）</span></p>
     <div class="url-row"><b>字幕</b><code>http://127.0.0.1:8766/subtitle_display.html</code><span class="sz">幅広め</span></div>
-    <div class="url-row"><b>コメビュー</b><code>http://127.0.0.1:8766/comment_overlay.html</code><span class="sz">420×600</span></div>
+    <div class="url-row"><b>コメビュー</b><code>http://127.0.0.1:8766/comment_overlay.html</code><span class="sz">1920×1080</span></div>
     <div class="url-row"><b>アラート</b><code>http://127.0.0.1:8766/alert_overlay.html</code><span class="sz">800×600</span></div>
     <div class="url-row"><b>弾幕</b><code>http://127.0.0.1:8766/danmaku_overlay.html</code><span class="sz">1920×1080</span></div>
     <div class="url-row"><b>エモート</b><code>http://127.0.0.1:8766/emote_float_overlay.html</code><span class="sz">1920×1080</span></div>
@@ -205,9 +205,13 @@
     <ul>
       <li><strong>💬 コメビュー：</strong> 本文の文字サイズ・ユーザー名サイズ・背景の不透明度・最大表示件数・表示寿命（「ずっと表示」）に加え、<strong>本文の色</strong>と<strong>アクセント色</strong>（ユーザー名・カード左の枠線）を変えられます。<span class="muted">※Twitch側で名前に色を付けている人は、その色が優先されます。「色を既定に戻す」でいつでも戻せます。</span></li>
       <li><strong>🔤 フォント：</strong> 字幕とコメビューの<strong>字体を5種類</strong>から選べます（標準／まる字／極太／明朝／手書き風）。選択ボタン自体がその字体で表示されるので、雰囲気を見ながら選べます。</li>
-      <li><strong>🎊 弾幕：</strong> <strong>文字サイズ</strong>と<strong>流れる範囲</strong>（画面全体／上部／中央／下部）。</li>
+      <li><strong>🎊 弾幕：</strong> <strong>文字サイズ</strong>と<strong>流れる範囲</strong>（画面全体／上部／中央／下部）に加え、<strong>文字色</strong>を指定できます（v0.9.3〜）。</li>
+      <li><strong>✨ 光らせる（ネオン）（v0.9.3〜）：</strong> <strong>コメビュー・字幕・弾幕</strong>の文字を光らせられます（<strong>既定はOFF</strong>）。強さはスライダーで調整でき、<strong>3つとも同じ強さに見えるようにそろえて</strong>あります。字幕は<strong>日本語と翻訳で別々に</strong>設定でき、「合わせる」にチェックを入れれば片方の操作でそろいます。<span class="muted">※暗い背景ほど映えます。明るいゲーム画面では強めが読みやすいことがあります。</span></li>
+      <li><strong>💬 コメビューをもっと変える（v0.9.3〜）：</strong> <strong>並ぶ向き</strong>（縦／横）・<strong>枠を消す</strong>・<strong>見た目プリセット</strong>・<strong>OBSのシーンに合わせた切り替え</strong>・<strong>アイコン</strong>（なし／自分だけ／Twitchのプロフィール画像）・<strong>名前の色</strong>（Twitchで指定した色を使うかどうか）を選べます。<br>★<strong>推奨サイズが 1920×1080 に変わりました。</strong> ブラウザソースを画面と同じ大きさにしておいて、<strong>位置（上下・左右）・余白・幅</strong>で置き場所を決める方式です。<span class="muted">※これまでの 420×600 のままでも動きますが、横並びは幅が足りず1件しか出ません。<strong>1920×1080 に変えてから位置で調整</strong>してください。</span></li>
       <li><strong>✨ エモートフロート：</strong> <strong>出る向き</strong>（下から上／上から下）・<strong>出る位置</strong>（全体／左／中央／右）・<strong>大きさ</strong>。</li>
       <li><strong>🎤 字幕・翻訳字幕：</strong> <strong>字幕の色</strong>・<strong>翻訳字幕の色とサイズ</strong>を別々に調整できます。さらに<strong>表示位置</strong>（上下＝上／中央／下・左右＝左／中央／右・画面端からの余白）と<strong>最大行数</strong>を変えられ、<strong>翻訳字幕は日本語字幕と別の位置</strong>に置けます（ゲーム画面やワイプに被らないよう逃がせます）。設定は<span class="pill">音声・コメント</span>ページの「字幕表示設定」。<span class="muted">テスト/ログページの「調整用字幕プレビュー」で出しっぱなしにすると合わせやすいです。</span></li>
+      <li><strong>⏳ 字幕の「仮確定」（v0.9.3〜）：</strong> 話し終わるのを待たずに<strong>途中経過を先に出す</strong>ので、字幕が出るまでの間が短くなります。<span class="pill">音声・コメント</span>ページで待ち時間を調整できます（短くするほど早く出ますが、あとから文が変わることが増えます）。</li>
+      <li><strong>🗣 話す言語（v0.9.3〜）：</strong> <strong>日本語以外で話しても字幕が出ます。</strong> 翻訳の「訳し元」も自動でここに合わせるので、英語で話して日本語字幕を出す、といった使い方ができます。</li>
     </ul>
     <div class="note">見た目の変化を確かめたい時は、先に上の②のURLをOBSに追加しておくと、スライダーを動かすたびにOBS側がリアルタイムで変わります。</div>
 
@@ -217,6 +221,7 @@
       <li><strong>VOICEVOX（ずんだもん等のキャラ声）：</strong> ① VOICEVOX（無料）を <a href="https://voicevox.hiroshiba.jp/" target="_blank" rel="noopener">公式サイト</a>からインストール → ② <span class="pill">詳細設定 → 同伴機能</span>ページの「VOICEVOX 同伴起動」をON →「自動検出」でパス設定 → ③ 次回から一緒に立ち上がります。<span class="muted">（声・速度など読み上げ自体の設定は<span class="pill">音声・コメント</span>ページ）</span></li>
       <li><strong>棒読みちゃんを既にお使いの場合：</strong> 本体を起動してから音声エンジンで<strong>「棒読みちゃん」</strong>を選ぶだけ。<strong>読み方辞書・声・速度は棒読みちゃん側の設定がそのまま使えます</strong>（音量のみ Ligastmir のスライダーを反映）。一緒に起動する（同伴起動）は <span class="pill">詳細設定 → 同伴機能</span>ページにまとまっています。</li>
       <li><strong>スタンプ（エモート）の読み：</strong> コード（例: <code>curama1Neko0</code>）のまま読まれます。TTS辞書（またはチャットの <code>!教育</code> コマンド）で読みを登録できます。</li>
+      <li><strong>🔔 チャットの通知音（v0.9.3〜）：</strong> コメントが来たときに鳴る音を<strong>8種類</strong>から選べます（その場で<strong>試聴</strong>できます）。音量は読み上げとは<strong>別に</strong>調整できます。<br>★<strong>読み上げをOFFにしていても、通知音だけ鳴らせます。</strong> 謎解きゲームなどで「ネタバレは読ませたくないけれど、コメントの見逃しは避けたい」ときに使えます。<span class="muted">※連続で来ても1秒に1回にまとめて鳴るので、うるさくなりません。</span></li>
     </ul>
     <div class="note">音量・話者・読み上げ前のお知らせ音などは<span class="pill">音声・コメント</span>ページで調整できます。設定は自動保存されます。</div>
 
@@ -226,6 +231,7 @@
       <li><strong>海外コメントの翻訳：</strong> <span class="pill">音声・コメント</span>ページの「💬コメント関連」で「チャット翻訳」をON。コメビューに<strong>原文＋日本語訳が2段</strong>で出て、<strong>日本語訳を読み上げ</strong>ます。<strong>言語は自動検出</strong>＝英語・中国語・韓国語・アラビア語など、翻訳エンジンが対応する言語はすべて対象です。</li>
       <li><strong>コメビューの見た目：</strong> 文字サイズ・色・不透明度・表示件数や「ずっと表示」は<span class="pill">🖥 ブラウザソース</span>ページでまとめて調整できます（③参照）。</li>
       <li><strong>表示するプラットフォームの切替：</strong> コメビュー・弾幕・エモートに出すコメントを「<strong>両方／Twitchのみ／YouTubeのみ</strong>」で選べます（コメビュー見た目設定）。同時配信で結合したコメントを画面に出す扱いは各社のルールが関わるため、必要に応じて分けられます。<span class="muted">※<strong>画面表示だけ</strong>の切替で、読み上げ・ログには影響しません。</span></li>
+      <li><strong>🌏 自分のコメントを訳して届ける（v0.9.3〜）：</strong> <strong>日本語→他の言語</strong>の翻訳を追加しました。自分が日本語で書いたコメントを訳して、海外の視聴者へ届けられます（訳し先は選べます）。</li>
     </ul>
 
     <h2 id="advanced">⑥ もっと使う（任意・各自で登録が必要）</h2>
@@ -350,8 +356,23 @@
 
     <details class="tcase">
       <summary><h3>海外コメントが翻訳・読み上げされない</h3></summary>
-      <div class="cause">「チャット翻訳」がOFFのことが多いです。</div>
-      <ul><li>「チャット翻訳」がONか確認（音声・コメントページ）。言語は自動検出。翻訳エンジンの一時不調時は別エンジンへフォールバックします。</li></ul>
+      <div class="cause">「チャット翻訳」がOFFのことが多いです。翻訳先（エンジン）が一時的に使えなくなっていることもあります。</div>
+      <ul>
+        <li>「チャット翻訳」がONか確認（音声・コメントページ）。言語は自動検出です。</li>
+        <li><strong>総合診断を実行してください（v0.9.3〜）。</strong>「翻訳エンジン」の行に、<strong>いま実際に使える翻訳先</strong>が出ます。使えるのが1つだけのときは注意も出ます。<span class="muted">※翻訳先は4つあり、順に試して1つでも通れば翻訳されます。全部だめなときは何も表示されません（誤った文が出ないようにするためです）。</span></li>
+        <li>ずっと不安定な場合は、<strong>DeepL の無料キー</strong>を設定 → 翻訳 で登録すると安定します（登録は任意です。無くても動きます）。</li>
+      </ul>
+      <div class="jump">→ 関連: <a href="#twitch">⑤ コメント連動・翻訳</a></div>
+    </details>
+
+    <details class="tcase">
+      <summary><h3>翻訳のかわりに英語のエラー文（Error 500 など）が読み上げられた・チャットに投稿された</h3></summary>
+      <div class="cause"><strong>v0.9.2 以前の不具合です。v0.9.3 で修正しました。</strong></div>
+      <ul>
+        <li>翻訳先から返ってきた<strong>エラーの文章</strong>を「翻訳結果」として扱ってしまい、そのまま読み上げ・投稿していました。</li>
+        <li><strong>v0.9.3 に更新してください。</strong> 結果が本当に翻訳になっているかを確かめてから使うようになり、失敗したときは<strong>静かに次の翻訳先へ切り替わります</strong>（どれも通らなければ何も表示しません）。</li>
+        <li>あわせて、同じ言葉を何度も翻訳に出さないようにし、うまくいかない翻訳先はしばらく休ませてから試し直すようにしました（翻訳先に止められるのを避けるためです）。</li>
+      </ul>
       <div class="jump">→ 関連: <a href="#twitch">⑤ コメント連動・翻訳</a></div>
     </details>
 

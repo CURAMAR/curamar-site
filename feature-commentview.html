@@ -21,7 +21,7 @@
 {"@context":"https://schema.org","@type":"HowTo","name":"OBSブラウザソースでコメントビューを表示する方法","description":"無料の配信支援ツール Ligastmir で、Twitch / YouTube のコメントを OBS の配信画面に表示する手順。","totalTime":"PT3M","tool":[{"@type":"HowToTool","name":"Ligastmir（無料）"},{"@type":"HowToTool","name":"OBS Studio"}],"step":[
 {"@type":"HowToStep","position":1,"name":"Ligastmir を起動して配信に接続する","text":"起動.bat から起動し、「配信」ページで Twitch のチャンネル名を入れて接続します（匿名でOK）。YouTube は配信URLとAPIキーで接続します。"},
 {"@type":"HowToStep","position":2,"name":"コメントビューのURLをコピー","text":"「ブラウザソース」ページの一覧から、コメビューのURLをコピーします。"},
-{"@type":"HowToStep","position":3,"name":"OBSにブラウザソースを追加","text":"OBSでソース欄の＋→ブラウザを追加し、URLを貼り付けます。推奨サイズは幅420×高さ600。「非アクティブ時にソースをシャットダウンする」のチェックは外します。"},
+{"@type":"HowToStep","position":3,"name":"OBSにブラウザソースを追加","text":"OBSでソース欄の＋→ブラウザを追加し、URLを貼り付けます。推奨サイズは幅1920×高さ1080（画面と同じ大きさにして、アプリ側で位置・余白・幅を決めます）。「非アクティブ時にソースをシャットダウンする」のチェックは外します。"},
 {"@type":"HowToStep","position":4,"name":"コメントが画面に流れる","text":"視聴者のコメントがカード形式で表示されます。サイズ・色・件数・フォントはアプリ側からリアルタイムに調整できます。"}]}
 </script>
 <script type="application/ld+json">
@@ -147,7 +147,7 @@
     <div class="qsteps">
       <div class="qstep"><b>Ligastmir を起動して配信に接続する</b><span><code>起動.bat</code> から起動し、「配信」ページで Twitch のチャンネル名を入れて接続（<strong>匿名でOK</strong>）。YouTube は配信URLとAPIキーで接続します。</span></div>
       <div class="qstep"><b>コメビューのURLをコピー</b><span>「ブラウザソース」ページの一覧からコピーします。</span></div>
-      <div class="qstep"><b>OBSにブラウザソースを追加</b><span>ソース欄「＋」→「ブラウザ」→ URL貼り付け。<strong>推奨サイズは幅420×高さ600</strong>。<strong>「非アクティブ時にソースをシャットダウンする」のチェックは外して</strong>ください。</span></div>
+      <div class="qstep"><b>OBSにブラウザソースを追加</b><span>ソース欄「＋」→「ブラウザ」→ URL貼り付け。<strong>推奨サイズは幅1920×高さ1080</strong>（画面と同じ大きさにして、アプリ側で<strong>位置・余白・幅</strong>を決める方式です／v0.9.3〜）。<strong>「非アクティブ時にソースをシャットダウンする」のチェックは外して</strong>ください。</span></div>
       <div class="qstep"><b>コメントが画面に流れる</b><span>テストコメント機能で、接続前でも見た目を確認できます。</span></div>
     </div>
 

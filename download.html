@@ -121,10 +121,20 @@
     <!-- ============================================================ -->
     <h2>ダウンロード</h2>
     <div class="dl-card">
-      <div class="ver" id="dl-ver">最新版 v0.9.0</div>
+      <div class="ver" id="dl-ver">最新版 v0.9.5</div>
       <h3>Ligastmir（Windows 10 / 11・無料）</h3>
       <p>下のボタンから<strong>最新版（zip）</strong>をダウンロードできます。解凍して、中の <code>起動.bat</code> から起動してください。更新のやり方は下の「差し替え方法」を参照してください。</p>
       <a class="btn" href="https://github.com/CURAMAR/ligastmir-releases/releases/latest/download/Ligastmir.zip">⬇ Ligastmir をダウンロード（zip）</a>
+      <details style="margin:14px 0 0;font-size:13px;color:var(--ink-dim)">
+        <summary style="cursor:pointer;color:var(--accent-cool)">落としたファイルが本物か、開く前に確かめる</summary>
+        <p style="margin:10px 0 0">解凍する前に、zip の「確認コード（SHA-256）」を照らし合わせられます。
+        PowerShell を開いて、落とした zip を指定してください。</p>
+        <p style="margin:8px 0 0"><code id="dl-sha-cmd" style="font-family:var(--font-mono);background:var(--bg);border:1px solid var(--bg-line);border-radius:4px;padding:2px 6px;display:inline-block;word-break:break-all">Get-FileHash .\Ligastmir.zip -Algorithm SHA256</code></p>
+        <p style="margin:8px 0 0">出てきた値が、下と同じなら本物です。</p>
+        <p style="margin:8px 0 0"><code id="dl-sha" style="font-family:var(--font-mono);background:var(--bg);border:1px solid var(--bg-line);border-radius:4px;padding:2px 6px;display:inline-block;word-break:break-all">11d7b1822640ddb00bc9f868592211a9ea69f26c4084085e304b48c9d252ee23</code>
+        <span id="dl-sha-ver" style="display:block;margin-top:4px">（v0.9.5 の zip）</span></p>
+        <p style="margin:8px 0 0">アプリを起動できる場合は、ツール内の「INFO → 本物の確認」でも照合できます。</p>
+      </details>
       <p style="font-size:13px;color:var(--ink-dim);margin:14px 0 0">うまく落とせない時や、これまで通り受け取りたい方は <a href="https://discord.gg/QtQcEgn9JF" target="_blank" rel="noopener">公式Discord</a> でも配布しています。</p>
       <p style="font-size:13px;color:var(--ink-dim);margin:10px 0 0">はじめての方は <a href="quickstart.html">🔰 3分ではじめる（最短セットアップ）</a> からどうぞ。<br>
       試したら、感想や不具合報告をもらえると嬉しいです——<strong style="color:var(--ink)">軽く触ってみた一言だけでも大歓迎</strong>です。</p>
@@ -209,6 +219,15 @@
 
     <div class="warn-box">
       <strong>SmartScreen の警告が出た場合：</strong>署名なしの個人開発アプリのため「発行元不明」と表示されることがあります。「詳細情報 → 実行」で起動できます（手元で動作確認した配布版です）。
+      <br><br>
+      <strong>「脅威が見つかりました」でダウンロードできない・消される場合：</strong>誤検知です。
+      対処（フォルダを除外に追加する／一度消された場合は先に「デバイスで許可」する）は
+      <a href="faq.html">よくある質問</a> にまとめています。
+      <br><br>
+      <strong>「発行元が確認できなかったためブロックしました」と出る場合：</strong>
+      これはウイルス判定ではなく Windows 11 の「スマート アプリ コントロール」です。
+      ⚠ この機能は<strong>一度オフにすると元に戻せません</strong>。判断の材料は
+      <a href="faq.html">よくある質問</a> をご覧ください。
     </div>
 
     <div class="warn-box">
@@ -276,6 +295,10 @@
 <script>
   fetch('version.json').then(function(r){return r.json();}).then(function(d){
     var e=document.getElementById('dl-ver'); if(e&&d.version){e.textContent='最新版 v'+d.version;}
+    // 確認コード（SHA-256）は version.json を単一ソースにする。
+    // ページに直書きすると、版を出すたび2か所を直すことになり片方だけ古くなる。
+    var s=document.getElementById('dl-sha'); if(s&&d.zip_sha256){s.textContent=d.zip_sha256;}
+    var sv=document.getElementById('dl-sha-ver'); if(sv&&d.version){sv.textContent='（v'+d.version+' の zip）';}
   }).catch(function(){});
 </script>
 <script src="/sitemap.js" defer></script>

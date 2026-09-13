@@ -23,7 +23,7 @@
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"HowTo","name":"Ligastmir の最短セットアップ（3分）","description":"配信支援ツール Ligastmir をダウンロードして、OBS に字幕やコメントビューを表示するまでの最短手順。","totalTime":"PT3M","supply":[],"tool":[{"@type":"HowToTool","name":"Windows 10 / 11 の PC"},{"@type":"HowToTool","name":"OBS Studio（画面に表示する場合）"}],"step":[
 {"@type":"HowToStep","position":1,"name":"最新版をダウンロード","text":"ダウンロードページから最新版の zip を入手します。"},
-{"@type":"HowToStep","position":2,"name":"zip を解凍","text":"zip を右クリック→「すべて展開」でフォルダを取り出します。"},
+{"@type":"HowToStep","position":2,"name":"zip を解凍して、置き場所を決める","text":"zip を右クリック→「すべて展開」でフォルダを取り出し、デスクトップか「ドキュメント」に置きます。「ダウンロード」フォルダの中・OneDrive などの同期フォルダの中・Program Files の中は避けてください（設定がそのフォルダの中に保存されるため）。"},
 {"@type":"HowToStep","position":3,"name":"起動.bat をダブルクリック","text":"フォルダ内の 起動.bat をダブルクリックして起動します。初回に SmartScreen が出たら「詳細情報 → 実行」で進めます。"},
 {"@type":"HowToStep","position":4,"name":"使いたい機能だけ ON","text":"字幕だけ・読み上げだけでも OK。Twitch / YouTube / OBS は使うものだけ接続します。"},
 {"@type":"HowToStep","position":5,"name":"OBS にブラウザソースを追加","text":"画面に出したい機能（字幕・コメントビューなど）の URL を OBS のブラウザソースに貼り付けます。"}]}
@@ -141,7 +141,21 @@
     <h2>最短セットアップ（5ステップ）</h2>
     <div class="qsteps">
       <div class="qstep"><b>最新版をダウンロード</b><span><a href="download.html">ダウンロードページ</a>から zip を入手します（無料・登録不要）。Discord で受け取ることもできます。</span></div>
-      <div class="qstep"><b>zip を解凍する</b><span>zip を右クリック →「すべて展開」。出てきたフォルダは好きな場所に置いて OK です（デスクトップでも可）。</span></div>
+      <!-- 置き場所（2026-09-13）。★以前は「好きな場所に置いて OK」と書いていて、
+           実際に「ダウンロード」フォルダ直下で使う人が出た。設定・辞書・名簿・素材は
+           このフォルダの中に保存されるので、「消される場所」に置くと全部消える。
+           サイト内で置き場所を説明するのはここ1か所。他ページはここ（#place）へ送る。 -->
+      <div class="qstep" id="place"><b>zip を解凍して、置き場所を決める</b><span>
+        zip を右クリック →「すべて展開」。出てきたフォルダ（<code>Ligastmir_v…</code>）を、<strong>デスクトップ</strong>か<strong>「ドキュメント」</strong>に移します。<br>
+        <strong>置いてはいけない場所</strong>があります。設定・読み上げ辞書・ファン名簿・取り込んだ素材は<strong>このフォルダの中に保存される</strong>ので、消される場所に置くと全部いっしょに消えます。
+        <ul style="margin:8px 0 0;padding-left:1.3em;line-height:1.7">
+          <li><strong>「ダウンロード」フォルダの中</strong> — ここは「あとで整理する場所」です。フォルダごと消したとき、設定も消えます。</li>
+          <li><strong>OneDrive・Dropbox・Google Drive などの同期フォルダの中</strong> — 同期の途中でファイルが一瞬ロックされ、保存に失敗することがあります。<br>
+              デスクトップや「ドキュメント」に<strong>雲のマーク</strong>が付いている人は、代わりに「PC → ローカルディスク(C:) → ユーザー → 自分の名前」の中に <code>Ligastmir</code> というフォルダを作って、そこに入れてください。</li>
+          <li><strong>Program Files の中</strong> — 書き込みが制限されていて、設定が保存できません。</li>
+          <li><strong>zip の中から直接</strong>・一時フォルダ — 開くたびに別の場所に展開され、設定が残りません。</li>
+        </ul>
+      </span></div>
       <div class="qstep"><b><code>起動.bat</code> をダブルクリック</b><span>フォルダの中の <code>起動.bat</code> から起動します。<strong>Ligastmir.exe を直接起動することもできますが、ダウンロード時のブロック解除を自動で行ってくれるので、通常は 起動.bat がおすすめ</strong>です。初回に SmartScreen の画面が出たら「詳細情報 → 実行」で進めます（公式サイト・公式 Discord から入手した配布版であれば大丈夫です）。</span></div>
       <div class="qstep"><b>使いたい機能だけ ON にする</b><span>最初の画面の案内に沿って、使いたい機能だけスイッチを入れます。<strong>字幕だけ・読み上げだけでも「正解」</strong>です。Twitch / YouTube / OBS の接続も、使うものだけでかまいません。</span></div>
       <div class="qstep"><b>OBS にブラウザソースを追加する</b><span>画面に出したいもの（字幕・コメントビューなど）の URL がツール内に一覧で用意されています。コピーして OBS の「ブラウザ」ソースに貼れば表示されます。</span></div>

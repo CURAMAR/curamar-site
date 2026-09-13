@@ -185,7 +185,7 @@
       <li>少し待つと操作画面（コマンドセンター）が開きます。</li>
     </ol>
     <div class="note">どうしても <code>起動.bat</code> で開けない・エラーが消えない時は、<a href="download.html">ダウンロードページの「起動できない時（ブロックの解除）」</a>に、zip を先にブロック解除してから解凍する確実な方法をまとめています。</div>
-    <div class="safe"><strong>置き場所に注意：</strong> デスクトップや「ドキュメント」など普通のフォルダに置いてください。<span class="muted">（Program Files の中やZIPの中から直接起動すると、設定の保存に失敗することがあります）</span></div>
+    <div class="safe"><strong>置き場所に注意：</strong> デスクトップか「ドキュメント」に置いてください。<strong>「ダウンロード」フォルダの中・OneDrive などの同期フォルダの中・Program Files の中・zip の中から直接</strong>は避けてください。<span class="muted">（設定・読み上げ辞書・ファン名簿・取り込んだ素材はこのフォルダの中に保存されるため、消える／保存に失敗することがあります。詳しくは<a href="quickstart.html#place">3分ではじめる</a>）</span></div>
     <div class="note">設定ファイル（<code>config.json</code> など）や記録ログは、exe と<strong>同じフォルダ</strong>に自動で作られます。</div>
 
     <h2 id="obs-source">② OBSに表示する（字幕・コメビュー・アラート）</h2>
@@ -250,7 +250,7 @@
     <div class="note"><strong>「同伴機能」ページ（<span class="pill">詳細設定 → 同伴機能</span>）：</strong> VOICEVOX・棒読みちゃん・わんコメ・OBS を <strong>Ligastmir と一緒に起動する</strong>設定をここにまとめています。起動の順番（Ligastmir を先に→OBS）や OBS の管理者権限の注意もこのページに記載しています。各アプリ本体の設定（声・接続・シーン切替）は、それぞれのページにあります。</div>
     <div class="note">これらの連携は<strong>自動でつなぎません</strong>。使いたい時にボタン/トグルで明示的にONにする設計です（OBS同伴起動だけは、事前に有効化しておけば起動時に立ち上がります）。</div>
     <div class="warn-box"><strong>OBSを「管理者として実行」にしている場合の注意：</strong> 同伴起動のたびに Windows の確認（UAC）が出て、閉じる時の<strong>自動終了も使えません</strong>。<span class="muted">OBSは<strong>もともと管理者権限は不要</strong>で、既定でもオフです（管理者が必要なのは、管理者権限で動くゲームを「ゲームキャプチャ」する場合など、限られたケースだけ）。心当たりがなければ、OBSのショートカット/exe を右クリック →「プロパティ」→「互換性」で<strong>「管理者としてこのプログラムを実行する」のチェックを外す</strong>と、確認なしで同伴起動も自動終了も使えます。外して困るのは、そのゲームのゲームキャプチャが真っ黒になった時だけ（その場合は戻してください）。※シーン切替など OBS連携（WebSocket）は、管理者でもそうでなくても問題なく動きます。</span></div>
-    <div class="safe"><strong>アラート用の画像・音声素材について：</strong> アラート演出に表示する画像や効果音は、<strong>ご自身が利用権を持つ素材</strong>をご使用ください。フリー素材を使う場合も配布元の利用規約（再配布可否・クレジット要否・商用可否など）を必ずご確認ください。<span class="muted">※Ligastmir 自体にアラート用の画像・音は同梱されていません。</span></div>
+    <div class="safe"><strong>アラート用の画像・音声素材について：</strong> アラート演出に表示する画像や効果音は、<strong>ご自身が利用権を持つ素材</strong>をご使用ください。フリー素材を使う場合も配布元の利用規約（再配布可否・クレジット要否・商用可否など）を必ずご確認ください。<span class="muted">※Ligastmir オリジナルの素材（アラートの絵・常連バッジ・看板の背景・効果音）も同梱しています。これらは配信でそのまま使えます（色や大きさの変更も可）が、素材だけを取り出しての再配布・販売、他のツールへの組み込みはできません。詳しくは同梱の LICENSES.txt をご覧ください。</span></div>
 
     <figure class="gvid">
       <video src="assets/video/companion.mp4" poster="assets/video/companion-poster.jpg" autoplay loop muted playsinline preload="metadata"

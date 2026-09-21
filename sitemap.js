@@ -33,7 +33,8 @@
         { t: "よくある質問", d: "導入前の不安・トラブル", href: "/faq.html" },
         { t: "更新履歴", d: "バージョンごとの変更点", href: "/changelog.html" },
         { t: "進化マップ（これから）", d: "今後の構想・開発状況", href: "/roadmap.html" },
-        { t: "本物の見分け方", d: "公式の入手先・偽配布の注意", href: "/verify.html" }
+        { t: "本物の見分け方", d: "公式の入手先・偽配布の注意", href: "/verify.html" },
+        { t: "サイトマップ", d: "全ページの一覧（このポップアップの固定ページ）", href: "/sitemap.html" }
       ]
     },
     {
@@ -140,7 +141,9 @@
     'font-size:11px;color:var(--ink-dim,#8a97a5)}' +
 
     '@media(max-width:560px){.scm-links{grid-template-columns:1fr}' +
-    '.scm-fab-label{display:none}.scm-fab{padding:13px}}' +
+    '.scm-fab{padding:10px 13px;font-size:12px}}' +   /* 2026-09-22: スマホでも「サイトマップ」の文字を残す（アイコンだけだと分からない） */
+    '.scm-inline .scm-panel{max-width:none;max-height:none;box-shadow:none;padding:0;border:0;background:transparent}' +
+    '.scm-inline .scm-head,.scm-inline .scm-foot{display:none}' +
     '@media (prefers-reduced-motion: reduce){.scm-overlay.scm-open,' +
     '.scm-overlay.scm-open .scm-panel{animation:none}.scm-fab:hover,.scm-link:hover{transform:none}}';
 
@@ -184,6 +187,9 @@
     overlay.className = "scm-overlay";
     overlay.innerHTML = buildPanel();
 
+    // 2026-09-22: sitemap.html は同じ配列をページの中に描く（ポップアップは出さない・単一ソースのまま）
+    var inline = document.getElementById('scm-inline');
+    if (inline) { inline.className = 'scm-inline'; inline.innerHTML = buildPanel(); return; }
     document.body.appendChild(fab);
     document.body.appendChild(overlay);
 
@@ -202,6 +208,10 @@
     }
 
     fab.addEventListener("click", open);
+    // 2026-09-22: フッターの「サイトマップ」リンク（href=/sitemap.html）はポップアップを開く。JS が無ければそのまま sitemap.html へ
+    [].forEach.call(document.querySelectorAll('a[data-scm-open]'), function (a) {
+      a.addEventListener('click', function (e) { e.preventDefault(); open(); });
+    });
     overlay.addEventListener("click", function (e) {
       if (e.target === overlay) close();              // 背景クリックで閉じる
     });

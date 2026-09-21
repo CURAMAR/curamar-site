@@ -1,0 +1,1245 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ligastmir 全機能・設定項目一覧（v0.9.7） — curamar</title>
+<meta name="description" content="無料の配信支援ツール Ligastmir の操作画面にある全設定項目（14 ページ・525 項目）を、画面から機械的に起こした一覧。字幕・翻訳・読み上げ・コメビュー・弾幕・エモート・アラート・着せ替えなど、何をどこまで調整できるかを検索できます。v0.9.7 時点。">
+<link rel="canonical" href="https://curamar.space/ligastmir-features.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="curamar.space">
+<meta property="og:title" content="Ligastmir 全機能・設定項目一覧（v0.9.7） — curamar">
+<meta property="og:description" content="Ligastmir の設定項目 525 件を検索できる一覧。v0.9.7 時点。">
+<meta property="og:url" content="https://curamar.space/ligastmir-features.html">
+<meta property="og:image" content="https://curamar.space/assets/shots/bsource-urls.webp">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Ligastmir 全機能・設定項目一覧（v0.9.7） — curamar">
+<meta name="twitter:description" content="Ligastmir の設定項目 525 件を検索できる一覧。">
+<meta name="twitter:image" content="https://curamar.space/assets/shots/bsource-urls.webp">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "トップ", "item": "https://curamar.space/"}, {"@type": "ListItem", "position": 2, "name": "Ligastmir", "item": "https://curamar.space/ligastmir.html"}, {"@type": "ListItem", "position": 3, "name": "全機能・設定項目一覧", "item": "https://curamar.space/ligastmir-features.html"}]}
+</script>
+<!-- ★このページは _handoff/tools/gen_site_features_page.py が spec/FEATURE_TREE.md から生成する。手で直さない（直すなら木か生成器）。 -->
+<style>
+  :root{
+    --bg:#0d1014;--bg-soft:#141a21;--bg-line:#1f2730;
+    --ink:#e8edf2;--ink-dim:#8a97a5;
+    --accent:#c8f542;--accent-cool:#5cc8ff;--warn:#ff6b6b;
+    --radius:14px;--maxw:900px;
+    --font-disp:"Zen Kaku Gothic New","Hiragino Kaku Gothic ProN",sans-serif;
+    --font-body:"Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;
+    --font-mono:"SFMono-Regular",Consolas,"Courier New",monospace;
+  }
+  @media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--ink);font-family:var(--font-body);line-height:1.8;-webkit-font-smoothing:antialiased}
+  a{color:var(--accent-cool)}
+  .grid-bg{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.4;
+    background-image:linear-gradient(var(--bg-line) 1px,transparent 1px),linear-gradient(90deg,var(--bg-line) 1px,transparent 1px);
+    background-size:48px 48px;
+    mask-image:radial-gradient(ellipse 80% 50% at 50% 0%,#000 20%,transparent 70%);
+    -webkit-mask-image:radial-gradient(ellipse 80% 50% at 50% 0%,#000 20%,transparent 70%)}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px;position:relative;z-index:1}
+  header{position:sticky;top:0;z-index:50;background:rgba(13,16,20,.82);backdrop-filter:blur(10px);border-bottom:1px solid var(--bg-line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:62px}
+  .logo{font-family:var(--font-mono);font-weight:700;letter-spacing:.05em;font-size:18px;text-decoration:none}
+  .logo .cura{color:var(--accent)}.logo .mar{color:var(--accent-cool)}
+  .back{font-size:14px;color:var(--ink-dim);text-decoration:none}.back:hover{color:var(--ink)}
+  article{padding:56px 0 40px}
+  .doc-eyebrow{font-family:var(--font-mono);font-size:13px;color:var(--accent-cool);letter-spacing:.16em;display:inline-flex;align-items:center;gap:10px;margin-bottom:16px}
+  .doc-eyebrow::before{content:"";width:28px;height:1px;background:var(--accent-cool)}
+  h1{font-family:var(--font-disp);font-size:clamp(25px,4.6vw,36px);font-weight:700;margin-bottom:10px}
+  h1 .hl{color:var(--accent)}
+  .lead{font-size:15px;color:var(--ink-dim);background:var(--bg-soft);border:1px solid var(--bg-line);border-radius:var(--radius);padding:18px 22px;margin:22px 0 22px}
+  .lead strong{color:var(--ink)}
+  .stats{display:flex;gap:10px;flex-wrap:wrap;margin:0 0 26px}
+  .stat{background:var(--bg-soft);border:1px solid var(--bg-line);border-radius:10px;padding:10px 16px;font-size:13px;color:var(--ink-dim)}
+  .stat b{display:block;font-family:var(--font-mono);font-size:22px;color:var(--accent);line-height:1.2}
+  .filter{position:sticky;top:62px;z-index:40;background:rgba(13,16,20,.92);backdrop-filter:blur(10px);padding:10px 0;margin:0 0 18px;border-bottom:1px solid var(--bg-line)}
+  .filter .box{display:flex;gap:10px;align-items:center}
+  .filter input{flex:1;background:var(--bg-soft);border:1px solid var(--bg-line);border-radius:10px;padding:10px 14px;color:var(--ink);font-size:15px;font-family:inherit;outline:none}
+  .filter input:focus{border-color:var(--accent)}
+  .filter .cnt{font-family:var(--font-mono);font-size:12.5px;color:var(--ink-dim);white-space:nowrap}
+  .filter .clr{background:transparent;border:1px solid var(--bg-line);color:var(--ink-dim);border-radius:8px;padding:8px 12px;cursor:pointer;font-size:13px}
+  .filter .clr:hover{border-color:var(--accent);color:var(--ink)}
+  h2{font-family:var(--font-disp);font-size:22px;font-weight:700;margin:52px 0 10px;padding-left:14px;border-left:3px solid var(--accent);display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+  h2 .pno,.toc .pno{display:inline-grid;place-items:center;min-width:28px;height:28px;padding:0 6px;background:var(--accent);color:#0d1014;font-family:var(--font-mono);font-weight:700;font-size:14px;border-radius:8px}
+  h2 .pcnt{font-family:var(--font-mono);font-size:12.5px;color:var(--ink-dim);font-weight:400;margin-left:auto}
+  .psub{color:var(--ink-dim);font-size:14px;margin:0 0 14px 17px}
+  h3{font-family:var(--font-disp);font-size:17.5px;font-weight:700;margin:26px 0 10px;padding:8px 0 6px;border-bottom:1px solid var(--bg-line);display:flex;gap:12px;align-items:baseline;flex-wrap:wrap}
+  h3 .ssub{font-size:12.5px;color:var(--ink-dim);font-weight:400}
+  h4{font-size:13px;font-weight:700;color:var(--accent-cool);letter-spacing:.04em;margin:0 0 8px}
+  .card{background:var(--bg-soft);border:1px solid var(--bg-line);border-radius:12px;padding:14px 16px;margin:0 0 12px}
+  .items{list-style:none;margin:0;padding:0}
+  .it{padding:8px 0;border-top:1px dashed var(--bg-line);font-size:14px}
+  .it:first-child{border-top:0;padding-top:2px}
+  .it .nm{color:var(--ink);font-weight:700}
+  .it .kd{display:inline-block;font-family:var(--font-mono);font-size:11px;color:var(--accent-cool);border:1px solid rgba(92,200,255,.35);border-radius:6px;padding:0 6px;margin-left:8px;vertical-align:1px}
+  .it .mt{display:block;font-size:12.5px;color:var(--ink-dim);margin-top:1px}
+  .it .ds{font-size:13px;color:var(--ink-dim);line-height:1.7;margin-top:2px}
+  .it .sw{display:inline-block;width:11px;height:11px;border:1px solid rgba(255,255,255,.35);border-radius:3px;vertical-align:-1px;margin-right:4px}
+  .it code,.tbl code{font-family:var(--font-mono);font-size:.9em;background:rgba(0,0,0,.35);border:1px solid var(--bg-line);border-radius:5px;padding:0 5px;color:var(--accent)}
+  .it.hide,.card.hide,.sec.hide,.pg.hide{display:none}
+  .toc{list-style:none;margin:0 0 6px;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:8px}
+  .toc li{background:var(--bg-soft);border:1px solid var(--bg-line);border-radius:10px;padding:10px 12px}
+  .toc .tp{display:flex;align-items:center;gap:9px;color:var(--ink);font-weight:700;text-decoration:none;font-size:14px}
+  .toc .tp:hover{color:var(--accent)}
+  .toc .tsub{display:flex;flex-wrap:wrap;gap:4px 10px;margin:6px 0 0 37px}
+  .toc .tsub a{font-size:12px;color:var(--ink-dim);text-decoration:none}.toc .tsub a:hover{color:var(--accent-cool)}
+  @media(max-width:640px){.toc{grid-template-columns:1fr}}
+  .tbl{overflow-x:auto;margin:0 0 12px}
+  table{width:100%;border-collapse:collapse;font-size:13px}
+  th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--bg-line);vertical-align:top;color:var(--ink-dim)}
+  th{color:var(--ink);font-size:12px;letter-spacing:.04em;background:var(--bg-soft)}
+  td:first-child{color:var(--ink);white-space:nowrap}
+  .totop{text-align:right;margin:10px 0 0;font-size:12.5px}
+  .totop a{color:var(--ink-dim);text-decoration:none}.totop a:hover{color:var(--accent)}
+  .none{display:none;color:var(--ink-dim);background:var(--bg-soft);border:1px dashed var(--bg-line);border-radius:10px;padding:16px;text-align:center;margin:20px 0}
+  .cta-row{display:flex;gap:14px;flex-wrap:wrap;margin:40px 0 8px}
+  .cta{display:inline-flex;align-items:center;gap:9px;background:var(--accent);color:#0d1014;font-weight:700;font-size:15px;padding:13px 26px;border-radius:10px;transition:transform .15s,box-shadow .2s;text-decoration:none}
+  .cta:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(200,245,66,.25)}
+  .cta.ghost{background:transparent;color:var(--ink);border:1px solid var(--bg-line)}
+  .cta.ghost:hover{border-color:var(--accent);box-shadow:none}
+  footer{border-top:1px solid var(--bg-line);padding:34px 0;margin-top:40px}
+  .foot{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px}
+  .foot .links{display:flex;gap:18px;font-size:14px;flex-wrap:wrap}
+  .foot .links a{color:var(--ink-dim);text-decoration:none}.foot .links a:hover{color:var(--accent)}
+  .foot .cp{font-family:var(--font-mono);font-size:12px;color:var(--ink-dim)}
+</style>
+</head>
+<body>
+<div class="grid-bg"></div>
+<header><div class="wrap nav"><a href="index.html" class="logo"><span class="cura">cura</span><span class="mar">mar</span></a><a href="ligastmir.html" class="back">← Ligastmir について</a></div></header>
+<div class="wrap"><article id="top">
+<span class="doc-eyebrow">FEATURE / ALL SETTINGS</span>
+<h1>Ligastmir <span class="hl">全機能・設定項目</span>一覧</h1>
+<div class="lead">操作画面にある<strong>すべての設定項目</strong>を、画面そのものから機械的に起こした一覧です（v0.9.7・2026-09-21 時点）。「この調整はできる？」を探すための<strong>検索</strong>付き。項目名・説明はアプリの画面と同じ文言なので、見つけたらアプリで同じ場所を探せます。各機能の使い方・手順は <a href="guide.html">使い方ガイド</a> と各 feature ページへ。</div>
+<div class="stats"><div class="stat"><b>14</b>ページ</div><div class="stat"><b>45</b>節</div><div class="stat"><b>525</b>設定項目</div><div class="stat"><b>20</b>ウィジェット</div><div class="stat"><b>7</b>ブラウザソース</div></div>
+<div class="filter"><div class="box"><input id="q" type="search" placeholder="検索（例: ネオン／縁取り／YouTube／読み上げ）" autocomplete="off"><span class="cnt" id="cnt"></span><button class="clr" id="clr" type="button" style="visibility:hidden">✕ 消す</button></div></div>
+<h2 style="margin-top:0"><span class="pno">≡</span>目次（アプリの左メニューと同じ並び）</h2>
+<ol class="toc"><li><a class="tp" href="#p-dashboard"><span class="pno">1</span>ダッシュボード</a><div class="tsub"><a href="#s-dashboard-2">❔ このダッシュボードについて</a><a href="#s-dashboard-3">🔗 構成の共有</a></div></li><li><a class="tp" href="#p-voice"><span class="pno">2</span>音声・コメント</a><div class="tsub"><a href="#s-voice-1">🎤 マイク・音声認識</a><a href="#s-voice-2">📝 字幕・翻訳字幕</a><a href="#s-voice-3">🔊 TTS・読み上げ・音量</a><a href="#s-voice-4">🗣️ 読み上げ拡張</a><a href="#s-voice-5">📖 読み上げ辞書・NGワード・NGユーザー</a><a href="#s-voice-6">💬 コメント関連</a></div></li><li><a class="tp" href="#p-bgm"><span class="pno">3</span>🎵 BGM</a></li><li><a class="tp" href="#p-stream"><span class="pno">4</span>配信</a><div class="tsub"><a href="#s-stream-2">📡 Twitch関連</a><a href="#s-stream-3">📝 タイトルのひな形</a><a href="#s-stream-4">▶ YouTube関連</a></div></li><li><a class="tp" href="#p-batch"><span class="pno">5</span>一括オン設定</a></li><li><a class="tp" href="#p-obs"><span class="pno">6</span>OBS連携</a><div class="tsub"><a href="#s-obs-1">🔌 接続</a><a href="#s-obs-2">🎬 シーン・配信操作</a><a href="#s-obs-3">🎛 シーン切替パネル設定</a><a href="#s-obs-4">📺 ブラウザソース</a></div></li><li><a class="tp" href="#p-bsource"><span class="pno">7</span>ブラウザソース</a><div class="tsub"><a href="#s-bsource-1">📺 OBSブラウザソースURL一覧</a><a href="#s-bsource-2">💬 コメビューの見た目</a><a href="#s-bsource-3">🎊 弾幕の見た目</a><a href="#s-bsource-4">✨ エモートフロートの見た目</a><a href="#s-bsource-5">📌 コメントピックアップの見た目</a></div></li><li><a class="tp" href="#p-skin"><span class="pno">8</span>着せ替え</a><div class="tsub"><a href="#s-skin-1">🖥 アプリの配色（テーマ）</a><a href="#s-skin-2">🎨 見た目プリセット</a><a href="#s-skin-3">🔔 アラート</a><a href="#s-skin-4">🎉 チャネポ報酬ごとの演出</a><a href="#s-skin-5">⚡ リアクション</a><a href="#s-skin-6">🏅 常連バッジ（進化バッジ）</a><a href="#s-skin-7">💬 コメビュー</a><a href="#s-skin-8">🪧 看板テロップ</a></div></li><li><a class="tp" href="#p-advanced"><span class="pno">9</span>上級者アクション</a><div class="tsub"><a href="#s-advanced-1">🎵 ① ちょい足し歌わせ</a><a href="#s-advanced-2">🎤 ② がっつり歌唱</a><a href="#s-advanced-3">🔤 ③ 正規表現の読み替え</a></div></li><li><a class="tp" href="#p-logs"><span class="pno">10</span>テスト/ログ</a><div class="tsub"><a href="#s-logs-1">🩺 診断・修復・ログ</a><a href="#s-logs-2">🧪 テスト・シミュレーター</a><a href="#s-logs-3">📊 コメント統計・ファン名簿</a></div></li><li><a class="tp" href="#p-settings"><span class="pno">11</span>詳細設定</a><div class="tsub"><a href="#s-settings-1">⚙ 終了時の動作</a><a href="#s-settings-2">💬 コメント埋め込み</a><a href="#s-settings-3">⌨ チャットコマンド一覧</a></div></li><li><a class="tp" href="#p-companion"><span class="pno">12</span>同伴機能</a><div class="tsub"><a href="#s-companion-1">🎙 VOICEVOX 同伴起動</a><a href="#s-companion-2">🔊 棒読みちゃん 同伴起動</a><a href="#s-companion-3">💬 わんコメ 同伴起動</a><a href="#s-companion-4">🎬 OBS 同伴起動</a></div></li><li><a class="tp" href="#p-info"><span class="pno">13</span>INFO</a></li><li><a class="tp" href="#p-devtools"><span class="pno">14</span>ストリームレコーダー</a></li><li><a class="tp" href="#widgets"><span class="pno">W</span>ダッシュボードのウィジェット（20）</a></li><li><a class="tp" href="#overlays"><span class="pno">O</span>OBS に貼るブラウザソース（7 面）</a></li><li><a class="tp" href="#auto"><span class="pno">A</span>自動で動くもの・チャットコマンド・起動の仕方</a></li></ol>
+<div class="none" id="none">その言葉の項目は見つかりませんでした。別の言い方（例: 「光」「フチ」「大きさ」）で試してみてください。</div>
+<section class="pg" id="p-dashboard">
+<h2><span class="pno">1</span>ダッシュボード<span class="pcnt">5 項目</span></h2>
+<p class="psub">ウィジェット式</p>
+<div class="sec" id="s-dashboard-1">
+<div class="card">
+<ul class="items">
+<li class="it"><span class="nm">— ウィジェット式</span><span class="kd">選択</span><span class="mt">選択肢: （起動後に埋まる）</span><div class="ds">プリセット切替</div></li>
+<li class="it"><span class="nm">💾 保存</span><span class="kd">ボタン</span><div class="ds">現在の構成をカスタムに保存</div></li>
+<li class="it"><span class="nm">— ウィジェット式</span><span class="kd">選択</span><span class="mt">選択肢: 🔒 ロック／🔧 クイック調整／🛠 フル編集</span><div class="ds">ロック=誤操作防止／クイック調整=ウィジェットの移動・リサイズ／フル編集=ウィジェットの追加・削除</div></li>
+</ul></div>
+</div>
+<div class="sec" id="s-dashboard-2">
+<h3>❔ このダッシュボードについて<span class="ssub">できること・操作方法（クリックで開閉）</span></h3>
+</div>
+<div class="sec" id="s-dashboard-3">
+<h3>🔗 構成の共有</h3>
+<div class="card">
+<ul class="items">
+<li class="it"><span class="nm">📤 構成を書き出す</span><span class="kd">ボタン</span></li>
+<li class="it"><span class="nm">📥 構成を取込む</span><span class="kd">ボタン</span></li>
+</ul></div>
+</div>
+<p class="totop"><a href="#top">▲ 目次へ</a></p></section>
+<section class="pg" id="p-voice">
+<h2><span class="pno">2</span>音声・コメント<span class="pcnt">109 項目</span></h2>
+<p class="psub">マイク・字幕・TTS・コメント</p>
+<div class="sec" id="s-voice-1">
+<h3>🎤 マイク・音声認識</h3>
+<div class="card">
+<h4>マイク設定</h4>
+<ul class="items">
+<li class="it"><span class="nm">マイクデバイス</span><span class="kd">選択</span><span class="mt">選択肢: ― デバイスを選択 ―</span><div class="ds">使用するマイクを選択します。「更新」でデバイス一覧を取得してください。</div></li>
+<li class="it"><span class="nm">更新</span><span class="kd">ボタン</span></li>
+<li class="it"><span class="nm">話す言語</span><span class="kd">選択</span><span class="mt">選択肢: （起動後に埋まる）</span><div class="ds">音声認識に「何語で話すか」を伝えます。日本語以外で配信するときはここを変えてください。変更するとその場で認識を入れ直します。</div></li>
+<li class="it"><span class="nm">音声認識の動かし方</span><span class="kd">選択</span><span class="mt">選択肢: 自動（おすすめ）／このアプリの中だけ／Edge を裏で使う</span><div class="ds">「自動」は、まずこのアプリの中で認識し、WebView2（Edge の部品）の更新で認識サービスに繋がらないときだけ、裏で Edge を使って認識します（窓やタブは出ません）。最初から Edge を使う／必ずアプリの中だけ、も選べます。</div></li>
+<li class="it"><span class="nm">字幕を早めに確定する</span><span class="kd">選択</span><span class="mt">選択肢: 使わない（従来どおり）／ゆっくり（1.2秒）／ふつう（0.8秒）／はやい（0.5秒）</span><div class="ds">話し終わったと判断されるのを待たず、少し止まった時点で字幕を確定させます。翻訳もそこで走るので、訳が出るのが早くなります。認識は止めないので、次の文の頭が切れることはありません。あとから本当の確定が来たら自動で直します。</div></li>
+<li class="it"><span class="nm">OBSでマイクをミュートしたら、字幕も止める</span><span class="kd">ON/OFF</span><span class="mt">初期 OFF</span><div class="ds">OBS側でマイクをミュートしても、字幕だけ出続けてしまうのを防ぎます。 使わない場合はOFFのままでOK です。</div></li>
+<li class="it"><span class="nm">OBSのマイク</span><span class="kd">選択</span><span class="mt">選択肢: （OBSに接続すると選べます）</span></li>
+<li class="it"><span class="nm">更新</span><span class="kd">ボタン</span></li>
+<li class="it"><span class="nm">字幕 ON / OFF</span><span class="kd">ON/OFF</span><span class="mt">初期 OFF</span><div class="ds">マイク音声をリアルタイムで文字起こし → OBSに表示</div></li>
+</ul></div>
+</div>
+<div class="sec" id="s-voice-2">
+<h3>📝 字幕・翻訳字幕</h3>
+<div class="card">
+<h4>字幕表示設定</h4>
+<ul class="items">
+<li class="it"><span class="nm">字幕が消えるまで</span><span class="kd">スライダー</span><span class="mt">範囲 2〜10（初期 4）</span><div class="ds">発話が途切れてから字幕が消えるまでの秒数。4〜6秒が目安です。</div></li>
+<li class="it"><span class="nm">字幕の最大行数</span><span class="kd">スライダー</span><span class="mt">範囲 0〜6（初期 0）</span><div class="ds">日本語字幕がこの行数を超えたら、それ以上は表示しません（画面を占領しすぎるのを防ぎます）。「制限なし」なら全部表示します。</div></li>
+<li class="it"><span class="nm">入りきらないぶんを流して全文を見せる</span><span class="kd">ON/OFF</span><span class="mt">初期 OFF</span><div class="ds">行数を絞ると、長い字幕は後ろが「…」で切れます。ONにすると、切れる代わりに文字が流れて最後まで読めます。1行のときは横に流れ、2行以上なら縦に送ります。流し終わるまで字幕は消えません。</div></li>
+<li class="it"><span class="nm">流す速さ</span><span class="kd">スライダー</span><span class="mt">範囲 20〜200（初期 60）</span><div class="ds">1秒あたり何ピクセル動かすかです。数字が大きいほど速く流れます。長い文でも速さは変わりません（時間で指定すると長文ほど速くなって読めなくなるため）。</div></li>
+<li class="it"><span class="nm">日本語字幕（文字起こし）を表示する</span><span class="kd">ON/OFF</span><span class="mt">初期 ON</span><div class="ds">OFFにすると、話した内容の日本語字幕（上段）を隠して翻訳字幕だけを表示します。日本語が不要な海外向け配信などに便利です。翻訳字幕は『字幕翻訳』トグルが別途ONのときに出ます。</div></li>
+<li class="it"><span class="nm">翻訳字幕を上に出す（上＝翻訳字幕／下＝字幕）</span><span class="kd">ON/OFF</span><span class="mt">初期 OFF</span><div class="ds">ふだんは上が字幕、下が翻訳字幕です。ONにすると逆になります。海外の視聴者に先に読んでほしいときに。※下の「翻訳字幕を別の場所に出す」をONにしている場合は、翻訳字幕が独立した位置に出るのでこの設定は効きません。</div></li>
+<li class="it"><span class="nm">標準（すっきり）／まる字（やわらかい）／極太（インパクト）／明朝（小説っぽい）／手書き風（やさしい）</span><span class="kd">ボタン</span></li>
+<li class="it"><span class="nm">文字の大きさ</span><span class="kd">スライダー</span><span class="mt">範囲 20〜64（初期 36）</span><div class="ds">1920×1080配信では36〜44pxが見やすいです。変更はOBSにリアルタイム反映されます。</div></li>
+<li class="it"><span class="nm">文字の色</span><span class="kd">色</span><span class="mt">初期 <i class="sw" style="background:#ffffff"></i>#ffffff</span></li>
+<li class="it"><span class="nm">縁取りの色</span><span class="kd">色</span><span class="mt">初期 <i class="sw" style="background:#000000"></i>#000000</span></li>
+<li class="it"><span class="nm">色を既定に戻す</span><span class="kd">ボタン</span><div class="ds">字幕・翻訳字幕の文字の色を既定に戻します</div></li>
+<li class="it"><span class="nm">縁取りを既定に戻す</span><span class="kd">ボタン</span><div class="ds">字幕・翻訳字幕の縁取りを既定に戻します</div></li>
+<li class="it"><span class="nm">縁取りの太さ</span><span class="kd">スライダー</span><span class="mt">範囲 0〜6（初期 2）</span><div class="ds">日本語字幕の文字を囲む縁（フチ）の太さ。0で縁取りなし、大きいほど太くなります。背景が明るい配信でも字幕が読みやすくなります。</div></li>
+<li class="it"><span class="nm">光らせる（ネオン）</span><span class="kd">ON/OFF</span><span class="mt">初期 OFF</span><div class="ds">字幕の文字を蛍光管のように光らせます。暗い画面や、縁取りだけでは沈んで見えるときに読みやすくなります。コメビューのネオンと同じ光り方です。</div></li>
+<li class="it"><span class="nm">ネオンの色</span><span class="kd">色</span><span class="mt">初期 <i class="sw" style="background:#66ddff"></i>#66ddff</span></li>
+<li class="it"><span class="nm">ネオンを既定に戻す</span><span class="kd">ボタン</span><div class="ds">字幕・翻訳字幕のネオンを既定に戻します</div></li>
+<li class="it"><span class="nm">ネオンの強さ</span><span class="kd">スライダー</span><span class="mt">範囲 1〜10（初期 5）</span></li>
+<li class="it"><span class="nm">翻訳字幕の見た目</span><span class="kd">選択</span><span class="mt">選択肢: 全部同じ（従来）／言語ごとに分ける</span><div class="ds">「全部同じ」は翻訳先が何語でも同じ見た目（従来）。「言語ごとに分ける」にすると、翻訳先の言語ごとに大きさ・文字色・縁取り・ネオンを別々に決められます（英語は白、韓国語は水色、など）。</div></li>
+<li class="it"><span class="nm">文字の大きさ</span><span class="kd">スライダー</span><span class="mt">範囲 12〜48（初期 22）</span><div class="ds">翻訳字幕（下段）の文字サイズ。日本語字幕とは独立して調整できます。「自動追従」ONのときは日本語字幕の60%になります。</div></li>
+<li class="it"><span class="nm">日本語字幕の大きさに自動追従（60%）</span><span class="kd">ON/OFF</span><span class="mt">初期 ON</span></li>
+<li class="it"><span class="nm">文字の色</span><span class="kd">色</span><span class="mt">初期 <i class="sw" style="background:#c8f542"></i>#c8f542</span></li>
+<li class="it"><span class="nm">縁取りの色</span><span class="kd">色</span><span class="mt">初期 <i class="sw" style="background:#000000"></i>#000000</span></li>
+<li class="it"><span class="nm">縁取りの太さ</span><span class="kd">スライダー</span><span class="mt">範囲 0〜6（初期 2）</span><div class="ds">翻訳字幕の文字を囲む縁（フチ）の太さ。字幕とは別に設定できます。0で縁取りなし。</div></li>
+<li class="it"><span class="nm">ネオンは日本語字幕と同じにする</span><span class="kd">ON/OFF</span><span class="mt">初期 ON</span><div class="ds">外すと、翻訳字幕だけ別の色・強さで光らせられます（外した直後は日本語字幕と同じ設定から始まります）。</div></li>
+<li class="it"><span class="nm">光らせる（ネオン）</span><span class="kd">ON/OFF</span><span class="mt">初期 OFF</span></li>
+<li class="it"><span class="nm">ネオンの色</span><span class="kd">色</span><span class="mt">初期 <i class="sw" style="background:#66ddff"></i>#66ddff</span></li>
+<li class="it"><span class="nm">ネオンの強さ</span><span class="kd">スライダー</span><span class="mt">範囲 1〜10（初期 5）</span></li>
+<li class="it"><span class="nm">翻訳字幕どうしの行間</span><span class="kd">スライダー</span><span class="mt">範囲 0〜24（初期 2）</span><div class="ds">翻訳先を複数にしたとき、1言語ぶんずつの間隔です。0にすると詰まり、大きくすると離れます。日本語字幕との間隔は別です。</div></li>
+<li class="it"><span class="nm">上／中／下</span><span class="kd">ボタン</span></li>
+<li class="it"><span class="nm">左／中／右</span><span class="kd">ボタン</span></li>
+<li class="it"><span class="nm">上下の余白</span><span class="kd">スライダー</span><span class="mt">範囲 0〜400（初期 60）</span><div class="ds">選んだ上下位置の端からの余白（px）。「下」なら下端から、「上」なら上端からの距離になります。</div></li>
+<li class="it"><span class="nm">左右の余白</span><span class="kd">スライダー</span><span class="mt">範囲 0〜400（初期 80）</span><div class="ds">左右の端からの余白（px）。字幕の折り返し幅にも影響します。</div></li>
+<li class="it"><span class="nm">翻訳字幕を日本語字幕と別の位置に出す</span><span class="kd">ON/OFF</span><span class="mt">初期 OFF</span><div class="ds">ONにすると、翻訳字幕を日本語字幕とは独立した位置（例: 翻訳を画面の上、日本語を下）に出せます。OFFなら日本語字幕の下に重ねて表示します（従来どおり）。</div></li>
+<li class="it"><span class="nm">上／中／下</span><span class="kd">ボタン</span></li>
+<li class="it"><span class="nm">左／中／右</span><span class="kd">ボタン</span></li>
+<li class="it"><span class="nm">翻訳字幕の上下余白</span><span class="kd">スライダー</span><span class="mt">範囲 0〜400（初期 60）</span></li>
+<li class="it"><span class="nm">翻訳字幕の左右余白</span><span class="kd">スライダー</span><span class="mt">範囲 0〜400（初期 80）</span></li>
+</ul></div>
+<div class="card">
+<h4>翻訳エンジン設定</h4>
+<ul class="items">
+<li class="it"><span class="nm">DeepL API キー（任意）</span><span class="kd">入力（秘匿）</span><span class="mt">例: DeepLキーを入力（なくても動作します）</span><div class="ds">空欄のままでも翻訳できます。キーを入れると、より自然な訳になります。</div></li>
+<li class="it"><span class="nm">表示</span><span class="kd">ボタン</span></li>
+<li class="it"><span class="nm">キーを確認</span><span class="kd">ボタン</span><div class="ds">キーが使えるか、今月あと何文字使えるかを確かめます（文字は消費しません）</div></li>
+<li class="it"><span class="nm">キーを削除</span><span class="kd">ボタン</span><div class="ds">保存済みのキーを消します（空欄で保存しても消えない作りなので、消すときはこちら）</div></li>
+<li class="it"><span class="nm">例: you@example.com（任意・空でも使えます）</span><span class="kd">入力</span><span class="mt">例: 例: you@example.com（任意・空でも使えます）</span></li>
+<li class="it"><span class="nm">保存</span><span class="kd">ボタン</span></li>
+<li class="it"><span class="nm">設定を保存</span><span class="kd">ボタン</span></li>
+<li class="it"><span class="nm">↻ 最新にする</span><span class="kd">ボタン</span></li>
+<li class="it"><span class="nm">エンジンの状態をリセット</span><span class="kd">ボタン</span><div class="ds">回線が直った直後などに</div></li>
+<li class="it"><span class="nm">🗑 記録を消す</span><span class="kd">ボタン</span><div class="ds">ここまでの記録を消して、これから起きることだけを見る</div></li>
+</ul></div>
+<div class="card">
+<h4>字幕翻訳</h4>
+<ul class="items">
+<li class="it"><span class="nm">字幕翻訳 ON / OFF</span><span class="kd">ON/OFF</span><span class="mt">初期 OFF</span><div class="ds">音声認識字幕の下にリアルタイム翻訳を表示（OBSブラウザソースに反映）</div></li>
+<li class="it"><span class="nm">翻訳字幕の言語</span><span class="kd">選択</span><span class="mt">選択肢: English</span><div class="ds">話した内容を翻訳して字幕に出すときの言語です。海外の視聴者に合わせて選べます（既定=英語）。ロシア語・中国語・韓国語などに切り替えられます。アラビア語やタイ語は表示フォントの都合で今は未対応です。</div></li>
+</ul></div>
+</div>
+<div class="sec" id="s-voice-3">
+<h3>🔊 TTS・読み上げ・音量</h3>
+<div class="card">
+<h4>TTS 設定</h4>
+<ul class="items">
+<li class="it"><span class="nm">TTS 読み上げ</span><span class="kd">ON/OFF</span><span class="mt">初期 OFF</span><div class="ds">コメントをPythonエンジンで自動読み上げ</div></li>
+<li class="it"><span class="nm">音声エンジン</span><span class="kd">選択</span><span class="mt">選択肢: VOICEVOX（ずんだもん など）／SAPI5（Windows 標準音声）／棒読みちゃん（連携・要起動）／システム TTS</span><div class="ds">読み上げに使う声を選びます。迷ったら SAPI5（Windows標準）が手軽です。</div></li>
+<li class="it"><span class="nm">話者（キャラクター）</span><span class="kd">選択</span><span class="mt">選択肢: ずんだもん（あまあま）</span></li>
+<li class="it"><span class="nm">読み込む</span><span class="kd">ボタン</span></li>
+<li class="it"><span class="nm">🔄 更新</span><span class="kd">ボタン</span></li>
+<li class="it"><span class="nm">📋 コピー</span><span class="kd">ボタン</span></li>
+<li class="it"><span class="nm">💾 ファイル出力</span><span class="kd">ボタン</span></li>
+<li class="it"><span class="nm">🗑 セッションクリア</span><span class="kd">ボタン</span></li>
+<li class="it"><span class="nm">TTS 音量</span><span class="kd">スライダー</span><span class="mt">範囲 0〜100（初期 80） （<code>document.getElementById('tts-vol-val').t</code>）</span></li>
+<li class="it"><span class="nm">🔊 テスト再生</span><span class="kd">ボタン</span></li>
+</ul></div>
+<div class="card">
+<h4>読み上げ制御・オプション</h4>
+<ul class="items">
+<li class="it"><span class="nm">⏭ 今のをスキップ</span><span class="kd">ボタン</span></li>
+<li class="it"><span class="nm">⏹ 全部止める</span><span class="kd">ボタン</span></li>
+<li class="it"><span class="nm">音量正規化</span><span class="kd">ON/OFF</span><span class="mt">初期 OFF</span><div class="ds">短いコメントは大きく、長いコメントは控えめに自動調整</div></li>
+<li class="it"><span class="nm">読み上げ前SE</span><span class="kd">ON/OFF</span><span class="mt">初期 OFF</span><div class="ds">コメントが来たことを短い音で知らせます。 読み上げをOFFにしていても鳴らせます （下の「鳴らすタイミング」で選べます）。</div></li>
+<li class="it"><span class="nm">鳴らすタイミング</span><span class="kd">選択</span><span class="mt">選択肢: 読み上げるコメントだけ（従来）／すべてのコメント（読み上げOFFでも鳴らす）</span><div class="ds">読み上げをOFFにしていてもコメントの到来を音で知らせたいときは「すべてのコメント」を選びます。</div></li>
+<li class="it"><span class="nm">通知音の種類</span><span class="kd">選択</span><span class="mt">選択肢: （起動後に埋まる）</span><div class="ds">コメント到来を知らせる音を選べます。「🔔 試聴」でこの場で聴けます。音源ファイルは同梱せず、ツールが作ります。</div></li>
+<li class="it"><span class="nm">🔔 試聴</span><span class="kd">ボタン</span></li>
+<li class="it"><span class="nm">通知音の音量</span><span class="kd">スライダー</span><span class="mt">範囲 0〜100（初期 30）</span><div class="ds">コメントの通知音だけの音量です。読み上げやアラートとは別に持ちます。何度も鳴るので控えめが既定です。</div></li>
+<li class="it"><span class="nm">ユーザーごとに声を変える</span><span class="kd">ON/OFF</span><span class="mt">初期 OFF</span><div class="ds">VOICEVOX読み上げ時、視聴者ごとに別の話者を自動割当（同じ人は毎回同じ声）。チャットが賑やかに。</div></li>
+</ul></div>
+</div>
+<div class="sec" id="s-voice-4">
+<h3>🗣️ 読み上げ拡張</h3>
+<div class="card">
+<h4>🗣️ 読み上げ拡張（名前・スキップ・本文加工）</h4>
+<ul class="items">
+<li class="it"><span class="nm">毎回読む（既定・現状互換）</span><span class="kd">選択</span></li>
+<li class="it"><span class="nm">翻訳されたコメントだけ読む</span><span class="kd">選択</span></li>
+<li class="it"><span class="nm">初回コメントだけ読む（配信ごとリセット）</span><span class="kd">選択</span></li>
+<li class="it"><span class="nm">名前を読まない</span><span class="kd">選択</span></li>
+<li class="it"><span class="nm">名前と本文の区切り：</span><span class="kd">入力</span><span class="mt">例: 、</span></li>
+<li class="it"><span class="nm">読み上げスキップユーザー</span><span class="kd">入力（複数行）</span><div class="ds">bot等の login_id を1行1つで列挙。コメビュー表示・統計はそのまま、読み上げと bot 投稿だけスキップします。</div></li>
+<li class="it"><span class="nm">このリストのユーザーを コメントビュー・弾幕にも表示しない</span><span class="kd">ON/OFF</span><span class="mt">初期 OFF</span><div class="ds">Nightbot などの Bot コメントを画面からも消したい場合にON。読み上げは元から止まっています。OFFなら今までどおり表示します。</div></li>
+<li class="it"><span class="nm">🤖 主要 bot をプリセット追加</span><span class="kd">ボタン</span><div class="ds">nightbot, streamelements, soundalerts, moobot, streamlabs, wizebot を一括追加</div></li>
+<li class="it"><span class="nm">💾 設定を保存</span><span class="kd">ボタン</span><div class="ds">このカード全体の設定を保存</div></li>
+<li class="it"><span class="nm">① URL を「 」に置換する</span><span class="kd">ON/OFF</span><span class="mt">初期 OFF</span></li>
+<li class="it"><span class="nm">① URL を「 」に置換する</span><span class="kd">入力</span></li>
+<li class="it"><span class="nm">② 英単語をカタカナ読みする</span><span class="kd">ON/OFF</span><span class="mt">初期 OFF</span><div class="ds">（既定辞書 150 語・ 個別の単語は TTS 辞書登録で上書き可能 ）</div></li>
+<li class="it"><span class="nm">③ 連続記号・文字を圧縮する</span><span class="kd">ON/OFF</span><span class="mt">初期 OFF</span><div class="ds">（「！！！！」→「！！」「wwww」→「わら」「。。。。」→「。。」／数字は変えません）</div></li>
+<li class="it"><span class="nm">④ 長文は 文字で「以下省略」打ち切り</span><span class="kd">ON/OFF</span><span class="mt">初期 OFF</span></li>
+<li class="it"><span class="nm">④ 長文は 文字で「以下省略」打ち切り</span><span class="kd">数値</span><span class="mt">範囲 10〜1000（10 刻み・初期 150）</span></li>
+</ul></div>
+</div>
+<div class="sec" id="s-voice-5">
+<h3>📖 読み上げ辞書・NGワード・NGユーザー</h3>
+<div class="card">
+<h4>読み上げ辞書</h4>
+<ul class="items">
+<li class="it"><span class="nm">元の単語</span><span class="kd">入力</span><span class="mt">例: 例: curamar</span><div class="ds">置換したい単語（例: curamar、ｗｗ）。英字は大文字小文字を区別しません。</div></li>
+<li class="it"><span class="nm">読み（置換後）</span><span class="kd">入力</span><span class="mt">例: 例: くらまー（ひらがな推奨）</span><div class="ds">読み方を「ひらがな」で書くのがいちばん確実です（どの音声エンジンでも正しく読まれます）。カタカナ・漢字・記号もそのまま登録できます。</div></li>
+<li class="it"><span class="nm">追加</span><span class="kd">ボタン</span></li>
+<li class="it"><span class="nm">元の単語 読み（置換後）</span><span class="kd">入力</span><span class="mt">例: 変換テスト（例: curamar テスト）</span></li>
+<li class="it"><span class="nm">テスト</span><span class="kd">ボタン</span></li>
+<li class="it"><span class="nm">英単語の途中では変換しない</span><span class="kd">ON/OFF</span><span class="mt">初期 OFF</span><div class="ds">ONにすると、英数字だけで登録した語（例: GG）が、別の単語の一部（例: EGG）には当たらなくなります。日本語や絵文字の登録は影響を受けません（今までどおり）。既定はOFFです。</div></li>
+</ul></div>
+<div class="card">
+<h4>辞書パック（共有・取込）</h4>
+<ul class="items">
+<li class="it"><span class="nm">📤 辞書を書き出す</span><span class="kd">ボタン</span></li>
+<li class="it"><span class="nm">📥 辞書パックを取込む</span><span class="kd">ボタン</span></li>
+</ul></div>
+<div class="card">
+<h4>NGワード管理</h4>
+<ul class="items">
+<li class="it"><span class="nm">NGワード管理 0 件</span><span class="kd">入力</span><span class="mt">例: 追加するNGワード…</span></li>
+<li class="it"><span class="nm">追加</span><span class="kd">ボタン</span></li>
+</ul></div>
+<div class="card">
+<h4>NGユーザー管理</h4>
+<ul class="items">
+<li class="it"><span class="nm">NGユーザー管理 0 件</span><span class="kd">入力</span><span class="mt">例: ユーザー名（例: spam_user）…</span></li>
+<li class="it"><span class="nm">追加</span><span class="kd">ボタン</span></li>
+</ul></div>
+</div>
+<div class="sec" id="s-voice-6">
+<h3>💬 コメント関連</h3>
+<div class="card">
+<h4>チャット翻訳</h4>
+<ul class="items">
+<li class="it"><span class="nm">チャット翻訳 ON / OFF</span><span class="kd">ON/OFF</span><span class="mt">初期 OFF</span><div class="ds">日本語以外のTwitchコメントを自動検出して日本語に翻訳（TwitchTransFNスタイル）。 ※「字幕翻訳」とは別のスイッチです ＝コメントの翻訳はこちらをON。「⚡一括スタート」の対象にもできます（⚙一括オン設定）。</div></li>
+<li class="it"><span class="nm">日本語コメントを海外向けに訳す ON / OFF</span><span class="kd">ON/OFF</span><span class="mt">初期 OFF</span><div class="ds">日本語のコメントに、下で選んだ言語の訳を添えてコメビューに出します（海外の視聴者向け）。 上のトグルとは別で、両方ONにできます ＝日本語の人も海外の人も読める状態になります。 読み上げは日本語のまま です（訳は表示だけ）。</div></li>
+<li class="it"><span class="nm">訳す先の言語</span><span class="kd">選択</span><span class="mt">選択肢: （起動後に埋まる）</span></li>
+<li class="it"><span class="nm">翻訳をチャットへBot代理投稿 ON / OFF</span><span class="kd">ON/OFF</span><span class="mt">初期 OFF</span><div class="ds">海外コメントの日本語訳を、自分のチャンネルのチャット欄へ自動投稿します（要 user:write:chat 認可・上の「チャット翻訳」がONのとき動作）。コメビュー／読み上げだけで良い場合はOFFのままでOK。</div></li>
+</ul></div>
+<div class="card">
+<h4>定期コメント</h4>
+<ul class="items">
+<li class="it"><span class="nm">＋ 新規追加</span><span class="kd">ボタン</span></li>
+</ul></div>
+</div>
+<p class="totop"><a href="#top">▲ 目次へ</a></p></section>
+<section class="pg" id="p-bgm">
+<h2><span class="pno">3</span>🎵 BGM<span class="pcnt">16 項目</span></h2>
+<div class="sec" id="s-bgm-1">
+<div class="card">
+<ul class="items">
+<li class="it"><span class="nm">🎵 音源を取り込む...</span><span class="kd">ボタン</span></li>
+<li class="it"><span class="nm">↻ 一覧を更新</span><span class="kd">ボタン</span></li>
+<li class="it"><span class="nm">⏮</span><span class="kd">ボタン</span><div class="ds">前の曲</div></li>
+<li class="it"><span class="nm">▶ 再生</span><span class="kd">ボタン</span></li>
+<li class="it"><span class="nm">⏭</span><span class="kd">ボタン</span><div class="ds">次の曲</div></li>
+<li class="it"><span class="nm">音量</span><span class="kd">スライダー</span><span class="mt">範囲 0〜100（1 刻み・初期 40）</span></li>
+<li class="it"><span class="nm">一覧をくり返す</span><span class="kd">ON/OFF</span><span class="mt">初期 ON</span><div class="ds">いちばん最後の曲が終わったら、また最初の曲に戻ります。OFFにすると最後で止まります。</div></li>
+<li class="it"><span class="nm">いまの曲だけをくり返す</span><span class="kd">ON/OFF</span><span class="mt">初期 OFF</span><div class="ds">次の曲へ進まず、同じ曲をずっと流します。作業配信や待機画面で使えます。ONのあいだはシャッフルも次へ進みません。</div></li>
+<li class="it"><span class="nm">シャッフル</span><span class="kd">ON/OFF</span><span class="mt">初期 OFF</span></li>
+<li class="it"><span class="nm">読み上げ中は音量を下げる</span><span class="kd">ON/OFF</span><span class="mt">初期 ON</span></li>
+<li class="it"><span class="nm">下げる量</span><span class="kd">スライダー</span><span class="mt">範囲 0〜100（1 刻み・初期 25）</span></li>
+</ul></div>
+<div class="card">
+<h4>シーンに合わせて切り替える</h4>
+<ul class="items">
+<li class="it"><span class="nm">シーン連動 ON / OFF</span><span class="kd">ON/OFF</span><span class="mt">初期 OFF</span><div class="ds">OFF のときは、下の割り当ては使われません（設定は残ります）。</div></li>
+<li class="it"><span class="nm">切り替わったときの再生位置</span><span class="kd">選択</span><span class="mt">選択肢: 頭から流す（曲の始めから）／続きから流す（前に止めた位置から）</span></li>
+<li class="it"><span class="nm">切り替えのなめらかさ</span><span class="kd">スライダー</span><span class="mt">範囲 0〜3000（初期 600）</span></li>
+<li class="it"><span class="nm">OBSのシーンを読み込む</span><span class="kd">ボタン</span></li>
+</ul></div>
+<div class="card">
+<h4>エンドロール用の曲</h4>
+<ul class="items">
+<li class="it"><span class="nm">曲</span><span class="kd">選択</span><span class="mt">選択肢: （起動後に埋まる）</span></li>
+</ul></div>
+</div>
+<p class="totop"><a href="#top">▲ 目次へ</a></p></section>
+<section class="pg" id="p-stream">
+<h2><span class="pno">4</span>配信<span class="pcnt">50 項目</span></h2>
+<p class="psub">プラットフォーム選択・Twitch / YouTube 接続</p>
+<div class="sec" id="s-stream-1">
+<div class="card">
+<ul class="items">
+<li class="it"><span class="nm">接続モード（ コメントを取り込む先 ）</span><span class="kd">選択</span><span class="mt">選択肢: Twitch のみ／YouTube のみ／同時配信（Twitch ＋ YouTube）</span><div class="ds">ここで選んだプラットフォームのコメントだけを取り込みます。★映像をどこへ配信するかは OBS 側の設定であって、ここでは決まりません。</div></li>
+</ul></div>
+<div class="card">
+<h4>配信タイトルを両方へ反映</h4>
+<ul class="items">
+<li class="it"><span class="nm">配信タイトル</span><span class="kd">入力</span><span class="mt">例: 配信タイトル</span></li>
+<li class="it"><span class="nm">Twitch ＋ YouTube 両方へ反映</span><span class="kd">ボタン</span></li>
+</ul></div>
+</div>
+<div class="sec" id="s-stream-2">
+<h3>📡 Twitch関連<span class="ssub">認証・接続・アラート・Bot 未接続</span></h3>
+<div class="card">
+<h4>Twitch チャンネル接続</h4>
+<ul class="items">
+<li class="it"><span class="nm">Twitch チャンネル名</span><span class="kd">入力</span><span class="mt">例: channel_name</span><div class="ds">読み上げたいチャンネルID（例: curamar）。#不要。OAuth不要で匿名接続します。</div></li>
+<li class="it"><span class="nm">接続</span><span class="kd">ボタン</span></li>
+</ul></div>
+<div class="card">
+<h4>配信情報（タイトル・カテゴリ）</h4>
+<ul class="items">
+<li class="it"><span class="nm">Twitchで再認証する</span><span class="kd">ボタン</span></li>
+<li class="it"><span class="nm">配信タイトル</span><span class="kd">入力</span><span class="mt">例: 配信タイトル</span><div class="ds">Twitchの配信タイトルをここから変更できます。「現在の情報を取得」で今の設定を読み込めます。</div></li>
+</ul></div>
+</div>
+<div class="sec" id="s-stream-3">
+<h3>📝 タイトルのひな形</h3>
+<div class="card">
+<ul class="items">
+<li class="it"><span class="nm">新しいひな形を作る</span><span class="kd">入力</span><span class="mt">例: 呼び名（例: 参加型）</span></li>
+<li class="it"><span class="nm">新しいひな形を作る</span><span class="kd">入力</span><span class="mt">例: 配信{n}回目！</span></li>
+<li class="it"><span class="nm">{n} を入れる</span><span class="kd">ボタン</span><div class="ds">カーソルの位置に回数の差し込み口を入れます</div></li>
+<li class="it"><span class="nm">今の回数</span><span class="kd">数値</span><span class="mt">範囲 0〜99999（1 刻み・初期 1）</span></li>
+<li class="it"><span class="nm">＋ 登録</span><span class="kd">ボタン</span></li>
+<li class="it"><span class="nm">やめる</span><span class="kd">ボタン</span></li>
+<li class="it"><span class="nm">カテゴリ（ゲーム）</span><span class="kd">入力</span><span class="mt">例: カテゴリ名で検索（例: Just Chatting）</span><div class="ds">カテゴリ名で検索して候補ボタンから選んでください（例: Just Chatting）。未選択のまま反映するとカテゴリは変更されません。</div></li>
+<li class="it"><span class="nm">検索</span><span class="kd">ボタン</span></li>
+<li class="it"><span class="nm">現在の情報を取得</span><span class="kd">ボタン</span></li>
+<li class="it"><span class="nm">Twitchへ反映</span><span class="kd">ボタン</span></li>
+</ul></div>
+<div class="card">
+<h4>はじめに（Twitch連携を使う場合・任意）— 自分専用アプリの登録（初回のみ・無料・約5分）</h4>
+<ul class="items">
+<li class="it"><span class="nm">コピー</span><span class="kd">ボタン</span></li>
+</ul></div>
+<div class="card">
+<h4>アプリ資格情報</h4>
+<ul class="items">
+<li class="it"><span class="nm">Client ID</span><span class="kd">入力</span><span class="mt">例: dev.twitch.tv で発行された Client ID</span></li>
+<li class="it"><span class="nm">Client Secret</span><span class="kd">入力（秘匿）</span><span class="mt">例: Client Secret</span></li>
+<li class="it"><span class="nm">表示</span><span class="kd">ボタン</span></li>
+<li class="it"><span class="nm">資格情報を保存</span><span class="kd">ボタン</span></li>
+</ul></div>
+<div class="card">
+<h4>認証</h4>
+<ul class="items">
+<li class="it"><span class="nm">Twitchで認証する</span><span class="kd">ボタン</span></li>
+<li class="it"><span class="nm">ログアウト</span><span class="kd">ボタン</span></li>
+</ul></div>
+<div class="card">
+<h4>連携（イベント受信）制御</h4>
+<ul class="items">
+<li class="it"><span class="nm">連携を開始</span><span class="kd">ボタン</span></li>
+<li class="it"><span class="nm">停止</span><span class="kd">ボタン</span></li>
+<li class="it"><span class="nm">起動時に自動再開</span><span class="kd">ON/OFF</span><span class="mt">初期 OFF</span><div class="ds">ツール起動時、認証済みなら自動でイベント受信を再開する（OFF推奨：明示的に開始したい場合）</div></li>
+</ul></div>
+<div class="card">
+<h4>自動演出 ＆ Bot</h4>
+<ul class="items">
+<li class="it"><span class="nm">レイド自動シャウトアウト</span><span class="kd">ON/OFF</span><span class="mt">初期 ON</span><div class="ds">レイドを受けた時、相手チャンネルへ自動でシャウトアウトを送信</div></li>
+<li class="it"><span class="nm">アラートに既定の通知音を使う</span><span class="kd">ON/OFF</span><span class="mt">初期 OFF</span><div class="ds">効果音を割り当てていないアラートで、生成した短いチャイムを鳴らします（種別ごとに音程違い）。音源ファイルは同梱せずツールが生成します。 着せ替えで効果音を割り当てた種別はそちらが優先 。既定OFF。</div></li>
+<li class="it"><span class="nm">通知音の種類（プリセット）</span><span class="kd">選択</span><span class="mt">選択肢: チャイム（ピンポン）／ベル（澄んだ余韻）／ポップ（短く控えめ）／木琴（柔らかい3音）</span><div class="ds">効果音を割り当てていないアラートで鳴る生成音を選びます。種別（フォロー/サブ等）で音程が少し変わります。「🔔 試聴」でこの場で聴けます。</div></li>
+<li class="it"><span class="nm">🔔 試聴</span><span class="kd">ボタン</span></li>
+</ul></div>
+</div>
+<div class="sec" id="s-stream-4">
+<h3>▶ YouTube関連<span class="ssub">接続・APIキー（任意）</span></h3>
+<div class="card">
+<h4>YouTube チャンネル接続</h4>
+<ul class="items">
+<li class="it"><span class="nm">接続モードを変更</span><span class="kd">ボタン</span></li>
+<li class="it"><span class="nm">YouTube ライブ配信URL / 動画ID</span><span class="kd">入力</span><span class="mt">例: 例: https://youtu.be/xxxxxxxxxxx ／ youtube.com/watch?v=xxx ／ youtube.com/live/xxx</span><div class="ds">チャンネルURLではなく、配信中の動画のURLが必要です。詳しい取得手順は上の「📖 接続前に必読」を開いてください。</div></li>
+<li class="it"><span class="nm">URLを確かめる</span><span class="kd">ボタン</span><div class="ds">接続する前に、URLが正しいか・ライブが始まっているかを確かめます</div></li>
+<li class="it"><span class="nm">接続</span><span class="kd">ボタン</span></li>
+<li class="it"><span class="nm">YouTube Data API キー</span><span class="kd">入力（秘匿）</span><span class="mt">例: AIzaSy... で始まる API キー</span></li>
+<li class="it"><span class="nm">表示</span><span class="kd">ボタン</span></li>
+</ul></div>
+<div class="card">
+<h4>配信情報（タイトル・説明）</h4>
+<ul class="items">
+<li class="it"><span class="nm">YouTubeで再認証する</span><span class="kd">ボタン</span></li>
+<li class="it"><span class="nm">配信タイトル</span><span class="kd">入力</span><span class="mt">例: 配信タイトル</span></li>
+<li class="it"><span class="nm">説明</span><span class="kd">入力（複数行）</span></li>
+<li class="it"><span class="nm">現在の情報を取得</span><span class="kd">ボタン</span></li>
+<li class="it"><span class="nm">YouTubeへ反映</span><span class="kd">ボタン</span></li>
+<li class="it"><span class="nm">🖼 画像を選んで設定...</span><span class="kd">ボタン</span></li>
+<li class="it"><span class="nm">サムネイル（任意）</span><span class="kd">ファイル</span></li>
+</ul></div>
+<div class="card">
+<h4>アプリ資格情報</h4>
+<ul class="items">
+<li class="it"><span class="nm">クライアントID</span><span class="kd">入力</span><span class="mt">例: Google Cloud Console で発行されたクライアントID</span></li>
+<li class="it"><span class="nm">クライアントシークレット</span><span class="kd">入力（秘匿）</span><span class="mt">例: クライアントシークレット</span></li>
+<li class="it"><span class="nm">表示</span><span class="kd">ボタン</span></li>
+<li class="it"><span class="nm">資格情報を保存</span><span class="kd">ボタン</span></li>
+</ul></div>
+<div class="card">
+<h4>認証</h4>
+<ul class="items">
+<li class="it"><span class="nm">YouTubeで認証する</span><span class="kd">ボタン</span></li>
+<li class="it"><span class="nm">ログアウト</span><span class="kd">ボタン</span></li>
+</ul></div>
+</div>
+<p class="totop"><a href="#top">▲ 目次へ</a></p></section>
+<section class="pg" id="p-batch">
+<h2><span class="pno">5</span>一括オン設定<span class="pcnt">2 項目</span></h2>
+<p class="psub">配信前にまとめてON</p>
+<div class="sec" id="s-batch-1">
+<div class="card">
+<ul class="items">
+<li class="it"><span class="nm">⚡ 今すぐ一括スタート</span><span class="kd">ボタン</span></li>
+<li class="it"><span class="nm">⏹ 一括ストップ</span><span class="kd">ボタン</span><div class="ds">いまONになっている対象をOFF／切断します（確認あり）</div></li>
+</ul></div>
+</div>
+<p class="totop"><a href="#top">▲ 目次へ</a></p></section>
+<section class="pg" id="p-obs">
+<h2><span class="pno">6</span>OBS連携<span class="pcnt">12 項目</span></h2>
+<p class="psub">obs-websocket でシーン操作・配信制御</p>
+<div class="sec" id="s-obs-1">
+<h3>🔌 接続</h3>
+<div class="card">
+<h4>接続設定（任意）</h4>
+<ul class="items">
+<li class="it"><span class="nm">ホスト（サーバーIP）</span><span class="kd">入力</span><span class="mt">例: 127.0.0.1</span></li>
+<li class="it"><span class="nm">サーバーポート</span><span class="kd">入力</span><span class="mt">例: 4455</span></li>
+<li class="it"><span class="nm">サーバーパスワード（任意）</span><span class="kd">入力（秘匿）</span><span class="mt">例: 認証OFFなら空欄でOK</span></li>
+<li class="it"><span class="nm">表示</span><span class="kd">ボタン</span></li>
+<li class="it"><span class="nm">接続</span><span class="kd">ボタン</span></li>
+</ul></div>
+</div>
+<div class="sec" id="s-obs-2">
+<h3>🎬 シーン・配信操作</h3>
+<div class="card">
+<h4>シーン切替</h4>
+<ul class="items">
+<li class="it"><span class="nm">現在のシーン: —</span><span class="kd">選択</span><span class="mt">選択肢: （未接続）</span></li>
+<li class="it"><span class="nm">切替</span><span class="kd">ボタン</span></li>
+<li class="it"><span class="nm">シーン一覧を更新</span><span class="kd">ボタン</span></li>
+</ul></div>
+<div class="card">
+<h4>配信制御</h4>
+<ul class="items">
+<li class="it"><span class="nm">配信開始</span><span class="kd">ボタン</span></li>
+<li class="it"><span class="nm">配信停止</span><span class="kd">ボタン</span></li>
+<li class="it"><span class="nm">▶ YouTube の配信を終了する</span><span class="kd">ボタン</span><div class="ds">配信ページに入れた URL の YouTube 配信を終了します</div></li>
+</ul></div>
+</div>
+<div class="sec" id="s-obs-3">
+<h3>🎛 シーン切替パネル設定</h3>
+<div class="card">
+<h4>🎬 シーン切替パネル設定（任意）</h4>
+<ul class="items">
+<li class="it"><span class="nm">💾 ダッシュボードに反映</span><span class="kd">ボタン</span></li>
+</ul></div>
+</div>
+<div class="sec" id="s-obs-4">
+<h3>📺 ブラウザソース</h3>
+</div>
+<p class="totop"><a href="#top">▲ 目次へ</a></p></section>
+<section class="pg" id="p-bsource">
+<h2><span class="pno">7</span>ブラウザソース<span class="pcnt">117 項目</span></h2>
+<p class="psub">OBSに貼るURL・各オーバーレイの設定を集約</p>
+<div class="sec" id="s-bsource-1">
+<h3>📺 OBSブラウザソースURL一覧</h3>
+<div class="card">
+<h4>📺 OBSブラウザソースURL一覧（7種集約）</h4>
+<ul class="items">
+<li class="it"><span class="nm">全部出す／全部しまう</span><span class="kd">ボタン</span></li>
+<li class="it"><span class="nm">↻ OBS側を更新 ?</span><span class="kd">ボタン</span></li>
+<li class="it"><span class="nm">🎤 字幕表示</span><span class="kd">ON/OFF</span><span class="mt">初期 ON</span><div class="ds">このオーバーレイを出す／しまう</div></li>
+<li class="it"><span class="nm">コピー</span><span class="kd">ボタン</span></li>
+<li class="it"><span class="nm">🔔 アラート演出</span><span class="kd">ON/OFF</span><span class="mt">初期 ON</span><div class="ds">このオーバーレイを出す／しまう</div></li>
+<li class="it"><span class="nm">コピー</span><span class="kd">ボタン</span></li>
+<li class="it"><span class="nm">💬 コメビュー （コメントオーバーレイ）</span><span class="kd">ON/OFF</span><span class="mt">初期 ON</span><div class="ds">このオーバーレイを出す／しまう</div></li>
+<li class="it"><span class="nm">コピー</span><span class="kd">ボタン</span></li>
+<li class="it"><span class="nm">🎊 弾幕（コメント横流れ）</span><span class="kd">ON/OFF</span><span class="mt">初期 ON</span><div class="ds">このオーバーレイを出す／しまう</div></li>
+<li class="it"><span class="nm">コピー</span><span class="kd">ボタン</span></li>
+<li class="it"><span class="nm">✨ エモートフロート</span><span class="kd">ON/OFF</span><span class="mt">初期 ON</span><div class="ds">このオーバーレイを出す／しまう</div></li>
+<li class="it"><span class="nm">コピー</span><span class="kd">ボタン</span></li>
+<li class="it"><span class="nm">📌 コメントピックアップ</span><span class="kd">ON/OFF</span><span class="mt">初期 ON</span><div class="ds">このオーバーレイを出す／しまう</div></li>
+<li class="it"><span class="nm">コピー</span><span class="kd">ボタン</span></li>
+<li class="it"><span class="nm">🪧 看板テロップ</span><span class="kd">ON/OFF</span><span class="mt">初期 ON</span><div class="ds">このオーバーレイを出す／しまう</div></li>
+<li class="it"><span class="nm">コピー</span><span class="kd">ボタン</span></li>
+</ul></div>
+</div>
+<div class="sec" id="s-bsource-2">
+<h3>💬 コメビューの見た目</h3>
+<div class="card">
+<ul class="items">
+<li class="it"><span class="nm">💬 テストコメント1通</span><span class="kd">ボタン</span></li>
+<li class="it"><span class="nm">💬 コメビュー・弾幕・エモートに表示するプラットフォーム</span><span class="kd">選択</span><span class="mt">選択肢: 両方（Twitch＋YouTube）／Twitchのみ／YouTubeのみ</span></li>
+<li class="it"><span class="nm">最大表示件数</span><span class="kd">スライダー</span><span class="mt">範囲 1〜20（初期 8）</span></li>
+<li class="it"><span class="nm">表示寿命</span><span class="kd">スライダー</span><span class="mt">範囲 3〜60（初期 12）</span></li>
+<li class="it"><span class="nm">ずっと表示（時間では消えない・最大表示件数をあふれた古いものから消える）</span><span class="kd">ON/OFF</span><span class="mt">初期 OFF</span></li>
+<li class="it"><span class="nm">並ぶ向き</span><span class="kd">選択</span><span class="mt">選択肢: 縦（下から上へ・従来）／横（右から左へ）</span><div class="ds">縦＝新しいコメントが下に入り、古いものが上へ押し出されます。横＝新しいコメントが右端に入り、古いものが1つずつ左へずれます。画面下に細く出したい時は横。</div></li>
+<li class="it"><span class="nm">出方</span><span class="kd">選択</span><span class="mt">選択肢: 左からスライド（従来）／フェードのみ／下からふわっと／ポップ（小さく→大きく）／右からスライド／なし（一瞬で出す）</span><div class="ds">新しいコメントが出るときの動き。「なし」は一瞬で出ます。消えるときの動きは変わりません。</div></li>
+<li class="it"><span class="nm">本文の大きさ</span><span class="kd">スライダー</span><span class="mt">範囲 10〜40（初期 15）</span></li>
+<li class="it"><span class="nm">名前の大きさ</span><span class="kd">スライダー</span><span class="mt">範囲 9〜32（初期 12）</span></li>
+<li class="it"><span class="nm">翻訳文の大きさ</span><span class="kd">スライダー</span><span class="mt">範囲 8〜40（初期 11）</span></li>
+<li class="it"><span class="nm">本文の色</span><span class="kd">色</span><span class="mt">初期 <i class="sw" style="background:#f0f0f0"></i>#f0f0f0</span></li>
+<li class="it"><span class="nm">アクセント色（名前・枠線）</span><span class="kd">色</span><span class="mt">初期 <i class="sw" style="background:#c8f542"></i>#c8f542</span></li>
+<li class="it"><span class="nm">翻訳文の色</span><span class="kd">色</span><span class="mt">初期 <i class="sw" style="background:#888888"></i>#888888</span></li>
+<li class="it"><span class="nm">色を既定に戻す</span><span class="kd">ボタン</span></li>
+<li class="it"><span class="nm">名前は視聴者ごとの色を使う（Twitch で本人が設定している色）</span><span class="kd">ON/OFF</span><span class="mt">初期 ON</span></li>
+<li class="it"><span class="nm">標準（すっきり）／まる字（やわらかい）／極太（インパクト）／明朝（小説っぽい）／手書き風（やさしい）</span><span class="kd">ボタン</span></li>
+<li class="it"><span class="nm">背景の不透明度</span><span class="kd">スライダー</span><span class="mt">範囲 0〜100（初期 82）</span></li>
+<li class="it"><span class="nm">カードの枠を出す（OFFで文字だけ）</span><span class="kd">ON/OFF</span><span class="mt">初期 ON</span></li>
+<li class="it"><span class="nm">光らせる（ネオン）</span><span class="kd">ON/OFF</span><span class="mt">初期 OFF</span></li>
+<li class="it"><span class="nm">文字の色で光らせる</span><span class="kd">ON/OFF</span><span class="mt">初期 OFF</span></li>
+<li class="it"><span class="nm">ネオンの色</span><span class="kd">色</span><span class="mt">初期 <i class="sw" style="background:#ffffff"></i>#ffffff</span></li>
+<li class="it"><span class="nm">ネオンの強さ</span><span class="kd">スライダー</span><span class="mt">範囲 1〜10（初期 5）</span></li>
+<li class="it"><span class="nm">文字の縁取り</span><span class="kd">色</span><span class="mt">初期 <i class="sw" style="background:#000000"></i>#000000</span><div class="ds">枠をOFFにして文字だけ置くと、明るい画面では読みにくくなります。縁取りを付けると、どんな背景でも読めます。太さ0で従来どおり。</div></li>
+<li class="it"><span class="nm">縁取りの太さ</span><span class="kd">スライダー</span><span class="mt">範囲 0〜6（初期 0）</span></li>
+<li class="it"><span class="nm">上／中／下</span><span class="kd">ボタン</span></li>
+<li class="it"><span class="nm">左／中／右</span><span class="kd">ボタン</span></li>
+<li class="it"><span class="nm">上下の余白</span><span class="kd">スライダー</span><span class="mt">範囲 0〜400（4 刻み・初期 12）</span><div class="ds">選んだ上下位置の端からの余白（px）。「下」なら下端から、「上」なら上端からの距離になります。</div></li>
+<li class="it"><span class="nm">左右の余白</span><span class="kd">スライダー</span><span class="mt">範囲 0〜400（4 刻み・初期 12）</span><div class="ds">左右の端からの余白（px）。</div></li>
+<li class="it"><span class="nm">コメント欄の幅（縦のとき）</span><span class="kd">スライダー</span><span class="mt">範囲 200〜1920（10 刻み・初期 420）</span><div class="ds">コメントが並ぶ帯の幅（px）。縦に並べるときはこの幅のカードが積まれます。横に並べるときは、この幅ぶんだけ横に並んで、あふれた古いものから消えます。縦と横で別々に覚えます。</div></li>
+<li class="it"><span class="nm">見た目プリセット</span><span class="kd">入力</span><span class="mt">例: プリセット名（例: 配信中コンパクト）</span></li>
+<li class="it"><span class="nm">見た目を含む</span><span class="kd">ON/OFF</span><span class="mt">初期 ON</span></li>
+<li class="it"><span class="nm">動作を含む</span><span class="kd">ON/OFF</span><span class="mt">初期 OFF</span></li>
+<li class="it"><span class="nm">今の設定を保存</span><span class="kd">ボタン</span></li>
+<li class="it"><span class="nm">OBSのシーンに合わせて切り替える</span><span class="kd">ON/OFF</span><span class="mt">初期 OFF</span><div class="ds">シーンが変わったら、割り当てたプリセットを自動で適用します。 OBS連携で接続しているときだけ動きます。 割り当てていないシーンでは何も変わりません。</div></li>
+<li class="it"><span class="nm">OBSのシーンを読み込む</span><span class="kd">ボタン</span></li>
+</ul></div>
+</div>
+<div class="sec" id="s-bsource-3">
+<h3>🎊 弾幕の見た目</h3>
+<div class="card">
+<ul class="items">
+<li class="it"><span class="nm">💬 テストコメント1通</span><span class="kd">ボタン</span></li>
+<li class="it"><span class="nm">流れる向き</span><span class="kd">選択</span><span class="mt">選択肢: 右から左へ ←（従来）／左から右へ →</span></li>
+<li class="it"><span class="nm">流れる時間</span><span class="kd">スライダー</span><span class="mt">範囲 3〜20（初期 8）</span><div class="ds">画面を横切るのにかかる秒数の目安。実際は少しばらつきます（同じ速さで並ばないように）。コメントが多い配信は短め、ゆっくり見せたいときは長めに。</div></li>
+<li class="it"><span class="nm">同時に流す上限</span><span class="kd">スライダー</span><span class="mt">範囲 1〜120（1 刻み・初期 40）</span><div class="ds">画面に同時に出す最大数。超えた分のコメントは弾幕には出ません（コメビューには出ます）。</div></li>
+<li class="it"><span class="nm">投稿者名</span><span class="kd">ON/OFF</span><span class="mt">初期 ON</span></li>
+<li class="it"><span class="nm">アイコン（絵文字）</span><span class="kd">ON/OFF</span><span class="mt">初期 ON</span></li>
+<li class="it"><span class="nm">文字の大きさ</span><span class="kd">スライダー</span><span class="mt">範囲 16〜64（初期 28）</span></li>
+<li class="it"><span class="nm">文字の色</span><span class="kd">選択</span><span class="mt">選択肢: ランダム（6色・従来）／ひとつの色でそろえる（弾幕だけの色）／コメビューのアクセント色に合わせる</span><div class="ds">これまでは6色からランダムでした。「ひとつの色」を選べば全部そろいます（白を選べばモノクロ）。「コメビューのアクセント色」を選ぶと、配信の色みに自動で合います。</div></li>
+<li class="it"><span class="nm">文字の色</span><span class="kd">色</span><span class="mt">初期 <i class="sw" style="background:#ffffff"></i>#ffffff</span></li>
+<li class="it"><span class="nm">不透明度</span><span class="kd">スライダー</span><span class="mt">範囲 20〜100（5 刻み・初期 100）</span></li>
+<li class="it"><span class="nm">標準（すっきり）／まる字（やわらかい）／極太（インパクト）／明朝（小説っぽい）／手書き風（やさしい）</span><span class="kd">ボタン</span></li>
+<li class="it"><span class="nm">光らせる（ネオン）</span><span class="kd">ON/OFF</span><span class="mt">初期 OFF</span><div class="ds">弾幕の文字を蛍光管のように光らせます。コメビュー・字幕のネオンと同じ光り方です。色を指定しなければ、その弾幕自身の色で光ります（ランダム色のままでも、それぞれが自分の色で光ります）。</div></li>
+<li class="it"><span class="nm">文字の色で光らせる（おすすめ）</span><span class="kd">ON/OFF</span><span class="mt">初期 ON</span></li>
+<li class="it"><span class="nm">ネオンの色</span><span class="kd">色</span><span class="mt">初期 <i class="sw" style="background:#ffffff"></i>#ffffff</span></li>
+<li class="it"><span class="nm">ネオンを既定に戻す</span><span class="kd">ボタン</span></li>
+<li class="it"><span class="nm">ネオンの強さ</span><span class="kd">スライダー</span><span class="mt">範囲 1〜10（初期 5）</span></li>
+<li class="it"><span class="nm">文字の縁取り</span><span class="kd">色</span><span class="mt">初期 <i class="sw" style="background:#000000"></i>#000000</span><div class="ds">明るいゲーム画面だと弾幕が読みにくくなります。縁取りを付けると、どんな背景でも読めます。太さ0で従来どおり。</div></li>
+<li class="it"><span class="nm">縁取りの太さ</span><span class="kd">スライダー</span><span class="mt">範囲 0〜6（初期 0）</span></li>
+<li class="it"><span class="nm">流れる範囲</span><span class="kd">選択</span><span class="mt">選択肢: 画面全体（上から下まで）／上部のみ／下部のみ／中央のみ／自分で決める（下の数値）</span></li>
+<li class="it"><span class="nm">帯の上端</span><span class="kd">スライダー</span><span class="mt">範囲 0〜95（1 刻み・初期 3）</span><div class="ds">画面の上から何% の位置から流し始めるか。</div></li>
+<li class="it"><span class="nm">帯の高さ</span><span class="kd">スライダー</span><span class="mt">範囲 5〜100（1 刻み・初期 88）</span><div class="ds">流れる帯の高さ（画面の高さに対する %）。上端＋高さが 100% を超える分は詰めます。</div></li>
+<li class="it"><span class="nm">行の数</span><span class="kd">スライダー</span><span class="mt">範囲 2〜30（1 刻み・初期 12）</span><div class="ds">帯を何行に分けて流すか。文字を大きくして重なるときは減らす、たくさん流したいときは増やす。</div></li>
+</ul></div>
+</div>
+<div class="sec" id="s-bsource-4">
+<h3>✨ エモートフロートの見た目</h3>
+<div class="card">
+<ul class="items">
+<li class="it"><span class="nm">🎉 祝／🌿 草／👏 拍手</span><span class="kd">ボタン</span></li>
+<li class="it"><span class="nm">✨ 連発（8個）</span><span class="kd">ボタン</span><div class="ds">8 個を続けて出す（跳ねまわる・噴水の確認用）</div></li>
+<li class="it"><span class="nm">動き</span><span class="kd">選択</span><span class="mt">選択肢: まっすぐ浮かぶ（従来）／ゆらゆら浮かぶ／その場でぽん／跳ねまわる（端で跳ね返る）／噴水（噴き上がって落ちる）</span><div class="ds">エモートがどう動くか。「まっすぐ」が従来の動きです。跳ねまわる・噴水は「✨ 連発」で見ると分かりやすいです。</div></li>
+<li class="it"><span class="nm">出る向き</span><span class="kd">選択</span><span class="mt">選択肢: 下から上へ ↑／上から下へ ↓</span></li>
+<li class="it"><span class="nm">出る位置（横）</span><span class="kd">選択</span><span class="mt">選択肢: 画面全体／左寄り／中央／右寄り</span></li>
+<li class="it"><span class="nm">表示時間</span><span class="kd">スライダー</span><span class="mt">範囲 1〜10（0.5 刻み・初期 3）</span><div class="ds">1 個が出てから消えるまでの秒数。少しばらつかせて出します。</div></li>
+<li class="it"><span class="nm">同時に出す上限</span><span class="kd">スライダー</span><span class="mt">範囲 1〜80（1 刻み・初期 24）</span><div class="ds">画面に同時に出す最大数。超えた分は古いものから消えます。跳ねまわるは多いと画面がにぎやかすぎるので少なめがおすすめ。</div></li>
+<li class="it"><span class="nm">1コメントから出す公式エモート</span><span class="kd">スライダー</span><span class="mt">範囲 0〜10（1 刻み・初期 4）</span><div class="ds">1 つのコメントに公式エモートが並んでいたとき、何個まで浮かせるか。0 にすると公式エモートは浮かせません（!草 などの絵文字は出ます）。</div></li>
+<li class="it"><span class="nm">大きさ</span><span class="kd">スライダー</span><span class="mt">範囲 50〜200（初期 100）</span></li>
+<li class="it"><span class="nm">不透明度</span><span class="kd">スライダー</span><span class="mt">範囲 20〜100（5 刻み・初期 100）</span></li>
+<li class="it"><span class="nm">回転させる（くるくる）</span><span class="kd">ON/OFF</span><span class="mt">初期 OFF</span></li>
+<li class="it"><span class="nm">影を付ける（明るい画面で見やすい）</span><span class="kd">ON/OFF</span><span class="mt">初期 ON</span></li>
+</ul></div>
+</div>
+<div class="sec" id="s-bsource-5">
+<h3>📌 コメントピックアップの見た目</h3>
+<div class="card">
+<ul class="items">
+<li class="it"><span class="nm">📌 サンプルを出す</span><span class="kd">ボタン</span></li>
+<li class="it"><span class="nm">✖ 消す</span><span class="kd">ボタン</span></li>
+<li class="it"><span class="nm">自動で消えるまで</span><span class="kd">数値</span><span class="mt">範囲 0〜300（1 刻み・初期 0）</span></li>
+<li class="it"><span class="nm">📌 ピン</span><span class="kd">ON/OFF</span><span class="mt">初期 ON</span></li>
+<li class="it"><span class="nm">投稿者名</span><span class="kd">ON/OFF</span><span class="mt">初期 ON</span></li>
+<li class="it"><span class="nm">Twitch／YouTube の札</span><span class="kd">ON/OFF</span><span class="mt">初期 ON</span></li>
+<li class="it"><span class="nm">翻訳文</span><span class="kd">ON/OFF</span><span class="mt">初期 ON</span></li>
+<li class="it"><span class="nm">出方</span><span class="kd">選択</span><span class="mt">選択肢: ふわっと上がる（従来）／フェードのみ／ポップ（小さく→大きく）／左からスライド／右からスライド／なし（一瞬で出す）</span><div class="ds">カードが出るときの動き。「なし」は一瞬で出ます。</div></li>
+<li class="it"><span class="nm">大きさ</span><span class="kd">スライダー</span><span class="mt">範囲 50〜200（初期 100）</span></li>
+<li class="it"><span class="nm">本文</span><span class="kd">スライダー</span><span class="mt">範囲 12〜72（1 刻み・初期 26）</span></li>
+<li class="it"><span class="nm">名前</span><span class="kd">スライダー</span><span class="mt">範囲 9〜40（1 刻み・初期 17）</span></li>
+<li class="it"><span class="nm">翻訳文</span><span class="kd">スライダー</span><span class="mt">範囲 9〜56（1 刻み・初期 19）</span></li>
+<li class="it"><span class="nm">本文の色</span><span class="kd">色</span><span class="mt">初期 <i class="sw" style="background:#ffffff"></i>#ffffff</span></li>
+<li class="it"><span class="nm">アクセント色（名前・枠線）</span><span class="kd">色</span><span class="mt">初期 <i class="sw" style="background:#c8f542"></i>#c8f542</span></li>
+<li class="it"><span class="nm">翻訳文の色</span><span class="kd">色</span><span class="mt">初期 <i class="sw" style="background:#42d4f5"></i>#42d4f5</span></li>
+<li class="it"><span class="nm">背景の色</span><span class="kd">色</span><span class="mt">初期 <i class="sw" style="background:#121216"></i>#121216</span></li>
+<li class="it"><span class="nm">色を既定に戻す</span><span class="kd">ボタン</span></li>
+<li class="it"><span class="nm">背景の不透明度</span><span class="kd">スライダー</span><span class="mt">範囲 0〜100（1 刻み・初期 94）</span></li>
+<li class="it"><span class="nm">角の丸み</span><span class="kd">スライダー</span><span class="mt">範囲 0〜40（1 刻み・初期 14）</span></li>
+<li class="it"><span class="nm">標準（すっきり）／まる字（やわらかい）／極太（インパクト）／明朝（小説っぽい）／手書き風（やさしい）</span><span class="kd">ボタン</span></li>
+<li class="it"><span class="nm">カードの枠を出す（OFFで文字だけ）</span><span class="kd">ON/OFF</span><span class="mt">初期 ON</span></li>
+<li class="it"><span class="nm">光らせる（ネオン）</span><span class="kd">ON/OFF</span><span class="mt">初期 OFF</span></li>
+<li class="it"><span class="nm">文字の色で光らせる</span><span class="kd">ON/OFF</span><span class="mt">初期 OFF</span></li>
+<li class="it"><span class="nm">ネオンの色</span><span class="kd">色</span><span class="mt">初期 <i class="sw" style="background:#ffffff"></i>#ffffff</span></li>
+<li class="it"><span class="nm">ネオンの強さ</span><span class="kd">スライダー</span><span class="mt">範囲 1〜10（1 刻み・初期 5）</span></li>
+<li class="it"><span class="nm">文字の縁取り</span><span class="kd">色</span><span class="mt">初期 <i class="sw" style="background:#000000"></i>#000000</span><div class="ds">枠をOFFにして文字だけ置くと、明るい画面では読みにくくなります。縁取りを付けると、どんな背景でも読めます。太さ0で従来どおり。</div></li>
+<li class="it"><span class="nm">縁取りの太さ</span><span class="kd">スライダー</span><span class="mt">範囲 0〜6（1 刻み・初期 0）</span></li>
+<li class="it"><span class="nm">上／中／下</span><span class="kd">ボタン</span></li>
+<li class="it"><span class="nm">左／中／右</span><span class="kd">ボタン</span></li>
+<li class="it"><span class="nm">上下の余白</span><span class="kd">スライダー</span><span class="mt">範囲 0〜400（4 刻み・初期 0）</span><div class="ds">選んだ上下位置の端からの余白（px）。「下」なら下端から、「上」なら上端からの距離になります。「中」では効きません。</div></li>
+<li class="it"><span class="nm">左右の余白</span><span class="kd">スライダー</span><span class="mt">範囲 0〜400（4 刻み・初期 0）</span><div class="ds">左右の端からの余白（px）。「中」では効きません。</div></li>
+<li class="it"><span class="nm">カードの最大幅</span><span class="kd">スライダー</span><span class="mt">範囲 20〜100（1 刻み・初期 90）</span><div class="ds">画面幅に対する割合。長いコメントはこの幅で折り返します。短いコメントはこれより小さくなります。</div></li>
+</ul></div>
+</div>
+<p class="totop"><a href="#top">▲ 目次へ</a></p></section>
+<section class="pg" id="p-skin">
+<h2><span class="pno">8</span>着せ替え<span class="pcnt">71 項目</span></h2>
+<p class="psub">オーバーレイに自分の素材（画像・効果音）を割り当て</p>
+<div class="sec" id="s-skin-1">
+<h3>🖥 アプリの配色（テーマ）<span class="ssub">このツールの画面の色を変える</span></h3>
+<div class="card">
+<ul class="items">
+<li class="it"><span class="nm">好きな色にする</span><span class="kd">色</span><span class="mt">初期 <i class="sw" style="background:#c8f542"></i>#c8f542</span></li>
+<li class="it"><span class="nm">↺ 色の指定をやめる</span><span class="kd">ボタン</span></li>
+</ul></div>
+</div>
+<div class="sec" id="s-skin-2">
+<h3>🎨 見た目プリセット<span class="ssub">色・フォントをまとめて切替（適用後も自由に調整可）</span></h3>
+<div class="card">
+<ul class="items">
+<li class="it"><span class="nm">自分のプリセット</span><span class="kd">入力</span><span class="mt">例: 名前（例: わたしの配信）</span></li>
+<li class="it"><span class="nm">＋ 今の見た目を保存</span><span class="kd">ボタン</span></li>
+</ul></div>
+</div>
+<div class="sec" id="s-skin-3">
+<h3>🔔 アラート<span class="ssub">7種に画像・効果音・音量を割り当て</span></h3>
+<div class="card">
+<ul class="items">
+<li class="it"><span class="nm">枠を表示する</span><span class="kd">ON/OFF</span><span class="mt">初期 ON</span><div class="ds">OFFにすると背景ボックス・枠線・影を消し、 画像と文字だけ を表示します（透過素材向け）。</div></li>
+<li class="it"><span class="nm">背景色</span><span class="kd">色</span><span class="mt">初期 <i class="sw" style="background:#0c0c10"></i>#0c0c10</span></li>
+<li class="it"><span class="nm">不透明度</span><span class="kd">スライダー</span><span class="mt">範囲 0〜100（1 刻み・初期 86）</span></li>
+<li class="it"><span class="nm">角丸</span><span class="kd">スライダー</span><span class="mt">範囲 0〜40（初期 20）</span></li>
+<li class="it"><span class="nm">枠線色</span><span class="kd">色</span><span class="mt">初期 <i class="sw" style="background:#c8f542"></i>#c8f542</span></li>
+<li class="it"><span class="nm">既定(種別色)</span><span class="kd">ON/OFF</span><span class="mt">初期 ON</span></li>
+<li class="it"><span class="nm">画像の色</span><span class="kd">スライダー</span><span class="mt">範囲 0〜360（1 刻み・初期 0）</span></li>
+<li class="it"><span class="nm">画像の大きさ</span><span class="kd">スライダー</span><span class="mt">範囲 60〜600（10 刻み・初期 140）</span></li>
+<li class="it"><span class="nm">↺ 既定に戻す</span><span class="kd">ボタン</span></li>
+<li class="it"><span class="nm">上下</span><span class="kd">選択</span><span class="mt">選択肢: 中（従来）／上／下</span></li>
+<li class="it"><span class="nm">左右</span><span class="kd">選択</span><span class="mt">選択肢: 中（従来）／左／右</span></li>
+<li class="it"><span class="nm">上下の余白</span><span class="kd">スライダー</span><span class="mt">範囲 0〜400（4 刻み・初期 0）</span></li>
+<li class="it"><span class="nm">左右の余白</span><span class="kd">スライダー</span><span class="mt">範囲 0〜400（4 刻み・初期 0）</span></li>
+<li class="it"><span class="nm">書体</span><span class="kd">選択</span><span class="mt">選択肢: 標準（すっきり）／まる字（やわらかい）／極太（インパクト）／明朝（小説っぽい）／手書き風（やさしい）</span></li>
+<li class="it"><span class="nm">見出しの色</span><span class="kd">色</span><span class="mt">初期 <i class="sw" style="background:#c8f542"></i>#c8f542</span></li>
+<li class="it"><span class="nm">既定(種別色)</span><span class="kd">ON/OFF</span><span class="mt">初期 ON</span></li>
+<li class="it"><span class="nm">本文の色</span><span class="kd">色</span><span class="mt">初期 <i class="sw" style="background:#f2f2f2"></i>#f2f2f2</span></li>
+<li class="it"><span class="nm">見出しの大きさ</span><span class="kd">スライダー</span><span class="mt">範囲 16〜72（1 刻み・初期 34）</span></li>
+<li class="it"><span class="nm">絵柄</span><span class="kd">選択</span><span class="mt">選択肢: （起動後に埋まる）</span></li>
+<li class="it"><span class="nm">動き</span><span class="kd">選択</span><span class="mt">選択肢: （起動後に埋まる）</span></li>
+<li class="it"><span class="nm">🖼 7種にまとめて適用</span><span class="kd">ボタン</span></li>
+</ul></div>
+</div>
+<div class="sec" id="s-skin-4">
+<h3>🎉 チャネポ報酬ごとの演出<span class="ssub">報酬別に画像・効果音（任意）</span></h3>
+<div class="card">
+<ul class="items">
+<li class="it"><span class="nm">視聴者集計（チャネポ消費の観測）</span><span class="kd">ON/OFF</span><span class="mt">初期 OFF</span><div class="ds">ONにすると配信中のチャンネルポイント消費を数え、下の「観測済み報酬」の候補が自動で増えます。記録は 集計値のみ・この端末内のみ （発言内容・表示名は記録しません）。いつでもOFF・リセットできます。既定OFF。</div></li>
+<li class="it"><span class="nm">🗑 集計データをリセット</span><span class="kd">ボタン</span></li>
+<li class="it"><span class="nm">観測済みの報酬から選ぶ</span><span class="kd">選択</span><span class="mt">選択肢: （起動後に埋まる）</span></li>
+<li class="it"><span class="nm">＋ この報酬を追加</span><span class="kd">ボタン</span></li>
+<li class="it"><span class="nm">＋ 全部そろえる</span><span class="kd">ボタン</span><div class="ds">一覧にある未設定の報酬を、まとめて設定できる状態にします</div></li>
+<li class="it"><span class="nm">🔄 取り直す</span><span class="kd">ボタン</span><div class="ds">Twitch から報酬一覧を取り直す</div></li>
+<li class="it"><span class="nm">または reward_id を手入力（観測前でも可）</span><span class="kd">入力</span><span class="mt">例: または reward_id を手入力（観測前でも可）</span></li>
+<li class="it"><span class="nm">表示名（任意）</span><span class="kd">入力</span><span class="mt">例: 表示名（任意）</span></li>
+<li class="it"><span class="nm">＋ 追加</span><span class="kd">ボタン</span></li>
+</ul></div>
+</div>
+<div class="sec" id="s-skin-5">
+<h3>⚡ リアクション<span class="ssub">コメント・エモート・イベントで演出</span></h3>
+<div class="card">
+<ul class="items">
+<li class="it"><span class="nm">全リアクション共通の最小間隔</span><span class="kd">数値</span><span class="mt">範囲 0〜3600（1 刻み・初期 0）</span></li>
+<li class="it"><span class="nm">トリガーの種類</span><span class="kd">選択</span><span class="mt">選択肢: コメント／エモート／イベント</span><div class="ds">トリガーの種類</div></li>
+<li class="it"><span class="nm">キーワード（例: 888）</span><span class="kd">入力</span><span class="mt">例: キーワード（例: 888）</span></li>
+<li class="it"><span class="nm">一致方法</span><span class="kd">選択</span><span class="mt">選択肢: 含む／完全一致／前方一致／N個以上</span><div class="ds">一致方法</div></li>
+<li class="it"><span class="nm">この個数以上で発火（例: w を3個以上＝笑い）</span><span class="kd">数値</span><span class="mt">範囲 2〜100（1 刻み・初期 3）</span><div class="ds">この個数以上で発火（例: w を3個以上＝笑い）</div></li>
+<li class="it"><span class="nm">エモート名（例: Kappa）</span><span class="kd">入力</span><span class="mt">例: エモート名（例: Kappa）</span></li>
+<li class="it"><span class="nm">イベント種別</span><span class="kd">選択</span><span class="mt">選択肢: フォロー／サブスク／継続サブ／ギフト／レイド／チャネポ／Cheer</span><div class="ds">イベント種別</div></li>
+<li class="it"><span class="nm">＋ 追加</span><span class="kd">ボタン</span></li>
+</ul></div>
+</div>
+<div class="sec" id="s-skin-6">
+<h3>🏅 常連バッジ（進化バッジ）<span class="ssub">コメント数で段階表示</span></h3>
+<div class="card">
+<ul class="items">
+<li class="it"><span class="nm">絵柄</span><span class="kd">選択</span><span class="mt">選択肢: （起動後に埋まる）</span></li>
+<li class="it"><span class="nm">仕上げ</span><span class="kd">選択</span><span class="mt">選択肢: （起動後に埋まる）</span></li>
+<li class="it"><span class="nm">🏅 全部の段にまとめて適用</span><span class="kd">ボタン</span></li>
+<li class="it"><span class="nm">＋ 段を追加</span><span class="kd">ボタン</span></li>
+<li class="it"><span class="nm">💾 保存</span><span class="kd">ボタン</span></li>
+<li class="it"><span class="nm">↺ 既定に戻す</span><span class="kd">ボタン</span></li>
+</ul></div>
+</div>
+<div class="sec" id="s-skin-7">
+<h3>💬 コメビュー<span class="ssub">吹き出し背景・キャラアイコン</span></h3>
+</div>
+<div class="sec" id="s-skin-8">
+<h3>🪧 看板テロップ<span class="ssub">画面に固定の看板／テロップを出す（OBSブラウザソース）</span></h3>
+<div class="card">
+<ul class="items">
+<li class="it"><span class="nm">看板を表示する（OFFで隠す）</span><span class="kd">ON/OFF</span><span class="mt">初期 OFF</span></li>
+<li class="it"><span class="nm">テキスト（空にすると看板は出ません・改行OK）</span><span class="kd">入力（複数行）</span></li>
+<li class="it"><span class="nm">背景</span><span class="kd">選択</span><span class="mt">選択肢: 吊るし看板／木札／リボン／雲／色板（角丸）／背景なし（文字だけ）／画像を使う</span></li>
+<li class="it"><span class="nm">地色</span><span class="kd">色</span><span class="mt">初期 <i class="sw" style="background:#2b6cb0"></i>#2b6cb0</span></li>
+<li class="it"><span class="nm">不透明度</span><span class="kd">スライダー</span><span class="mt">範囲 0〜100（1 刻み・初期 92）</span></li>
+<li class="it"><span class="nm">🖼 画像...</span><span class="kd">ボタン</span></li>
+<li class="it"><span class="nm">色</span><span class="kd">スライダー</span><span class="mt">範囲 0〜360（1 刻み・初期 0）</span></li>
+<li class="it"><span class="nm">色 OFF</span><span class="kd">選択</span><span class="mt">選択肢: 全体を表示／埋める／引き伸ばす</span></li>
+<li class="it"><span class="nm">幅</span><span class="kd">数値</span><span class="mt">範囲 80〜1800（1 刻み・初期 520）</span></li>
+<li class="it"><span class="nm">高さ</span><span class="kd">数値</span><span class="mt">範囲 40〜900（1 刻み・初期 120）</span></li>
+<li class="it"><span class="nm">幅 高さ</span><span class="kd">選択</span><span class="mt">選択肢: 上／中／下</span></li>
+<li class="it"><span class="nm">幅 高さ</span><span class="kd">選択</span><span class="mt">選択肢: 左／中／右</span></li>
+<li class="it"><span class="nm">余白 上下</span><span class="kd">数値</span><span class="mt">範囲 0〜600（1 刻み・初期 60）</span></li>
+<li class="it"><span class="nm">左右</span><span class="kd">数値</span><span class="mt">範囲 0〜800（1 刻み・初期 80）</span></li>
+<li class="it"><span class="nm">文字色</span><span class="kd">数値</span><span class="mt">範囲 10〜160（1 刻み・初期 40）</span></li>
+<li class="it"><span class="nm">文字色</span><span class="kd">色</span><span class="mt">初期 <i class="sw" style="background:#ffffff"></i>#ffffff</span></li>
+<li class="it"><span class="nm">縁取り色</span><span class="kd">色</span><span class="mt">初期 <i class="sw" style="background:#000000"></i>#000000</span></li>
+<li class="it"><span class="nm">縁取り</span><span class="kd">スライダー</span><span class="mt">範囲 0〜8（初期 2）</span></li>
+<li class="it"><span class="nm">光らせる（ネオン）</span><span class="kd">ON/OFF</span><span class="mt">初期 OFF</span></li>
+<li class="it"><span class="nm">文字の色で光らせる（おすすめ）</span><span class="kd">ON/OFF</span><span class="mt">初期 ON</span></li>
+<li class="it"><span class="nm">ネオンの色</span><span class="kd">色</span><span class="mt">初期 <i class="sw" style="background:#ffffff"></i>#ffffff</span></li>
+<li class="it"><span class="nm">強さ</span><span class="kd">スライダー</span><span class="mt">範囲 1〜10（初期 5）</span></li>
+<li class="it"><span class="nm">👁 プレビューを表示する （OBSに貼る前に、画像や文字の見え方をここで確認できます）</span><span class="kd">ON/OFF</span><span class="mt">初期 OFF</span></li>
+</ul></div>
+</div>
+<p class="totop"><a href="#top">▲ 目次へ</a></p></section>
+<section class="pg" id="p-advanced">
+<h2><span class="pno">9</span>上級者アクション<span class="pcnt">18 項目</span></h2>
+<p class="psub">難しいけど面白い機能（使わなくてOK）</p>
+<div class="sec" id="s-advanced-1">
+<h3>🎵 ① ちょい足し歌わせ<span class="ssub">読み上げの延長で短い文をメロディに乗せる（VOICEVOX）</span></h3>
+<div class="card">
+<ul class="items">
+<li class="it"><span class="nm">歌わせる文章</span><span class="kd">入力</span><span class="mt">例: 例: こんにちはみんな げんき？</span></li>
+<li class="it"><span class="nm">メロディ（音符の列）</span><span class="kd">入力</span><span class="mt">例: 例: ドドソソララソ</span><div class="ds">ドレミファソラシ を並べます。書き方は下の「メロディの書き方」を見てください。</div></li>
+<li class="it"><span class="nm">テンポ</span><span class="kd">数値</span><span class="mt">範囲 30〜300（1 刻み・初期 120）</span></li>
+<li class="it"><span class="nm">▶ 試聴（歌わせる）</span><span class="kd">ボタン</span></li>
+<li class="it"><span class="nm">書き出し名</span><span class="kd">入力</span><span class="mt">例: 例: わたしの歌</span></li>
+<li class="it"><span class="nm">💾 WAVで書き出し</span><span class="kd">ボタン</span></li>
+</ul></div>
+</div>
+<div class="sec" id="s-advanced-2">
+<h3>🎤 ② がっつり歌唱<span class="ssub">本物の歌唱機能で伸ばしてもきれいに歌う（VOICEVOX）</span></h3>
+<div class="card">
+<ul class="items">
+<li class="it"><span class="nm">↻ 探す</span><span class="kd">ボタン</span></li>
+<li class="it"><span class="nm">歌う声（ソング対応キャラ）</span><span class="kd">選択</span><span class="mt">選択肢: （VOICEVOXを起動して「↻ 探す」を押してください）</span></li>
+<li class="it"><span class="nm">歌わせる文章</span><span class="kd">入力</span><span class="mt">例: 例: きょうもいちにちがんばろう</span></li>
+<li class="it"><span class="nm">メロディ（音符の列・①と同じ書き方）</span><span class="kd">入力</span><span class="mt">例: 例: ドレミファソラソ</span><div class="ds">ドレミファソラシ／英語C-B。' で1オク上・, で下・# で半音上げ。音の後の数字は長さ（4分音符いくつぶん）。- は休符。文章のかな1つが音符1つに乗ります。</div></li>
+<li class="it"><span class="nm">テンポ</span><span class="kd">数値</span><span class="mt">範囲 30〜300（1 刻み・初期 120）</span></li>
+<li class="it"><span class="nm">▶ 試聴（歌わせる）</span><span class="kd">ボタン</span></li>
+<li class="it"><span class="nm">書き出し名</span><span class="kd">入力</span><span class="mt">例: 例: わたしの歌</span></li>
+<li class="it"><span class="nm">💾 WAVで書き出し</span><span class="kd">ボタン</span></li>
+</ul></div>
+</div>
+<div class="sec" id="s-advanced-3">
+<h3>🔤 ③ 正規表現の読み替え<span class="ssub">パターンで読み上げを一括変換（上級者）</span></h3>
+<div class="card">
+<ul class="items">
+<li class="it"><span class="nm">＋ ルールを追加</span><span class="kd">ボタン</span></li>
+<li class="it"><span class="nm">保存</span><span class="kd">ボタン</span></li>
+<li class="it"><span class="nm">試し打ち</span><span class="kd">入力</span><span class="mt">例: 例: すごーーーい！888円</span></li>
+<li class="it"><span class="nm">▶ 試す</span><span class="kd">ボタン</span></li>
+</ul></div>
+</div>
+<p class="totop"><a href="#top">▲ 目次へ</a></p></section>
+<section class="pg" id="p-logs">
+<h2><span class="pno">10</span>テスト/ログ<span class="pcnt">28 項目</span></h2>
+<p class="psub">診断・修復・マイク・ログ・テスト発火・コメント統計</p>
+<div class="sec" id="s-logs-1">
+<h3>🩺 診断・修復・ログ</h3>
+<div class="card">
+<h4>総合診断</h4>
+<ul class="items">
+<li class="it"><span class="nm">🔍 診断実行</span><span class="kd">ボタン</span></li>
+<li class="it"><span class="nm">📋 結果をコピー</span><span class="kd">ボタン</span></li>
+</ul></div>
+<div class="card">
+<h4>セーフモード（設定の修復）</h4>
+<ul class="items">
+<li class="it"><span class="nm">次回セーフモードで起動する</span><span class="kd">ON/OFF</span><span class="mt">初期 OFF</span></li>
+<li class="it"><span class="nm">負荷を検知したら軽量モードを提案する</span><span class="kd">ON/OFF</span><span class="mt">初期 ON</span></li>
+</ul></div>
+<div class="card">
+<h4>マイクチェック</h4>
+<ul class="items">
+<li class="it"><span class="nm">🎤 計測開始</span><span class="kd">ボタン</span></li>
+</ul></div>
+<div class="card">
+<h4>ログの場所・報告用の書き出し</h4>
+<ul class="items">
+<li class="it"><span class="nm">📦 報告用にまとめる（zip）</span><span class="kd">ボタン</span><div class="ds">logs フォルダをzip 1個にまとめて本体の隣に書き出します。設定・認証情報は含まれないので、そのまま Discord に添付できます</div></li>
+<li class="it"><span class="nm">🧹 コメントログの自動整理:</span><span class="kd">選択</span><span class="mt">選択肢: しない／7日より古いものを削除／30日より古いものを削除（推奨）／90日より古いものを削除</span></li>
+</ul></div>
+<div class="card">
+<h4>💾 設定・名簿のバックアップ</h4>
+<ul class="items">
+<li class="it"><span class="nm">💾 今すぐバックアップ</span><span class="kd">ボタン</span><div class="ds">今の設定・辞書・名簿・集計を1世代ぶん控えます</div></li>
+<li class="it"><span class="nm">↻ 一覧を更新</span><span class="kd">ボタン</span></li>
+</ul></div>
+</div>
+<div class="sec" id="s-logs-2">
+<h3>🧪 テスト・シミュレーター</h3>
+<div class="card">
+<h4>テストモード</h4>
+<ul class="items">
+<li class="it"><span class="nm">テストモードを有効化 （配信していなくても発火）</span><span class="kd">ON/OFF</span><span class="mt">初期 OFF</span></li>
+<li class="it"><span class="nm">ユーザー名</span><span class="kd">入力</span><span class="mt">例: TestUser</span></li>
+<li class="it"><span class="nm">金額/数量</span><span class="kd">数値</span><span class="mt">範囲 1〜999999（1 刻み・初期 100）</span></li>
+<li class="it"><span class="nm">メッセージ</span><span class="kd">入力</span><span class="mt">例: （任意）</span></li>
+</ul></div>
+<div class="card">
+<h4>翻訳テスト</h4>
+<ul class="items">
+<li class="it"><span class="nm">テストテキスト</span><span class="kd">入力</span><span class="mt">例: 例: こんにちは / 你好 / hello</span></li>
+<li class="it"><span class="nm">翻訳テスト実行</span><span class="kd">ボタン</span></li>
+</ul></div>
+<div class="card">
+<h4>🛠️ ブラウザソース総合テスター</h4>
+<ul class="items">
+<li class="it"><span class="nm">調整用字幕プレビュー（hold）</span><span class="kd">ON/OFF</span><span class="mt">初期 OFF</span><div class="ds">ONの間、字幕消去タイマーを停止</div></li>
+<li class="it"><span class="nm">🎤 サンプル字幕を出す</span><span class="kd">ボタン</span></li>
+<li class="it"><span class="nm">🗑 字幕クリア</span><span class="kd">ボタン</span></li>
+<li class="it"><span class="nm">自動連投テスト</span><span class="kd">ON/OFF</span><span class="mt">初期 OFF</span><div class="ds">3秒ごとにダミーコメント射出</div></li>
+<li class="it"><span class="nm">💬 テストコメント1通</span><span class="kd">ボタン</span></li>
+<li class="it"><span class="nm">🎉 祝／🌿 草／👏 拍手／❤️／⭐／🔥</span><span class="kd">ボタン</span></li>
+</ul></div>
+</div>
+<div class="sec" id="s-logs-3">
+<h3>📊 コメント統計・ファン名簿</h3>
+<div class="card">
+<h4>コメントログ記録</h4>
+<ul class="items">
+<li class="it"><span class="nm">コメントログを記録する</span><span class="kd">ON/OFF</span><span class="mt">初期 OFF</span><div class="ds">ONにした時点から配信コメントを logs/ フォルダに自動保存（JSONL）。OFFで停止。</div></li>
+<li class="it"><span class="nm">サマリー更新</span><span class="kd">ボタン</span></li>
+<li class="it"><span class="nm">CSVエクスポート</span><span class="kd">ボタン</span></li>
+<li class="it"><span class="nm">ログフォルダを開く</span><span class="kd">ボタン</span></li>
+</ul></div>
+<div class="card">
+<h4>ファン名簿</h4>
+<ul class="items">
+<li class="it"><span class="nm">名簿を更新</span><span class="kd">ボタン</span></li>
+<li class="it"><span class="nm">🧹 名簿をリセット</span><span class="kd">ボタン</span></li>
+<li class="it"><span class="nm">名簿に入れない名前（自分・Bot等/カンマ区切り）</span><span class="kd">入力</span><span class="mt">例: 例: mychannel, mybot</span></li>
+</ul></div>
+</div>
+<p class="totop"><a href="#top">▲ 目次へ</a></p></section>
+<section class="pg" id="p-settings">
+<h2><span class="pno">11</span>詳細設定<span class="pcnt">11 項目</span></h2>
+<p class="psub">アプリ挙動・コメント埋め込み・チャットコマンド</p>
+<div class="sec" id="s-settings-1">
+<h3>⚙ 終了時の動作</h3>
+<div class="card">
+<h4>終了確認</h4>
+<ul class="items">
+<li class="it"><span class="nm">終了時に確認ダイアログを表示する</span><span class="kd">ON/OFF</span><span class="mt">初期 OFF</span></li>
+<li class="it"><span class="nm">ダイアログで「VOICEVOXも終了する」を既定でチェック</span><span class="kd">ON/OFF</span><span class="mt">初期 OFF</span></li>
+</ul></div>
+<div class="card">
+<h4>💤 長時間放置でスリープ（省電力）</h4>
+<ul class="items">
+<li class="it"><span class="nm">放置してから</span><span class="kd">選択</span><span class="mt">選択肢: スリープしない／3時間／6時間／10時間／24時間</span></li>
+</ul></div>
+</div>
+<div class="sec" id="s-settings-2">
+<h3>💬 コメント埋め込み</h3>
+<div class="card">
+<h4>💬 コメント埋め込み（chat_embed widget）</h4>
+<ul class="items">
+<li class="it"><span class="nm">📖 初回ガイドを再表示</span><span class="kd">ボタン</span><div class="ds">次回ウィジェット表示時に「初回セットアップ」案内オーバーレイを再表示</div></li>
+</ul></div>
+</div>
+<div class="sec" id="s-settings-3">
+<h3>⌨ チャットコマンド一覧</h3>
+<div class="card">
+<h4>チャットコマンド一覧</h4>
+<ul class="items">
+<li class="it"><span class="nm">📖 !教育 で読み方を登録できる人</span><span class="kd">選択</span><span class="mt">選択肢: 誰でも／サブスク・VIP／メンバー以上（既定）／モデレーター・配信者のみ／配信者のみ／無効（誰も使えない）</span></li>
+<li class="it"><span class="nm">🛡 !忘却 / !NG追加 / !NG削除 を使える人</span><span class="kd">選択</span><span class="mt">選択肢: 誰でも／サブスク・VIP／メンバー以上／モデレーター・配信者のみ（既定）／配信者のみ／無効（誰も使えない）</span></li>
+<li class="it"><span class="nm">🎬 !シーン でOBSの画面を切り替えられる人</span><span class="kd">選択</span><span class="mt">選択肢: 無効（誰も使えない・既定）／配信者のみ／モデレーター・配信者のみ／サブスク・VIP／メンバー以上／誰でも</span></li>
+<li class="it"><span class="nm">教育の報酬名</span><span class="kd">入力</span><span class="mt">例: 例: コメント読み上げ教育</span></li>
+<li class="it"><span class="nm">忘却の報酬名</span><span class="kd">入力</span><span class="mt">例: 例: コメント読み上げ忘却</span></li>
+<li class="it"><span class="nm">教育／忘却できたら チャットに返信する （Twitch・Bot代理投稿）</span><span class="kd">ON/OFF</span><span class="mt">初期 OFF</span><div class="ds">例: 「@視聴者 ＜「curamar」の読み方を「クラマー」で登録したよ）」</div></li>
+<li class="it"><span class="nm">!シーン コマンドを有効化</span><span class="kd">ON/OFF</span><span class="mt">初期 OFF</span><div class="ds">（Mod/Broadcasterが !シーン &lt;name&gt; でOBSシーン切替・既定OFF）</div></li>
+</ul></div>
+</div>
+<p class="totop"><a href="#top">▲ 目次へ</a></p></section>
+<section class="pg" id="p-companion">
+<h2><span class="pno">12</span>同伴機能<span class="pcnt">21 項目</span></h2>
+<p class="psub">一緒に起動するアプリ</p>
+<div class="sec" id="s-companion-1">
+<h3>🎙 VOICEVOX 同伴起動</h3>
+<div class="card">
+<h4>🎙 VOICEVOX 同伴起動（任意）</h4>
+<ul class="items">
+<li class="it"><span class="nm">起動時に自動起動</span><span class="kd">ON/OFF</span><span class="mt">初期 OFF</span><div class="ds">ツール起動時にVOICEVOXも自動で立ち上げます</div></li>
+<li class="it"><span class="nm">VOICEVOX.exe のパス</span><span class="kd">入力</span><span class="mt">例: 例: C:\Program Files\VOICEVOX\VOICEVOX.exe</span><div class="ds">VOICEVOX.exe の場所を指定します。「自動検出」で一般的なインストール先を自動探索します。</div></li>
+<li class="it"><span class="nm">自動検出</span><span class="kd">ボタン</span></li>
+<li class="it"><span class="nm">今すぐ起動</span><span class="kd">ボタン</span></li>
+</ul></div>
+</div>
+<div class="sec" id="s-companion-2">
+<h3>🔊 棒読みちゃん 同伴起動</h3>
+<div class="card">
+<h4>🔊 棒読みちゃん 連携</h4>
+<ul class="items">
+<li class="it"><span class="nm">ポート</span><span class="kd">数値</span><span class="mt">範囲 1〜65535（1 刻み・初期 50001）</span><div class="ds">棒読みちゃんのTCP連携ポート（既定50001・棒読みちゃん側で変更している場合のみ合わせる）</div></li>
+<li class="it"><span class="nm">再確認</span><span class="kd">ボタン</span></li>
+<li class="it"><span class="nm">起動時に自動起動・終了時に自動終了</span><span class="kd">ON/OFF</span><span class="mt">初期 OFF</span><div class="ds">ツール起動時に棒読みちゃんも立ち上げ、終了時に一緒に閉じます（Ligastmirが起動した分のみ）</div></li>
+<li class="it"><span class="nm">BouyomiChan.exe のパス</span><span class="kd">入力</span><span class="mt">例: 例: H:\Stream\BouyomiChan_xxx\BouyomiChan.exe</span><div class="ds">棒読みちゃん本体（BouyomiChan.exe）の場所。「自動検出」で一般的な置き場を探索します。</div></li>
+<li class="it"><span class="nm">自動検出</span><span class="kd">ボタン</span></li>
+<li class="it"><span class="nm">今すぐ起動</span><span class="kd">ボタン</span></li>
+</ul></div>
+</div>
+<div class="sec" id="s-companion-3">
+<h3>💬 わんコメ 同伴起動</h3>
+<div class="card">
+<h4>💬 わんコメ（OneComme）同伴起動</h4>
+<ul class="items">
+<li class="it"><span class="nm">起動時に自動起動・終了時に自動終了</span><span class="kd">ON/OFF</span><span class="mt">初期 OFF</span><div class="ds">ツール起動時にわんコメも立ち上げ、終了時に一緒に閉じます（Ligastmirが起動した分のみ・既に開いている場合は触れません）</div></li>
+<li class="it"><span class="nm">OneComme.exe のパス</span><span class="kd">入力</span><span class="mt">例: 例: C:\Users\...\AppData\Local\Programs\OneComme\OneComme.exe</span><div class="ds">わんコメ本体（OneComme.exe）の場所。「自動検出」で一般的な置き場（%LOCALAPPDATA%\Programs\OneComme 等）を探索します。</div></li>
+<li class="it"><span class="nm">自動検出</span><span class="kd">ボタン</span></li>
+<li class="it"><span class="nm">今すぐ起動</span><span class="kd">ボタン</span></li>
+<li class="it"><span class="nm">終了</span><span class="kd">ボタン</span></li>
+</ul></div>
+</div>
+<div class="sec" id="s-companion-4">
+<h3>🎬 OBS 同伴起動</h3>
+<div class="card">
+<h4>🎬 OBS Studio 同伴起動</h4>
+<ul class="items">
+<li class="it"><span class="nm">起動時に OBS を自動起動する</span><span class="kd">ON/OFF</span><span class="mt">初期 OFF</span><div class="ds">ツール起動時に OBS も立ち上げます（Ligastmirが起動した分のみ・既に開いている場合は触れません）</div></li>
+<li class="it"><span class="nm">終了時に OBS も一緒に閉じる（配信中を除く）</span><span class="kd">ON/OFF</span><span class="mt">初期 OFF</span><div class="ds">ツール終了時に OBS も閉じます。 配信中（ON AIR）のときは閉じません （配信保護）。既定OFF。 ⚠ 対象は Ligastmir が起動した OBS だけ です。 OBS を自分で先に開いていた場合は閉じません （あなたが開いたアプリを勝手に閉じない設計）。自動終了を使</div></li>
+<li class="it"><span class="nm">obs64.exe のパス</span><span class="kd">入力</span><span class="mt">例: 例: C:\Program Files\obs-studio\bin\64bit\obs64.exe</span><div class="ds">OBS本体（obs64.exe）の場所。通常は C:\Program Files\obs-studio\bin\64bit\obs64.exe。「自動検出」で一般的な置き場を探索します。</div></li>
+<li class="it"><span class="nm">自動検出</span><span class="kd">ボタン</span></li>
+<li class="it"><span class="nm">今すぐ起動</span><span class="kd">ボタン</span></li>
+<li class="it"><span class="nm">終了</span><span class="kd">ボタン</span></li>
+</ul></div>
+</div>
+<p class="totop"><a href="#top">▲ 目次へ</a></p></section>
+<section class="pg" id="p-info">
+<h2><span class="pno">13</span>INFO<span class="pcnt">7 項目</span></h2>
+<p class="psub">アプリ情報・使い方・不具合報告・クレジット・ライセンス</p>
+<div class="sec" id="s-info-1">
+<div class="card">
+<ul class="items">
+<li class="it"><span class="nm">📖 はじめの案内をもう一度見る</span><span class="kd">ボタン</span></li>
+</ul></div>
+<div class="card">
+<h4>アップデート</h4>
+<ul class="items">
+<li class="it"><span class="nm">更新のお知らせを確認する</span><span class="kd">ON/OFF</span><span class="mt">初期 OFF</span><div class="ds">起動時に「最新版があるか」だけを確認します。 OFF（既定）の間は外部に一切接続しません 。自動ダウンロードはしません。</div></li>
+</ul></div>
+<div class="card">
+<h4>コミュニティ</h4>
+<ul class="items">
+<li class="it"><span class="nm">💬 Discord に参加／🌐 公式サイト</span><span class="kd">ボタン</span></li>
+</ul></div>
+<div class="card">
+<h4>使い方ガイド</h4>
+<ul class="items">
+<li class="it"><span class="nm">📖 ガイドを開く</span><span class="kd">ボタン</span></li>
+</ul></div>
+<div class="card">
+<h4>不具合の報告</h4>
+<ul class="items">
+<li class="it"><span class="nm">📝 報告フォーム / 窓口を開く</span><span class="kd">ボタン</span></li>
+<li class="it"><span class="nm">📁 ログフォルダを開く</span><span class="kd">ボタン</span></li>
+</ul></div>
+<div class="card">
+<h4>🛡 本物の確認（なりすまし・改変対策）</h4>
+<ul class="items">
+<li class="it"><span class="nm">公式サイトと照合する</span><span class="kd">ボタン</span></li>
+</ul></div>
+</div>
+<p class="totop"><a href="#top">▲ 目次へ</a></p></section>
+<section class="pg" id="p-devtools">
+<h2><span class="pno">14</span>ストリームレコーダー<span class="pcnt">13 項目</span></h2>
+<p class="psub">配信中の様子をその場で見る／記録を残す</p>
+<div class="sec" id="s-devtools-1">
+<div class="card">
+<ul class="items">
+<li class="it"><span class="nm">自動更新</span><span class="kd">ON/OFF</span><span class="mt">初期 ON</span><div class="ds">OFF にすると更新を止めます（見るのをやめている間は何もしません）</div></li>
+</ul></div>
+<div class="card">
+<h4>システム性能 1秒間隔で更新</h4>
+<ul class="items">
+<li class="it"><span class="nm">🔄</span><span class="kd">ボタン</span><div class="ds">即時更新</div></li>
+</ul></div>
+<div class="card">
+<h4>詳細な動作ログを記録</h4>
+<ul class="items">
+<li class="it"><span class="nm">ログ収集を有効にする</span><span class="kd">ON/OFF</span><span class="mt">初期 OFF</span></li>
+<li class="it"><span class="nm">📁 ログフォルダを開く</span><span class="kd">ボタン</span></li>
+<li class="it"><span class="nm">🗑 古いログを削除（30日以上前）</span><span class="kd">ボタン</span></li>
+<li class="it"><span class="nm">🗑 すべて削除</span><span class="kd">ボタン</span><div class="ds">現在記録中のファイル以外を全削除</div></li>
+</ul></div>
+<div class="card">
+<h4>記録の状態 いま何行たまっているか / logs/session_*.jsonl</h4>
+<ul class="items">
+<li class="it"><span class="nm">⚙ 設定へ</span><span class="kd">ボタン</span><div class="ds">詳細設定のトグルへ</div></li>
+</ul></div>
+<div class="card">
+<h4>ログ tail</h4>
+<ul class="items">
+<li class="it"><span class="nm">自動更新</span><span class="kd">ON/OFF</span><span class="mt">初期 ON</span></li>
+<li class="it"><span class="nm">📁 一覧</span><span class="kd">ボタン</span><div class="ds">ファイル一覧再読込</div></li>
+<li class="it"><span class="nm">🔄</span><span class="kd">ボタン</span><div class="ds">末尾再読込</div></li>
+<li class="it"><span class="nm">ログ tail 自動更新</span><span class="kd">選択</span><span class="mt">選択肢: ― ファイル選択 ―</span></li>
+<li class="it"><span class="nm">ログ tail 自動更新</span><span class="kd">選択</span><span class="mt">選択肢: 全 type／sys／api／event／tts／state／exception／subtitle／command</span></li>
+<li class="it"><span class="nm">ログ tail 自動更新</span><span class="kd">入力</span><span class="mt">例: 🔍 検索 (部分一致)</span></li>
+</ul></div>
+</div>
+<p class="totop"><a href="#top">▲ 目次へ</a></p></section>
+<section class="pg" id="widgets"><h2><span class="pno">W</span>ダッシュボードのウィジェット<span class="pcnt">20 種</span></h2>
+<p class="psub">ダッシュボードに置ける部品。「🛠 フル編集」で足したり外したりできます。</p><ul class="items">
+<li class="it"><span class="nm">⚡ 一括スタート</span><div class="ds">設定した項目（接続・字幕・TTS等）を配信前にワンクリックでまとめてON<br><span class="mt">操作: ⚡ 一括スタート／⚙ 一括オン設定／⏹ 一括ストップ</span></div></li>
+<li class="it"><span class="nm">💬 Twitch コメント</span><div class="ds">Twitch公式コメント欄の埋め込み（モデコマンド可）</div></li>
+<li class="it"><span class="nm">📌 コメントピックアップ</span><div class="ds">直近コメントを検索し、選んだ1件をOBSに大きく表示（質問カード）<br><span class="mt">操作: ✕ 表示を消す／🧹 履歴を消す</span></div></li>
+<li class="it"><span class="nm">🔗 機能の状態と必要条件</span><div class="ds">やりたいこと別に「動くために足りないもの」を表示（ONのつもりで動いていない、を防ぐ）</div></li>
+<li class="it"><span class="nm">📊 ライブログ</span><div class="ds">システムメッセージ・コメント・TTSログ<br><span class="mt">操作: クリア</span></div></li>
+<li class="it"><span class="nm">📡 配信の様子</span><div class="ds">字幕・コメントが止まっていないかを「最後に動いた時刻」で見る</div></li>
+<li class="it"><span class="nm">👁 オーバーレイ表示</span><div class="ds">字幕・アラート・コメビュー等を出す／しまう（OBSを触らずに）<br><span class="mt">操作: 全部出す／全部しまう</span></div></li>
+<li class="it"><span class="nm">🎛 クイック操作</span><div class="ds">接続トグル・TTS停止・シーン切替への導線<br><span class="mt">操作: ⏭ 今のをスキップ／⏹ 全部止める／🎬 シーン切替／⚙ 音声・コメント設定</span></div></li>
+<li class="it"><span class="nm">🟢 稼働中の機能</span><div class="ds">今どの機能が実際に動いているかを一覧（接続・エンジン・演出・ログ）</div></li>
+<li class="it"><span class="nm">🎬 シーン切替パネル</span><div class="ds">OBS連携ページで選択したシーンをワンクリックで切替</div></li>
+<li class="it"><span class="nm">✅ 配信前チェック</span><div class="ds">配信開始前の準備状況をひと目で確認（クリックで該当ページへジャンプ）</div></li>
+<li class="it"><span class="nm">🛟 セーフティ（停止・切断）</span><div class="ds">軽い停止・軽量モード・外部一括切断（配信は続けたまま詰まった処理だけ逃がす）<br><span class="mt">操作: —／🔌 外部一括切断</span></div></li>
+<li class="it"><span class="nm">🔴 配信制御</span><div class="ds">OBSの配信開始/停止をダッシュボードから（要OBS接続）<br><span class="mt">操作: 配信開始／配信停止</span></div></li>
+<li class="it"><span class="nm">🎬 配信ステータス</span><div class="ds">配信時間・人数・プラットフォーム・各エンジン状態</div></li>
+<li class="it"><span class="nm">⏱ 配信タイマー</span><div class="ds">OBS配信開始からの経過時間</div></li>
+<li class="it"><span class="nm">🎤 字幕プレビュー</span><div class="ds">現在の字幕（日本語＋翻訳）をダッシュボードで確認</div></li>
+<li class="it"><span class="nm">🌐 字幕認識・翻訳ステータス</span><div class="ds">字幕認識の稼働状態と翻訳エンジンの設定</div></li>
+<li class="it"><span class="nm">👥 来場者数</span><div class="ds">配信中のプラットフォームの来場者数（5分ごと更新）<br><span class="mt">操作: 🔄</span></div></li>
+<li class="it"><span class="nm">🎚 音量</span><div class="ds">入力(マイク)・出力(読み上げ/SE) の音量レベル</div></li>
+<li class="it"><span class="nm">💬 YouTube コメント</span><div class="ds">YouTube公式ライブチャットの埋め込み（連携の動画IDを自動取得）</div></li>
+</ul><p class="totop"><a href="#top">▲ 目次へ</a></p></section>
+<section class="pg" id="overlays"><h2><span class="pno">O</span>OBS に貼るブラウザソース<span class="pcnt">7 面</span></h2>
+<p class="psub">URL は「ブラウザソース」ページにコピーボタン付きで並びます。見た目の設定項目は上の 7（ブラウザソース）・8（着せ替え）・2（音声・コメント）にあります。</p><ul class="items">
+<li class="it"><span class="nm">字幕</span><div class="ds">日本語行＋翻訳行（言語ごとに 1 行・最大 3）。流して全文表示・別配置・ネオン・縁取り・言語ごとの色/縁取り色</div></li>
+<li class="it"><span class="nm">コメントビューア</span><div class="ds">コメントのカード（名前色・バッジ・エモート画像・訳 2 段目・吹き出し背景・アイコン）。縦／横並び・枠 ON/OFF・ネオン・縁取り</div></li>
+<li class="it"><span class="nm">弾幕</span><div class="ds">コメントを右→左へ流す。色モード・書体・流れる時間・ネオン</div></li>
+<li class="it"><span class="nm">エモートフロート</span><div class="ds">エモート／絵文字を浮かせる。向き・位置・倍率</div></li>
+<li class="it"><span class="nm">コメントピックアップ</span><div class="ds">選んだ 1 件をカードで表示。倍率・自動で消える秒</div></li>
+<li class="it"><span class="nm">アラート</span><div class="ds">フォロー／サブスク／継続／ギフト／レイド／チャネポ／ビッツ／リアクションの演出（画像・音・枠・格）</div></li>
+<li class="it"><span class="nm">看板テロップ</span><div class="ds">固定の看板（同梱図形・任意画像・文字・位置・フォント・色・ネオン）</div></li>
+</ul><p class="totop"><a href="#top">▲ 目次へ</a></p></section>
+<section class="pg" id="auto"><h2><span class="pno">A</span>画面に無い機能</h2>
+<p class="psub">設定項目としては出てこないが、裏で自動で動くもの・視聴者が打つコマンド・起動の入口。</p>
+<h3>自動で動くもの</h3><div class="tbl"><table><thead><tr><th>機能</th><th>いつ</th><th>何をする</th></tr></thead><tbody>
+<tr><td>設定バックアップ</td><td>起動時（＋手動・復元の直前）</td><td>config・辞書・名簿・集計を <code>_backup/</code> へ・10 世代</td></tr>
+<tr><td>音声認識の自動切替</td><td>画面内の認識がマイク取得直後に 3 回拒まれたとき</td><td>裏の Edge（窓なし）で認識を続ける</td></tr>
+<tr><td>認識のウォッチドッグ</td><td>3 分ライフサイクルが無い／network の 8 秒後</td><td>認識を作り直す</td></tr>
+<tr><td>裏の Edge の見張り</td><td>5 秒ごと</td><td>止まっていれば 10 分に 5 回まで立て直す</td></tr>
+<tr><td>放置スリープ</td><td>10 時間（設定可）無操作</td><td>認識を止める</td></tr>
+<tr><td>マイクミュート同期</td><td>OBS で対象ソースがミュート</td><td>字幕を止める（ON のとき）</td></tr>
+<tr><td>無音の検知</td><td>OBS の音声ソースが 3 分間 0</td><td>ログとヘッダー帯で知らせる</td></tr>
+<tr><td>翻訳の門番</td><td>仮確定が連続</td><td>束ねて翻訳回数を減らす・本確定は待たせない</td></tr>
+<tr><td>翻訳エンジンの選び直し</td><td>失敗の種類ごと</td><td>元気さで次のエンジンへ・使い回しキャッシュ</td></tr>
+<tr><td>読み上げの先読み・早口・間引き</td><td>キューに溜まったとき</td><td>次の 1 件を先に合成／3・5・7 件で早口／12 件超で古いものを間引く</td></tr>
+<tr><td>話者の事前読み込み</td><td>起動時・声の変更時</td><td>VOICEVOX の <code>/initialize_speaker</code></td></tr>
+<tr><td>読み上げの遅れの記録</td><td>3 秒超のとき</td><td>30 秒に 1 回ログ・診断に要約</td></tr>
+<tr><td>素材の事前読み込み</td><td>オーバーレイ接続時</td><td>画像・音の URL を先に温める</td></tr>
+<tr><td>出す／しまうの復元</td><td>オーバーレイ接続時</td><td><code>OVERLAY_SHOW</code> を送る</td></tr>
+<tr><td>見た目設定の初期プッシュ</td><td>オーバーレイ接続時</td><td>7 面の設定を config から送る（OBS 再読込で戻らない）</td></tr>
+<tr><td>EventSub の再接続</td><td><code>session_reconnect</code></td><td>指示された URL へ繋ぎ直す</td></tr>
+<tr><td>トークンの自動更新</td><td>期限前・401</td><td>Twitch/YouTube のリフレッシュ（1 回だけ再試行）</td></tr>
+<tr><td>自動シャウトアウト</td><td>レイド受信</td><td>Helix でシャウトアウト＋Bot 文（ON のとき）</td></tr>
+<tr><td>来場者数の集計</td><td>5 分ごと</td><td>Twitch/YouTube の来場者数を記録</td></tr>
+<tr><td>定期コメント</td><td>N 分／N コメントごと</td><td>Bot 投稿</td></tr>
+<tr><td>セーフティの自動提案</td><td>読み上げキュー 10 件以上 ×3／CPU 90% ×3</td><td>軽量モードを 1 回提案</td></tr>
+<tr><td>コメントログの整理</td><td>起動時</td><td>30 日（設定可）より古いコメントログを消す</td></tr>
+<tr><td>更新チェック</td><td>起動時（既定 OFF）</td><td><code>version.json</code> を読んで INFO にバッジ</td></tr>
+<tr><td>本体ファイルの整合（S1）</td><td>起動時（配布版）</td><td><code>integrity_manifest.json</code> と突き合わせ</td></tr>
+<tr><td>画面の JS エラーの記録</td><td>常時</td><td><code>ust_debug.log</code> へ（読み込み失敗も）</td></tr>
+<tr><td>同伴アプリの自動起動／終了</td><td>起動時／終了時</td><td>OBS・VOICEVOX・棒読み・わんコメ（Ligastmir 起動分だけ・配信中の OBS は閉じない）</td></tr>
+<tr><td>認識ワーカーの道連れ</td><td>終了・異常終了</td><td>Job Object で Edge が残らない</td></tr>
+</tbody></table></div>
+<h3>チャットコマンド（視聴者が打つ）</h3><div class="tbl"><table><thead><tr><th>コマンド</th><th>何をする</th><th>実行できる人（既定）</th></tr></thead><tbody>
+<tr><td><code>!教育 語 読み</code></td><td>読み上げ辞書に読みを足す</td><td>サブスク以上</td></tr>
+<tr><td><code>!忘却 語</code></td><td>辞書から消す</td><td>サブスク以上</td></tr>
+<tr><td><code>!NG 語</code></td><td>NG ワードに足す</td><td>モデレーター以上</td></tr>
+<tr><td><code>!シーン 名</code> / <code>!scene 名</code></td><td>OBS のシーンを切り替える</td><td><code>off</code>（誰も使えない）</td></tr>
+<tr><td>チャネポ報酬（設定した報酬名）</td><td>教育／忘却を報酬で実行・返信</td><td>報酬の設定次第</td></tr>
+<tr><td>リアクション（語・エモート・www×N）</td><td>演出を出す</td><td>全員（設定した語）</td></tr>
+</tbody></table></div>
+<h3>起動の仕方・入口</h3><div class="tbl"><table><thead><tr><th>入口</th><th>何</th></tr></thead><tbody>
+<tr><td><code>起動.bat</code>（配布版・開発版）</td><td>MOTW 解除 → <code>Ligastmir.exe</code></td></tr>
+<tr><td><code>--safe</code></td><td>セーフモード（配信系エンジンを起動しない・設定修復）</td></tr>
+<tr><td><code>--skin-editor</code></td><td>着せ替え軽量モード（配信系を起動しない）</td></tr>
+<tr><td>「次回セーフモードで起動する」トグル</td><td>1 回だけ <code>--safe</code> 相当</td></tr>
+<tr><td><code>http://127.0.0.1:8766/&lt;overlay&gt;.html</code></td><td>OBS ブラウザソースの URL（7 面＋認識ワーカー）</td></tr>
+</tbody></table></div>
+<h3>画面の中で JS が組み立てる項目（§1 の木には出ない）</h3><div class="tbl"><table><thead><tr><th>場所</th><th>中身</th></tr></thead><tbody>
+<tr><td>着せ替え → アプリの配色</td><td>テーマ 7 つ（ライム 既定／オーシャン／サクラ／アンバー／ヴァイオレット／モノクロ／ライト）＋好きな色</td></tr>
+<tr><td>着せ替え → 見た目プリセット</td><td>同梱 5（ネオン／パステル／モノクロ／レトロ／オーシャン）＋カスタム保存</td></tr>
+<tr><td>着せ替え → アラート</td><td>7 種 × 画像・音・音量・格・大きさ・ずらし、既定音 4</td></tr>
+<tr><td>着せ替え → チャネポ報酬</td><td>Helix から取った報酬の行</td></tr>
+<tr><td>着せ替え → リアクション</td><td>既定プリセット＋自分の行（語／エモート／連打）</td></tr>
+<tr><td>着せ替え → 常連バッジ</td><td>段（しきい値・名前・色）＋同梱バッジ画像</td></tr>
+<tr><td>着せ替え → コメビュー・看板</td><td>同梱の吹き出し背景 9 点／看板の図形</td></tr>
+<tr><td>音声・コメント → 話す言語／訳し先</td><td>11 言語／13 言語（同時 3・言語ごとの色と縁取り色）</td></tr>
+<tr><td>音声・コメント → VOICEVOX 話者</td><td>VOICEVOX の <code>/speakers</code>（101 件など）</td></tr>
+<tr><td>ダッシュボード → ウィジェット欄</td><td>20 種（§2）</td></tr>
+</tbody></table></div>
+<p class="totop"><a href="#top">▲ 目次へ</a></p></section>
+<div class="cta-row"><a class="cta" href="download.html">⬇ Ligastmir をダウンロード（無料）</a><a class="cta ghost" href="guide.html">📖 使い方ガイド</a></div>
+</article></div>
+<footer>
+  <div class="wrap foot">
+    <a href="index.html" class="logo"><span class="cura">cura</span><span class="mar">mar</span></a>
+    <nav class="links">
+      <a href="index.html">トップ</a>
+      <a href="ligastmir.html">Ligastmir</a>
+      <a href="guide.html">使い方</a>
+      <a href="faq.html">FAQ</a>
+      <a href="download.html">ダウンロード</a>
+      <a href="changelog.html">更新履歴</a>
+      <a href="roadmap.html">進化マップ</a>
+      <a href="collaborate.html">協力する</a>
+      <a href="about.html">About</a>
+      <a href="blog.html">ブログ</a>
+      <a href="support.html">応援</a>
+      <a href="credits.html">クレジット</a>
+      <a href="https://discord.gg/QtQcEgn9JF" target="_blank" rel="noopener">Discord</a>
+      <a href="https://x.com/curamar2525" target="_blank" rel="noopener">X</a>
+      <a href="privacy.html">プライバシーポリシー</a>
+    </nav>
+    <div class="cp">© 2026 curamar</div>
+  </div>
+</footer>
+<script src="/sitemap.js" defer></script>
+
+<script>
+(function(){
+  var q=document.getElementById('q'),cnt=document.getElementById('cnt'),clr=document.getElementById('clr'),none=document.getElementById('none');
+  var items=[].slice.call(document.querySelectorAll('.it'));
+  var total=items.length;
+  items.forEach(function(el){el.__t=(el.textContent||'').toLowerCase();});
+  function norm(s){return (s||'').toLowerCase().replace(/[\u3000\s]+/g,' ').trim();}
+  function apply(){
+    var words=norm(q.value).split(' ').filter(Boolean);
+    var shown=0;
+    items.forEach(function(el){
+      var ok=words.every(function(w){return el.__t.indexOf(w)>=0;});
+      el.classList.toggle('hide',!ok); if(ok)shown++;
+    });
+    ['.card','.sec','.pg'].forEach(function(sel){
+      [].forEach.call(document.querySelectorAll(sel),function(box){
+        box.classList.toggle('hide',words.length>0 && !box.querySelector('.it:not(.hide)'));
+      });
+    });
+    cnt.textContent=words.length?(shown+' / '+total+' 行'):(total+' 行');
+    none.style.display=(words.length&&!shown)?'block':'none';
+    clr.style.visibility=words.length?'visible':'hidden';
+  }
+  q.addEventListener('input',apply);
+  clr.addEventListener('click',function(){q.value='';apply();q.focus();});
+  if(location.hash&&location.hash.indexOf('#q=')===0){try{q.value=decodeURIComponent(location.hash.slice(3));}catch(e){}}
+  apply();
+})();
+</script>
+</body>
+</html>

@@ -29,6 +29,7 @@
         { t: "リアクション演出", d: "コメント/スタンプで演出を発火", href: "/feature-reaction.html" },
         { t: "YouTube配信での使い方", d: "取得・読み上げ・翻訳・タイトル変更", href: "/feature-youtube.html" },
         { t: "配信前チェック・ダッシュボード", d: "接続確認・一括スタート", href: "/feature-dashboard.html" },
+        { t: "全機能・設定項目一覧", d: "設定項目 525 件を検索（画面から自動生成）", href: "/ligastmir-features.html" },
         { t: "よくある質問", d: "導入前の不安・トラブル", href: "/faq.html" },
         { t: "更新履歴", d: "バージョンごとの変更点", href: "/changelog.html" },
         { t: "進化マップ（これから）", d: "今後の構想・開発状況", href: "/roadmap.html" },

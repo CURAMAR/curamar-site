@@ -4,17 +4,17 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Ligastmir 全機能・設定項目一覧（v0.9.7） — curamar</title>
-<meta name="description" content="無料の配信支援ツール Ligastmir の操作画面にある全設定項目（14 ページ・525 項目）を、画面から機械的に起こした一覧。字幕・翻訳・読み上げ・コメビュー・弾幕・エモート・アラート・着せ替えなど、何をどこまで調整できるかを検索できます。v0.9.7 時点。">
+<meta name="description" content="無料の配信支援ツール Ligastmir の操作画面にある全設定項目（14 ページ・525 項目）を、画面から機械的に起こした一覧。字幕・翻訳・読み上げ・コメビュー・弾幕・エモート・アラート・着せ替えなど、何をどこまで調整できるかを言葉で絞り込めます。v0.9.7 時点。">
 <link rel="canonical" href="https://curamar.space/ligastmir-features.html">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="curamar.space">
 <meta property="og:title" content="Ligastmir 全機能・設定項目一覧（v0.9.7） — curamar">
-<meta property="og:description" content="Ligastmir の設定項目 525 件を検索できる一覧。v0.9.7 時点。">
+<meta property="og:description" content="Ligastmir の設定項目 525 件を言葉で絞り込める一覧。v0.9.7 時点。">
 <meta property="og:url" content="https://curamar.space/ligastmir-features.html">
 <meta property="og:image" content="https://curamar.space/assets/shots/bsource-urls.webp">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Ligastmir 全機能・設定項目一覧（v0.9.7） — curamar">
-<meta name="twitter:description" content="Ligastmir の設定項目 525 件を検索できる一覧。">
+<meta name="twitter:description" content="Ligastmir の設定項目 525 件を言葉で絞り込める一覧。">
 <meta name="twitter:image" content="https://curamar.space/assets/shots/bsource-urls.webp">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <script type="application/ld+json">
@@ -64,6 +64,15 @@
   .filter .cnt{font-family:var(--font-mono);font-size:12.5px;color:var(--ink-dim);white-space:nowrap}
   .filter .clr{background:transparent;border:1px solid var(--bg-line);color:var(--ink-dim);border-radius:8px;padding:8px 12px;cursor:pointer;font-size:13px}
   .filter .clr:hover{border-color:var(--accent);color:var(--ink)}
+  .filter .flab{font-size:13px;font-weight:700;color:var(--ink);white-space:nowrap}
+  .filter .fhint{font-size:12px;color:var(--ink-dim);margin:6px 2px 0}
+  .filter .fsum{display:none;flex-wrap:wrap;gap:6px;margin:8px 0 0;align-items:center}
+  .filter .fsum .lab{font-size:11.5px;color:var(--ink-dim);margin-right:2px}
+  .filter .fsum a{display:inline-flex;align-items:center;gap:6px;font-size:12px;color:var(--ink);text-decoration:none;background:var(--bg-soft);border:1px solid var(--bg-line);border-radius:999px;padding:3px 10px}
+  .filter .fsum a:hover{border-color:var(--accent)}
+  .filter .fsum a b{font-family:var(--font-mono);font-size:11px;color:var(--accent)}
+  .it mark{background:rgba(200,245,66,.28);color:inherit;border-radius:3px;padding:0 1px}
+  @media(max-width:560px){.filter .flab{display:none}}
   h2{font-family:var(--font-disp);font-size:22px;font-weight:700;margin:52px 0 10px;padding-left:14px;border-left:3px solid var(--accent);display:flex;align-items:center;gap:10px;flex-wrap:wrap}
   h2 .pno,.toc .pno{display:inline-grid;place-items:center;min-width:28px;height:28px;padding:0 6px;background:var(--accent);color:#0d1014;font-family:var(--font-mono);font-weight:700;font-size:14px;border-radius:8px}
   h2 .pcnt{font-family:var(--font-mono);font-size:12.5px;color:var(--ink-dim);font-weight:400;margin-left:auto}
@@ -115,9 +124,9 @@
 <div class="wrap"><article id="top">
 <span class="doc-eyebrow">FEATURE / ALL SETTINGS</span>
 <h1>Ligastmir <span class="hl">全機能・設定項目</span>一覧</h1>
-<div class="lead">操作画面にある<strong>すべての設定項目</strong>を、画面そのものから機械的に起こした一覧です（v0.9.7・2026-09-21 時点）。「この調整はできる？」を探すための<strong>検索</strong>付き。項目名・説明はアプリの画面と同じ文言なので、見つけたらアプリで同じ場所を探せます。各機能の使い方・手順は <a href="guide.html">使い方ガイド</a> と各 feature ページへ。</div>
+<div class="lead">操作画面にある<strong>すべての設定項目</strong>を、画面そのものから機械的に起こした一覧です（v0.9.7・2026-09-21 時点）。「この調整はできる？」を探すための<strong>絞り込み</strong>付き（言葉を含む項目だけを残し、当たった場所へ飛べます）。項目名・説明はアプリの画面と同じ文言なので、見つけたらアプリで同じ場所を探せます。各機能の使い方・手順は <a href="guide.html">使い方ガイド</a> と各 feature ページへ。</div>
 <div class="stats"><div class="stat"><b>14</b>ページ</div><div class="stat"><b>45</b>節</div><div class="stat"><b>525</b>設定項目</div><div class="stat"><b>20</b>ウィジェット</div><div class="stat"><b>7</b>ブラウザソース</div></div>
-<div class="filter"><div class="box"><input id="q" type="search" placeholder="検索（例: ネオン／縁取り／YouTube／読み上げ）" autocomplete="off"><span class="cnt" id="cnt"></span><button class="clr" id="clr" type="button" style="visibility:hidden">✕ 消す</button></div></div>
+<div class="filter"><div class="box"><label class="flab" for="q">🔍 絞り込み</label><input id="q" type="search" placeholder="例: ネオン／フチ／読み上げ／YouTube" autocomplete="off"><span class="cnt" id="cnt"></span><button class="clr" id="clr" type="button" style="visibility:hidden">✕ 消す</button></div><div class="fhint" id="hint"></div><div class="fsum" id="sum"></div></div>
 <h2 style="margin-top:0"><span class="pno">≡</span>目次（アプリの左メニューと同じ並び）</h2>
 <ol class="toc"><li><a class="tp" href="#p-dashboard"><span class="pno">1</span>ダッシュボード</a><div class="tsub"><a href="#s-dashboard-2">❔ このダッシュボードについて</a><a href="#s-dashboard-3">🔗 構成の共有</a></div></li><li><a class="tp" href="#p-voice"><span class="pno">2</span>音声・コメント</a><div class="tsub"><a href="#s-voice-1">🎤 マイク・音声認識</a><a href="#s-voice-2">📝 字幕・翻訳字幕</a><a href="#s-voice-3">🔊 TTS・読み上げ・音量</a><a href="#s-voice-4">🗣️ 読み上げ拡張</a><a href="#s-voice-5">📖 読み上げ辞書・NGワード・NGユーザー</a><a href="#s-voice-6">💬 コメント関連</a></div></li><li><a class="tp" href="#p-bgm"><span class="pno">3</span>🎵 BGM</a></li><li><a class="tp" href="#p-stream"><span class="pno">4</span>配信</a><div class="tsub"><a href="#s-stream-2">📡 Twitch関連</a><a href="#s-stream-3">📝 タイトルのひな形</a><a href="#s-stream-4">▶ YouTube関連</a></div></li><li><a class="tp" href="#p-batch"><span class="pno">5</span>一括オン設定</a></li><li><a class="tp" href="#p-obs"><span class="pno">6</span>OBS連携</a><div class="tsub"><a href="#s-obs-1">🔌 接続</a><a href="#s-obs-2">🎬 シーン・配信操作</a><a href="#s-obs-3">🎛 シーン切替パネル設定</a><a href="#s-obs-4">📺 ブラウザソース</a></div></li><li><a class="tp" href="#p-bsource"><span class="pno">7</span>ブラウザソース</a><div class="tsub"><a href="#s-bsource-1">📺 OBSブラウザソースURL一覧</a><a href="#s-bsource-2">💬 コメビューの見た目</a><a href="#s-bsource-3">🎊 弾幕の見た目</a><a href="#s-bsource-4">✨ エモートフロートの見た目</a><a href="#s-bsource-5">📌 コメントピックアップの見た目</a></div></li><li><a class="tp" href="#p-skin"><span class="pno">8</span>着せ替え</a><div class="tsub"><a href="#s-skin-1">🖥 アプリの配色（テーマ）</a><a href="#s-skin-2">🎨 見た目プリセット</a><a href="#s-skin-3">🔔 アラート</a><a href="#s-skin-4">🎉 チャネポ報酬ごとの演出</a><a href="#s-skin-5">⚡ リアクション</a><a href="#s-skin-6">🏅 常連バッジ（進化バッジ）</a><a href="#s-skin-7">💬 コメビュー</a><a href="#s-skin-8">🪧 看板テロップ</a></div></li><li><a class="tp" href="#p-advanced"><span class="pno">9</span>上級者アクション</a><div class="tsub"><a href="#s-advanced-1">🎵 ① ちょい足し歌わせ</a><a href="#s-advanced-2">🎤 ② がっつり歌唱</a><a href="#s-advanced-3">🔤 ③ 正規表現の読み替え</a></div></li><li><a class="tp" href="#p-logs"><span class="pno">10</span>テスト/ログ</a><div class="tsub"><a href="#s-logs-1">🩺 診断・修復・ログ</a><a href="#s-logs-2">🧪 テスト・シミュレーター</a><a href="#s-logs-3">📊 コメント統計・ファン名簿</a></div></li><li><a class="tp" href="#p-settings"><span class="pno">11</span>詳細設定</a><div class="tsub"><a href="#s-settings-1">⚙ 終了時の動作</a><a href="#s-settings-2">💬 コメント埋め込み</a><a href="#s-settings-3">⌨ チャットコマンド一覧</a></div></li><li><a class="tp" href="#p-companion"><span class="pno">12</span>同伴機能</a><div class="tsub"><a href="#s-companion-1">🎙 VOICEVOX 同伴起動</a><a href="#s-companion-2">🔊 棒読みちゃん 同伴起動</a><a href="#s-companion-3">💬 わんコメ 同伴起動</a><a href="#s-companion-4">🎬 OBS 同伴起動</a></div></li><li><a class="tp" href="#p-info"><span class="pno">13</span>INFO</a></li><li><a class="tp" href="#p-devtools"><span class="pno">14</span>ストリームレコーダー</a></li><li><a class="tp" href="#widgets"><span class="pno">W</span>ダッシュボードのウィジェット（20）</a></li><li><a class="tp" href="#overlays"><span class="pno">O</span>OBS に貼るブラウザソース（7 面）</a></li><li><a class="tp" href="#auto"><span class="pno">A</span>自動で動くもの・チャットコマンド・起動の仕方</a></li></ol>
 <div class="none" id="none">その言葉の項目は見つかりませんでした。別の言い方（例: 「光」「フチ」「大きさ」）で試してみてください。</div>
@@ -1215,26 +1224,70 @@
 
 <script>
 (function(){
-  var q=document.getElementById('q'),cnt=document.getElementById('cnt'),clr=document.getElementById('clr'),none=document.getElementById('none');
+  // ★言い換えはアプリの「設定を探す」と同じ組（生成時に control_panel.html の _CPS_SYN_RAW から写す＝単一ソース）
+  var SYN_RAW = [["ネオン", "光", "光る", "ひかる", "グロー", "glow", "発光"], ["縁取り", "フチ", "縁", "ふちどり", "アウトライン", "outline"], ["大きさ", "サイズ", "size", "文字サイズ"], ["色", "カラー", "color", "文字色"], ["読み上げ", "tts", "音声合成", "ボイス", "読上げ"], ["書体", "フォント", "font"], ["位置", "場所", "配置"], ["チャネポ", "チャンネルポイント", "報酬", "reward", "ポイント"], ["字幕", "subtitle", "キャプション"], ["効果音", "se", "サウンド"], ["bgm", "音楽", "曲"], ["翻訳", "訳", "translate", "英訳"], ["コメビュー", "コメントビュー", "コメント表示"], ["シーン", "scene"], ["不透明度", "透明", "透過", "opacity"], ["速さ", "スピード", "速度"], ["弾幕", "ニコニコ"], ["エモート", "スタンプ", "emote"], ["アラート", "通知", "alert"]];
+  function norm(t){
+    var s=String(t||'').normalize('NFKC').toLowerCase().replace(/\s+/g,'');
+    return s.replace(/[\u3041-\u3096]/g,function(c){return String.fromCharCode(c.charCodeAt(0)+0x60);});
+  }
+  var SYN=SYN_RAW.map(function(g){return g.map(norm);});
+  function terms(q){
+    return String(q||'').split(/[\s\u3000]+/).map(norm).filter(Boolean).map(function(t){
+      for(var i=0;i<SYN.length;i++){ if(SYN[i].indexOf(t)>=0) return SYN[i].slice(); }
+      return [t];
+    });
+  }
+  function esc(t){return String(t).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
+  // 当たった語に印（1 文字ずつ正規化して元の位置を覚える＝全角・かな・空白で位置がずれない）
+  function mark(src,ts){
+    src=String(src||''); var n='',map=[];
+    for(var i=0;i<src.length;i++){ var c=norm(src[i]); for(var k=0;k<c.length;k++){ n+=c[k]; map.push(i); } }
+    var ws=[].concat.apply([],ts).filter(Boolean).sort(function(x,y){return y.length-x.length;});
+    for(var j=0;j<ws.length;j++){
+      var p=n.indexOf(ws[j]);
+      if(p>=0){ var a=map[p], b=map[p+ws[j].length-1]+1; return esc(src.slice(0,a))+'<mark>'+esc(src.slice(a,b))+'</mark>'+esc(src.slice(b)); }
+    }
+    return esc(src);
+  }
+  var q=document.getElementById('q'),cnt=document.getElementById('cnt'),clr=document.getElementById('clr'),none=document.getElementById('none'),
+      sum=document.getElementById('sum'),hint=document.getElementById('hint');
   var items=[].slice.call(document.querySelectorAll('.it'));
   var total=items.length;
-  items.forEach(function(el){el.__t=(el.textContent||'').toLowerCase();});
-  function norm(s){return (s||'').toLowerCase().replace(/[\u3000\s]+/g,' ').trim();}
+  items.forEach(function(el){
+    el.__n=norm(el.textContent);
+    var nm=el.querySelector('.nm'); el.__nm=nm; el.__html=nm?nm.innerHTML:''; el.__txt=nm?nm.textContent:'';
+  });
+  var title={};
+  [].forEach.call(document.querySelectorAll('.pg'),function(pg){
+    var h=pg.querySelector('h2'); if(!h) return;
+    var c=h.cloneNode(true); [].forEach.call(c.querySelectorAll('.pno,.pcnt'),function(x){x.parentNode.removeChild(x);});
+    title[pg.id]=(c.textContent||'').trim();
+  });
   function apply(){
-    var words=norm(q.value).split(' ').filter(Boolean);
-    var shown=0;
+    var ts=terms(q.value), shown=0, per={}, order=[];
     items.forEach(function(el){
-      var ok=words.every(function(w){return el.__t.indexOf(w)>=0;});
-      el.classList.toggle('hide',!ok); if(ok)shown++;
+      var ok=ts.every(function(alts){return alts.some(function(w){return el.__n.indexOf(w)>=0;});});
+      el.classList.toggle('hide',!ok);
+      if(el.__nm) el.__nm.innerHTML=(ok&&ts.length)?mark(el.__txt,ts):el.__html;
+      if(ok){ shown++; var pg=el.closest('.pg'); if(pg){ if(!per[pg.id]){per[pg.id]=0;order.push(pg.id);} per[pg.id]++; } }
     });
     ['.card','.sec','.pg'].forEach(function(sel){
       [].forEach.call(document.querySelectorAll(sel),function(box){
-        box.classList.toggle('hide',words.length>0 && !box.querySelector('.it:not(.hide)'));
+        box.classList.toggle('hide',ts.length>0 && !box.querySelector('.it:not(.hide)'));
       });
     });
-    cnt.textContent=words.length?(shown+' / '+total+' 行'):(total+' 行');
-    none.style.display=(words.length&&!shown)?'block':'none';
-    clr.style.visibility=words.length?'visible':'hidden';
+    cnt.textContent=ts.length?(shown+' / '+total+' 行'):(total+' 行');
+    none.style.display=(ts.length&&!shown)?'block':'none';
+    clr.style.visibility=ts.length?'visible':'hidden';
+    if(ts.length&&shown){
+      sum.innerHTML='<span class="lab">当たった場所</span>'+order.map(function(id){return '<a href="#'+id+'">'+esc(title[id]||id)+'<b>'+per[id]+'</b></a>';}).join('');
+      sum.style.display='flex';
+    } else { sum.innerHTML=''; sum.style.display='none'; }
+    // 表示は正規化前の語で（「縁取リ」のような内部の形を見せない）
+    var alt=String(q.value||'').split(/[\s\u3000]+/).map(norm).filter(Boolean).map(function(t){
+      for(var i=0;i<SYN.length;i++){ if(SYN[i].indexOf(t)>=0) return SYN_RAW[i].slice(0,4).join('・'); } return null;
+    }).filter(Boolean);
+    hint.textContent=alt.length?('言い換えも含めて絞っています: '+alt.join(' ／ ')):'言葉を含む項目だけを残します。空白で区切ると「両方を含む」項目に。';
   }
   q.addEventListener('input',apply);
   clr.addEventListener('click',function(){q.value='';apply();q.focus();});

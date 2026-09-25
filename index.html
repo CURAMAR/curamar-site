@@ -120,7 +120,7 @@
   /* ===== Ligastmir（プロダクト領域：黄緑が主役に切り替わる） ===== */
   #ligastmir{position:relative}
   #ligastmir::before{
-    /* 2026-09-26: 帯を画面いっぱいに（以前は left/right:-9999px＝幅 2 万 px の見えない帯で、スマホではページ全体が横に広がって縮小表示になっていた） */
+    /* 2026-09-25: 帯を画面いっぱいに（以前は left/right:-9999px＝幅 2 万 px の見えない帯で、スマホではページ全体が横に広がって縮小表示になっていた） */
     content:"";position:absolute;left:calc(50% - 50vw);right:calc(50% - 50vw);top:0;bottom:0;z-index:-1;
     background:
       radial-gradient(ellipse 60% 50% at 30% 0%,rgba(200,245,66,.06),transparent 70%);

@@ -88,6 +88,7 @@
   .it .kd{display:inline-block;font-family:var(--font-mono);font-size:11px;color:var(--accent-cool);border:1px solid rgba(92,200,255,.35);border-radius:6px;padding:0 6px;margin-left:8px;vertical-align:1px}
   .it .mt{display:block;font-size:12.5px;color:var(--ink-dim);margin-top:1px}
   .it .ds{font-size:13px;color:var(--ink-dim);line-height:1.7;margin-top:2px}
+  .it .mt,.it .ds,.it .nm{overflow-wrap:anywhere}   /* 長いパスや英数字の続きで、スマホでページが横に広がらないように（2026-09-26） */
   .it .sw{display:inline-block;width:11px;height:11px;border:1px solid rgba(255,255,255,.35);border-radius:3px;vertical-align:-1px;margin-right:4px}
   .it code,.tbl code{font-family:var(--font-mono);font-size:.9em;background:rgba(0,0,0,.35);border:1px solid var(--bg-line);border-radius:5px;padding:0 5px;color:var(--accent)}
   .it.hide,.card.hide,.sec.hide,.pg.hide{display:none}
@@ -222,7 +223,7 @@
 <li class="it"><span class="nm">表示</span><span class="kd">ボタン</span></li>
 <li class="it"><span class="nm">キーを確認</span><span class="kd">ボタン</span><div class="ds">キーが使えるか、今月あと何文字使えるかを確かめます（文字は消費しません）</div></li>
 <li class="it"><span class="nm">キーを削除</span><span class="kd">ボタン</span><div class="ds">保存済みのキーを消します（空欄で保存しても消えない作りなので、消すときはこちら）</div></li>
-<li class="it"><span class="nm">例: you@example.com（任意・空でも使えます）</span><span class="kd">入力</span><span class="mt">例: 例: you@example.com（任意・空でも使えます）</span></li>
+<li class="it"><span class="nm">例: you@example.com（任意・空でも使えます）</span><span class="kd">入力</span><span class="mt">例: you@example.com（任意・空でも使えます）</span></li>
 <li class="it"><span class="nm">保存</span><span class="kd">ボタン</span></li>
 <li class="it"><span class="nm">設定を保存</span><span class="kd">ボタン</span></li>
 <li class="it"><span class="nm">↻ 最新にする</span><span class="kd">ボタン</span></li>
@@ -293,8 +294,8 @@
 <div class="card">
 <h4>読み上げ辞書</h4>
 <ul class="items">
-<li class="it"><span class="nm">元の単語</span><span class="kd">入力</span><span class="mt">例: 例: curamar</span><div class="ds">置換したい単語（例: curamar、ｗｗ）。英字は大文字小文字を区別しません。</div></li>
-<li class="it"><span class="nm">読み（置換後）</span><span class="kd">入力</span><span class="mt">例: 例: くらまー（ひらがな推奨）</span><div class="ds">読み方を「ひらがな」で書くのがいちばん確実です（どの音声エンジンでも正しく読まれます）。カタカナ・漢字・記号もそのまま登録できます。</div></li>
+<li class="it"><span class="nm">元の単語</span><span class="kd">入力</span><span class="mt">例: curamar</span><div class="ds">置換したい単語（例: curamar、ｗｗ）。英字は大文字小文字を区別しません。</div></li>
+<li class="it"><span class="nm">読み（置換後）</span><span class="kd">入力</span><span class="mt">例: くらまー（ひらがな推奨）</span><div class="ds">読み方を「ひらがな」で書くのがいちばん確実です（どの音声エンジンでも正しく読まれます）。カタカナ・漢字・記号もそのまま登録できます。</div></li>
 <li class="it"><span class="nm">追加</span><span class="kd">ボタン</span></li>
 <li class="it"><span class="nm">元の単語 読み（置換後）</span><span class="kd">入力</span><span class="mt">例: 変換テスト（例: curamar テスト）</span></li>
 <li class="it"><span class="nm">テスト</span><span class="kd">ボタン</span></li>
@@ -454,7 +455,7 @@
 <h4>YouTube チャンネル接続</h4>
 <ul class="items">
 <li class="it"><span class="nm">接続モードを変更</span><span class="kd">ボタン</span></li>
-<li class="it"><span class="nm">YouTube ライブ配信URL / 動画ID</span><span class="kd">入力</span><span class="mt">例: 例: https://youtu.be/xxxxxxxxxxx ／ youtube.com/watch?v=xxx ／ youtube.com/live/xxx</span><div class="ds">チャンネルURLではなく、配信中の動画のURLが必要です。詳しい取得手順は上の「📖 接続前に必読」を開いてください。</div></li>
+<li class="it"><span class="nm">YouTube ライブ配信URL / 動画ID</span><span class="kd">入力</span><span class="mt">例: https://youtu.be/xxxxxxxxxxx ／ youtube.com/watch?v=xxx ／ youtube.com/live/xxx</span><div class="ds">チャンネルURLではなく、配信中の動画のURLが必要です。詳しい取得手順は上の「📖 接続前に必読」を開いてください。</div></li>
 <li class="it"><span class="nm">URLを確かめる</span><span class="kd">ボタン</span><div class="ds">接続する前に、URLが正しいか・ライブが始まっているかを確かめます</div></li>
 <li class="it"><span class="nm">接続</span><span class="kd">ボタン</span></li>
 <li class="it"><span class="nm">YouTube Data API キー</span><span class="kd">入力（秘匿）</span><span class="mt">例: AIzaSy... で始まる API キー</span></li>
@@ -821,11 +822,11 @@
 <h3>🎵 ① ちょい足し歌わせ<span class="ssub">読み上げの延長で短い文をメロディに乗せる（VOICEVOX）</span></h3>
 <div class="card">
 <ul class="items">
-<li class="it"><span class="nm">歌わせる文章</span><span class="kd">入力</span><span class="mt">例: 例: こんにちはみんな げんき？</span></li>
-<li class="it"><span class="nm">メロディ（音符の列）</span><span class="kd">入力</span><span class="mt">例: 例: ドドソソララソ</span><div class="ds">ドレミファソラシ を並べます。書き方は下の「メロディの書き方」を見てください。</div></li>
+<li class="it"><span class="nm">歌わせる文章</span><span class="kd">入力</span><span class="mt">例: こんにちはみんな げんき？</span></li>
+<li class="it"><span class="nm">メロディ（音符の列）</span><span class="kd">入力</span><span class="mt">例: ドドソソララソ</span><div class="ds">ドレミファソラシ を並べます。書き方は下の「メロディの書き方」を見てください。</div></li>
 <li class="it"><span class="nm">テンポ</span><span class="kd">数値</span><span class="mt">範囲 30〜300（1 刻み・初期 120）</span></li>
 <li class="it"><span class="nm">▶ 試聴（歌わせる）</span><span class="kd">ボタン</span></li>
-<li class="it"><span class="nm">書き出し名</span><span class="kd">入力</span><span class="mt">例: 例: わたしの歌</span></li>
+<li class="it"><span class="nm">書き出し名</span><span class="kd">入力</span><span class="mt">例: わたしの歌</span></li>
 <li class="it"><span class="nm">💾 WAVで書き出し</span><span class="kd">ボタン</span></li>
 </ul></div>
 </div>
@@ -835,11 +836,11 @@
 <ul class="items">
 <li class="it"><span class="nm">↻ 探す</span><span class="kd">ボタン</span></li>
 <li class="it"><span class="nm">歌う声（ソング対応キャラ）</span><span class="kd">選択</span><span class="mt">選択肢: （VOICEVOXを起動して「↻ 探す」を押してください）</span></li>
-<li class="it"><span class="nm">歌わせる文章</span><span class="kd">入力</span><span class="mt">例: 例: きょうもいちにちがんばろう</span></li>
-<li class="it"><span class="nm">メロディ（音符の列・①と同じ書き方）</span><span class="kd">入力</span><span class="mt">例: 例: ドレミファソラソ</span><div class="ds">ドレミファソラシ／英語C-B。' で1オク上・, で下・# で半音上げ。音の後の数字は長さ（4分音符いくつぶん）。- は休符。文章のかな1つが音符1つに乗ります。</div></li>
+<li class="it"><span class="nm">歌わせる文章</span><span class="kd">入力</span><span class="mt">例: きょうもいちにちがんばろう</span></li>
+<li class="it"><span class="nm">メロディ（音符の列・①と同じ書き方）</span><span class="kd">入力</span><span class="mt">例: ドレミファソラソ</span><div class="ds">ドレミファソラシ／英語C-B。' で1オク上・, で下・# で半音上げ。音の後の数字は長さ（4分音符いくつぶん）。- は休符。文章のかな1つが音符1つに乗ります。</div></li>
 <li class="it"><span class="nm">テンポ</span><span class="kd">数値</span><span class="mt">範囲 30〜300（1 刻み・初期 120）</span></li>
 <li class="it"><span class="nm">▶ 試聴（歌わせる）</span><span class="kd">ボタン</span></li>
-<li class="it"><span class="nm">書き出し名</span><span class="kd">入力</span><span class="mt">例: 例: わたしの歌</span></li>
+<li class="it"><span class="nm">書き出し名</span><span class="kd">入力</span><span class="mt">例: わたしの歌</span></li>
 <li class="it"><span class="nm">💾 WAVで書き出し</span><span class="kd">ボタン</span></li>
 </ul></div>
 </div>
@@ -849,7 +850,7 @@
 <ul class="items">
 <li class="it"><span class="nm">＋ ルールを追加</span><span class="kd">ボタン</span></li>
 <li class="it"><span class="nm">保存</span><span class="kd">ボタン</span></li>
-<li class="it"><span class="nm">試し打ち</span><span class="kd">入力</span><span class="mt">例: 例: すごーーーい！888円</span></li>
+<li class="it"><span class="nm">試し打ち</span><span class="kd">入力</span><span class="mt">例: すごーーーい！888円</span></li>
 <li class="it"><span class="nm">▶ 試す</span><span class="kd">ボタン</span></li>
 </ul></div>
 </div>
@@ -902,7 +903,7 @@
 <div class="card">
 <h4>翻訳テスト</h4>
 <ul class="items">
-<li class="it"><span class="nm">テストテキスト</span><span class="kd">入力</span><span class="mt">例: 例: こんにちは / 你好 / hello</span></li>
+<li class="it"><span class="nm">テストテキスト</span><span class="kd">入力</span><span class="mt">例: こんにちは / 你好 / hello</span></li>
 <li class="it"><span class="nm">翻訳テスト実行</span><span class="kd">ボタン</span></li>
 </ul></div>
 <div class="card">
@@ -931,7 +932,7 @@
 <ul class="items">
 <li class="it"><span class="nm">名簿を更新</span><span class="kd">ボタン</span></li>
 <li class="it"><span class="nm">🧹 名簿をリセット</span><span class="kd">ボタン</span></li>
-<li class="it"><span class="nm">名簿に入れない名前（自分・Bot等/カンマ区切り）</span><span class="kd">入力</span><span class="mt">例: 例: mychannel, mybot</span></li>
+<li class="it"><span class="nm">名簿に入れない名前（自分・Bot等/カンマ区切り）</span><span class="kd">入力</span><span class="mt">例: mychannel, mybot</span></li>
 </ul></div>
 </div>
 <p class="totop"><a href="#top">▲ 目次へ</a></p></section>
@@ -968,8 +969,8 @@
 <li class="it"><span class="nm">📖 !教育 で読み方を登録できる人</span><span class="kd">選択</span><span class="mt">選択肢: 誰でも／サブスク・VIP／メンバー以上（既定）／モデレーター・配信者のみ／配信者のみ／無効（誰も使えない）</span></li>
 <li class="it"><span class="nm">🛡 !忘却 / !NG追加 / !NG削除 を使える人</span><span class="kd">選択</span><span class="mt">選択肢: 誰でも／サブスク・VIP／メンバー以上／モデレーター・配信者のみ（既定）／配信者のみ／無効（誰も使えない）</span></li>
 <li class="it"><span class="nm">🎬 !シーン でOBSの画面を切り替えられる人</span><span class="kd">選択</span><span class="mt">選択肢: 無効（誰も使えない・既定）／配信者のみ／モデレーター・配信者のみ／サブスク・VIP／メンバー以上／誰でも</span></li>
-<li class="it"><span class="nm">教育の報酬名</span><span class="kd">入力</span><span class="mt">例: 例: コメント読み上げ教育</span></li>
-<li class="it"><span class="nm">忘却の報酬名</span><span class="kd">入力</span><span class="mt">例: 例: コメント読み上げ忘却</span></li>
+<li class="it"><span class="nm">教育の報酬名</span><span class="kd">入力</span><span class="mt">例: コメント読み上げ教育</span></li>
+<li class="it"><span class="nm">忘却の報酬名</span><span class="kd">入力</span><span class="mt">例: コメント読み上げ忘却</span></li>
 <li class="it"><span class="nm">教育／忘却できたら チャットに返信する （Twitch・Bot代理投稿）</span><span class="kd">ON/OFF</span><span class="mt">初期 OFF</span><div class="ds">例: 「@視聴者 ＜「curamar」の読み方を「クラマー」で登録したよ）」</div></li>
 <li class="it"><span class="nm">!シーン コマンドを有効化</span><span class="kd">ON/OFF</span><span class="mt">初期 OFF</span><div class="ds">（Mod/Broadcasterが !シーン &lt;name&gt; でOBSシーン切替・既定OFF）</div></li>
 </ul></div>
@@ -984,7 +985,7 @@
 <h4>🎙 VOICEVOX 同伴起動（任意）</h4>
 <ul class="items">
 <li class="it"><span class="nm">起動時に自動起動</span><span class="kd">ON/OFF</span><span class="mt">初期 OFF</span><div class="ds">ツール起動時にVOICEVOXも自動で立ち上げます</div></li>
-<li class="it"><span class="nm">VOICEVOX.exe のパス</span><span class="kd">入力</span><span class="mt">例: 例: C:\Program Files\VOICEVOX\VOICEVOX.exe</span><div class="ds">VOICEVOX.exe の場所を指定します。「自動検出」で一般的なインストール先を自動探索します。</div></li>
+<li class="it"><span class="nm">VOICEVOX.exe のパス</span><span class="kd">入力</span><span class="mt">例: C:\Program Files\VOICEVOX\VOICEVOX.exe</span><div class="ds">VOICEVOX.exe の場所を指定します。「自動検出」で一般的なインストール先を自動探索します。</div></li>
 <li class="it"><span class="nm">自動検出</span><span class="kd">ボタン</span></li>
 <li class="it"><span class="nm">今すぐ起動</span><span class="kd">ボタン</span></li>
 </ul></div>
@@ -997,7 +998,7 @@
 <li class="it"><span class="nm">ポート</span><span class="kd">数値</span><span class="mt">範囲 1〜65535（1 刻み・初期 50001）</span><div class="ds">棒読みちゃんのTCP連携ポート（既定50001・棒読みちゃん側で変更している場合のみ合わせる）</div></li>
 <li class="it"><span class="nm">再確認</span><span class="kd">ボタン</span></li>
 <li class="it"><span class="nm">起動時に自動起動・終了時に自動終了</span><span class="kd">ON/OFF</span><span class="mt">初期 OFF</span><div class="ds">ツール起動時に棒読みちゃんも立ち上げ、終了時に一緒に閉じます（Ligastmirが起動した分のみ）</div></li>
-<li class="it"><span class="nm">BouyomiChan.exe のパス</span><span class="kd">入力</span><span class="mt">例: 例: H:\Stream\BouyomiChan_xxx\BouyomiChan.exe</span><div class="ds">棒読みちゃん本体（BouyomiChan.exe）の場所。「自動検出」で一般的な置き場を探索します。</div></li>
+<li class="it"><span class="nm">BouyomiChan.exe のパス</span><span class="kd">入力</span><span class="mt">例: H:\Stream\BouyomiChan_xxx\BouyomiChan.exe</span><div class="ds">棒読みちゃん本体（BouyomiChan.exe）の場所。「自動検出」で一般的な置き場を探索します。</div></li>
 <li class="it"><span class="nm">自動検出</span><span class="kd">ボタン</span></li>
 <li class="it"><span class="nm">今すぐ起動</span><span class="kd">ボタン</span></li>
 </ul></div>
@@ -1008,7 +1009,7 @@
 <h4>💬 わんコメ（OneComme）同伴起動</h4>
 <ul class="items">
 <li class="it"><span class="nm">起動時に自動起動・終了時に自動終了</span><span class="kd">ON/OFF</span><span class="mt">初期 OFF</span><div class="ds">ツール起動時にわんコメも立ち上げ、終了時に一緒に閉じます（Ligastmirが起動した分のみ・既に開いている場合は触れません）</div></li>
-<li class="it"><span class="nm">OneComme.exe のパス</span><span class="kd">入力</span><span class="mt">例: 例: C:\Users\...\AppData\Local\Programs\OneComme\OneComme.exe</span><div class="ds">わんコメ本体（OneComme.exe）の場所。「自動検出」で一般的な置き場（%LOCALAPPDATA%\Programs\OneComme 等）を探索します。</div></li>
+<li class="it"><span class="nm">OneComme.exe のパス</span><span class="kd">入力</span><span class="mt">例: C:\Users\...\AppData\Local\Programs\OneComme\OneComme.exe</span><div class="ds">わんコメ本体（OneComme.exe）の場所。「自動検出」で一般的な置き場（%LOCALAPPDATA%\Programs\OneComme 等）を探索します。</div></li>
 <li class="it"><span class="nm">自動検出</span><span class="kd">ボタン</span></li>
 <li class="it"><span class="nm">今すぐ起動</span><span class="kd">ボタン</span></li>
 <li class="it"><span class="nm">終了</span><span class="kd">ボタン</span></li>
@@ -1021,7 +1022,7 @@
 <ul class="items">
 <li class="it"><span class="nm">起動時に OBS を自動起動する</span><span class="kd">ON/OFF</span><span class="mt">初期 OFF</span><div class="ds">ツール起動時に OBS も立ち上げます（Ligastmirが起動した分のみ・既に開いている場合は触れません）</div></li>
 <li class="it"><span class="nm">終了時に OBS も一緒に閉じる（配信中を除く）</span><span class="kd">ON/OFF</span><span class="mt">初期 OFF</span><div class="ds">ツール終了時に OBS も閉じます。 配信中（ON AIR）のときは閉じません （配信保護）。既定OFF。 ⚠ 対象は Ligastmir が起動した OBS だけ です。 OBS を自分で先に開いていた場合は閉じません （あなたが開いたアプリを勝手に閉じない設計）。自動終了を使</div></li>
-<li class="it"><span class="nm">obs64.exe のパス</span><span class="kd">入力</span><span class="mt">例: 例: C:\Program Files\obs-studio\bin\64bit\obs64.exe</span><div class="ds">OBS本体（obs64.exe）の場所。通常は C:\Program Files\obs-studio\bin\64bit\obs64.exe。「自動検出」で一般的な置き場を探索します。</div></li>
+<li class="it"><span class="nm">obs64.exe のパス</span><span class="kd">入力</span><span class="mt">例: C:\Program Files\obs-studio\bin\64bit\obs64.exe</span><div class="ds">OBS本体（obs64.exe）の場所。通常は C:\Program Files\obs-studio\bin\64bit\obs64.exe。「自動検出」で一般的な置き場を探索します。</div></li>
 <li class="it"><span class="nm">自動検出</span><span class="kd">ボタン</span></li>
 <li class="it"><span class="nm">今すぐ起動</span><span class="kd">ボタン</span></li>
 <li class="it"><span class="nm">終了</span><span class="kd">ボタン</span></li>

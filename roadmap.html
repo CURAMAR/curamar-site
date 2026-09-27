@@ -175,8 +175,8 @@
 
     <!-- 2026-09-25: いまどこ？（配布中 → 次 → その次）。ここを見れば流れが分かる -->
     <div class="now">
-      <div class="step on"><span class="k">配布中</span><b>v0.9.7</b><span class="s">面ごとの不揃い解消・翻訳字幕の見た目</span></div>
-      <div class="step next"><span class="k">次</span><b>v0.9.8</b><span class="s">調整版＝テスターの声・チャネポ・探しやすさ</span></div>
+      <div class="step on"><span class="k">配布中</span><b>v0.9.8</b><span class="s">調整版＝テスターの声・チャネポ・探しやすさ</span></div>
+      <div class="step next"><span class="k">次</span><b>v0.9.9</b><span class="s">アラートの文字・素材倉庫・BGM の分類</span></div>
       <div class="step"><span class="k">その次</span><b>v1.0</b><span class="s">インストーラーで導入</span></div>
       <div class="step"><span class="k">v1.0 のあと</span><b>v1.x</b><span class="s">配信プロファイル など</span></div>
     </div>
@@ -193,29 +193,24 @@
     <h2 class="dev">🔨 開発中 <span class="cnt">— 完成したものから次のバージョンに入ります（まだ配布していません）</span></h2>
     <div class="items">
       <div class="item">
-        <div class="t">🪙 チャネポ専用のページと「報酬ごとの動き」</div>
-        <div class="d">チャンネルポイントの設定を1ページに集めます。報酬ごとに画像・効果音を出すのに加えて、<strong>OBS のシーンを切り替える（N 秒後に元のシーンへ戻す）</strong>・<strong>読み上げる</strong>・<strong>チャットに返事をする</strong>も報酬ごとに決められるようにします。Twitch で作ってある報酬のまま使えます。</div>
-        <div class="meta"><span class="ver">v0.9.8 予定</span></div>
+        <div class="t">🔤 アラート・チャネポ・リアクションの文字を細かく</div>
+        <div class="d">字幕やコメビューと同じ細かさで、アラートの<strong>見出し・名前の行・メッセージ</strong>の書体・大きさ・色・縁取り・光り方を変えられるようにします。チャネポの報酬やリアクションの行ごとに「この行だけ」の文字も決められます。何も変えなければ今の見た目のままです。</div>
+        <div class="meta"><span class="ver">v0.9.9 予定</span></div>
       </div>
       <div class="item">
-        <div class="t">🔍 アプリの中で設定を探せるように</div>
-        <div class="d">「あの設定どこだっけ？」を減らすため、左メニューに検索欄を付けます（Ctrl+K）。言葉を入れると設定の場所へ飛んで光ります。「光る → ネオン」「フチ → 縁取り」のような言い換えにも対応します。</div>
-        <div class="meta"><span class="ver">v0.9.8 予定</span></div>
+        <div class="t">📁 素材倉庫（画像・音の整理）と BGM の分類</div>
+        <div class="d">アプリの中から<strong>分類用のフォルダを作って</strong>、画像や効果音・BGM を整理できるページを作ります（フォルダは Ligastmir のフォルダの中に作られます）。BGM に「チャネポ用」などの分類を自分で足し、効果音を選ぶ窓でも分類ごとに探せるようにします。</div>
+        <div class="meta"><span class="ver">v0.9.9 予定</span></div>
       </div>
       <div class="item">
-        <div class="t">🏷 Twitch のタグ編集</div>
-        <div class="d">配信ページからタグを追加・削除できるようにします。最近使ったタグの組をワンクリックで呼び出せます。</div>
-        <div class="meta"><span class="ver">v0.9.8 予定</span></div>
-      </div>
-      <div class="item">
-        <div class="t">🛡 ウイルス対策ソフトの誤検知を起きにくく</div>
-        <div class="d">Ligastmir が誤って「脅威」として消されることがある原因のひとつ（起動部分がよくある形のままだったこと）を外します。完全になくすことは約束できませんが、起きにくくなる見込みです。</div>
-        <div class="meta"><span class="ver">v0.9.8 予定</span></div>
+        <div class="t">🔔 アラートをもっと自由に</div>
+        <div class="d">アラートの位置を自由に置く・表示する時間・出方を選べるようにします。連続視聴のお知らせも考えています。</div>
+        <div class="meta"><span class="ver">v0.9.9 予定</span></div>
       </div>
       <div class="item">
         <div class="t">🧪 テスターの声を反映する調整</div>
-        <div class="d">v0.9.7 を使ってもらって出てきた「分かりにくい」「こうだと助かる」を直していきます。設定画面の並びも、よく使うものから見つけやすいように見直します。</div>
-        <div class="meta"><span class="ver">v0.9.8 予定</span><a class="help" href="collaborate.html">🙋 協力募集中</a></div>
+        <div class="d">v0.9.8 を使ってもらって出てきた「分かりにくい」「こうだと助かる」を直していきます。</div>
+        <div class="meta"><span class="ver">随時</span><a class="help" href="collaborate.html">🙋 協力募集中</a></div>
       </div>
       <div class="item">
         <div class="t">📦 インストーラーでの導入</div>
@@ -291,7 +286,7 @@
       </div>
     </div>
 
-    <h2 class="done">✅ 実装済み <span class="cnt">— 配布中の v0.9.7 で使えます</span></h2>
+    <h2 class="done">✅ 実装済み <span class="cnt">— 配布中の v0.9.8 で使えます</span></h2>
     <p class="donenote">使える機能を分野ごとにまとめています（押すと開きます）。設定項目の一つひとつまで知りたいときは <a href="ligastmir-features.html">全機能・設定項目一覧</a>、版ごとの変更は <a href="changelog.html">更新履歴</a> へ。</p>
     <div class="dgroups">
       <details class="dgrp">
@@ -309,7 +304,7 @@
         </ul>
       </details>
       <details class="dgrp">
-        <summary>🔊 読み上げ <span class="n">6</span></summary>
+        <summary>🔊 読み上げ <span class="n">8</span></summary>
         <ul>
           <li>VOICEVOX／Windows標準／棒読みちゃんで読み上げ・読み方の辞書・NGワード<span class="ver">v0.7.0</span></li>
           <li>チャットコマンド（!教育・!忘却・!NG）を使える人を配信者が選べる<span class="ver">v0.7.1</span></li>
@@ -317,10 +312,12 @@
           <li>辞書パック（読み方をファイルで受け渡し）<span class="ver">v0.8.0</span></li>
           <li>上級者アクション（ちょい足し歌わせ・がっつり歌唱・正規表現の読み替え）<span class="ver">v0.9.0</span></li>
           <li>VOICEVOX の読み上げが遅れる環境向けの対策<span class="ver">v0.9.7</span></li>
+          <li>日本語コメントは翻訳を待たずに読む・NG ワードの例外と「ピー」／飛ばす・英単語は語の頭から一致<span class="ver">v0.9.8</span></li>
+          <li>セリフの効果音をつくる（声・速さ・高さ・抑揚→WAV→チャネポの効果音に）<span class="ver">v0.9.8</span></li>
         </ul>
       </details>
       <details class="dgrp">
-        <summary>💬 コメビュー・演出 <span class="n">10</span></summary>
+        <summary>💬 コメビュー・演出 <span class="n">12</span></summary>
         <ul>
           <li>リアクションパレット（キーワード・スタンプ・イベントで画像・効果音・絵文字）<span class="ver">v0.7.0</span></li>
           <li>常連バッジ（コメント数で進化・段数・名前・色）と名簿<span class="ver">v0.7.0</span></li>
@@ -332,20 +329,23 @@
           <li>チャネポ報酬ごとの演出（Twitch に登録してある報酬の一覧から選んで、報酬別に画像・効果音）<span class="ver">v0.9.5</span></li>
           <li>コメビューの縁取り・弾幕の書体と流れる時間・吹き出し背景9点<span class="ver">v0.9.6</span></li>
           <li>ピックアップの見た目を全部調整・エモートの動き5種・弾幕の向きや行数・アラート枠の位置や書体・コメビューの出方6種<span class="ver">v0.9.7</span></li>
+          <li>チャネポ専用ページ・報酬ごとの動き（OBS のシーン切り替え＋N 秒後に戻す・読み上げ・チャット返信）<span class="ver">v0.9.8</span></li>
+          <li>リアクションの見出し・名前の行・チャット返信／コメビューを横に画面の端まで・名前と翻訳文の書体<span class="ver">v0.9.8</span></li>
         </ul>
       </details>
       <details class="dgrp">
-        <summary>🎬 配信・OBS <span class="n">5</span></summary>
+        <summary>🎬 配信・OBS <span class="n">6</span></summary>
         <ul>
           <li>OBS連携（シーン切替・配信開始/停止）・同伴起動・配信タイトル/カテゴリ/サムネイルの変更（Twitch / YouTube 両方へ）<span class="ver">v0.7.0</span></li>
           <li>「同伴機能」ページ（VOICEVOX・棒読みちゃん・わんコメ・OBS を一緒に起動）<span class="ver">v0.7.2</span></li>
           <li>BGM 再生（読み上げ中は自動で音量を下げる）<span class="ver">v0.9.0</span></li>
           <li>BGM のシーン連動・カテゴリとタイトルの履歴<span class="ver">v0.9.3</span></li>
           <li>配信タイトルのひな形と「(n)回目」の自動カウント・配信モニター<span class="ver">v0.9.5</span></li>
+          <li>Twitch のタグ編集・「OBS側を更新」を Ligastmir のソースだけに・BGM と効果音を分けて並べる<span class="ver">v0.9.8</span></li>
         </ul>
       </details>
       <details class="dgrp">
-        <summary>🛟 安心・安全 <span class="n">6</span></summary>
+        <summary>🛟 安心・安全 <span class="n">7</span></summary>
         <ul>
           <li>「本物の確認」と起動時の自己チェック<span class="ver">v0.7.0</span></li>
           <li>セーフティ（軽い停止・外部一括切断・軽量モード）<span class="ver">v0.8.0</span></li>
@@ -353,15 +353,17 @@
           <li>設定・辞書・名簿・集計の自動バックアップと復元<span class="ver">v0.9.0</span></li>
           <li>翻訳が途中で止まって戻らない不具合の修正・どの翻訳先が駄目かを表示<span class="ver">v0.9.5</span></li>
           <li>ダッシュボードのパネルがランダムに欠ける不具合の修正・総合診断の強化<span class="ver">v0.9.6</span></li>
+          <li>誤検知対策（起動部分を自前で組み立て）・古い OBS（32.2.2 以前）のお知らせ・置き場所の案内の強化<span class="ver">v0.9.8</span></li>
         </ul>
       </details>
       <details class="dgrp">
-        <summary>🎨 画面・使いやすさ <span class="n">4</span></summary>
+        <summary>🎨 画面・使いやすさ <span class="n">5</span></summary>
         <ul>
           <li>ダッシュボードの構成の書き出し・取り込み<span class="ver">v0.8.0</span></li>
           <li>アプリの配色（テーマ7種＋好きな色）<span class="ver">v0.9.0</span></li>
           <li>「一括ストップ」・はじめて使うときの案内<span class="ver">v0.9.2</span></li>
           <li>設定画面を「段」に整理（表示／文字と色／枠・光り方／位置）<span class="ver">v0.9.7</span></li>
+          <li>設定を探す（Ctrl+K）・やりたいことから探す・ダッシュボードの新パネルと小さいパネル・左メニューの印<span class="ver">v0.9.8</span></li>
         </ul>
       </details>
     </div>

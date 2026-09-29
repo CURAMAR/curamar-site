@@ -192,7 +192,7 @@
     <p>OBSで <strong>ソース欄の「＋」→「ブラウザ」</strong>を追加し、下のURLを貼り付けます。<span class="muted">（アプリの「🖥 ブラウザソース」ページに「コピー」ボタン付きでまとまっています）</span></p>
     <div class="url-row"><b>字幕</b><code>http://127.0.0.1:8766/subtitle_display.html</code><span class="sz">幅広め</span></div>
     <div class="url-row"><b>コメビュー</b><code>http://127.0.0.1:8766/comment_overlay.html</code><span class="sz">1920×1080</span></div>
-    <div class="url-row"><b>アラート</b><code>http://127.0.0.1:8766/alert_overlay.html</code><span class="sz">800×600</span></div>
+    <div class="url-row"><b>アラート</b><code>http://127.0.0.1:8766/alert_overlay.html</code><span class="sz">1920×1080</span></div>
     <div class="url-row"><b>弾幕</b><code>http://127.0.0.1:8766/danmaku_overlay.html</code><span class="sz">1920×1080</span></div>
     <div class="url-row"><b>エモート</b><code>http://127.0.0.1:8766/emote_float_overlay.html</code><span class="sz">1920×1080</span></div>
     <p class="muted" style="font-size:13px">※ <strong>弾幕</strong>（コメントが画面を横切る）と<strong>エモートフロート</strong>（スタンプが浮遊）は任意です。使いたいものだけ追加してください（追加しなければ表示も負荷もありません）。</p>
@@ -235,6 +235,12 @@
       <li><strong>🚫 NG ワードの例外と扱い（v0.9.8〜）：</strong> 英単語は語の頭から一致（rape で grape を止めない）。<strong>読んでよい言葉（例外）</strong>の欄と、見つけたときの扱い（<strong>読まない</strong>＝既定／「ピー」／飛ばす）。<span class="pill">音声・コメント</span>ページ。</li>
       <li><strong>🗣 日本語コメントはすぐ読む（v0.9.8〜）：</strong> チャット翻訳を ON にしていても、日本語のコメントは<strong>訳を待たずに</strong>読み上げます（外国語は訳ができてから）。訳を待たせたいときは<span class="pill">音声・コメント</span>→「💬 コメント関連」の「日本語コメントは訳を待たずに読む」を OFF に。</li>
       <li><strong>🏷 Twitch のタグ（v0.9.8〜）：</strong> <span class="pill">配信</span>ページの配信情報で、<strong>「現在の情報を取得」</strong>で読み込んでからタグを足す・消す（最大 10 個）。最近使った組も呼び出せます。</li>
+      <!-- v0.9.9（2026-09-29 配布）で入った分。★配布済みのものだけ書く -->
+      <li><strong>📦 素材倉庫（v0.9.9〜）：</strong> 左メニュー「📦 素材倉庫」で、取り込んだ画像・音・動画を<strong>フォルダで分けられます</strong>。フォルダは Ligastmir のフォルダの中の <code>user_assets</code> に<strong>本物のフォルダ</strong>として作られます（ドラッグで移動・▶ で試聴）。移しても、設定で選んでいる素材はそのまま使えます。素材を選ぶ窓でもフォルダで絞り込めます。</li>
+      <li><strong>🎵 BGM の流すフォルダ（v0.9.9〜）：</strong> 素材倉庫でフォルダを作ると、<span class="pill">BGM</span>に「📁 流すフォルダ」が出て、<strong>そのフォルダの曲だけ</strong>を流せます。</li>
+      <li><strong>🔤 アラート・チャネポ・リアクションの文字（v0.9.9〜）：</strong> <span class="pill">着せ替え</span>のアラートで、<strong>見出し・名前の行・メッセージ</strong>ごとに書体・大きさ・色・縁取り・ネオンを変えられます。見出しや名前の行の文字（<code>{user}</code> など）も変える／出さないを選べます。種類ごと・報酬ごと・行ごとに変えたいときは、各行の「<strong>🎨 文字</strong>」で。</li>
+      <li><strong>🔔 アラートの置き方と出方（v0.9.9〜）：</strong> 置き方「<strong>自由に置く（ドラッグ）</strong>」で配信画面の好きな場所に。<strong>出方</strong>（ふわっと・下から・大きく出る など 8 種）と<strong>表示時間</strong>（2〜30 秒）も選べます。チャネポとリアクションにも効きます。</li>
+      <li><strong>👀 連続視聴のアラート（v0.9.9〜）：</strong> 視聴者が Twitch の「連続視聴」をチャットで共有したときに出します。<strong>既定は OFF</strong>＝<span class="pill">配信</span>ページの「表示するアラート」で ON に。</li>
       <li><strong>🗣 話す言語（v0.9.3〜）：</strong> <strong>日本語以外で話しても字幕が出ます。</strong> 翻訳の「訳し元」も自動でここに合わせるので、英語で話して日本語字幕を出す、といった使い方ができます。</li>
     </ul>
     <div class="note">見た目の変化を確かめたい時は、先に上の②のURLをOBSに追加しておくと、スライダーを動かすたびにOBS側がリアルタイムで変わります。</div>
@@ -252,7 +258,7 @@
 
     <h2 id="twitch">⑤ コメント連動・翻訳（Twitch）</h2>
     <ul>
-      <li><strong>コメント読み上げ（匿名でOK）：</strong> <span class="pill">配信</span>ページでチャンネル名を入れて「接続」。</li>
+      <li><strong>コメント読み上げ（匿名でOK）：</strong> <span class="pill">配信</span>ページでチャンネル名を入れて「接続」。<span class="muted">Twitch の認証はいりません（認証はフォロー・サブスクなどのアラートやチャネポ用＝⑥）。ダッシュボードのチャット欄のログインは、そこから書き込むためのもので、これとは別です。</span></li>
       <li><strong>海外コメントの翻訳：</strong> <span class="pill">音声・コメント</span>ページの「💬コメント関連」で「チャット翻訳」をON。コメビューに<strong>原文＋日本語訳が2段</strong>で出て、<strong>日本語訳を読み上げ</strong>ます。<strong>言語は自動検出</strong>＝英語・中国語・韓国語・アラビア語など、翻訳エンジンが対応する言語はすべて対象です。</li>
       <li><strong>コメビューの見た目：</strong> 文字サイズ・色・不透明度・表示件数や「ずっと表示」は<span class="pill">🖥 ブラウザソース</span>ページでまとめて調整できます（③参照）。</li>
       <li><strong>表示するプラットフォームの切替：</strong> コメビュー・弾幕・エモートに出すコメントを「<strong>両方／Twitchのみ／YouTubeのみ</strong>」で選べます（コメビュー見た目設定）。同時配信で結合したコメントを画面に出す扱いは各社のルールが関わるため、必要に応じて分けられます。<span class="muted">※<strong>画面表示だけ</strong>の切替で、読み上げ・ログには影響しません。</span></li>
@@ -264,7 +270,7 @@
       <li><strong>フォロー/サブ/レイド通知・アラート演出（Twitch）：</strong> <span class="pill">配信</span>ページ「📡Twitch関連」の手順で <a href="https://dev.twitch.tv/console/apps/create" target="_blank" rel="noopener">dev.twitch.tv</a> に自分用アプリを無料登録 → Client ID / Secret を入力 →「Twitchで認証する」。<span class="muted">アラートは<strong>イベント別にON/OFF</strong>できます（配信ページの「表示するアラート」）。</span></li>
       <li><strong>YouTubeのコメント取り込み：</strong> Google Cloud で YouTube Data API キーを取得 → <span class="pill">配信</span>ページの接続モードで YouTube を選び、URLとキーを入力。</li>
       <li><strong>配信タイトル・カテゴリの変更（Twitch / YouTube）：</strong> <span class="pill">配信</span>ページからツールを離れずに<strong>タイトル・カテゴリ（ゲーム）・説明・サムネイル</strong>を書き換えられます。Twitch と YouTube の<strong>両方に一度で反映</strong>するボタンもあります（片方だけ接続している時は、その配信だけに反映）。<span class="muted">※Twitch は初回に「タイトル変更の権限」を追加で認証、YouTube は Google 認証（デスクトップ用）が必要です。ページ内の手順に従ってください。</span></li>
-      <li><strong>OBS操作（シーン切替・配信開始/停止）：</strong> OBSの<strong>「ツール → WebSocketサーバー設定」</strong>でサーバーを有効化（ポート/パスワード確認）→ <span class="pill">OBS連携</span>ページで接続。</li>
+      <li><strong>OBS操作（シーン切替・配信開始/停止）：</strong> OBSの<strong>「ツール → WebSocketサーバー設定」</strong>で「WebSocketサーバーを有効にする」を ON → 同じ画面の「<strong>接続情報を表示</strong>」に出る<strong>サーバーパスワード</strong>を、<span class="pill">OBS連携</span>ページの「WebSocket のパスワード」に貼って接続。<span class="muted">OBS は最初から「認証を有効にする」が ON です（[認証無効] と出るならパスワードは空欄）。同じパソコンの OBS なら、IP（127.0.0.1）とポート（4455）はそのまま。IP をパスワードの欄に入れる必要はありません。</span></li>
       <li><strong>OBSを一緒に起動する：</strong> Ligastmir の起動時に<strong>OBSも自動で立ち上げる</strong>設定ができます（<span class="pill">詳細設定 → 同伴機能</span>ページ・任意）。OBSの実行ファイルの場所を一度指定しておくだけ。<span class="muted">配信中は誤操作防止のため終了させない安全策付き。閉じる時に一緒に終了させるかも選べます。接続・シーン切替は<span class="pill">OBS連携</span>ページです。</span></li>
       <li><strong>📌 コメントピックアップ：</strong> ダッシュボードの「<strong>コメントピックアップ</strong>」ウィジェットで、気になったコメントを<strong>検索</strong>して、選んだ1件を OBS に<strong>質問カード</strong>として大きく表示できます（原文＋翻訳を併記・配信終了で自動的に消えます）。「さっきの質問をもう一度出したい」に。<span class="muted">直近コメントはメモリにだけ一時保持し、ファイルには保存しません。</span></li>
       <li><strong>📚 辞書・構成の共有：</strong> 読み上げ辞書（用語や名前の読み）を配信者どうしで<strong>ファイルで受け渡し</strong>できます（<span class="pill">読み上げ設定</span>の「辞書パック」）。ダッシュボードの<strong>構成（レイアウト）</strong>も書き出し・取り込みで共有できます。<span class="muted">どちらも視聴者名やパスワード等の機微情報は含めない安全設計です。</span></li>
@@ -291,13 +297,13 @@
       <li>外したい時は <strong>✕</strong> で解除（既定の見た目に戻ります）。</li>
     </ol>
     <p style="margin-top:6px"><strong>割り当てられる場所と素材の目安：</strong></p>
-    <div class="url-row"><b>アラート画像</b><code>PNG / JPG / GIFアニメ / WebP（7種それぞれ）</code><span class="sz">正方形・140×140px以上</span></div>
+    <div class="url-row"><b>アラート画像</b><code>PNG / JPG / GIFアニメ / WebP（8種それぞれ）</code><span class="sz">正方形・140×140px以上</span></div>
     <div class="url-row"><b>アラート効果音</b><code>MP3 / WAV / OGG（音量スライダー付き）</code><span class="sz">数秒の短い音</span></div>
     <div class="url-row"><b>吹き出し背景</b><code>透過PNG推奨（コメントカード背景）</code><span class="sz">合わせ方3種</span></div>
     <div class="url-row"><b>キャラアイコン</b><code>PNG / GIFアニメ（各カードの左横）</code><span class="sz">正方形・48×48px枠</span></div>
     <div class="url-row"><b>バッジ表示</b><code>絵文字 ⇄ Twitch公式バッジ画像（要Twitch認証）</code><span class="sz">切替のみ</span></div>
     <ul>
-      <li><strong>保存場所：</strong> 取り込んだ素材は exe と同じフォルダの <code>user_assets</code> に入ります。割り当ては自動保存され、<strong>再起動後も復元</strong>されます。</li>
+      <li><strong>保存場所：</strong> 取り込んだ素材は exe と同じフォルダの <code>user_assets</code> に入ります。割り当ては自動保存され、<strong>再起動後も復元</strong>されます。<span class="muted">v0.9.9 からは「📦 素材倉庫」で <code>user_assets</code> の中にフォルダを作って分けられます。</span></li>
       <li><strong>軽量起動：</strong> <code>Ligastmir.exe --skin-editor</code> で、配信機能を立ち上げずに着せ替えだけを開けます（配信前の準備に便利）。</li>
     </ul>
     <div class="note" style="margin-top:10px">

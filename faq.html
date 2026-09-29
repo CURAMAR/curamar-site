@@ -272,6 +272,18 @@
       <div class="more">→ <a href="guide.html#twitch">使い方 ⑤ コメント連動</a></div>
     </div>
 
+    <!-- 2026-09-29（v0.9.9）: テスターの声「OBS 連携のパスワードが分かりにくい・IP を入れたらつながった」。OBS は最初から認証 ON（T-303） -->
+    <div class="qa" id="obs-password">
+      <div class="q">OBS 連携の「パスワード」に何を入れればいい？（IP を入れたらつながった）</div>
+      <div class="a">
+        OBS の<strong>「ツール → WebSocketサーバー設定」</strong>で「WebSocketサーバーを有効にする」を ON にし、同じ画面の<strong>「接続情報を表示」</strong>に出る<strong>サーバーパスワード</strong>を、Ligastmir の <span class="pill">OBS連携</span> の「WebSocket のパスワード」に貼ります。
+        OBS は<strong>最初から「認証を有効にする」が ON</strong> で、パスワードが自動で作られています。<strong>OBS や Twitch のログインのパスワードではありません。</strong><br>
+        サーバーパスワードが <strong>[認証無効]</strong> と出る（認証を OFF にした）ときは、空欄のままでつながります。IP を入れてつながったのは、認証が無効だとパスワードの欄を見ないためです（v0.9.9 からは、IP のような値は保存も送信もしません）。<br>
+        同じパソコンの OBS なら、IP（127.0.0.1）とポート（4455）はそのまま。「接続情報を表示」の「サーバーIP（推測）」は、<strong>別のパソコンからつなぐとき</strong>の値です。
+      </div>
+      <div class="more">→ <a href="guide.html#advanced">使い方 ⑥ もっと使う（OBS操作）</a></div>
+    </div>
+
     <div class="qa">
       <div class="q">読み上げが動かない・声が出ない</div>
       <div class="a">Windowsの音量と出力先デバイスを確認。VOICEVOX の声なら <strong>VOICEVOX 本体が起動しているか</strong>、棒読みちゃんなら<strong>本体を先に起動してからエンジンを選んだか</strong>を確認してください。</div>
@@ -307,6 +319,18 @@
         </p>
       </div>
       <div class="more">→ <a href="feature-reaction.html">リアクション演出の設定方法</a></div>
+    </div>
+
+    <!-- 2026-09-29（v0.9.9 配布）: 何もしなくても変わる点（Release 本文の「★ 何もしなくても変わる点」と同じ事実） -->
+    <div class="qa" id="v099-changes">
+      <div class="q">v0.9.9 にしたら、左メニューに「素材倉庫」、アラートに「連続視聴」が増えた</div>
+      <div class="a">
+        <strong>v0.9.9 で、次の 3 つは何もしなくても変わります。</strong><br>
+        ① <strong>左メニューに「📦 素材倉庫」</strong>（着せ替えの下）。フォルダを作らなければ、BGM や素材を選ぶ窓の見た目は今までどおりです。<br>
+        ② <strong>アラートの種類に「👀 連続視聴」</strong>。<strong>既定は OFF</strong> なので、何もしなければ出ません（表示するアラート・テスト・素材の行に 1 行増え、総合診断などは「7/8 種別（連続視聴は OFF）」と出ます）。<br>
+        ③ <strong>OBS のパスワードの欄に IP のような値を入れても、保存も送信もしません</strong>（知らせが出ます）。OBS の認証が無効なら、そのままつながります。<br>
+        アラートの見た目と音は、設定を変えなければ v0.9.8 と同じです。
+      </div>
     </div>
 
     <!-- 2026-09-27（v0.9.8 配布）: 何もしなくても変わる点（Release 本文の「★ 何もしなくても変わる点」と同じ事実） -->

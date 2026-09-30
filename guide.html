@@ -178,15 +178,23 @@
 
 
     <h2 id="start">① まず起動する</h2>
-    <div class="safe"><strong>起動は必ず <code>起動.bat</code> から。</strong> <code>Ligastmir.exe</code> を直接ダブルクリックしないでください。<span class="muted">初回は「ネットからダウンロードしたファイルのブロック」が付いていて、exe を直接起動すると <code>Failed to resolve … Python.Runtime.dll</code> のようなエラーで<strong>すぐ閉じてしまう</strong>ことがあります。<code>起動.bat</code> はこのブロックを自動で解除してから起動するので確実です。</span></div>
+    <p>入れ方は 2 通りです（<a href="download.html">ダウンロードページ</a>）。<strong>インストーラー版（おすすめ）</strong>と、インストールせずにフォルダのまま使う <strong>zip 版</strong>です。</p>
+    <h3 style="margin:22px 0 8px">インストーラー版</h3>
     <ol>
-      <li>解凍したフォルダの中の <code>起動.bat</code> を<strong>ダブルクリック</strong>します。<span class="muted">（<code>Ligastmir.exe</code> ではなく <code>起動.bat</code> です）</span></li>
+      <li><code>Ligastmir_Setup.exe</code> を開いて「次へ」→「完了」。完了で起動します。次からは<strong>スタートメニュー（またはデスクトップ）の Ligastmir</strong> から起動します。</li>
       <li>初回は「<strong>WindowsによってPCが保護されました</strong>」と出ることがあります → <strong>「詳細情報」→「実行」</strong>で開けます（署名のない自作アプリのため・問題ありません）。</li>
       <li>少し待つと操作画面（コマンドセンター）が開きます。</li>
     </ol>
-    <div class="note">どうしても <code>起動.bat</code> で開けない・エラーが消えない時は、<a href="download.html">ダウンロードページの「起動できない時（ブロックの解除）」</a>に、zip を先にブロック解除してから解凍する確実な方法をまとめています。</div>
+    <div class="note">置き場所を考える必要はありません。設定・読み上げ辞書・ファン名簿・取り込んだ素材・ログは Windows のアプリ用の場所（<code>%LOCALAPPDATA%\Ligastmir</code>）に自動で作られ、<strong>更新やアンインストールでも残ります</strong>。更新は新しいインストーラーを実行するだけです。</div>
+    <h3 style="margin:22px 0 8px">zip 版</h3>
+    <div class="safe"><strong>起動は <code>起動.bat</code> から。</strong><span class="muted">初回は「ネットからダウンロードしたファイルのブロック」が付いていて、exe を直接起動すると <code>Failed to resolve … Python.Runtime.dll</code> のようなエラーで<strong>すぐ閉じてしまう</strong>ことがあります。<code>起動.bat</code> はこのブロックを自動で解除してから起動するので確実です。</span></div>
+    <ol>
+      <li>解凍したフォルダの中の <code>起動.bat</code> を<strong>ダブルクリック</strong>します。</li>
+      <li>初回に SmartScreen が出たら <strong>「詳細情報」→「実行」</strong>。少し待つと操作画面が開きます。</li>
+    </ol>
+    <div class="note">どうしても <code>起動.bat</code> で開けない・エラーが消えない時は、<a href="download.html">ダウンロードページの「起動できない時（zip 版・ブロックの解除）」</a>に、zip を先にブロック解除してから解凍する確実な方法をまとめています。</div>
     <div class="safe"><strong>置き場所に注意：</strong> デスクトップか「ドキュメント」に置いてください。<strong>「ダウンロード」フォルダの中・OneDrive などの同期フォルダの中・Program Files の中・zip の中から直接</strong>は避けてください。<span class="muted">（設定・読み上げ辞書・ファン名簿・取り込んだ素材はこのフォルダの中に保存されるため、消える／保存に失敗することがあります。詳しくは<a href="quickstart.html#place">3分ではじめる</a>）</span></div>
-    <div class="note">設定ファイル（<code>config.json</code> など）や記録ログは、exe と<strong>同じフォルダ</strong>に自動で作られます。</div>
+    <div class="note">zip 版では、設定ファイル（<code>config.json</code> など）や記録ログは、exe と<strong>同じフォルダ</strong>に自動で作られます。どちらの版も、場所は「詳細設定 → 📂 データの置き場所」で確かめられます。</div>
 
     <h2 id="obs-source">② OBSに表示する（字幕・コメビュー・アラート）</h2>
     <p>OBSで <strong>ソース欄の「＋」→「ブラウザ」</strong>を追加し、下のURLを貼り付けます。<span class="muted">（アプリの「🖥 ブラウザソース」ページに「コピー」ボタン付きでまとまっています）</span></p>
@@ -363,7 +371,7 @@
       <li><strong>🎙 マイクをミュートしたら字幕も止める（v0.9.2〜）：</strong> 配信では無音なのに<strong>字幕だけ出続ける</strong>のを防げます。<span class="pill">OBS連携</span>で接続したうえで、<span class="pill">音声・コメント</span>ページで対象のマイクを選ぶと有効になります（ＯＢＳ側でミュートを押すと、字幕の認識も止まります）。</li>
       <li><strong>画面が真っ白／開かない：</strong> 「Edge WebView2 ランタイム」（無料）を <a href="https://developer.microsoft.com/microsoft-edge/webview2/" target="_blank" rel="noopener">Microsoftのサイト</a>から入れてください<span class="muted">（最近のWindowsなら大抵入っています）</span>。</li>
       <li><strong>声が出ない：</strong> Windowsの音量・出力先を確認。VOICEVOXの声なら VOICEVOX が起動しているか確認。</li>
-      <li><strong>動きがおかしい：</strong> exe と同じフォルダの <code>ust_debug.log</code> を開く（または作者に送る）と原因が分かります。<span class="muted">「総合診断」から報告用ログを zip でまとめて書き出すこともできます。</span></li>
+      <li><strong>動きがおかしい：</strong> データの場所の <code>logs</code> フォルダの中の <code>ust_debug.log</code> を開く（または作者に送る）と原因が分かります（「INFO」ページの「ログフォルダを開く」で開けます）。<span class="muted">「総合診断」から報告用ログを zip でまとめて書き出すこともできます。</span></li>
       <li><strong>別のPCに渡したとき：</strong> セキュリティ上、APIキーやトークンは<strong>そのPCごとに入力し直し</strong>が必要です<span class="muted">（設定ごとコピーしても暗号化で読めない仕組み）</span>。</li>
     </ul>
 

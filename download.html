@@ -147,7 +147,7 @@
         <div class="dl-opt">
           <div class="dl-lab">ポータブル</div>
           <h4>zip 版</h4>
-          <p>インストールせずに、解凍したフォルダのまま使います（版を並べておきたい・USB メモリで持ち歩きたい方に）。解凍して、中の <code>起動.bat</code> から起動してください。解凍したフォルダは<strong>フォルダのまま</strong><strong>デスクトップか「ドキュメント」</strong>に置きます（<a href="quickstart.html#place">「ダウンロード」フォルダの中や同期フォルダの中は避けてください</a>——設定がそのフォルダの中に保存されるためです）。<strong>中身だけをダウンロードやデスクトップにじかに出さず</strong>、<code>Ligastmir.exe</code>・<code>_internal</code> などは 1 つのフォルダに入れたまま使ってください。</p>
+          <p>インストールせずに、解凍したフォルダのまま使います（版を並べておきたい・USB メモリで持ち歩きたい方に）。解凍して、中の <code>起動.bat</code> から起動してください。解凍したフォルダは<strong>フォルダのまま</strong><strong>デスクトップか「ドキュメント」</strong>（エクスプローラーを開くと左の一覧にあります）に置きます（<a href="quickstart.html#place">「ダウンロード」フォルダの中や同期フォルダの中は避けてください</a>——設定がそのフォルダの中に保存されるためです）。<strong>置き場所に迷ったら、インストーラー版</strong>がかんたんです（置き場所を考えなくて済みます）。<strong>中身だけをダウンロードやデスクトップにじかに出さず</strong>、<code>Ligastmir.exe</code>・<code>_internal</code> などは 1 つのフォルダに入れたまま使ってください。</p>
           <a class="btn cool" href="https://github.com/CURAMAR/ligastmir-releases/releases/latest/download/Ligastmir.zip">⬇ zip をダウンロード</a>
         </div>
       </div>
@@ -157,9 +157,9 @@
         <p style="margin:10px 0 0">開く前に、落としたファイルの「確認コード（SHA-256）」を照らし合わせられます。
         PowerShell を開いて、落としたファイルを指定してください。</p>
         <p style="margin:8px 0 0"><code id="dl-sha-ins-cmd" style="font-family:var(--font-mono);background:var(--bg);border:1px solid var(--bg-line);border-radius:4px;padding:2px 6px;display:inline-block;word-break:break-all">Get-FileHash .\Ligastmir_Setup.exe -Algorithm SHA256</code></p>
-        <p style="margin:8px 0 0">インストーラー：<br><code id="dl-sha-ins" style="font-family:var(--font-mono);background:var(--bg);border:1px solid var(--bg-line);border-radius:4px;padding:2px 6px;display:inline-block;word-break:break-all">0a8f2b7ebb80758693b2d60e22f042461fcf0e8e8804a2b083203d690248183a（v1.0.0）</code></p>
+        <p style="margin:8px 0 0">インストーラー：<br><code id="dl-sha-ins" style="font-family:var(--font-mono);background:var(--bg);border:1px solid var(--bg-line);border-radius:4px;padding:2px 6px;display:inline-block;word-break:break-all">48f9820e68aa341fdf0aa6ec4ed860df702f1cb4bb2d9a2de79a74fbc4fe1c73（v1.0.0）</code></p>
         <p style="margin:8px 0 0"><code id="dl-sha-cmd" style="font-family:var(--font-mono);background:var(--bg);border:1px solid var(--bg-line);border-radius:4px;padding:2px 6px;display:inline-block;word-break:break-all">Get-FileHash .\Ligastmir.zip -Algorithm SHA256</code></p>
-        <p style="margin:8px 0 0">zip：<br><code id="dl-sha" style="font-family:var(--font-mono);background:var(--bg);border:1px solid var(--bg-line);border-radius:4px;padding:2px 6px;display:inline-block;word-break:break-all">602ca0253bf40a58c95745754fcac38cf38ccde74c18d63491fc8c16c0bb24d9</code>
+        <p style="margin:8px 0 0">zip：<br><code id="dl-sha" style="font-family:var(--font-mono);background:var(--bg);border:1px solid var(--bg-line);border-radius:4px;padding:2px 6px;display:inline-block;word-break:break-all">74fb53b885920d66012e5ff3d316a6329efc93675bc1dd3aa97d8dd09e36934b</code>
         <span id="dl-sha-ver" style="display:block;margin-top:4px">（v1.0.0 の zip）</span></p>
         <p style="margin:8px 0 0">出てきた値が、上と同じなら本物です。アプリを起動できる場合は、ツール内の「INFO → 本物の確認」でも照合できます。</p>
       </details>
@@ -245,7 +245,7 @@
     </div>
 
     <h3 class="sub-h" id="move">zip 版からインストーラー版へ移る</h3>
-    <p>設定のコピーは要りません。<strong>Ligastmir が見つけて、引き継ぐかを聞きます。</strong></p>
+    <p>設定のコピーは要りません。<strong>Ligastmir が探して、引き継ぐかを聞きます</strong>（見つからなくても、初めての起動では聞きます）。</p>
     <div class="steps">
       <div class="step">
         <div class="st-t">zip 版の Ligastmir を閉じて、インストーラーで入れる</div>
@@ -253,12 +253,12 @@
       </div>
       <div class="step">
         <div class="st-t">起動して「引き継ぐ」</div>
-        <div class="st-d">初めて起動すると「前の Ligastmir から引き継ぎますか？」と出ます。いつも使っていたフォルダを選んで「引き継ぐ」→「今すぐ閉じる」。<br>
-        見つからないときは「フォルダを選ぶ」で、<code>Ligastmir.exe</code> のあるフォルダを選んでください。あとからでも「詳細設定 → 📂 データの置き場所」から引き継げます。</div>
+        <div class="st-d">初めて起動すると「前の Ligastmir から引き継ぎますか？」と出ます。いつも使っていたフォルダを選んで「引き継ぐ」。<br>
+        自動で見つからないときは「前に Ligastmir（zip 版）を使っていましたか？」と聞くので、「📁 使っていたフォルダを選ぶ」で <code>Ligastmir.exe</code> のあるフォルダを選んでください（別のドライブに置いていても大丈夫です）。あとからでも「詳細設定 → 📂 データの置き場所」から引き継げます。</div>
       </div>
       <div class="step">
-        <div class="st-t">もう一度起動して完了</div>
-        <div class="st-d">「前の Ligastmir から引き継ぎました」と出れば完了です。コピーして中身が同じことを確かめてから入れ替えるので、<strong>前のフォルダはそのまま残ります</strong>（いつもどおり動くのを確かめたら、消して大丈夫です）。<br>
+        <div class="st-t">「閉じて起動し直す」で完了</div>
+        <div class="st-d">「閉じて起動し直す」を押すと、Ligastmir がいったん閉じて自動でもう一度開きます。「前の Ligastmir から引き継ぎました」と出れば完了です。コピーして中身が同じことを確かめてから入れ替えるので、<strong>前のフォルダはそのまま残ります</strong>（いつもどおり動くのを確かめたら、消して大丈夫です）。<br>
         ※ ダッシュボードに埋め込んだチャット欄だけは、ログインし直してください。</div>
       </div>
     </div>

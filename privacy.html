@@ -4,12 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>プライバシーポリシー — curamar / Ligastmir</title>
-<meta name="description" content="Ligastmir / curamar.space のプライバシーポリシー。視聴者情報は記録せず、認証情報は端末内で暗号化、第三者への送信は行いません。">
+<meta name="description" content="Ligastmir / curamar.space のプライバシーポリシー。視聴者の名前やコメントは利用者のパソコンの中だけに保存し、YouTube の分は 30 日で自動で消えます。開発者へは送りません。翻訳・音声認識などで外部に送る情報も明記しています。">
 <link rel="canonical" href="https://curamar.space/privacy.html">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="curamar.space">
 <meta property="og:title" content="プライバシーポリシー — curamar / Ligastmir">
-<meta property="og:description" content="視聴者情報は記録せず、認証情報は端末内で暗号化、第三者送信なし。">
+<meta property="og:description" content="視聴者の名前やコメントはパソコンの中だけ（YouTube の分は 30 日で消える）。開発者へは送らない。外部に送るものも明記。">
 <meta property="og:url" content="https://curamar.space/privacy.html">
 <meta property="og:image" content="https://curamar.space/assets/og-image.png">
 <meta property="og:image:width" content="1200">
@@ -17,7 +17,7 @@
 <meta property="og:image:type" content="image/png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="プライバシーポリシー — curamar / Ligastmir">
-<meta name="twitter:description" content="視聴者情報は記録せず、認証情報は端末内で暗号化、第三者送信なし。">
+<meta name="twitter:description" content="視聴者の名前やコメントはパソコンの中だけ（YouTube の分は 30 日で消える）。開発者へは送らない。外部に送るものも明記。">
 <meta name="twitter:image" content="https://curamar.space/assets/og-image.png">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <style>
@@ -86,80 +86,104 @@
   <article>
     <span class="doc-eyebrow">PRIVACY POLICY</span>
     <h1>プライバシーポリシー</h1>
-    <div class="updated">最終更新: 2026年7月3日</div>
+    <div class="updated">最終更新: 2026年10月7日（v1.0.0 に合わせて全面的に書き直しました）</div>
 
     <div class="lead">
       本ポリシーは、curamar が運営するウェブサイト <strong>curamar.space</strong> と、配信支援ツール
       <strong>Ligastmir</strong>（以下「本ソフト」）における、情報の取り扱いについて説明するものです。
-      本ソフトは「あなたの個人情報をできるだけ集めない・端末の外に出さない」という方針で設計されています。
+      本ソフトは「<strong>開発者は何も集めない</strong>・データは<strong>利用者（配信者）のパソコンの中だけ</strong>に置く・外へ送るものは<strong>ここに全部書く</strong>」という方針で作っています。
     </div>
 
     <h2>1. Ligastmir（本ソフト）について</h2>
 
-    <h3>1-1. 本ソフトが収集しないもの</h3>
-    <p>本ソフトは、利用者や視聴者の個人を特定する情報を収集・蓄積しません。具体的には：</p>
+    <h3>1-1. 開発者が集めるもの</h3>
+    <p><strong>ありません。</strong>本ソフトが、利用者や視聴者の情報を開発者（curamar）や第三者のサーバーへ送ることはありません。
+      利用者の氏名・住所・連絡先を集めることも、行動を追跡することもありません。
+      開発者が中身を見るのは、<strong>利用者がご自身で報告用のファイルを送ってくれたときだけ</strong>です（1-5）。</p>
+
+    <h3>1-2. 利用者のパソコンの中に保存されるもの</h3>
+    <p>以下は、すべて<strong>配信者のパソコンの中だけ</strong>に保存されます（開発者を含む第三者は見られません）。
+      置き場所は、インストーラー版は <code>%LOCALAPPDATA%\Ligastmir</code>、zip 版は <code>Ligastmir.exe</code> と同じフォルダです（アプリの「詳細設定 → 📂 データの置き場所」で開けます）。</p>
     <ul>
-      <li><strong>視聴者の名前やコメントを、個人を識別できる形では記録しません。</strong>ログ機能は統計（件数・処理時間など）が中心で、視聴者個人を特定する情報は残さない設計です。</li>
-      <li>利用者の氏名・住所・連絡先などを、本ソフトが収集してどこかに送ることはありません。</li>
-      <li>利用者の行動を追跡したり、プロファイリングのためにデータを集めることはありません。</li>
+      <li><strong>ファン名簿</strong>（コメントした人の表示名・コメントの回数・最初と最後の日時・どの配信先か）。常連バッジ・「初見」の判定に使います。</li>
+      <li><strong>コメントログ</strong>（記録を ON にしたときだけ・配信ごとのファイル・時刻・配信先・名前・コメント）。CSV に書き出すこともできます。</li>
+      <li><strong>チャンネルポイントの集計</strong>（Twitch のユーザー ID ごとの回数と合計値だけ・名前や発言は持ちません）。</li>
+      <li>設定・読み上げ辞書・着せ替え素材・動作ログ（<code>ust_debug.log</code>）。<strong>動作ログにはコメントの本文と視聴者の名前を書きません</strong>（文字数などだけ）。</li>
+      <li>設定・辞書・名簿・集計の<strong>控え（バックアップ）</strong>。起動のたびに自動で作り、既定 10 世代まで。控えにも下の保存期間をかけます。</li>
+      <li>連携サービスの API キーや認証トークン。<strong>お使いのパソコン固有の情報から作った鍵で暗号化</strong>して保存します（別のパソコンでは読めないので、移したときは入れ直しが必要です）。</li>
     </ul>
 
-    <h3>1-2. 端末内にのみ保存される情報</h3>
-    <p>以下の情報は、すべて<strong>あなたのパソコンの中だけ</strong>に保存され、開発者を含む第三者が見ることはできません：</p>
+    <h3>1-3. 保存期間と、消し方</h3>
+    <div class="accent-box">
+      <strong>YouTube から受け取った視聴者の情報は 30 日で消えます（変えられません）</strong><br>
+      ファン名簿の YouTube の人は<strong>最後のコメントから 30 日</strong>で、コメントログの YouTube の行は <strong>30 日</strong>で、自動的に消します（控えからも）。
+      YouTube API サービスの決まり（API で受け取ったデータを保存できるのは 30 日まで）に合わせています。
+      そのため、YouTube の人の常連バッジの回数は、30 日コメントが無いと最初からになります。
+    </div>
     <ul>
-      <li>各種設定（config）、読み上げ辞書、着せ替え素材、動作ログ</li>
-      <li>視聴者の名簿（コメントした表示名と回数）と、チャンネルポイント消費の集計。集計は Twitch のユーザーID単位で件数と合計値のみを保存し、発言内容や表示名は含みません。どちらもツールの画面からいつでも削除できます。</li>
-      <li>コメントの記録（配信ごとのログ）。既定で30日を過ぎたものは自動的に整理されます。</li>
-      <li>上記のうち設定・読み上げ辞書・名簿・集計の控え（バックアップ）。起動のたびに自動で作られ、既定10世代まで保持されます。控えも<strong>あなたのパソコンの中だけ</strong>に置かれます。</li>
-      <li>連携サービスの API キーや認証トークン。これらは<strong>お使いのパソコン固有の情報から生成した鍵で暗号化</strong>して保存されます。別のパソコンに移すと復号できないため、移行時は再入力が必要です。</li>
+      <li><strong>Twitch のコメントログ</strong>: 既定は 30 日で自動的に整理します（7 日／90 日／しない も選べます）。</li>
+      <li><strong>ファン名簿の Twitch の人</strong>: 既定は消しません（常連バッジの回数の土台のため）。「最後のコメントから 90 日／180 日／1 年」で消す設定もあります。</li>
+      <li><strong>人ごとに消す</strong>: 名簿の ✕ で、その人を名簿とコメントログ（控えも）から消せます。</li>
+      <li><strong>記録しない</strong>: 「記録しない人」に入れた名前は、名簿にもコメントログにも残しません（今ある記録も消します）。</li>
+      <li><strong>YouTube の分をいま消す</strong>: 名簿の YouTube の人・コメントログの YouTube の行を、30 日を待たずにまとめて消せます。</li>
     </ul>
-    <p>ただし、<strong>不具合の報告のためにご自身でログを送る場合は例外です。</strong>
-      ツールには動作ログをまとめて書き出す機能があり、書き出したファイルを Discord などで開発者に送るかどうかは、
-      すべて利用者ご自身の操作によります（ツールが自動で送信することはありません）。
-      書き出したファイルには配信中のコメントや接続先の情報が含まれることがあるため、送る前に中身をご確認ください。</p>
+    <p><strong>視聴者の方へ</strong>: これらのデータは、配信者のパソコンの中にあり、開発者は持っていません。
+      記録の削除や「記録しないでほしい」というご希望は、<strong>その配信の配信者にお伝えください</strong>（上の機能で対応できます）。</p>
 
-    <h3>1-3. 外部サービスとの連携で送信される情報</h3>
-    <p>本ソフトは、利用者が選んで有効にした機能に限り、以下の外部サービスと通信します。<strong>下の「常時おこなう通信」を除き、どの連携も利用者が明示的にオンにしたときだけ動作します（既定はオフ）。</strong></p>
+    <h3>1-4. 外部のサービスへ送られるもの</h3>
+    <p>本ソフトは、利用者が選んで有効にした機能に限り、以下の外部サービスと通信します。<strong>下の「常時おこなう通信」を除き、どの連携も利用者がオンにしたときだけ動きます。</strong></p>
 
     <div class="accent-box">
       <strong>常時おこなう通信（画面の書体の読み込み）</strong><br>
-      操作画面と、OBSに表示する各画面（字幕・コメントビュー・弾幕・アラート・ピックアップ・看板テロップ）は、
+      操作画面と、OBS に表示する各画面（字幕・コメントビュー・弾幕・アラート・ピックアップ・看板テロップ・視聴者数）は、
       表示に使う書体を <strong>Google Fonts</strong>（<code>fonts.googleapis.com</code> / <code>fonts.gstatic.com</code>）から読み込みます。
-      これは<strong>画面を開いたときに毎回おこなわれ、オフにする設定はありません</strong>。
-      送信されるのは書体の取得に伴う一般的な情報（IPアドレス・ブラウザの種類など）で、
-      コメント本文・視聴者名・字幕の内容といった<strong>配信の中身が送られることはありません</strong>。
-      Google のプライバシーポリシーが適用されます。
-      <span style="opacity:.8">※ ネットに繋がっていない環境では、書体が読み込めずお使いのパソコンの標準の書体で表示されます（機能そのものは動きます）。</span>
+      画面を開いたときに毎回おこなわれ、オフにする設定はありません。送られるのは書体の取得に伴う一般的な情報（IP アドレス・ブラウザの種類など）で、
+      コメント・視聴者名・字幕の内容は送られません。Google のプライバシーポリシーが適用されます。
+      <span style="opacity:.8">※ ネットに繋がっていない環境では、パソコンの標準の書体で表示されます（機能は動きます）。</span>
     </div>
 
     <div class="accent-box">
-      <strong>翻訳機能について（重要）</strong><br>
-      翻訳機能を有効にすると、<strong>翻訳の対象となるテキスト（コメントなど）が、選択した外部の翻訳サービスに送信されます。</strong>
-      利用しうるサービスは DeepL、Google 翻訳（deep-translator 経由）、MyMemory、LibreTranslate です。
-      送信されるのは翻訳対象の文章であり、各サービスのプライバシーポリシー・利用規約が適用されます。
-      翻訳機能をオフにすれば、これらへの送信は行われません。
+      <strong>翻訳（重要）</strong><br>
+      翻訳を有効にすると、<strong>翻訳する文（コメント・字幕）が、外部の翻訳サービスに送られます。</strong>
+      使う順番は <strong>DeepL</strong>（キーを入れたとき）→ <strong>Google 翻訳</strong> → <strong>MyMemory</strong> → <strong>LibreTranslate</strong>（有志が運営する公開サーバー: <code>lt.vern.cc</code> / <code>translate.fedilab.app</code>）で、うまくいかないときは次に回ります。
+      <strong>Google 翻訳は、Google の公式の API ではなく、人が使う Web の翻訳画面を使っています</strong>（Google の利用規約の「自動でのアクセス」の決まりに触れうる使い方です。Google に止められたときは自動で次に回ります）。
+      MyMemory に連絡用のメールアドレスを入れた場合は、そのアドレスも MyMemory へのリクエストに付きます（枠を広げるため）。
+      各サービスのプライバシーポリシー・利用規約が適用されます。翻訳をオフにすれば、これらへの送信は行われません。
+    </div>
+
+    <div class="accent-box">
+      <strong>音声認識（字幕）</strong><br>
+      字幕の音声認識を使うと、<strong>マイクの音声が Microsoft の音声認識サービスへ送られます</strong>（Microsoft Edge の仕組み〈WebView2 と見えない Edge〉で文字にしているため）。
+      Microsoft のプライバシーに関する声明が適用されます。字幕を止めている間は送られません。
     </div>
 
     <ul>
-      <li><strong>Twitch / YouTube</strong>: チャットの取得や配信情報（タイトル・カテゴリなど）の連携のため、各社の API と通信します（利用者が連携を有効にした場合）。</li>
-      <li><strong>VOICEVOX / 棒読みちゃん</strong>: 読み上げ機能のため、お使いのパソコン上で動作するこれらのソフトに、読み上げるテキストを渡します（ローカル通信）。</li>
-      <li><strong>わんコメ（OneComme）</strong>: 同伴起動の機能を使う場合、お使いのパソコンにインストール済みのわんコメ本体を起動・終了します。わんコメへデータを送ったり、コメントを取り込む連携は行いません（起動/終了のみ）。</li>
-      <li><strong>OBS</strong>: 配信ソフトとの連携のため、お使いのパソコン上の OBS と通信します（ローカル通信）。</li>
-      <li><strong>更新のお知らせ</strong>: 「更新を確認する」を有効にした場合に限り、最新版の情報（version.json）を curamar.space から取得します。既定はオフで、オフの間は一切通信しません。</li>
+      <li><strong>Twitch</strong>: コメントの受信（チャンネル名だけで匿名で接続）・通知（フォロー・サブスク・チャネポなど）・配信情報（タイトル・カテゴリ・タグ）・視聴者数の取得のため、Twitch と通信します（利用者が接続・認証したとき）。
+        <strong>次の機能をオンにしたときは、配信者のアカウントで Twitch のチャットに投稿します</strong>: 翻訳の代理投稿（Twitch のコメントの訳だけ）・定期コメント・リアクションの返信・自動シャウトアウト・チャネポの返信。</li>
+      <li><strong>YouTube</strong>: ライブチャットの受信・視聴者数の取得（API キー）と、配信情報（タイトル・説明・サムネイル）の変更（Google 認証）のため、YouTube Data API と通信します（利用者が接続・認証したとき）。</li>
+      <li><strong>VOICEVOX / 棒読みちゃん</strong>: 読み上げのため、お使いのパソコン上のこれらのソフトに読み上げる文を渡します（パソコンの中だけの通信）。</li>
+      <li><strong>わんコメ（OneComme）</strong>: 同伴起動を使う場合、お使いのパソコンにインストール済みのわんコメ本体を起動・終了します（データのやり取りはしません）。</li>
+      <li><strong>OBS</strong>: シーンの切り替えなどのため、お使いのパソコン上の OBS と通信します（パソコンの中だけの通信）。</li>
+      <li><strong>更新のお知らせ</strong>: 「更新を確認する」をオンにしたときだけ、最新版の情報（version.json）を curamar.space から取得します（既定はオフ）。</li>
     </ul>
 
-    <h3>1-4. YouTube API サービスの利用について</h3>
+    <h3>1-5. 不具合の報告でファイルを送るとき</h3>
+    <p>ツールには、動作ログを zip にまとめる機能があります。送るかどうかは、すべて利用者ご自身の操作によります（ツールが自動で送ることはありません）。
+      この zip には<strong>設定・認証情報・コメントログを入れません</strong>。動作ログにもコメントの本文と視聴者の名前は書いていません。
+      それでも、送る前に中身をご確認ください。</p>
+
+    <h3>1-6. YouTube API サービスの利用について</h3>
     <p>
       本ソフトは <strong>YouTube API Services</strong> を利用しています。本ソフトの YouTube 連携機能を利用する場合、利用者は
       <a href="https://www.youtube.com/t/terms" target="_blank" rel="noopener">YouTube の利用規約</a>
       に同意したものとみなされ、また
       <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google プライバシーポリシー</a>
-      が適用されます。本ソフトは、YouTube から取得した情報を、上記の連携機能を提供する目的以外には利用しません。
+      が適用されます。本ソフトは、YouTube から受け取った情報を、上記の連携機能を提供する目的以外には使いません（保存期間は 1-3）。
     </p>
     <p>
-      本ソフトに与えた YouTube（Google アカウント）へのアクセス権限は、
-      <a href="https://security.google.com/settings/" target="_blank" rel="noopener">Google アカウントのセキュリティ設定</a>
-      からいつでも取り消すことができます。本ソフト内の「ログアウト」からも認証情報を削除できます。
+      本ソフトに与えた Google アカウントへのアクセス権限は、
+      <a href="https://security.google.com/settings/security/permissions" target="_blank" rel="noopener">Google アカウントの「サードパーティのアクセス」</a>
+      からいつでも取り消せます。本ソフトの「ログアウト（取り消し）」を押した場合も、手元の認証情報を消し、Google 側の許可も取り消します。
     </p>
 
     <h2>2. ウェブサイト（curamar.space）について</h2>

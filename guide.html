@@ -269,15 +269,17 @@
       <li><strong>コメント読み上げ（匿名でOK）：</strong> <span class="pill">配信</span>ページでチャンネル名を入れて「接続」。<span class="muted">Twitch の認証はいりません（認証はフォロー・サブスクなどのアラートやチャネポ用＝⑥）。ダッシュボードのチャット欄のログインは、そこから書き込むためのもので、これとは別です。</span></li>
       <li><strong>海外コメントの翻訳：</strong> <span class="pill">音声・コメント</span>ページの「💬コメント関連」で「チャット翻訳」をON。コメビューに<strong>原文＋日本語訳が2段</strong>で出て、<strong>日本語訳を読み上げ</strong>ます。<strong>言語は自動検出</strong>＝英語・中国語・韓国語・アラビア語など、翻訳エンジンが対応する言語はすべて対象です。</li>
       <li><strong>コメビューの見た目：</strong> 文字サイズ・色・不透明度・表示件数や「ずっと表示」は<span class="pill">🖥 ブラウザソース</span>ページでまとめて調整できます（③参照）。</li>
-      <li><strong>表示するプラットフォームの切替：</strong> コメビュー・弾幕・エモートに出すコメントを「<strong>両方／Twitchのみ／YouTubeのみ</strong>」で選べます（コメビュー見た目設定）。同時配信で結合したコメントを画面に出す扱いは各社のルールが関わるため、必要に応じて分けられます。<span class="muted">※<strong>画面表示だけ</strong>の切替で、読み上げ・ログには影響しません。</span></li>
+      <li><strong>表示するプラットフォームの切替：</strong> コメビュー・弾幕・エモートに出すコメントを「<strong>両方／Twitchのみ／YouTubeのみ</strong>」で選べます（コメビュー見た目設定）。同時配信で結合したコメントを画面に出す扱いは各社のルールが関わるため、必要に応じて分けられます。<strong>リアクション（キーワードで出る演出）と <code>!emote</code> にも効きます</strong>（v1.0.0〜・ピックアップは自分で選ぶものなので対象外）。<span class="muted">※<strong>画面表示だけ</strong>の切替で、読み上げ・ログには影響しません。</span></li>
       <li><strong>🌏 自分のコメントを訳して届ける（v0.9.3〜）：</strong> <strong>日本語→他の言語</strong>の翻訳を追加しました。自分が日本語で書いたコメントを訳して、海外の視聴者へ届けられます（訳し先は選べます）。</li>
     </ul>
 
     <h2 id="advanced">⑥ もっと使う（任意・各自で登録が必要）</h2>
     <ul>
       <li><strong>フォロー/サブ/レイド通知・アラート演出（Twitch）：</strong> <span class="pill">配信</span>ページ「📡Twitch関連」の手順で <a href="https://dev.twitch.tv/console/apps/create" target="_blank" rel="noopener">dev.twitch.tv</a> に自分用アプリを無料登録 → Client ID / Secret を入力 →「Twitchで認証する」。<span class="muted">アラートは<strong>イベント別にON/OFF</strong>できます（配信ページの「表示するアラート」）。</span></li>
-      <li><strong>YouTubeのコメント取り込み：</strong> Google Cloud で YouTube Data API キーを取得 → <span class="pill">配信</span>ページの接続モードで YouTube を選び、URLとキーを入力。</li>
-      <li><strong>配信タイトル・カテゴリの変更（Twitch / YouTube）：</strong> <span class="pill">配信</span>ページからツールを離れずに<strong>タイトル・カテゴリ（ゲーム）・説明・サムネイル</strong>を書き換えられます。Twitch と YouTube の<strong>両方に一度で反映</strong>するボタンもあります（片方だけ接続している時は、その配信だけに反映）。<span class="muted">※Twitch は初回に「タイトル変更の権限」を追加で認証、YouTube は Google 認証（デスクトップ用）が必要です。ページ内の手順に従ってください。</span></li>
+      <li><strong>YouTubeのコメント取り込み：</strong> Google Cloud で YouTube Data API キーを取得 → <span class="pill">配信</span>ページの接続モードで YouTube を選び、URLとキーを入力。
+        <strong>スーパーチャット・スーパーステッカー・メンバー加入／継続・ギフト</strong>もコメント欄に札つきで出て、金額も読み上げます（アラートに出すのは「YouTube のスパチャ・メンバーもアラートに出す」を ON にしたときだけ・v1.0.0〜）。
+        <span class="muted">キーの 1 日の上限（10,000）で、コメントを取れるのは 1 日およそ 15 時間の配信までです。止まったときはログに理由が出ます（枠は毎日 16 時〈冬は 17 時〉に戻ります）。</span></li>
+      <li><strong>配信タイトル・カテゴリの変更（Twitch / YouTube）：</strong> <span class="pill">配信</span>ページからツールを離れずにTwitch は<strong>タイトル・カテゴリ（ゲーム）・タグ</strong>、YouTube は<strong>タイトル・説明・サムネイル</strong>を書き換えられます。<strong>配信タイトル</strong>は Twitch と YouTube の<strong>両方に一度で反映</strong>するボタンもあります（片方だけ接続している時は、その配信だけに反映）。<span class="muted">※Twitch は初回に「タイトル変更の権限」を追加で認証、YouTube は Google 認証（デスクトップ用）が必要です。ページ内の手順に従ってください。</span></li>
       <li><strong>OBS操作（シーン切替・配信開始/停止）：</strong> OBSの<strong>「ツール → WebSocketサーバー設定」</strong>で「WebSocketサーバーを有効にする」を ON → 同じ画面の「<strong>接続情報を表示</strong>」に出る<strong>サーバーパスワード</strong>を、<span class="pill">OBS連携</span>ページの「WebSocket のパスワード」に貼って接続。<span class="muted">OBS は最初から「認証を有効にする」が ON です（[認証無効] と出るならパスワードは空欄）。同じパソコンの OBS なら、IP（127.0.0.1）とポート（4455）はそのまま。IP をパスワードの欄に入れる必要はありません。</span></li>
       <li><strong>OBSを一緒に起動する：</strong> Ligastmir の起動時に<strong>OBSも自動で立ち上げる</strong>設定ができます（<span class="pill">詳細設定 → 同伴機能</span>ページ・任意）。OBSの実行ファイルの場所を一度指定しておくだけ。<span class="muted">配信中は誤操作防止のため終了させない安全策付き。閉じる時に一緒に終了させるかも選べます。接続・シーン切替は<span class="pill">OBS連携</span>ページです。</span></li>
       <li><strong>📌 コメントピックアップ：</strong> ダッシュボードの「<strong>コメントピックアップ</strong>」ウィジェットで、気になったコメントを<strong>検索</strong>して、選んだ1件を OBS に<strong>質問カード</strong>として大きく表示できます（原文＋翻訳を併記・配信終了で自動的に消えます）。「さっきの質問をもう一度出したい」に。<span class="muted">直近コメントはメモリにだけ一時保持し、ファイルには保存しません。</span></li>
@@ -347,6 +349,7 @@
       <li><strong>🎨 見た目プリセット：</strong> <strong>配信画面</strong>（コメビュー・字幕・アラート枠）の色とフォントを5種類（ネオン／パステル／モノクロ／レトロ／オーシャン）から一括で変更できます。全体にも、コメ・字幕・枠の<strong>面ごと</strong>にも適用でき、自分の見た目を保存できます。</li>
       <li><strong>🪧 看板テロップ：</strong> 画面に<strong>固定の看板／テロップ</strong>（お知らせ・配信テーマなど）を出せます。同梱の図形5種（吊るし看板・木札・リボン・雲・色板）＋任意画像。設定画面にプレビューが付いています。<span class="muted">⚠ <strong>専用のブラウザソース</strong>をOBSに追加してください（既存のソースには出ません）。</span></li>
       <li><strong>🏅 常連バッジに画像：</strong> 進化バッジの各段階に好きな画像を割り当てられます（Twitchのサブスクバッジのようなイメージ）。</li>
+      <li><strong>👥 ファン名簿・常連バッジと YouTube（v1.0.0〜）：</strong> <strong>YouTube の人は、最後のコメントから 30 日で名簿から消えます</strong>（YouTube の決まり＝API で受け取ったデータは 30 日まで）。常連バッジの回数も、30 日コメントが無いと最初から（「初見」がまた付きます）。Twitch の人は既定で消しません（「最後のコメントから 90 日／180 日／1 年」で消す設定もあります）。視聴者に頼まれたときは、名簿の ✕（名簿とコメントログから消す）や「記録しない人」で対応できます。</li>
     </ul>
 
     <h2 id="advanced-actions">⑦-4 上級者アクション（歌わせる・正規表現）</h2>
@@ -371,7 +374,7 @@
       <li><strong>🎙 マイクをミュートしたら字幕も止める（v0.9.2〜）：</strong> 配信では無音なのに<strong>字幕だけ出続ける</strong>のを防げます。<span class="pill">OBS連携</span>で接続したうえで、<span class="pill">音声・コメント</span>ページで対象のマイクを選ぶと有効になります（ＯＢＳ側でミュートを押すと、字幕の認識も止まります）。</li>
       <li><strong>画面が真っ白／開かない：</strong> 「Edge WebView2 ランタイム」（無料）を <a href="https://developer.microsoft.com/microsoft-edge/webview2/" target="_blank" rel="noopener">Microsoftのサイト</a>から入れてください<span class="muted">（最近のWindowsなら大抵入っています）</span>。</li>
       <li><strong>声が出ない：</strong> Windowsの音量・出力先を確認。VOICEVOXの声なら VOICEVOX が起動しているか確認。</li>
-      <li><strong>動きがおかしい：</strong> データの場所の <code>logs</code> フォルダの中の <code>ust_debug.log</code> を開く（または作者に送る）と原因が分かります（「INFO」ページの「ログフォルダを開く」で開けます）。<span class="muted">「総合診断」から報告用ログを zip でまとめて書き出すこともできます。</span></li>
+      <li><strong>動きがおかしい：</strong> データの場所の <code>logs</code> フォルダの中の <code>ust_debug.log</code> を開く（または作者に送る）と原因が分かります（「INFO」ページの「ログフォルダを開く」で開けます）。<span class="muted">「総合診断」から報告用ログを zip でまとめて書き出すこともできます（設定・認証情報・<strong>コメントの本文や視聴者の名前は入りません</strong>）。</span></li>
       <li><strong>別のPCに渡したとき：</strong> セキュリティ上、APIキーやトークンは<strong>そのPCごとに入力し直し</strong>が必要です<span class="muted">（設定ごとコピーしても暗号化で読めない仕組み）</span>。</li>
     </ul>
 

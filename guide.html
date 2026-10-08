@@ -277,7 +277,7 @@
     <ul>
       <li><strong>フォロー/サブ/レイド通知・アラート演出（Twitch）：</strong> <span class="pill">配信</span>ページ「📡Twitch関連」の手順で <a href="https://dev.twitch.tv/console/apps/create" target="_blank" rel="noopener">dev.twitch.tv</a> に自分用アプリを無料登録 → Client ID / Secret を入力 →「Twitchで認証する」。<span class="muted">アラートは<strong>イベント別にON/OFF</strong>できます（配信ページの「表示するアラート」）。</span></li>
       <li><strong>YouTubeのコメント取り込み：</strong> Google Cloud で YouTube Data API キーを取得 → <span class="pill">配信</span>ページの接続モードで YouTube を選び、URLとキーを入力。
-        <strong>スーパーチャット・スーパーステッカー・メンバー加入／継続・ギフト</strong>もコメント欄に札つきで出て、金額も読み上げます（アラートに出すのは「YouTube のスパチャ・メンバーもアラートに出す」を ON にしたときだけ・v1.0.0〜）。
+        <strong>スーパーチャット・スーパーステッカー・メンバー継続（お祝いのひとこと）</strong>もコメント欄に札つきで出て、金額も読み上げます。<strong>メンバー加入・メンバーシップのギフト・Jewels</strong>はアラートで出ます（「YouTube のスパチャ・メンバーもアラートに出す」を ON にしたときだけ・既定は出さない＝そのときは操作画面のログに 1 行・v1.0.0〜）。
         <span class="muted">キーの 1 日の上限（10,000）で、コメントを取れるのは 1 日およそ 15 時間の配信までです。止まったときはログに理由が出ます（枠は毎日 16 時〈冬は 17 時〉に戻ります）。</span></li>
       <li><strong>配信タイトル・カテゴリの変更（Twitch / YouTube）：</strong> <span class="pill">配信</span>ページからツールを離れずにTwitch は<strong>タイトル・カテゴリ（ゲーム）・タグ</strong>、YouTube は<strong>タイトル・説明・サムネイル</strong>を書き換えられます。<strong>配信タイトル</strong>は Twitch と YouTube の<strong>両方に一度で反映</strong>するボタンもあります（片方だけ接続している時は、その配信だけに反映）。<span class="muted">※Twitch は初回に「タイトル変更の権限」を追加で認証、YouTube は Google 認証（デスクトップ用）が必要です。ページ内の手順に従ってください。</span></li>
       <li><strong>OBS操作（シーン切替・配信開始/停止）：</strong> OBSの<strong>「ツール → WebSocketサーバー設定」</strong>で「WebSocketサーバーを有効にする」を ON → 同じ画面の「<strong>接続情報を表示</strong>」に出る<strong>サーバーパスワード</strong>を、<span class="pill">OBS連携</span>ページの「WebSocket のパスワード」に貼って接続。<span class="muted">OBS は最初から「認証を有効にする」が ON です（[認証無効] と出るならパスワードは空欄）。同じパソコンの OBS なら、IP（127.0.0.1）とポート（4455）はそのまま。IP をパスワードの欄に入れる必要はありません。</span></li>
@@ -349,7 +349,7 @@
       <li><strong>🎨 見た目プリセット：</strong> <strong>配信画面</strong>（コメビュー・字幕・アラート枠）の色とフォントを5種類（ネオン／パステル／モノクロ／レトロ／オーシャン）から一括で変更できます。全体にも、コメ・字幕・枠の<strong>面ごと</strong>にも適用でき、自分の見た目を保存できます。</li>
       <li><strong>🪧 看板テロップ：</strong> 画面に<strong>固定の看板／テロップ</strong>（お知らせ・配信テーマなど）を出せます。同梱の図形5種（吊るし看板・木札・リボン・雲・色板）＋任意画像。設定画面にプレビューが付いています。<span class="muted">⚠ <strong>専用のブラウザソース</strong>をOBSに追加してください（既存のソースには出ません）。</span></li>
       <li><strong>🏅 常連バッジに画像：</strong> 進化バッジの各段階に好きな画像を割り当てられます（Twitchのサブスクバッジのようなイメージ）。</li>
-      <li><strong>👥 ファン名簿・常連バッジと YouTube（v1.0.0〜）：</strong> <strong>YouTube の人は、最後のコメントから 30 日で名簿から消えます</strong>（YouTube の決まり＝API で受け取ったデータは 30 日まで）。常連バッジの回数も、30 日コメントが無いと最初から（「初見」がまた付きます）。Twitch の人は既定で消しません（「最後のコメントから 90 日／180 日／1 年」で消す設定もあります）。視聴者に頼まれたときは、名簿の ✕（名簿とコメントログから消す）や「記録しない人」で対応できます。</li>
+      <li><strong>👥 ファン名簿・常連バッジと YouTube（v1.0.0〜）：</strong> <strong>YouTube の人は、最後のコメントから 30 日で名簿から消えます</strong>（YouTube の決まり＝API で受け取ったデータは 30 日まで）。常連バッジの回数も、30 日コメントが無いと最初から（「初見」がまた付きます）。Twitch の人は既定で消しません（「最後のコメントから 90 日／180 日／1 年」で消す設定もあります）。視聴者に頼まれたときは、名簿の ✕ か「名前を指定して消す」（表に出ていない人も・名簿とコメントログから消す）や「記録しない人」で対応できます。</li>
     </ul>
 
     <h2 id="advanced-actions">⑦-4 上級者アクション（歌わせる・正規表現）</h2>

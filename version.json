@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "date": "2026-10-07",
+  "date": "2026-10-09",
   "notes": [
     "【新機能】インストーラー版を用意しました（おすすめ）。Ligastmir_Setup.exe を実行して「次へ」で入れるだけで、更新も新しいインストーラーを実行するだけです。設定・読み上げ辞書・ファン名簿・素材は %LOCALAPPDATA%\\Ligastmir に置くので、更新やアンインストールでも残ります。zip 版もこれまでどおり配ります。zip 版から移るときは、初めて起動すると「前の Ligastmir から引き継ぎますか？」と案内します",
     "【新機能】配信画面に出せる「👥 視聴者数」（ブラウザソース）。Twitch・YouTube の数を名前つきで出し、合計は出しません。同時配信中は既定で YouTube の数を出しません（Twitch の規約のため・出す切り替えはご自身の判断で）。ダッシュボードの「来場者数」は「視聴者数」になり、1 分ごとに更新します。YouTube だけの配信でも ON AIR になります",
@@ -15,8 +15,8 @@
     "【改善】マイクを使っていないときは「マイク使用中」の印が出ず、起動した瞬間の「マイクを使用する」の確認も出なくなりました（聞くのは「更新」を押したときと字幕を始めたときだけ）。詳細設定に「📂 データの置き場所」",
     "【改善】翻訳の画面に、使う順番（DeepL → Google 翻訳 → MyMemory → LibreTranslate）と、Google 翻訳は公式の API ではなく Web の翻訳画面を使っていることを書きました。翻訳がときどき出ないときは、上限を増やす方法（MyMemory のメール・DeepL の無料キー）も知らせます"
   ],
-  "zip_sha256": "a74b42f86849144d99f81df8776016b0e027f56e1e5529094e7b1135dfa22918",
-  "installer_sha256": "ecd5669e540d5b6e1d43c55bf986d4a73aeece9b627afddb7c93f7d4a6bcca6e",
+  "zip_sha256": "758bff9be06d4c740dd6e6d9230b7a8d7667ff2c4424c43dc93cd27127dde962",
+  "installer_sha256": "7f5962993762ab0b78f3abf63cd6236a174f1f09919e3d8f9ac15429ca76a819",
   "download_url": "https://curamar.space/download.html",
   "critical": false,
   "integrity": {
@@ -32,6 +32,6 @@
     "v0.9.7": "80c57cf21f774f4d3b3c42a33baa923c2e1ed03e5878209f1da34349b962b08c",
     "v0.9.8": "a982d0d7f855c5dd0ad991e48e55323c575dc90ad52621ebec8fadfacd1c0a1b",
     "v0.9.9": "f324da500cd2cf07f0d43ba713ed775e0cb6c3e5903d4581d3f44653d694c18f",
-    "v1.0.0": "49b966973e9fbb3e7c056f8df7b12aefa56b169bd60afad07ce8fa69e937a911"
+    "v1.0.0": "3ae3fdc13d9483b922685ad877e858f78c9e858538882365d9144841fa448b37"
   }
 }

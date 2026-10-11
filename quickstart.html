@@ -4,12 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>3分ではじめる Ligastmir — 最短セットアップ</title>
-<meta name="description" content="配信支援ツール Ligastmir の最短セットアップ手順。ダウンロード→インストーラーを実行→使う機能だけON→OBSにブラウザソース、の4ステップ（zip 版の手順も）。まず字幕だけ・読み上げだけの最小構成もOK。">
+<meta name="description" content="配信支援ツール Ligastmir の最短セットアップ手順。ダウンロード→解凍→起動.bat→使う機能だけON→OBSにブラウザソース、の5ステップ。まず字幕だけ・読み上げだけの最小構成もOK。">
 <link rel="canonical" href="https://curamar.space/quickstart.html">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="curamar.space">
 <meta property="og:title" content="3分ではじめる Ligastmir — 最短セットアップ">
-<meta property="og:description" content="ダウンロード→インストーラーを実行→使う機能だけON→OBSに貼る。最短4ステップで配信支援をはじめる。">
+<meta property="og:description" content="ダウンロード→解凍→起動.bat→使う機能だけON→OBSに貼る。最短5ステップで配信支援をはじめる。">
 <meta property="og:url" content="https://curamar.space/quickstart.html">
 <meta property="og:image" content="https://curamar.space/assets/og-ligastmir.png">
 <meta property="og:image:width" content="1200">
@@ -17,15 +17,16 @@
 <meta property="og:image:type" content="image/png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="3分ではじめる Ligastmir — 最短セットアップ">
-<meta name="twitter:description" content="最短4ステップで配信支援をはじめる。まず字幕だけ・読み上げだけでもOK。">
+<meta name="twitter:description" content="最短5ステップで配信支援をはじめる。まず字幕だけ・読み上げだけでもOK。">
 <meta name="twitter:image" content="https://curamar.space/assets/og-ligastmir.png">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"HowTo","name":"Ligastmir の最短セットアップ（3分）","description":"配信支援ツール Ligastmir をダウンロードして、OBS に字幕やコメントビューを表示するまでの最短手順。","totalTime":"PT3M","supply":[],"tool":[{"@type":"HowToTool","name":"Windows 10 / 11 の PC"},{"@type":"HowToTool","name":"OBS Studio（画面に表示する場合）"}],"step":[
-{"@type":"HowToStep","position":1,"name":"最新版をダウンロード","text":"ダウンロードページから最新版のインストーラー（おすすめ）を入手します。インストールしたくない場合は zip 版もあります。"},
-{"@type":"HowToStep","position":2,"name":"インストーラーを実行する","text":"Ligastmir_Setup.exe を開いて「次へ」→「完了」。初回に SmartScreen が出たら「詳細情報 → 実行」で進めます。次からはスタートメニューの Ligastmir から起動します。"},
-{"@type":"HowToStep","position":3,"name":"使いたい機能だけ ON","text":"字幕だけ・読み上げだけでも OK。Twitch / YouTube / OBS は使うものだけ接続します。"},
-{"@type":"HowToStep","position":4,"name":"OBS にブラウザソースを追加","text":"画面に出したい機能（字幕・コメントビューなど）の URL を OBS のブラウザソースに貼り付けます。"}]}
+{"@type":"HowToStep","position":1,"name":"最新版をダウンロード","text":"ダウンロードページから最新版の zip を入手します。"},
+{"@type":"HowToStep","position":2,"name":"zip を解凍して、置き場所を決める","text":"zip を右クリック→「すべて展開」でフォルダを取り出し、デスクトップか「ドキュメント」に置きます。「ダウンロード」フォルダの中・OneDrive などの同期フォルダの中・Program Files の中は避けてください（設定がそのフォルダの中に保存されるため）。"},
+{"@type":"HowToStep","position":3,"name":"起動.bat をダブルクリック","text":"フォルダ内の 起動.bat をダブルクリックして起動します。初回に SmartScreen が出たら「詳細情報 → 実行」で進めます。"},
+{"@type":"HowToStep","position":4,"name":"使いたい機能だけ ON","text":"字幕だけ・読み上げだけでも OK。Twitch / YouTube / OBS は使うものだけ接続します。"},
+{"@type":"HowToStep","position":5,"name":"OBS にブラウザソースを追加","text":"画面に出したい機能（字幕・コメントビューなど）の URL を OBS のブラウザソースに貼り付けます。"}]}
 </script>
 <style>
   :root{
@@ -137,27 +138,15 @@
       このページでは<strong>「とりあえず使ってみる」</strong>だけを目指します。
     </div>
 
-    <h2>最短セットアップ（4ステップ）</h2>
+    <h2>最短セットアップ（5ステップ）</h2>
     <div class="qsteps">
-      <div class="qstep"><b>最新版をダウンロード</b><span><a href="download.html">ダウンロードページ</a>から<strong>インストーラー（おすすめ）</strong>を入手します（無料・登録不要）。Discord で受け取ることもできます。インストールしたくない方は、下の「zip 版で使うとき」へ。</span></div>
-      <div class="qstep"><b>インストーラーを実行する</b><span>落とした <code>Ligastmir_Setup.exe</code> を開いて「次へ」→「完了」。<strong>置き場所を考える必要はありません</strong>（設定などは Windows のアプリ用の場所に保存されます）。管理者の確認は出ません。初回に SmartScreen の画面が出たら「詳細情報 → 実行」で進めます（公式サイト・公式 Discord から入手した配布版であれば大丈夫です）。完了で Ligastmir が起動し、次からはスタートメニュー（またはデスクトップ）の <strong>Ligastmir</strong> から起動します。</span></div>
-      <div class="qstep"><b>使いたい機能だけ ON にする</b><span>最初の画面の案内に沿って、使いたい機能だけスイッチを入れます。<strong>字幕だけ・読み上げだけでも「正解」</strong>です。Twitch / YouTube / OBS の接続も、使うものだけでかまいません。</span></div>
-      <div class="qstep"><b>OBS にブラウザソースを追加する</b><span>画面に出したいもの（字幕・コメントビューなど）の URL がツール内に一覧で用意されています。コピーして OBS の「ブラウザ」ソースに貼れば表示されます。</span></div>
-
-    </div>
-
-    <h2>zip 版で使うとき（インストールしない）</h2>
-    <p>zip 版は、インストールせずにフォルダのまま使う形です（版を並べておきたい・USB メモリで持ち歩きたい方に）。上の 1・2 の代わりに、次の 2 つを行います。</p>
-    <div class="qsteps">
+      <div class="qstep"><b>最新版をダウンロード</b><span><a href="download.html">ダウンロードページ</a>から zip を入手します（無料・登録不要）。Discord で受け取ることもできます。</span></div>
       <!-- 置き場所（2026-09-13）。★以前は「好きな場所に置いて OK」と書いていて、
            実際に「ダウンロード」フォルダ直下で使う人が出た。設定・辞書・名簿・素材は
            このフォルダの中に保存されるので、「消される場所」に置くと全部消える。
            サイト内で置き場所を説明するのはここ1か所。他ページはここ（#place）へ送る。 -->
       <div class="qstep" id="place"><b>zip を解凍して、置き場所を決める</b><span>
         zip を右クリック →「すべて展開」。出てきたフォルダ（<code>Ligastmir_v…</code>）を、<strong>フォルダのまま</strong><strong>デスクトップ</strong>か<strong>「ドキュメント」</strong>に移します。<br>
-        <!-- 2026-10-02（curamar「フォルダの置き場所『ドキュメント』ていうのもわかるひととわからないひとでてきそう」） -->
-        「ドキュメント」は、<strong>エクスプローラー</strong>（タスクバーのフォルダの絵）を開くと、<strong>左の一覧</strong>にあります。
-        置き場所に迷ったら、<strong>上のインストーラー版</strong>がかんたんです（置き場所を考えなくて済みます）。<br>
         <!-- 2026-09-27（curamar「zip の中身をダウンロードフォルダの直下に全部出していた人がいた。ダウンロード\Ligastmir.exe って感じ」） -->
         <strong>★フォルダの中身だけを取り出さないでください。</strong><code>Ligastmir.exe</code>・<code>_internal</code>・<code>起動.bat</code> などは、<strong>1 つのフォルダに入ったまま</strong>使います。
         ダウンロードやデスクトップに<strong>じかにバラバラに出してしまった</strong>ときは、新しいフォルダ（例: <code>Ligastmir</code>）を作って、それらを<strong>全部その中へ</strong>移してください（アプリもこの形を見つけると知らせます）。<br>
@@ -171,6 +160,8 @@
         </ul>
       </span></div>
       <div class="qstep"><b><code>起動.bat</code> をダブルクリック</b><span>フォルダの中の <code>起動.bat</code> から起動します。<strong>Ligastmir.exe を直接起動することもできますが、ダウンロード時のブロック解除を自動で行ってくれるので、通常は 起動.bat がおすすめ</strong>です。初回に SmartScreen の画面が出たら「詳細情報 → 実行」で進めます（公式サイト・公式 Discord から入手した配布版であれば大丈夫です）。</span></div>
+      <div class="qstep"><b>使いたい機能だけ ON にする</b><span>最初の画面の案内に沿って、使いたい機能だけスイッチを入れます。<strong>字幕だけ・読み上げだけでも「正解」</strong>です。Twitch / YouTube / OBS の接続も、使うものだけでかまいません。</span></div>
+      <div class="qstep"><b>OBS にブラウザソースを追加する</b><span>画面に出したいもの（字幕・コメントビューなど）の URL がツール内に一覧で用意されています。コピーして OBS の「ブラウザ」ソースに貼れば表示されます。</span></div>
     </div>
     <div class="note">
       これで完了です。うまくいかないところがあったら、<a href="faq.html">FAQ</a> か <a href="guide.html">使い方ガイド</a> を見るか、
@@ -182,7 +173,7 @@
     <div class="qshots">
       <figure>
         <img src="assets/shots/bsource-urls.webp" alt="Ligastmirのブラウザソース一覧画面。字幕・コメントビュー・アラートなどOBSに貼るURLがコピーボタン付きで並んでいる" width="1440" height="900" loading="lazy">
-        <figcaption>ステップ4の画面：OBSに貼るURLは一覧からコピーするだけ。</figcaption>
+        <figcaption>ステップ5の画面：OBSに貼るURLは一覧からコピーするだけ。</figcaption>
       </figure>
       <figure>
         <img src="assets/shots/subtitle-obs.webp" alt="OBSに表示された音声認識字幕の例。日本語字幕の下に英語の翻訳字幕が出ている" width="1920" height="1080" loading="lazy">

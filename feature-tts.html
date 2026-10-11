@@ -19,7 +19,7 @@
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"HowTo","name":"Twitch / YouTube のコメントを読み上げる方法","description":"無料の配信支援ツール Ligastmir で、配信コメントを音声合成で自動読み上げする手順。VOICEVOX・Windows標準（SAPI5）・棒読みちゃんに対応。","totalTime":"PT5M","tool":[{"@type":"HowToTool","name":"Ligastmir（無料）"},{"@type":"HowToTool","name":"VOICEVOX または 棒読みちゃん（任意）"}],"step":[
-{"@type":"HowToStep","position":1,"name":"Ligastmir を起動する","text":"ダウンロードしてインストーラーで入れ、スタートメニューから起動します（zip 版は 起動.bat から）。"},
+{"@type":"HowToStep","position":1,"name":"Ligastmir を起動する","text":"ダウンロードして解凍し、起動.bat から起動します。"},
 {"@type":"HowToStep","position":2,"name":"読み上げの声を選ぶ","text":"「音声・コメント」ページで音声エンジンを選びます。Windows標準（SAPI5）は準備なしでそのまま使えます。VOICEVOX は自動起動を設定でき、棒読みちゃんは本体を起動してから選ぶだけです。"},
 {"@type":"HowToStep","position":3,"name":"配信チャンネルに接続する","text":"「配信」ページでTwitchのチャンネル名を入れて接続します（匿名でOK）。YouTube は配信URLとAPIキーで接続します。"},
 {"@type":"HowToStep","position":4,"name":"コメントが読み上げられる","text":"視聴者のコメントが自動で読み上げられます。音量・話者・読み上げ前のお知らせ音も調整できます。"}]}
@@ -152,7 +152,7 @@
 
     <h2>最短手順（4ステップ）</h2>
     <div class="qsteps">
-      <div class="qstep"><b>Ligastmir を起動する</b><span><a href="download.html">ダウンロード</a>してインストーラーで入れ、スタートメニューから起動（zip 版は <code>起動.bat</code> から）。まだの方は <a href="quickstart.html">3分ではじめる</a> をどうぞ。</span></div>
+      <div class="qstep"><b>Ligastmir を起動する</b><span><a href="download.html">ダウンロード</a>して解凍し、<code>起動.bat</code> から起動。まだの方は <a href="quickstart.html">3分ではじめる</a> をどうぞ。</span></div>
       <div class="qstep"><b>読み上げの声を選ぶ</b><span>「音声・コメント」ページで音声エンジンを選択。VOICEVOX は「自動検出」でパスを見つけて自動起動をONにできます。</span></div>
       <div class="qstep"><b>配信チャンネルに接続する</b><span>「配信」ページで Twitch のチャンネル名を入れて「接続」（<strong>匿名でOK・登録不要</strong>）。YouTube は配信URLとAPIキーで接続します。</span></div>
       <div class="qstep"><b>コメントが読み上げられる</b><span>音量・話者・読み上げ前のお知らせ音は同じページで調整。設定は自動保存されます。</span></div>
@@ -165,7 +165,7 @@
       <li><strong>名前の読み上げ方</strong> — 「○○さん」を付ける/付けない等を選べます。</li>
       <li><strong>音量の正規化・読み上げ前のお知らせ音</strong> — 音量の暴れを抑え、読み上げ開始が分かる音を鳴らせます。</li>
       <li><strong>翻訳読み上げ</strong> — 海外コメントは日本語訳を読み上げ（<a href="feature-translate.html">翻訳機能</a>と連動）。</li>
-      <li><strong>スパチャの金額・消されたコメント（v1.0.0〜）</strong> — YouTube のスーパーチャットは金額から読み上げます。モデレーターが消したコメント・BAN した人のコメントは、読み上げ待ちからも外れます（消したのに読まれる、が起きません）。※棒読みちゃんで読み上げているときは、もう棒読みちゃんに渡したコメントは止められません（棒読みちゃん側の読み上げ待ちに入るため）。</li>
+      <li><strong>スパチャの金額・消されたコメント（v0.9.10〜）</strong> — YouTube のスーパーチャットは金額から読み上げます。モデレーターが消したコメント・BAN した人のコメントは、読み上げ待ちからも外れます（消したのに読まれる、が起きません）。※棒読みちゃんで読み上げているときは、もう棒読みちゃんに渡したコメントは止められません（棒読みちゃん側の読み上げ待ちに入るため）。</li>
       <li><strong>NG ワードの例外と扱い（v0.9.8〜）</strong> — 英単語は語の頭から一致（grape を止めない）。読んでよい言葉（例外）と、見つけたときの扱い（読まない／「ピー」／飛ばす）を決められます。</li>
       <li><strong>BGM 再生</strong> — 取り込んだ音源をツール内で再生できます。読み上げ中は自動で音量を下げるので、声が埋もれません（音はパソコンの音として出るため、OBS で「デスクトップ音声」を取り込んでいれば配信に乗ります）。曲は同梱していません。</li>
       <li><strong>歌わせる（上級者アクション）</strong> — 文章をメロディに乗せる「ちょい足し歌わせ」と、VOICEVOX の歌う機能を使う「がっつり歌唱」。どちらも WAV で書き出せて、書き出した音はリアクションやアラートの効果音としてそのまま選べます。<span class="muted">使わなくても困りません。</span></li>

@@ -29,5 +29,15 @@
     "links": [{ "label": "Twitch でも配信中", "url": "https://www.twitch.tv/dotera_kozo_asaki" }] },
   { "name": "碧渚すな", "url": "https://www.twitch.tv/aonagi_suna", "category": "tool", "icon": "assets/contributors/aonagi_suna.png",
     "tags": ["テスター", "アイデア出し", "紹介・宣伝協力", "R6S"],
-    "comment": "遠慮も敬語もいりません気軽に話しかけてね♪" }
+    "comment": "遠慮も敬語もいりません気軽に話しかけてね♪" },
+  { "name": "あづねぇ", "url": "https://www.twitch.tv/adusa05410", "category": "tool", "icon": "assets/contributors/azune.png",
+    "tags": ["テスター", "不具合報告", "紹介・宣伝協力", "初心者目線チェック", "DBD", "APEX"],
+    "comment": "ゲーム下手くそ配信初心者、でもやる気は負けない！ Ligastmir をたくさん、ていねいに使ってくれていて、紹介も広げてくれています。" },
+  { "name": "カルマ_777", "url": "https://www.twitch.tv/karma_7_7_7_", "category": "tool", "icon": "assets/contributors/karma.jpg",
+    "tags": ["テスター", "紹介・宣伝協力", "初心者目線チェック"],
+    "comment": "雑食ゲーマーです。らむちさんと一緒に宣伝もしてくれていて、新しい機能やあまり使われていない機能も積極的に配信に取り入れてくれています。",
+    "links": [{ "label": "X", "url": "https://x.com/karma_tw_777" }] },
+  { "name": "泡沫らむち", "url": "https://www.twitch.tv/uta_ram", "category": "tool", "icon": "assets/contributors/ramuchi.jpg",
+    "tags": ["不具合報告", "アイデア出し", "紹介・宣伝協力", "DBD", "マイクラ"],
+    "comment": "モデレーター活動や相方のカルマの配信でのゲーム参加をメインに、ごくたまに歌・雑談配信をしています。" }
 ]

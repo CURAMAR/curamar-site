@@ -1287,9 +1287,11 @@
 <p class="psub">設定項目としては出てこないが、裏で自動で動くもの・視聴者が打つコマンド・起動の入口。</p>
 <h3>自動で動くもの</h3><div class="tbl"><table><thead><tr><th>機能</th><th>いつ</th><th>何をする</th></tr></thead><tbody>
 <tr><td>設定バックアップ</td><td>起動時（＋手動・復元の直前）</td><td>config・辞書・名簿・集計を <code>_backup/</code> へ・10 世代</td></tr>
-<tr><td>音声認識の自動切替</td><td>画面内の認識がマイク取得直後に 3 回拒まれたとき</td><td>裏の Edge（窓なし）で認識を続ける</td></tr>
+<tr><td>音声認識の自動切替</td><td>画面内の認識がマイク取得直後に 3 回拒まれたとき</td><td>裏のブラウザ（「裏で使うブラウザ」の Chrome／Edge・窓なし）で認識を続ける</td></tr>
+<tr><td>裏のブラウザの切り替え</td><td>Chrome が起動できない・認識を断られたとき（v0.9.11〜）</td><td>この起動の間は Edge で認識する（設定はそのまま）</td></tr>
+<tr><td>無音のあいだの起動し直し</td><td>確定のあと 1.5 秒黙っていて、起動から 20 秒たったとき（v0.9.11〜）</td><td>認識をそっと起動し直す（声が出ている・途中の結果があるときは止めない）</td></tr>
 <tr><td>認識のウォッチドッグ</td><td>3 分ライフサイクルが無い／network の 8 秒後</td><td>認識を作り直す</td></tr>
-<tr><td>裏の Edge の見張り</td><td>5 秒ごと</td><td>止まっていれば 10 分に 5 回まで立て直す</td></tr>
+<tr><td>裏のブラウザの見張り</td><td>5 秒ごと</td><td>止まっていれば 10 分に 5 回まで立て直す</td></tr>
 <tr><td>放置スリープ</td><td>10 時間（設定可）無操作</td><td>認識を止める</td></tr>
 <tr><td>マイクミュート同期</td><td>OBS で対象ソースがミュート</td><td>字幕を止める（ON のとき）</td></tr>
 <tr><td>無音の検知</td><td>OBS の音声ソースが 3 分間 0</td><td>ログとヘッダー帯で知らせる</td></tr>
@@ -1313,7 +1315,7 @@
 <tr><td>本体ファイルの整合（S1）</td><td>起動時（配布版）</td><td><code>integrity_manifest.json</code> と突き合わせ</td></tr>
 <tr><td>画面の JS エラーの記録</td><td>常時</td><td><code>ust_debug.log</code> へ（読み込み失敗も）</td></tr>
 <tr><td>同伴アプリの自動起動／終了</td><td>起動時／終了時</td><td>OBS・VOICEVOX・棒読み・わんコメ（Ligastmir 起動分だけ・配信中の OBS は閉じない）</td></tr>
-<tr><td>認識ワーカーの道連れ</td><td>終了・異常終了</td><td>Job Object で Edge が残らない</td></tr>
+<tr><td>認識ワーカーの道連れ</td><td>終了・異常終了</td><td>Job Object で Chrome／Edge が残らない</td></tr>
 </tbody></table></div>
 <h3>チャットコマンド（視聴者が打つ）</h3><div class="tbl"><table><thead><tr><th>コマンド</th><th>何をする</th><th>実行できる人（既定）</th></tr></thead><tbody>
 <tr><td><code>!教育 語=読み</code></td><td>読み上げ辞書に読みを足す（例 <code>!教育 CURAMAR=くらまー</code>・全体のカッコは外す）</td><td>サブスク以上</td></tr>

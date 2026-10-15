@@ -149,13 +149,13 @@
       <div class="qstep"><b>外国語コメントが自動で翻訳される</b><span>コメントビューに原文＋日本語訳の2段表示、読み上げは日本語訳。<strong>どの言語かを設定する必要はありません</strong>（自動検出）。</span></div>
     </div>
 
-    <h2>翻訳エンジンについて</h2>
+    <h2 id="engines">翻訳エンジンについて</h2>
     <ul>
-      <li><strong>無料エンジンが標準</strong> — APIキー登録なしでそのまま動きます。<strong>Google 翻訳 → MyMemory → LibreTranslate</strong> の順に使い、一時的に不調でも次のエンジンへ自動で回ります。</li>
+      <li><strong>何も設定しなくても動きます</strong> — 使う順番は <strong>DeepL（キーがあるとき）→ 内蔵の翻訳（ON のとき・v0.9.11〜）→ Google 翻訳 → MyMemory → LibreTranslate</strong>。調子の悪いものは自動で後回しにし、全部が不調でもどれかで必ず訳します。</li>
       <li><strong>Google 翻訳について（正直に）</strong> — Google 翻訳は、Google の公式の API ではなく、<strong>人が使う Web の翻訳画面</strong>を使っています（Google の利用規約の「自動でのアクセス」の決まりに触れうる使い方です）。止められたときは自動で次のエンジンに回ります。今後、Google 公式の翻訳の関数（Google Apps Script）を自分のアカウントで使う方式も足す予定です。</li>
       <li><strong>DeepL キー対応（任意）</strong> — 無料の DeepL API キー（月 50 万文字）を設定すると、より自然な訳になり、最初に DeepL を使います。</li>
-      <li><strong>上限を増やす道</strong> — 長い配信で翻訳がときどき出ないときは、<strong>MyMemory に連絡用のメールアドレスを入れる</strong>（登録不要・1 日 5,000 文字 → 5 万文字）か、<strong>DeepL の無料キー</strong>で増やせます。翻訳がうまくいかないときの知らせにも、まだ入れていない方の案内が出ます（v0.9.10〜）。</li>
-      <li><strong>送られるもの</strong> — 翻訳する文（コメント・字幕）は、そのとき使った翻訳サービスに送られます。詳しくは <a href="privacy.html">プライバシーポリシー</a>。</li>
+      <li><strong>上限を増やす道</strong> — 長い配信で翻訳がときどき出ないときは、<a href="#builtin"><strong>内蔵の翻訳</strong></a>（上限なし・v0.9.11〜）を使うか、<strong>MyMemory に連絡用のメールアドレスを入れる</strong>（登録不要・1 日 5,000 文字 → 5 万文字）か、<strong>DeepL の無料キー</strong>で増やせます（<a href="#limits">上限の数え方</a>）。翻訳がうまくいかないときの知らせにも、まだ入れていない方の案内が出ます（v0.9.10〜）。</li>
+      <li><strong>送られるもの</strong> — 翻訳する文（コメント・字幕）は、そのとき使った翻訳サービスに送られます（内蔵の翻訳だけは PC の外へ送りません）。詳しくは <a href="privacy.html">プライバシーポリシー</a>。</li>
       <li><strong>読み上げ辞書と共存</strong> — 辞書登録した固有名詞は、翻訳を通しても読み方が保たれます。</li>
       <li><strong>日本語のコメントはすぐ読む（v0.9.8〜）</strong> — チャット翻訳が ON でも、日本語のコメントは訳を待たずに読み上げます（外国語は訳ができてから）。切り替えもできます。</li>
       <li><strong>自分の字幕の翻訳先は12言語から選べます</strong> — English／中文（简体・繁體）／한국어／Русский／Español／Français／Deutsch／Português／Italiano／Tiếng Việt／Bahasa Indonesia。一覧には日本語の言語名も併記しているので、見慣れない綴りでも迷いません（<a href="feature-subtitle.html">字幕機能</a>と連動）。</li>
@@ -163,9 +163,36 @@
 
     <div class="note">ここに書いていない細かい項目は <a href="ligastmir-features.html#p-voice">全機能・設定項目一覧（翻訳）</a> で検索できます。画面から自動で起こした一覧なので、配布中の版と同じ項目が並びます。</div>
 
+    <h2 id="builtin">内蔵の翻訳（上限なし・v0.9.11〜）</h2>
+    <p>Chrome／Edge に入っている翻訳の機能で、<strong>PC の中で訳します</strong>。文字数・回数の上限がなく、訳す文を外へ送りません。1 文 0.01〜0.03 秒で訳せて、PC の負担もわずかです。<strong>既定は OFF</strong> です。</p>
+    <div class="qsteps">
+      <div class="qstep"><b>字幕を止める</b><span>字幕（音声認識）が動いている間は、準備の窓が開けません（同じ場所に翻訳のデータを入れるため）。</span></div>
+      <div class="qstep"><b>「翻訳のモデルを取得…」を押す</b><span>「音声・コメント」ページの<strong>翻訳エンジン設定</strong>にあります。小さな窓が開きます。</span></div>
+      <div class="qstep"><b>言語ごとに「取得する」を押す</b><span>英語・韓国語など、いま選んでいる訳し先の数だけ押します。1 回で 1 言語です（ブラウザの決まりで、人が押したときだけ取得できます）。英語なら 1〜2 分ほど。</span></div>
+      <div class="qstep"><b>「内蔵の翻訳を使う」を ON にして、字幕を ON</b><span>「すべて取得しました」と出たら窓を閉じます。動作ログに「翻訳[内蔵の翻訳→en]」のように出れば使えています。</span></div>
+    </div>
+    <ul>
+      <li><strong>使う場面</strong> — 字幕の翻訳と、日本語コメントを海外向けに訳すとき。外国語のコメント→日本語は今までどおりです（DeepL・Google など）。</li>
+      <li><strong>字幕を ON にしているあいだだけ</strong> — 字幕の裏で動いているブラウザで訳すためです。</li>
+      <li><strong>DeepL のキーがある方</strong> — DeepL を先に使い、上限・不調のときに内蔵の翻訳へ回ります。訳の質は DeepL より少し落ちることがあります。</li>
+      <li><strong>ブラウザを変えたら</strong> — 「裏で使うブラウザ」を切り替えたら、そのブラウザでもう一度取得してください。</li>
+    </ul>
+
+    <h2 id="limits">翻訳の上限（数え方）</h2>
+    <ul>
+      <li><strong>内蔵の翻訳</strong> — 上限なし（PC の中で訳す）。</li>
+      <li><strong>DeepL（無料キー）</strong> — <strong>文字数</strong>で数えます。月 50 万文字が目安で、実際の残りはアプリの「キーを確認」に出ます。毎月、契約した日に戻ります。</li>
+      <li><strong>MyMemory</strong> — <strong>文字数</strong>。1 日 5,000 文字（メールアドレスを入れると 5 万文字）。毎日戻ります。</li>
+      <li><strong>Google 翻訳</strong> — 決まっていません。短い時間に多いと、しばらく断られます。</li>
+      <li><strong>LibreTranslate</strong> — 決まっていません。公開サーバーは断られることが多いです。</li>
+    </ul>
+    <p>文字数で数えるものは、<strong>訳し先の言語の数だけ</strong>かかります（英語＋スペイン語なら 2 倍）。目安として、字幕を 2 言語に訳すと 1 時間でおよそ 3 万文字でした（実測の一例）。</p>
+
     <h2>うまくいかないとき</h2>
     <div class="tcase"><b>翻訳されない</b>
       「チャット翻訳」がOFFのことがほとんどです。「音声・コメント」ページで確認してください。→ <a href="guide.html#twitch">使い方 ⑤コメント連動・翻訳</a></div>
+    <div class="tcase"><b>長い配信の途中から、翻訳が出なくなる</b>
+      無料の翻訳の上限に届いていることが多いです。<a href="#builtin">内蔵の翻訳</a>（上限なし）を使うか、<a href="#limits">上限の数え方</a>を見て増やしてください。アプリの「🔍 翻訳の内訳」（翻訳エンジン設定のいちばん下）で、どこで止まったかが分かります。</div>
     <div class="tcase"><b>短い日本語コメントが誤って翻訳される・スタンプが変に訳される</b>
       判定は自動調整されており、スタンプ（エモート）のコードは翻訳対象から除外されます。気になる例があれば <a href="https://discord.gg/QtQcEgn9JF" target="_blank" rel="noopener">Discord</a>
       <a href="https://x.com/curamar2525" target="_blank" rel="noopener">X</a> で教えてください。</div>

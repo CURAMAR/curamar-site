@@ -86,7 +86,7 @@
   <article>
     <span class="doc-eyebrow">PRIVACY POLICY</span>
     <h1>プライバシーポリシー</h1>
-    <div class="updated">最終更新: 2026年10月12日（v0.9.10 に合わせて全面的に書き直しました）</div>
+    <div class="updated">最終更新: 2026年10月16日（v0.9.11: 音声認識は Chrome／Edge・内蔵の翻訳を追記）</div>
 
     <div class="lead">
       本ポリシーは、curamar が運営するウェブサイト <strong>curamar.space</strong> と、配信支援ツール
@@ -145,16 +145,19 @@
     <div class="accent-box">
       <strong>翻訳（重要）</strong><br>
       翻訳を有効にすると、<strong>翻訳する文（コメント・字幕）が、外部の翻訳サービスに送られます。</strong>
-      使う順番は <strong>DeepL</strong>（キーを入れたとき）→ <strong>Google 翻訳</strong> → <strong>MyMemory</strong> → <strong>LibreTranslate</strong>（有志が運営する公開サーバー: <code>lt.vern.cc</code> / <code>translate.fedilab.app</code>）で、うまくいかないときは次に回ります。
+      使う順番は <strong>DeepL</strong>（キーを入れたとき）→ <strong>内蔵の翻訳</strong>（ON にしたとき）→ <strong>Google 翻訳</strong> → <strong>MyMemory</strong> → <strong>LibreTranslate</strong>（有志が運営する公開サーバー: <code>lt.vern.cc</code> / <code>translate.fedilab.app</code>）で、うまくいかないときは次に回ります。
       <strong>Google 翻訳は、Google の公式の API ではなく、人が使う Web の翻訳画面を使っています</strong>（Google の利用規約の「自動でのアクセス」の決まりに触れうる使い方です。Google に止められたときは自動で次に回ります）。
       MyMemory に連絡用のメールアドレスを入れた場合は、そのアドレスも MyMemory へのリクエストに付きます（枠を広げるため）。
-      各サービスのプライバシーポリシー・利用規約が適用されます。翻訳をオフにすれば、これらへの送信は行われません。
+      各サービスのプライバシーポリシー・利用規約が適用されます。翻訳をオフにすれば、これらへの送信は行われません。<br>
+      <strong>内蔵の翻訳</strong>（v0.9.11〜・既定はオフ）は、Chrome／Edge に入っている翻訳の機能で<strong>パソコンの中で訳す</strong>ため、訳す文は外へ送りません。
+      最初に言語ごとに 1 回、翻訳のデータ（モデル）を取得するときだけ、そのブラウザが Google（Chrome）／Microsoft（Edge）から取得します。
     </div>
 
     <div class="accent-box">
       <strong>音声認識（字幕）</strong><br>
-      字幕の音声認識を使うと、<strong>マイクの音声が Microsoft の音声認識サービスへ送られます</strong>（Microsoft Edge の仕組み〈WebView2 と見えない Edge〉で文字にしているため）。
-      Microsoft のプライバシーに関する声明が適用されます。字幕を止めている間は送られません。
+      字幕の音声認識を使うと、<strong>マイクの音声が、裏で使うブラウザの音声認識サービスへ送られます</strong>（見えないブラウザの仕組みで文字にしているため）。
+      <strong>Chrome＝Google／Edge＝Microsoft</strong> で、既定は Chrome が入っていれば Chrome です（v0.9.11〜・「音声・コメント」の「裏で使うブラウザ」で選べます）。
+      Google のプライバシーポリシー・Microsoft のプライバシーに関する声明が適用されます。字幕を止めている間は送られません。
     </div>
 
     <ul>

@@ -61,7 +61,8 @@
   .toc a:hover{border-color:var(--accent)}
   /* 1 つの機能 */
   .tip{margin:0 0 46px;scroll-margin-top:80px}
-  .tip h2{font-family:var(--font-disp);font-size:22px;font-weight:700;margin:0 0 6px;padding-left:14px;border-left:3px solid var(--accent);text-wrap:balance}
+  h2.grp{font-family:var(--font-mono);font-size:13px;font-weight:700;letter-spacing:.14em;color:var(--accent-cool);margin:54px 0 18px;padding-bottom:8px;border-bottom:1px solid var(--bg-line)}
+  .tip h3{font-family:var(--font-disp);font-size:22px;font-weight:700;margin:0 0 6px;padding-left:14px;border-left:3px solid var(--accent);text-wrap:balance}
   .tip .where{font-size:12.5px;color:var(--ink-dim);margin:0 0 10px 17px}
   .tip .where b{color:var(--ink);font-weight:600}
   .tip p{font-size:15px;margin:0 0 12px;max-width:62ch}
@@ -79,7 +80,9 @@
   .steps figcaption{font-size:12.5px;color:var(--ink-dim);padding:8px 11px 9px;line-height:1.55}
   .steps figcaption::before{content:counter(st);display:inline-grid;place-items:center;width:20px;height:20px;margin-right:7px;border-radius:6px;
     background:var(--accent);color:#0d1014;font-family:var(--font-mono);font-weight:700;font-size:12px;vertical-align:1px}
-  @media(max-width:640px){.steps{grid-template-columns:1fr}}
+  .steps.two{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .clip.still img{display:block;width:100%;height:auto}
+  @media(max-width:640px){.steps,.steps.two{grid-template-columns:1fr}}
   .note{background:var(--bg-soft);border:1px solid var(--bg-line);border-radius:10px;padding:14px 18px;font-size:14px;color:var(--ink-dim);margin:8px 0 18px}
   .cta-row{display:flex;gap:14px;flex-wrap:wrap;margin:30px 0 8px}
   .cta{display:inline-flex;align-items:center;gap:9px;background:var(--accent);color:#0d1014;font-weight:700;font-size:15px;
@@ -108,17 +111,26 @@
   <article>
     <div class="doc-eyebrow">TIPS</div>
     <h1>知っておくと<span class="hl">便利な機能</span></h1>
-    <p class="lead">設定がどこにあるか分からないとき、配信の前や途中に困ったとき。<strong>見れば分かる</strong>ように、動きで紹介します。</p>
+    <p class="lead">設定がどこにあるか分からないとき、配信の前や途中に困ったとき。<strong>見れば分かる</strong>ように、動きで紹介します（画面はお試し用の表示で、名前・日付・結果は例です）。</p>
 
     <nav class="toc" aria-label="このページの機能">
       <a href="#search">🔍 設定を言葉で探す</a>
       <a href="#wants">🔎 やりたいことから探す</a>
-      <a href="#preset">✨ 字幕の動きのおすすめ</a>
+      <a href="#preset">✨ 字幕のおすすめ</a>
+      <a href="#sample">▶ サンプル字幕</a>
+      <a href="#batch">⚡ 一括スタート</a>
+      <a href="#softpause">⏸ 軽い停止</a>
+      <a href="#overlays">👁 出す／しまう</a>
+      <a href="#diag">🩺 総合診断</a>
+      <a href="#logzip">📦 報告用 zip</a>
+      <a href="#backup">🛟 バックアップ</a>
     </nav>
 
-    <!-- 動く画像は _handoff/tools/site_capture.py の場面から作る（場面の名前＝ファイル名）。版の表示は写さない＝配布のたびに撮り直さなくてよい -->
+    <!-- 動く画像・静止画は _handoff/tools/site_capture.py の場面から作る（場面の名前＝ファイル名）。版の表示は写さない＝配布のたびに撮り直さなくてよい -->
+    <h2 class="grp">設定を探す</h2>
+
     <section class="tip" id="search">
-      <h2>🔍 設定を言葉で探す（<kbd>Ctrl</kbd>＋<kbd>K</kbd>）</h2>
+      <h3>🔍 設定を言葉で探す（<kbd>Ctrl</kbd>＋<kbd>K</kbd>）</h3>
       <div class="where">場所: <b>左メニューのいちばん上</b>（どのページからでも <kbd>Ctrl</kbd>＋<kbd>K</kbd>）</div>
       <p>探したい言葉を打つだけで、その設定の場所が出ます。<strong>言い方が違っても見つかります</strong>（「ふち」→「縁取り」、「光る」→「ネオン」）。<kbd>Enter</kbd> で、その場所まで連れて行って光らせます。</p>
       <figure class="clip">
@@ -134,26 +146,107 @@
     </section>
 
     <section class="tip" id="wants">
-      <h2>🔎 やりたいことから探す</h2>
+      <h3>🔎 やりたいことから探す</h3>
       <div class="where">場所: <b>INFO</b> の「🔎 やりたいことから探す」（使い方ガイドの 1 章）。<kbd>Ctrl</kbd>＋<kbd>K</kbd> の検索にも出ます</div>
       <p>「〜したい」で探せる一覧です。<strong>機能の名前を知らなくても大丈夫</strong>。「そこへ ↗」で、その設定まで連れて行きます。</p>
       <figure class="clip">
         <video data-clip src="assets/clips/wants.mp4" poster="assets/clips/wants-poster.webp" muted loop playsinline preload="none"
-               aria-label="はじめの案内の「やりたいことから探す」で「光らせたい」と打つと「字幕の見た目を変えたい」などが出て、「そこへ」を押すと字幕の設定の「サンプル字幕を出しておく」の行まで移動して光る様子"></video>
+               aria-label="使い方ガイドの「やりたいことから探す」で「光らせたい」と打つと「字幕の見た目を変えたい」などが出て、「そこへ」を押すと字幕の設定の「サンプル字幕を出しておく」の行まで移動して光る様子"></video>
         <figcaption><span>「光らせたい」と打つ → 「そこへ ↗」 → 字幕の見た目の設定へ</span><span class="playhint">クリックで一時停止</span></figcaption>
       </figure>
     </section>
 
+    <h2 class="grp">字幕を整える</h2>
+
     <section class="tip" id="preset">
-      <h2>✨ 字幕の動きを「おすすめ」にする</h2>
+      <h3>✨ 字幕の動きを「おすすめ」にする</h3>
       <div class="where">場所: <b>音声・コメント › 字幕表示設定 › ① 表示</b>の先頭</div>
-      <p><strong>1 回押すだけ</strong>で、改行・行数・消えるまでの秒数が、読みやすい組み合わせになります。色・大きさ・位置は変わりません。テンポの速い配信には「⚡ すばやく」、じっくり読んでもらうなら「🐢 ゆっくり読ませる」。</p>
+      <p><strong>1 回押すだけ</strong>で、改行・行数・消えるまでの秒数が、読みやすい組み合わせになります（「入りきらないぶんを流す」は OFF に）。色・大きさ・位置は変わりません。テンポの速い配信には「⚡ すばやく」、じっくり読んでもらうなら「🐢 ゆっくり読ませる」。</p>
       <figure class="clip">
         <video data-clip src="assets/clips/preset.mp4" poster="assets/clips/preset-poster.webp" muted loop playsinline preload="none"
                aria-label="「いま: 自分の設定」の状態で「おすすめにする」を押すと、文ごとに改行・言葉の区切りで改行に印が付き、消えるまでが 4 秒、最大行数が 2 行になり、「いま: おすすめ」に変わる様子"></video>
         <figcaption><span>押すと「いま: おすすめ」に。変わった所が順に光ります</span><span class="playhint">クリックで一時停止</span></figcaption>
       </figure>
       <p class="note">ひとつずつの意味は <a href="feature-subtitle.html#settings">字幕のページ</a> にあります。</p>
+    </section>
+
+    <section class="tip" id="sample">
+      <h3>▶ サンプル字幕を出したまま見た目を合わせる</h3>
+      <div class="where">場所: <b>音声・コメント › 字幕表示設定</b>の先頭（<b>テスト/ログ</b>にも同じスイッチ）</div>
+      <p>話さなくても、OBS にサンプルの字幕と翻訳字幕が<strong>出たまま</strong>になります。色や大きさを変えると、その場で OBS の見え方が変わるので、見ながら合わせられます。OFF で消えます。</p>
+      <div class="steps two">
+        <figure><img src="assets/clips/sample-step1.webp" alt="字幕表示設定の「サンプル字幕を出しておく」のスイッチが ON になっている" loading="lazy" width="1200" height="720"><figcaption>「▶ サンプル字幕を出しておく」を ON</figcaption></figure>
+        <figure><img src="assets/clips/sample-step2.webp" style="object-position:center" alt="OBS の画面の下に「こんばんは、配信を始めます！」「今日はゲームをやっていきます」の 2 行と、英語の翻訳字幕が出ている" loading="lazy" width="1200" height="675"><figcaption>OBS に字幕と翻訳字幕のサンプルが出たまま</figcaption></figure>
+      </div>
+    </section>
+
+    <h2 class="grp">配信の前・配信中</h2>
+
+    <section class="tip" id="batch">
+      <h3>⚡ 一括スタート／一括ストップ</h3>
+      <div class="where">場所: 対象は <b>一括オン設定</b> で選ぶ・押すのは <b>ダッシュボードの「⚡ 一括スタート」</b>（一括オン設定のページにもボタン）</div>
+      <p>配信のたびに各ページを回ってスイッチを入れる手間がなくなります。<strong>チェックした機能だけ</strong>をまとめて ON／接続。すでに ON のものはそのまま。「一括ストップ」は、いま ON のものだけをまとめて OFF にします。</p>
+      <div class="steps two">
+        <figure><img src="assets/clips/batch-step1.webp" alt="一括オン設定の対象項目で、OBS 接続・字幕認識・字幕翻訳・コメント読み上げにチェックが入っている" loading="lazy" width="1200" height="720"><figcaption>一括オン設定で、配信で使う機能にチェック</figcaption></figure>
+        <figure><img src="assets/clips/batch-step2.webp" alt="ダッシュボードの「一括スタート」ウィジェットの大きなボタン" loading="lazy" width="1200" height="720"><figcaption>配信の前に「⚡ 一括スタート」を 1 回</figcaption></figure>
+      </div>
+    </section>
+
+    <section class="tip" id="softpause">
+      <h3>⏸ 困ったら「軽い停止」</h3>
+      <div class="where">場所: <b>画面の右上</b>（どのページでも）</div>
+      <p>読み上げが詰まった・演出が止まらないときに 1 回押すと、<strong>読み上げ・翻訳・演出だけ</strong>が止まります。コメントの表示と接続はそのまま。もう一度押すと再開します。</p>
+      <figure class="clip">
+        <video data-clip src="assets/clips/softpause.mp4" poster="assets/clips/softpause-poster.webp" muted loop playsinline preload="none"
+               aria-label="右上の「軽い停止」を押すと「再開（停止中）」に変わり、読み上げ・翻訳・演出だけを止めると説明が出て、もう一度押すと元に戻る様子"></video>
+        <figcaption><span>押すと「▶ 再開（停止中）」に。もう一度で戻ります</span><span class="playhint">クリックで一時停止</span></figcaption>
+      </figure>
+    </section>
+
+    <section class="tip" id="overlays">
+      <h3>👁 OBS を触らずに「出す／しまう」</h3>
+      <div class="where">場所: <b>ブラウザソース</b>の各カードの右のスイッチ（「全部出す」「全部しまう」も）・ダッシュボードの「👁 オーバーレイ表示」</div>
+      <p>コメビューや弾幕などを、<strong>OBS を開かずに</strong>消したり出したりできます。OBS のソースは残ったまま（中身が透明になるだけ）なので、戻すのもワンタッチ。OBS と連携していなくても効きます。</p>
+      <figure class="clip">
+        <video data-clip src="assets/clips/overlays.mp4" poster="assets/clips/overlays-poster.webp" muted loop playsinline preload="none"
+               aria-label="ブラウザソースのページで、コメビューのカードの右のスイッチを押すと OFF になり、OBS を触らずにしまえると説明が出て、もう一度押すと ON に戻る様子"></video>
+        <figcaption><span>スイッチ 1 つで、そのオーバーレイだけしまう／出す</span><span class="playhint">クリックで一時停止</span></figcaption>
+      </figure>
+      <p class="note">OBS 側の表示が止まったときは、同じ行の「↻ OBS側を更新」で Ligastmir のブラウザソースだけを読み込み直せます（OBS と連携しているとき）。</p>
+    </section>
+
+    <h2 class="grp">うまくいかないとき</h2>
+
+    <section class="tip" id="diag">
+      <h3>🩺 総合診断</h3>
+      <div class="where">場所: <b>テスト/ログ › 総合診断</b>の「🔍 診断実行」</div>
+      <p>主な機能をまとめて点検します。使っていない機能は「—」と出るだけで正常。<strong>うまくいっていない所には、原因の見当と次に試すことが日本語で</strong>出ます。結果は動作ログにも残ります。</p>
+      <figure class="clip">
+        <video data-clip src="assets/clips/diag.mp4" poster="assets/clips/diag-poster.webp" muted loop playsinline preload="none"
+               aria-label="総合診断を押すと結果が 1 行ずつ出て、マイクの行に「前に選んだデバイスが見つかりません」と、原因かも・試すことが続く様子（結果は例）"></video>
+        <figcaption><span>✅ は OK・❌ は要確認。すぐ下に「原因かも／試すこと」（結果は例）</span><span class="playhint">クリックで一時停止</span></figcaption>
+      </figure>
+    </section>
+
+    <section class="tip" id="logzip">
+      <h3>📦 困ったときの送り方（報告用 zip）</h3>
+      <div class="where">場所: <b>テスト/ログ › ログの場所・報告用の書き出し</b>の「📦 報告用にまとめる（zip）」</div>
+      <p>押すと動作ログを zip 1 つにまとめます。そのまま <a href="https://discord.gg/QtQcEgn9JF" target="_blank" rel="noopener">Discord</a> や報告フォームに添付してください。<strong>設定・認証情報・コメントログは入りません</strong>（動作ログにもコメント本文・視聴者名は書きません）。</p>
+      <figure class="clip">
+        <video data-clip src="assets/clips/logzip.mp4" poster="assets/clips/logzip-poster.webp" muted loop playsinline preload="none"
+               aria-label="報告用にまとめる（zip）を押すと「書き出しました」に変わり、そのまま添付できると説明が出る様子"></video>
+        <figcaption><span>押すと「✅ 書き出しました」。できた zip を添付するだけ</span><span class="playhint">クリックで一時停止</span></figcaption>
+      </figure>
+    </section>
+
+    <section class="tip" id="backup">
+      <h3>🛟 自動のバックアップから戻す</h3>
+      <div class="where">場所: <b>テスト/ログ › 設定・名簿のバックアップ</b></div>
+      <p>設定・読み上げ辞書・名簿・集計の 4 つは、<strong>起動のたびに自動で控え</strong>ています（中身が変わったときだけ）。「設定が勝手に消えた・元に戻したい」ときは、控えを選んで「この時点に戻す」。戻す前の状態も自動で控えるので、やり直せます。戻したあとはアプリを起動し直してください。控えはパソコンの中だけに置かれます。</p>
+      <figure class="clip still">
+        <img src="assets/clips/backup.webp" alt="設定・名簿のバックアップの一覧に、日付ごとの控えと「この時点に戻す」ボタンが並んでいる" loading="lazy" width="1200" height="720">
+        <figcaption><span>日付ごとの控えから「↩ この時点に戻す」（日付は例）</span></figcaption>
+      </figure>
     </section>
 
     <div class="cta-row">

@@ -288,7 +288,10 @@
   var vids = document.querySelectorAll('video[data-clip]');
   vids.forEach(function (v) {
     v.muted = true; v.playsInline = true;
-    v.addEventListener('click', function () { v.dataset.user = '1'; if (v.paused) { v.play().catch(function () {}); } else { v.pause(); } });
+    function toggle() { v.dataset.user = '1'; if (v.paused) { v.play().catch(function () {}); } else { v.pause(); } }
+    v.setAttribute('tabindex', '0');
+    v.addEventListener('click', toggle);
+    v.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(); } });
     if (reduce) { v.controls = true; return; }
     if (!('IntersectionObserver' in window)) { v.preload = 'auto'; v.play().catch(function () {}); return; }
     new IntersectionObserver(function (entries) {

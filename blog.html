@@ -167,7 +167,8 @@
 
   </div>
 
-  <!-- 記事がまだ無い時に表示する空状態（記事を1つでも足したら下の hidden を消す or 放置でOK・JSが制御） -->
+  <!-- 記事が無い区分を選んだ時に表示する空状態（JS が制御） -->
+  <div class="empty" id="blog-empty" hidden><div class="mono">NO POSTS YET</div>この区分の記事はまだありません。</div>
 </div>
 
 <footer>
@@ -204,9 +205,14 @@
       chips.forEach(function(x){x.classList.remove('active')});
       c.classList.add('active');
       var cat=c.dataset.cat;
+      var shown=0;
       posts.forEach(function(p){
-        p.style.display=(cat==='all'||p.dataset.cat===cat)?'':'none';
+        var on=(cat==='all'||p.dataset.cat===cat);
+        p.style.display=on?'':'none';
+        if(on) shown++;
       });
+      var em=document.getElementById('blog-empty');
+      if(em) em.hidden=shown>0;
     });
   });
 </script>

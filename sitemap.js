@@ -59,7 +59,8 @@
         { t: "Twitch 配信", d: "ゲーム配信（DBD 中心）", href: "https://www.twitch.tv/curamar", ext: true },
         { t: "カクヨム（SF小説）", d: "アンチ・エントロピア 連載中", href: "https://kakuyomu.jp/users/CURAMAR", ext: true },
         { t: "Discord", d: "質問・FB・雑談コミュニティ", href: "https://discord.gg/QtQcEgn9JF", ext: true },
-        { t: "不具合報告・要望", d: "Google フォーム（匿名OK）", href: "https://forms.gle/RFj81KQe1nFik4L76", ext: true }
+        { t: "X", d: "配信・配布の告知（@curamar2525）", href: "https://x.com/curamar2525", ext: true },
+        { t: "不具合報告・要望", d: "Google フォーム（ファイルなしなら名前なしで送れます）", href: "https://forms.gle/RFj81KQe1nFik4L76", ext: true }
       ]
     }
   ];

@@ -21,7 +21,7 @@
 <meta name="twitter:image" content="https://curamar.space/assets/og-image.png">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <script type="application/ld+json">
-{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "OBS の代わりになるソフト？ OBS に入れている広告（SCOP など）やウィジェットはどうなる？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ、OBS の代わりではありません。配信・録画は今まで通り OBS で行い、Ligastmir は横で動かす補助ツールです。字幕・コメビュー・アラートなどは、OBS に「ブラウザソース」として追加して使います。なので、OBS に入れている広告サービス（SCOP など）や他のツールのブラウザソースは、そのまま一緒に使えます。コメントや演出を広告に重ねたくないときは、OBS のソースの並びで広告を上に置いてください（広告の置き方の決まりは、各サービスのガイドをご確認ください）。「↻ OBS側を更新」ボタンも、v0.9.8 からは Ligastmir のソースだけを読み込み直します（v0.9.7 までは他のブラウザソースも読み込み直していました）。"}}, {"@type": "Question", "name": "「Twitch のコメント1通で、OBS の中からプログラムが動く」という話（2026年9月）は、Ligastmir に関係ありますか？", "acceptedAnswer": {"@type": "Answer", "text": "Ligastmir の表示（コメビュー・弾幕・アラート・字幕・ピックアップなど）は、この攻撃の入口になりません。この攻撃は、コメントを HTML のまま画面にはめ込むチャット表示・OBS 32.2.2 以前の内蔵ブラウザの既知の穴・OBS がブラウザの保護（サンドボックス）を切っていること、の3つがそろったときに起きます。Ligastmir はコメント・名前・チャネポの入力をすべて文字として出しているので、1つ目に当たりません（v0.9.7 以前の版も同じです）。そのうえで、OBS の新しい版（33 で直る予定）が出たら更新し（v0.9.8 からは古い OBS につないだときに一度だけお知らせします）、ほかのツールのチャット表示・通知・オーバーレイ・ドックは提供元を確かめてください。"}}, {"@type": "Question", "name": "今使っている配信ツール（わんコメ等）と併用できますか？", "acceptedAnswer": {"@type": "Answer", "text": "はい、併用できます。Ligastmir は OBS を補助する役割で、既存のツールと一緒に使えます。"}}, {"@type": "Question", "name": "VOICEVOX は必須ですか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ、任意です。Windows 標準の音声（SAPI5）なら準備なしでそのまま読み上げできます。VOICEVOX や棒読みちゃんは使いたい人だけ。"}}, {"@type": "Question", "name": "無料ですか？", "acceptedAnswer": {"@type": "Answer", "text": "無料です。各自が自分の API キー等を設定して使う形なので、サーバー費用もかかりません。"}}, {"@type": "Question", "name": "インストールは必要ですか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。exe をダブルクリックするだけで動きます（Python などのインストールは不要）。"}}, {"@type": "Question", "name": "設定や取り込んだ素材は、どこに保存されている？", "acceptedAnswer": {"@type": "Answer", "text": "インストーラー版（v1.0.0 で配布予定・準備中）は Windows のアプリ用の場所（%LOCALAPPDATA%\\Ligastmir）、zip 版は Ligastmir.exe と同じフォルダです。アプリの「詳細設定 → 📂 データの置き場所」で場所を確かめて、エクスプローラーで開けます。"}}, {"@type": "Question", "name": "海外の視聴者のコメントは読めますか？", "acceptedAnswer": {"@type": "Answer", "text": "翻訳をONにすると、原文＋日本語訳の2段表示になり、日本語訳を読み上げます。言語は自動検出です。"}}, {"@type": "Question", "name": "動作が重い／読み上げが遅いときは？", "acceptedAnswer": {"@type": "Answer", "text": "PC環境による「順番待ち」や合成の重さが原因のことが多いです。使い方ページに対処をまとめています。"}}, {"@type": "Question", "name": "字幕やコメビューの見た目（フォント・位置）は変えられますか？", "acceptedAnswer": {"@type": "Answer", "text": "はい。フォントを5種類から選べ、字幕は色・サイズ・表示位置・最大行数を調整できます。翻訳字幕は日本語字幕と別の位置に置けるので、ゲーム画面やワイプに被らないよう逃がせます。"}}, {"@type": "Question", "name": "配信タイトルやカテゴリをツールから変更できますか？", "acceptedAnswer": {"@type": "Answer", "text": "できます。Twitch はタイトル・カテゴリ・タグ、YouTube はタイトル・説明・サムネイルをツール内から変更できます。配信タイトルは Twitch と YouTube の両方へ一度で反映することもできます。"}}, {"@type": "Question", "name": "コメントやスタンプで演出を出せますか？", "acceptedAnswer": {"@type": "Answer", "text": "はい。リアクション機能で、特定のキーワード・スタンプ・イベントをきっかけに効果音や画像・絵文字の演出を自動で出せます。何も設定しなければ演出は出ません。"}}, {"@type": "Question", "name": "ダウンロードしたものが本物か確認できますか？", "acceptedAnswer": {"@type": "Answer", "text": "公式の入手先はこのサイトと公式Discordだけです。ツールは起動時に本体を自己チェックし、書き換えを検知すると警告します。見分け方は専用ページにまとめています。"}}, {"@type": "Question", "name": "OBSに字幕やコメビューが表示されない", "acceptedAnswer": {"@type": "Answer", "text": "ブラウザソースの「非アクティブ時にソースをシャットダウンする」のチェックを外すのが第一手。次に Ligastmir が起動しているか、URLが正しいかを確認します。Ligastmir を OBS より先に起動（またはOBSの同伴起動を使用）すると確実です。"}}, {"@type": "Question", "name": "テスト字幕は出るのに、本番の字幕が出ない", "acceptedAnswer": {"@type": "Answer", "text": "アプリを OneDrive などの同期フォルダ直下に置かない、マイクを 16bit・48000Hz・モノラルにすると直ることが多いです。"}}, {"@type": "Question", "name": "コメントが取得できない", "acceptedAnswer": {"@type": "Answer", "text": "「配信」ページで接続しているか確認してください。Twitch はチャンネル名を入れて接続するだけ（登録不要）。YouTube は配信URLとAPIキーが必要です。"}}, {"@type": "Question", "name": "読み上げが動かない・声が出ない", "acceptedAnswer": {"@type": "Answer", "text": "Windowsの音量と出力先デバイスを確認。VOICEVOX の声なら VOICEVOX 本体が起動しているか、棒読みちゃんなら本体を先に起動してからエンジンを選んだかを確認してください。"}}, {"@type": "Question", "name": "翻訳されない", "acceptedAnswer": {"@type": "Answer", "text": "「チャット翻訳」がOFFのことがほとんどです。「音声・コメント」ページでONにしてください。言語の指定は不要（自動検出）です。 長い配信の途中から出なくなったときは、無料の翻訳の上限に届いていることが多いです。MyMemory のメールアドレス・DeepL の無料キーで増やせます（翻訳字幕と、日本語コメントを海外向けに訳すときは、内蔵の翻訳〈上限なし・v0.9.11〜〉も使えます）。"}}, {"@type": "Question", "name": "VOICEVOX が起動しない・エラーになる", "acceptedAnswer": {"@type": "Answer", "text": "「自動検出」でパスを設定し直すか、VOICEVOX のGPUモードを対応GPUが無い環境ではCPUモードに変更してください。"}}, {"@type": "Question", "name": "Windows の警告（SmartScreen）が出る・起動してもすぐ閉じる", "acceptedAnswer": {"@type": "Answer", "text": "署名なしの個人開発アプリのため警告が出ることがあります。「詳細情報 → 実行」で起動できます。すぐ閉じる場合はダウンロード時のブロックが原因で、付属の 起動.bat から起動すると自動で解除されます。"}}, {"@type": "Question", "name": "字幕だけ使いたい", "acceptedAnswer": {"@type": "Answer", "text": "マイクを選んで音声認識をONにし、字幕URLをOBSに貼るだけです。チャット接続は不要です。"}}, {"@type": "Question", "name": "コメント読み上げだけ使いたい", "acceptedAnswer": {"@type": "Answer", "text": "エンジンを選んで（Windows標準なら準備なし）、配信ページでチャンネルに接続するだけ。OBSは不要です。"}}, {"@type": "Question", "name": "OBSの画面にコメントを出したい", "acceptedAnswer": {"@type": "Answer", "text": "コメントビューのURLをOBSのブラウザソースに貼るだけです（推奨 1920×1080＝画面と同じ大きさにして、アプリ側で位置・余白・幅を決める方式です／v0.9.3〜）。色・サイズ・件数はアプリからリアルタイム調整できます。"}}, {"@type": "Question", "name": "海外の視聴者と交流したい", "acceptedAnswer": {"@type": "Answer", "text": "「チャット翻訳」をONにすると、コメントが日本語2段表示＋日本語読み上げになります。自分の字幕に英訳を重ねることもできます。"}}, {"@type": "Question", "name": "コメントやスタンプで演出を出したい", "acceptedAnswer": {"@type": "Answer", "text": "「リアクション」機能で、キーワード・スタンプ・配信イベントをきっかけに画像・効果音・絵文字を自動発火できます。何も設定しなければ演出は出ません。"}}, {"@type": "Question", "name": "YouTube 配信で使いたい・Twitch と同時に使いたい", "acceptedAnswer": {"@type": "Answer", "text": "YouTube はコメント取得・読み上げ・翻訳・コメビューに対応。タイトルやサムネイルの変更もでき、Twitch と併用時は「両方へ反映」で片方の変え忘れを防げます。"}}, {"@type": "Question", "name": "配信前の準備をまとめてやりたい", "acceptedAnswer": {"@type": "Answer", "text": "ダッシュボードで接続チェック・一括スタート・演出のテスト発火まで1画面にまとめられます。ウィジェットは自由に配置できます。"}}, {"@type": "Question", "name": "YouTube の認証が切れる／サムネイル・配信情報が反映できない", "acceptedAnswer": {"@type": "Answer", "text": "もう一度「YouTubeで認証する」を押せばその場で直ります。7日ごとに繰り返す場合は、Google 側の公開ステータスが「テスト」のままです（テスト中は Google の仕様で認証が7日で切れます）。Google Cloud の「Google Auth Platform → 対象」で「本番」に切り替えると切れなくなります（審査は不要）。なお、コメントの取得は APIキーで動いているため、認証が切れてもコメントは止まりません。"}}, {"@type": "Question", "name": "「脅威が見つかりました」と出て、ダウンロードできない・ファイルが消される", "acceptedAnswer": {"@type": "Answer", "text": "誤検知です。Python で作ったアプリを exe にまとめる道具（PyInstaller）が不正なプログラムにも使われるため、中身に関係なく同じ形として推定されることがあります。根拠は、同じファイルなのに環境ごとに違う検出名が付くこと、検出される版とされない版が交互に出ることです。対処は Ligastmir のフォルダだけをウイルス対策の「除外」に追加してください。一度消された場合は、先に「保護の履歴」からその項目を「デバイスで許可」してください（これをしないと入れ直しても同じところで消えます）。Microsoft には誤検知の報告を出しています。判定は版ごとに揺れるため、今後いっさい出ないとはお約束できません。"}}, {"@type": "Question", "name": "「発行元が確認できなかったためブロックしました」と出て起動できない", "acceptedAnswer": {"@type": "Answer", "text": "これはウイルス判定ではなく、Windows 11 の「スマート アプリ コントロール」という別の機能です。署名が付いていないアプリを一律で止めます。⚠ この機能は一度オフにすると元に戻せません（もう一度オンにするには Windows の再セットアップが必要です）。そのうえで進めるか決めてください。オフにする場合は Windows セキュリティ →「アプリとブラウザー コントロール」→「スマート アプリ コントロールの設定」→「オフ」です。なお、オフにしてもウイルス対策側で別に消されることがあります。"}}]}
+{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "OBS の代わりになるソフト？ OBS に入れている広告（SCOP など）やウィジェットはどうなる？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ、OBS の代わりではありません。配信・録画は今まで通り OBS で行い、Ligastmir は横で動かす補助ツールです。字幕・コメビュー・アラートなどは、OBS に「ブラウザソース」として追加して使います。なので、OBS に入れている広告サービス（SCOP など）や他のツールのブラウザソースは、そのまま一緒に使えます。コメントや演出を広告に重ねたくないときは、OBS のソースの並びで広告を上に置いてください（広告の置き方の決まりは、各サービスのガイドをご確認ください）。「↻ OBS側を更新」ボタンも、v0.9.8 からは Ligastmir のソースだけを読み込み直します（v0.9.7 までは他のブラウザソースも読み込み直していました）。"}}, {"@type": "Question", "name": "「Twitch のコメント1通で、OBS の中からプログラムが動く」という話（2026年9月）は、Ligastmir に関係ありますか？", "acceptedAnswer": {"@type": "Answer", "text": "Ligastmir の表示（コメビュー・弾幕・アラート・字幕・ピックアップなど）は、この攻撃の入口になりません。この攻撃は、コメントを HTML のまま画面にはめ込むチャット表示・OBS 32.2.2 以前の内蔵ブラウザの既知の穴・OBS がブラウザの保護（サンドボックス）を切っていること、の3つがそろったときに起きます。Ligastmir はコメント・名前・チャネポの入力をすべて文字として出しているので、1つ目に当たりません（v0.9.7 以前の版も同じです）。そのうえで、OBS の新しい版（33 で直る予定）が出たら更新し（v0.9.8 からは古い OBS につないだときに一度だけお知らせします）、ほかのツールのチャット表示・通知・オーバーレイ・ドックは提供元を確かめてください。"}}, {"@type": "Question", "name": "今使っている配信ツール（わんコメ等）と併用できますか？", "acceptedAnswer": {"@type": "Answer", "text": "はい、併用できます。Ligastmir は OBS を補助する役割で、既存のツールと一緒に使えます。"}}, {"@type": "Question", "name": "VOICEVOX は必須ですか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ、任意です。「音声・コメント」の「TTS 読み上げ」を ON にすれば、Windows 標準の音声（SAPI5）なら準備なしで読み上げます。VOICEVOX や棒読みちゃんは使いたい人だけ。VOICEVOX の声で配信するときは、説明欄などに「VOICEVOX:ずんだもん」のようなクレジットが要ります（使った声はアプリの「📋 コピー」で貼れます）。"}}, {"@type": "Question", "name": "無料ですか？", "acceptedAnswer": {"@type": "Answer", "text": "無料です。有料版や支援者だけの機能はありません。YouTube のコメント取得など一部の連携だけ、各自の無料の API キーを使います。"}}, {"@type": "Question", "name": "インストールは必要ですか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。zip を解凍して、中の 起動.bat をダブルクリックするだけです（Python などのインストールは不要）。ダウンロード直後に exe を直接開くと、起動しないことがあります。"}}, {"@type": "Question", "name": "設定や取り込んだ素材は、どこに保存されている？", "acceptedAnswer": {"@type": "Answer", "text": "インストーラー版（v1.0.0 で配布予定・準備中）は Windows のアプリ用の場所（%LOCALAPPDATA%\\Ligastmir）、zip 版は Ligastmir.exe と同じフォルダです。アプリの「詳細設定 → 📂 データの置き場所」で場所を確かめて、エクスプローラーで開けます。"}}, {"@type": "Question", "name": "海外の視聴者のコメントは読めますか？", "acceptedAnswer": {"@type": "Answer", "text": "翻訳をONにすると、原文＋日本語訳の2段表示になり、日本語訳を読み上げます。言語は自動検出です。"}}, {"@type": "Question", "name": "動作が重い／読み上げが遅いときは？", "acceptedAnswer": {"@type": "Answer", "text": "PC環境による「順番待ち」や合成の重さが原因のことが多いです。使い方ページに対処をまとめています。"}}, {"@type": "Question", "name": "字幕やコメビューの見た目（フォント・位置）は変えられますか？", "acceptedAnswer": {"@type": "Answer", "text": "はい。フォントを5種類から選べ、字幕は色・サイズ・表示位置・最大行数を調整できます。翻訳字幕は日本語字幕と別の位置に置けるので、ゲーム画面やワイプに被らないよう逃がせます。"}}, {"@type": "Question", "name": "配信タイトルやカテゴリをツールから変更できますか？", "acceptedAnswer": {"@type": "Answer", "text": "できます。Twitch はタイトル・カテゴリ・タグ、YouTube はタイトル・説明・サムネイルをツール内から変更できます。配信タイトルは Twitch と YouTube の両方へ一度で反映することもできます。"}}, {"@type": "Question", "name": "コメントやスタンプで演出を出せますか？", "acceptedAnswer": {"@type": "Answer", "text": "はい。リアクション機能で、特定のキーワード・スタンプ・イベントをきっかけに効果音や画像・絵文字の演出を自動で出せます。何も設定しなければ演出は出ません。"}}, {"@type": "Question", "name": "ダウンロードしたものが本物か確認できますか？", "acceptedAnswer": {"@type": "Answer", "text": "公式の入手先は、このサイトと公式Discordだけです。ダウンロードボタンのファイルは GitHub の CURAMAR/ligastmir-releases から届きます（ここも公式です）。ツールは起動時に本体を自己チェックし、書き換えを検知すると警告します。見分け方は専用ページにまとめています。"}}, {"@type": "Question", "name": "OBSに字幕やコメビューが表示されない", "acceptedAnswer": {"@type": "Answer", "text": "ブラウザソースの「非アクティブ時にソースをシャットダウンする」のチェックを外すのが第一手。次に Ligastmir が起動しているか、URLが正しいかを確認します。Ligastmir を OBS より先に起動（またはOBSの同伴起動を使用）すると確実です。"}}, {"@type": "Question", "name": "テスト字幕は出るのに、本番の字幕が出ない", "acceptedAnswer": {"@type": "Answer", "text": "まず Windows の既定のマイクを確かめてください（字幕は Windows の「既定の入力デバイス」の音で作ります）。そのうえで、アプリを OneDrive などの同期フォルダ直下に置かない、マイクを 16bit・48000Hz・モノラルにすると直ることが多いです。"}}, {"@type": "Question", "name": "コメントが取得できない", "acceptedAnswer": {"@type": "Answer", "text": "「配信」ページで接続しているか確認してください。Twitch はチャンネル名を入れて接続するだけ（登録不要）。YouTube は配信URLとAPIキーが必要です。"}}, {"@type": "Question", "name": "読み上げが動かない・声が出ない", "acceptedAnswer": {"@type": "Answer", "text": "Windowsの音量と出力先デバイスを確認。VOICEVOX の声なら VOICEVOX 本体が起動しているか、棒読みちゃんなら本体を先に起動してからエンジンを選んだかを確認してください。"}}, {"@type": "Question", "name": "翻訳されない", "acceptedAnswer": {"@type": "Answer", "text": "「チャット翻訳」がOFFのことがほとんどです。「音声・コメント」ページでONにしてください。言語の指定は不要（自動検出）です。 長い配信の途中から出なくなったときは、無料の翻訳の上限に届いていることが多いです。MyMemory のメールアドレス・DeepL の無料キーで増やせます（翻訳字幕と、日本語コメントを海外向けに訳すときは、内蔵の翻訳〈上限なし・v0.9.11〜〉も使えます）。"}}, {"@type": "Question", "name": "VOICEVOX が起動しない・エラーになる", "acceptedAnswer": {"@type": "Answer", "text": "「自動検出」でパスを設定し直すか、VOICEVOX のGPUモードを対応GPUが無い環境ではCPUモードに変更してください。"}}, {"@type": "Question", "name": "不具合を報告したい・ログの送り方は？", "acceptedAnswer": {"@type": "Answer", "text": "左メニューの「テスト/ログ」→「📦 報告用にまとめる（zip）」を押し、できた zip を Discord か報告フォームに付けてください（設定・認証情報・コメントログは入りません）。版（画面上部の v0.9.11 など）と、何をしたらどうなったかを一言添えてもらえると助かります。ログのフォルダから手で選ぶときは、chat_ で始まるファイル（視聴者の名前とコメント入り）は送らないでください。"}}, {"@type": "Question", "name": "Windows の警告（SmartScreen）が出る・起動してもすぐ閉じる", "acceptedAnswer": {"@type": "Answer", "text": "署名なしの個人開発アプリのため警告が出ることがあります。「詳細情報 → 実行」で起動できます。すぐ閉じる場合はダウンロード時のブロックが原因で、付属の 起動.bat から起動すると自動で解除されます。"}}, {"@type": "Question", "name": "字幕だけ使いたい", "acceptedAnswer": {"@type": "Answer", "text": "Windows の「設定 → システム → サウンド → 入力」で使うマイクを既定にして、「音声・コメント」で字幕を ON にし、字幕の URL を OBS に貼るだけです。チャット接続は不要です。"}}, {"@type": "Question", "name": "コメント読み上げだけ使いたい", "acceptedAnswer": {"@type": "Answer", "text": "「音声・コメント」の「TTS 読み上げ」を ON にし、エンジンを選んで（Windows 標準なら準備なし）、配信ページでチャンネルに接続するだけ。OBS は不要です。"}}, {"@type": "Question", "name": "OBSの画面にコメントを出したい", "acceptedAnswer": {"@type": "Answer", "text": "コメントビューのURLをOBSのブラウザソースに貼るだけです（推奨 1920×1080＝画面と同じ大きさにして、アプリ側で位置・余白・幅を決める方式です／v0.9.3〜）。色・サイズ・件数はアプリからリアルタイム調整できます。"}}, {"@type": "Question", "name": "海外の視聴者と交流したい", "acceptedAnswer": {"@type": "Answer", "text": "「チャット翻訳」を ON にすると、コメントが日本語2段表示＋日本語読み上げになります。自分の字幕に翻訳字幕を重ねることもできます（12 言語から、同時に 3 つまで）。"}}, {"@type": "Question", "name": "コメントやスタンプで演出を出したい", "acceptedAnswer": {"@type": "Answer", "text": "「リアクション」機能で、キーワード・スタンプ・配信イベントをきっかけに画像・効果音・絵文字を自動発火できます。何も設定しなければ演出は出ません。"}}, {"@type": "Question", "name": "YouTube 配信で使いたい・Twitch と同時に使いたい", "acceptedAnswer": {"@type": "Answer", "text": "YouTube はコメント取得・読み上げ・翻訳・コメビューに対応。タイトルやサムネイルの変更もでき、Twitch と併用時は「両方へ反映」で片方の変え忘れを防げます。"}}, {"@type": "Question", "name": "配信前の準備をまとめてやりたい", "acceptedAnswer": {"@type": "Answer", "text": "ダッシュボードで接続チェック・一括スタート・演出のテスト発火まで1画面にまとめられます。ウィジェットは自由に配置できます。"}}, {"@type": "Question", "name": "YouTube の認証が切れる／サムネイル・配信情報が反映できない", "acceptedAnswer": {"@type": "Answer", "text": "もう一度「YouTubeで認証する」を押せばその場で直ります。7日ごとに繰り返す場合は、Google 側の公開ステータスが「テスト」のままです（テスト中は Google の仕様で認証が7日で切れます）。Google Cloud の「Google Auth Platform → 対象」で「本番」に切り替えると切れなくなります（審査は不要）。なお、コメントの取得は APIキーで動いているため、認証が切れてもコメントは止まりません。"}}, {"@type": "Question", "name": "「脅威が見つかりました」と出て、ダウンロードできない・ファイルが消される", "acceptedAnswer": {"@type": "Answer", "text": "誤検知です。Python で作ったアプリを exe にまとめる道具（PyInstaller）が不正なプログラムにも使われるため、中身に関係なく同じ形として推定されることがあります。根拠は、同じファイルなのに環境ごとに違う検出名が付くこと、検出される版とされない版が交互に出ることです。対処は Ligastmir のフォルダだけをウイルス対策の「除外」に追加してください。一度消された場合は、先に「保護の履歴」からその項目を「デバイスで許可」してください（これをしないと入れ直しても同じところで消えます）。Microsoft には誤検知の報告を出しています。判定は版ごとに揺れるため、今後いっさい出ないとはお約束できません。"}}, {"@type": "Question", "name": "「発行元が確認できなかったためブロックしました」と出て起動できない", "acceptedAnswer": {"@type": "Answer", "text": "これはウイルス判定ではなく、Windows 11 の「スマート アプリ コントロール」という別の機能です。署名が付いていないアプリを一律で止めます。⚠ この機能は一度オフにすると元に戻せません（もう一度オンにするには Windows の再セットアップが必要です）。そのうえで進めるか決めてください。オフにする場合は Windows セキュリティ →「アプリとブラウザー コントロール」→「スマート アプリ コントロールの設定」→「オフ」です。なお、オフにしてもウイルス対策側で別に消されることがあります。"}}]}
 </script>
 <style>
   :root{
@@ -62,6 +62,7 @@
   .sub{color:var(--ink-dim);margin-bottom:30px}
   strong{color:var(--ink)}
 
+  .qa,h2{scroll-margin-top:74px}
   .qa{background:var(--bg-soft);border:1px solid var(--bg-line);border-radius:12px;padding:18px 22px;margin-bottom:14px}
   .qa .q{font-weight:700;font-size:16px;margin-bottom:6px}
   .qa .q::before{content:"Q. ";color:var(--accent);font-family:var(--font-mono)}
@@ -173,18 +174,18 @@
 
     <div class="qa">
       <div class="q">VOICEVOX は必須?</div>
-      <div class="a">いいえ、<strong>任意</strong>です。Windows 標準の音声（SAPI5）なら準備なしでそのまま読み上げできます。VOICEVOX や棒読みちゃんは使いたい人だけ。</div>
+      <div class="a">いいえ、<strong>任意</strong>です。<span class="pill">音声・コメント</span>の「TTS 読み上げ」を ON にすれば、Windows 標準の音声（SAPI5）なら準備なしで読み上げます。VOICEVOX や棒読みちゃんは使いたい人だけ。<br>VOICEVOX の声で配信するときは、説明欄などに「VOICEVOX:ずんだもん」のような<strong>クレジットが要ります</strong>。使った声は<span class="pill">音声・コメント</span>の「📋 コピー」で貼れます。</div>
       <div class="more">→ <a href="guide.html#tts">使い方 ④ コメント読み上げ</a></div>
     </div>
 
     <div class="qa">
       <div class="q">無料?</div>
-      <div class="a"><strong>無料です。</strong> 各自が自分の API キー等を設定して使う形なので、サーバー費用もかかりません。</div>
+      <div class="a"><strong>無料です。</strong> 有料版や支援者だけの機能はありません。YouTube のコメント取得など一部の連携だけ、各自の無料の API キーを使います（Twitch のコメントや翻訳はキーなしで動きます）。</div>
     </div>
 
     <div class="qa">
       <div class="q">インストールは必要?</div>
-      <div class="a">いいえ。<strong>exe をダブルクリックするだけ</strong>で動きます（Python などのインストールは不要）。（インストーラー版は v1.0.0 で配布予定・準備中）</div>
+      <div class="a">いいえ。zip を解凍して、中の <code style="font-family:var(--font-mono);background:var(--bg);border:1px solid var(--bg-line);border-radius:4px;padding:0 5px">起動.bat</code> を<strong>ダブルクリックするだけ</strong>です（Python などのインストールは不要）。ダウンロード直後に exe を直接開くと、起動しないことがあります。（インストーラー版は v1.0.0 で配布予定・準備中）</div>
       <div class="more">→ <a href="guide.html#start">使い方 ① まず起動する</a></div>
     </div>
 
@@ -201,7 +202,7 @@
 
     <div class="qa">
       <div class="q">動作が重い／読み上げが遅いときは?</div>
-      <div class="a">PC環境による「順番待ち」や合成の重さが原因のことが多いです。対処をいくつかまとめています。負荷が高い時は<strong>ワンボタンの「軽量モード」</strong>で負荷を下げることもできます（v0.8.0〜）。</div>
+      <div class="a">PC環境による「順番待ち」や合成の重さが原因のことが多いです。対処をいくつかまとめています。負荷が高い時は<strong>「軽量モード」</strong>で負荷を下げることもできます（v0.8.0〜・ダッシュボードの「🛟 セーフティ（停止・切断）」パネル＝フル編集で足します）。</div>
       <div class="more">→ <a href="guide.html#troubleshoot">こんな時は（読み上げが遅い）</a></div>
     </div>
 
@@ -225,19 +226,19 @@
 
     <div class="qa">
       <div class="q">配信中にトラブったら？ 安全に止められる?</div>
-      <div class="a">はい。どのページでも<strong>ヘッダのボタンから「軽い停止」</strong>で、読み上げ・翻訳・演出だけをワンボタンで止められます（コメント表示は続きます）。外部接続の<strong>一括切断</strong>や、設定が壊れて開けない時に最小構成で立ち上げ直す<strong>「セーフモード起動」</strong>も。うまく動かない時は<strong>「総合診断」</strong>が原因の候補と対処を日本語で教えてくれます（v0.8.0〜）。</div>
+      <div class="a">はい。どのページでも<strong>ヘッダのボタンから「軽い停止」</strong>で、読み上げ・翻訳・演出だけをワンボタンで止められます（コメント表示は続きます）。外部接続の<strong>一括切断</strong>（ダッシュボードの「🛟 セーフティ（停止・切断）」パネル・フル編集で足します）や、設定が壊れて開けない時に最小構成で立ち上げ直す<strong>「セーフモード起動」</strong>も。うまく動かない時は<strong>「総合診断」</strong>が原因の候補と対処を日本語で教えてくれます（v0.8.0〜）。</div>
       <div class="more">→ <a href="guide.html#trouble-basic">使い方 ⑧ 困ったとき</a></div>
     </div>
 
     <div class="qa">
       <div class="q">読み方（辞書）や画面の配置を、他の配信者と共有できる?</div>
-      <div class="a">できます。読み上げ辞書（用語や名前の読み）を<strong>「辞書パック」</strong>としてファイルで受け渡したり、ダッシュボードの<strong>構成（レイアウト）</strong>を書き出し・取り込みで共有できます（v0.8.0〜）。<strong>視聴者名やパスワード等の機微情報は含めない安全設計</strong>です。</div>
+      <div class="a">できます。読み上げ辞書（用語や名前の読み）を<strong>「辞書パック」</strong>としてファイルで受け渡したり、ダッシュボードの<strong>構成（レイアウト）</strong>を書き出し・取り込みで共有できます（v0.8.0〜）。辞書パックに入るのは辞書と NG ワードだけで、NG ユーザー（視聴者名）やキー類は入りません。ただ、辞書に視聴者の名前の読みを入れているときはそれも入るので、<strong>渡す前に中身を確かめてください</strong>。</div>
       <div class="more">→ <a href="guide.html#advanced">使い方 ⑥ もっと使う</a></div>
     </div>
 
     <div class="qa">
       <div class="q">ダウンロードしたものが本物か確認できる?</div>
-      <div class="a">公式の入手先は<strong>このサイトと公式Discordだけ</strong>です。ツールは<strong>起動時に本体を自己チェック</strong>し、書き換えを検知すると警告します。見分け方は専用ページにまとめています。</div>
+      <div class="a">公式の入手先は<strong>このサイトと公式Discordだけ</strong>です。ダウンロードボタンのファイルは GitHub の <strong>CURAMAR/ligastmir-releases</strong> から届きます（ここも公式です）。ツールは<strong>起動時に本体を自己チェック</strong>し、書き換えを検知すると警告します。見分け方は専用ページにまとめています。</div>
       <div class="more">→ <a href="verify.html">本物の見分け方・偽配布の注意</a></div>
     </div>
 
@@ -255,7 +256,7 @@
 
     <div class="qa">
       <div class="q">テスト字幕は出るのに、本番の字幕が出ない</div>
-      <div class="a">アプリを <strong>OneDrive などの同期フォルダ直下に置かない</strong>／マイクを <strong>16bit・48000Hz（or 44100Hz）・モノラル</strong>にすると直ることが多いです。</div>
+      <div class="a">まず <strong>Windows の既定のマイク</strong>を確かめてください（字幕は Windows の「既定の入力デバイス」の音で作ります。アプリで選ぶマイクは音量メーターと診断用です）。そのうえで、アプリを <strong>OneDrive などの同期フォルダ直下に置かない</strong>／マイクを <strong>16bit・48000Hz（or 44100Hz）・モノラル</strong>にすると直ることが多いです。</div>
       <div class="more">→ <a href="guide.html#troubleshoot">こんな時は（本番の字幕が出ない）</a></div>
     </div>
 
@@ -377,7 +378,7 @@
         <strong>v0.9.8 で、次の 5 つは何もしなくても変わります。</strong><br>
         ① <strong>左メニューの印</strong>: 「接続」（配信・OBS連携）と「稼働中」（音声・コメント・BGM・テスト/ログが動いているとき）がそろって出ます。いらなければ <span class="pill">詳細設定</span> →「🧭 左メニューの表示」で隠せます。<br>
         ② <strong>ダッシュボードの「クイック操作」</strong>: 接続の切り替えと、読み上げのスキップ／全部止めるだけになりました。シーンの切り替えは「シーン切替」パネル、設定は左メニューからどうぞ。<br>
-        ③ <strong>日本語のコメントは翻訳を待たずに読みます</strong>（チャット翻訳を ON にしている方）。これまでどおり訳を待つには <span class="pill">音声・コメント</span> →「💬 コメント関連」の「日本語コメントは訳を待たずに読む」を OFF に。<br>
+        ③ <strong>日本語のコメントは翻訳を待たずに読みます</strong>（「日本語コメントを海外向けに訳す」を ON にしている方）。これまでどおり訳を待つには <span class="pill">音声・コメント</span> →「💬 コメント関連」の「日本語コメントは訳を待たずに読む」を OFF に。<br>
         ④ <strong>BGM の連続再生</strong>では、アラートやチャネポの効果音に使っている音源を飛ばします（クリックすれば鳴ります）。<br>
         ⑤ <strong>NG ワードの英単語</strong>は語の頭から一致します（rape で grape を止めない）。日本語はこれまでどおり、含まれていれば当たります。
       </div>
@@ -388,7 +389,7 @@
       <div class="a">
         <strong>元々そのつもりだった色が出るようになりました。</strong>アラートは種類ごとに色が決まっています（フォロー＝緑、サブスク・再サブスク＝オレンジ、ギフト＝ピンク、レイド＝水色、チア＝若草、チャネポ＝緑）が、
         最初の版からこの色が枠線と見出しに効いておらず、全部テーマの色（ライム）で出ていました。v0.9.7 で直しています。
-        <strong>今までの色のままがよい場合</strong>は、<span class="pill">着せ替え</span>ページ →「枠（背景ボックス）の表示」→ <strong>枠線色</strong>の「既定(種別色)」を外して好きな色に、見出しも「見出しの色」で固定できます。
+        <strong>今までの色のままがよい場合</strong>は、<span class="pill">着せ替え</span>ページ →「🔔 アラート」→「① 枠（背景ボックス）」の「<strong>枠線は種別色</strong>」を外して、枠線色を選んでください。見出しは「③ 文字」の「見出し」で「種別色」を外すと、色を固定できます。
       </div>
     </div>
 
@@ -428,7 +429,7 @@
     <div class="qa">
       <div class="q">Windows の警告（SmartScreen）が出る・起動してもすぐ閉じる</div>
       <div class="a">署名なしの個人開発アプリのため警告が出ることがあります。<strong>「詳細情報 → 実行」</strong>で起動できます。すぐ閉じる場合はダウンロード時のブロックが原因＝<strong>付属の <code style="font-family:var(--font-mono);background:var(--bg);border:1px solid var(--bg-line);border-radius:4px;padding:0 5px">起動.bat</code> から起動</strong>すると自動で解除されます。</div>
-      <div class="more">→ <a href="download.html">ダウンロード・更新方法（ブロックの解除）</a></div>
+      <div class="more">→ <a href="download.html#blocked">ダウンロード・更新方法（ブロックの解除）</a></div>
     </div>
 
     <div class="qa" id="av-threat">
@@ -443,21 +444,27 @@
       <div class="more">→ <a href="download.html">ダウンロード・更新方法</a></div>
     </div>
 
+    <div class="qa" id="report">
+      <div class="q">不具合を報告したい・ログの送り方は？</div>
+      <div class="a">左メニューの<span class="pill">テスト/ログ</span>→「<strong>📦 報告用にまとめる（zip）</strong>」を押し、できた zip を Discord か報告フォームに付けてください（設定・認証情報・コメントログは入りません）。版（画面上部の v0.9.11 など）と、何をしたらどうなったかを一言添えてもらえると助かります。完璧な報告じゃなくて大丈夫です。<span class="muted">ログのフォルダから手で選ぶときは、<code>chat_</code> で始まるファイル（視聴者の名前とコメント入り）は送らないでください。</span></div>
+      <div class="more">→ <a href="download.html#report">報告の窓口（Discord・報告フォーム）</a></div>
+    </div>
+
     <h2 class="goal" id="goal">🎯 目的から探す</h2>
 
     <div class="qa">
       <div class="q">字幕だけ使いたい</div>
-      <div class="a">マイクを選んで音声認識をON → 字幕URLをOBSに貼るだけ。チャット接続は不要です。</div>
+      <div class="a">Windows の「設定 → システム → サウンド → 入力」で使うマイクを<strong>既定</strong>にして、<span class="pill">音声・コメント</span>で字幕を ON → 字幕の URL を OBS に貼るだけ。チャット接続は不要です。</div>
       <div class="more">→ <a href="feature-subtitle.html">OBSに音声認識字幕を表示する方法</a></div>
       <figure>
         <img src="assets/shots/subtitle-obs.webp" alt="OBSに表示された音声認識字幕の例。日本語字幕の下に英語の翻訳字幕が出ている" width="1920" height="1080" loading="lazy">
-        <figcaption>できあがりの例：話すとこんなふうに字幕が出ます（翻訳ON時は英訳も）。</figcaption>
+        <figcaption>できあがりの例：話すとこんなふうに字幕が出ます（翻訳字幕を ON にすると、選んだ言語の訳も）。</figcaption>
       </figure>
     </div>
 
     <div class="qa">
       <div class="q">コメント読み上げだけ使いたい</div>
-      <div class="a">エンジンを選んで（Windows標準なら準備なし）、配信ページでチャンネルに接続するだけ。OBSは不要です。</div>
+      <div class="a"><span class="pill">音声・コメント</span>の「TTS 読み上げ」を ON にし、エンジンを選んで（Windows 標準なら準備なし）、配信ページでチャンネルに接続するだけ。OBS は不要です。</div>
       <div class="more">→ <a href="feature-tts.html">コメントを読み上げる方法</a></div>
     </div>
 
@@ -475,7 +482,7 @@
 
     <div class="qa">
       <div class="q">海外の視聴者と交流したい</div>
-      <div class="a">「チャット翻訳」ONでコメントが日本語2段表示＋日本語読み上げに。自分の字幕に英訳を重ねることもできます。</div>
+      <div class="a">「チャット翻訳」ONでコメントが日本語2段表示＋日本語読み上げに。自分の字幕に翻訳字幕を重ねることもできます（12 言語から、同時に 3 つまで）。</div>
       <div class="more">→ <a href="feature-translate.html">コメント翻訳の設定方法</a></div>
     </div>
 
@@ -539,8 +546,7 @@
   var empty = document.createElement('div');
   empty.className = 'faq-empty';
   empty.hidden = true;
-  empty.innerHTML = '該当する質問が見つかりませんでした。<a href="guide.html">使い方ページ</a>や<a href="https://discord.gg/QtQcEgn9JF" target="_blank" rel="noopener">Discord</a>
-      <a href="https://x.com/curamar2525" target="_blank" rel="noopener">X</a>で聞いてください。';
+  empty.innerHTML = '該当する質問が見つかりませんでした。<a href="guide.html">使い方ページ</a>を見るか、<a href="https://discord.gg/QtQcEgn9JF" target="_blank" rel="noopener">Discord</a>・<a href="https://x.com/curamar2525" target="_blank" rel="noopener">X</a> で聞いてください。';
   article.appendChild(empty);
 
   function apply(){

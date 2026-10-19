@@ -227,7 +227,7 @@
       </div>
       <div class="item">
         <div class="t">🍎 Mac 対応</div>
-        <div class="d">いまは Windows 専用です。看板機能の字幕（音声認識）の仕組みから作り直しが必要なため、v1.0 のあとに実現できるかを調べます。</div>
+        <div class="d">いまは Windows 専用です。いちばんの機能の字幕（音声認識）の仕組みから作り直しが必要なため、v1.0 のあとに実現できるかを調べます。</div>
         <div class="meta"><span class="ver">v1.0 のあと・調査から</span></div>
       </div>
       <div class="item">
@@ -237,7 +237,7 @@
       </div>
       <div class="item">
         <div class="t">🏷 クレジットの充実</div>
-        <div class="d">協力してくれた方の紹介文やタグを載せて、その人の配信を見つけやすくします。</div>
+        <div class="d">協力してくれた方の紹介文やタグを載せ始めました。その人の配信を見つけやすくするため、少しずつ増やしていきます。</div>
         <div class="meta"><span class="ver">随時</span><a class="help" href="collaborate.html">🙋 協力募集中</a></div>
       </div>
       <div class="item">
@@ -274,18 +274,19 @@
     <p class="donenote">使える機能を分野ごとにまとめています（押すと開きます）。設定項目の一つひとつまで知りたいときは <a href="ligastmir-features.html">全機能・設定項目一覧</a>、版ごとの変更は <a href="changelog.html">更新履歴</a> へ。</p>
     <div class="dgroups">
       <details class="dgrp">
-        <summary>🎤 字幕・翻訳 <span class="n">11</span></summary>
+        <summary>🎤 字幕・翻訳 <span class="n">12</span></summary>
         <ul>
           <li>話した内容を OBS に字幕表示（フォント5種・表示位置・最大行数・翻訳字幕の別配置）<span class="ver">v0.7.0</span></li>
           <li>海外コメントを日本語に翻訳して2段表示＋読み上げ／自分の字幕に翻訳を重ねる<span class="ver">v0.7.0</span></li>
           <li>長時間配信で字幕が消える不具合の修正（自動復旧と見張り）<span class="ver">v0.9.0</span></li>
           <li>字幕の翻訳先を12言語から選択<span class="ver">v0.9.0</span></li>
-          <li>「話す言語」の選択（日本語以外でも字幕）・話し終わる前に出す「仮確定」／日本語→他の言語のコメント翻訳<span class="ver">v0.9.3</span></li>
+          <li>「話す言語」の選択（日本語以外でも字幕）・話し終わる前に字幕を決める「字幕を早めに確定する」／日本語→他の言語のコメント翻訳<span class="ver">v0.9.3</span></li>
           <li>翻訳字幕を同時に最大3言語・上下入れ替え・1行に収まらない字幕を流して全文表示<span class="ver">v0.9.5</span></li>
           <li>WebView2 の更新で字幕が動かない環境の回避（裏の Edge で認識）<span class="ver">v0.9.6</span></li>
           <li>翻訳字幕の言語ごとの色分け・行間／長い字幕を流す機能が翻訳字幕にも<span class="ver">v0.9.6</span></li>
           <li>翻訳字幕の見た目を「全部同じ／言語ごとに分ける」から選択（大きさ・色・縁取り・ネオン）<span class="ver">v0.9.7</span></li>
           <li>字幕の「ちょうどいい既定」（文ごとに改行・言葉の区切りで折り返し・新しい言葉が見える）と「✨ おすすめにする」／字幕の音声認識は Chrome があれば Chrome<span class="ver">v0.9.11</span></li>
+          <li>配信中に字幕が止まる不具合の修正（0.9.9 で多発していたもの）<span class="ver">v0.9.10</span></li>
           <li>内蔵の翻訳（Chrome／Edge の機能で PC の中で訳す・文字数の上限なし）と翻訳エンジンごとの上限の表<span class="ver">v0.9.11</span></li>
         </ul>
       </details>
@@ -303,7 +304,7 @@
         </ul>
       </details>
       <details class="dgrp">
-        <summary>💬 コメビュー・演出 <span class="n">14</span></summary>
+        <summary>💬 コメビュー・演出 <span class="n">15</span></summary>
         <ul>
           <li>リアクションパレット（キーワード・スタンプ・イベントで画像・効果音・絵文字）<span class="ver">v0.7.0</span></li>
           <li>常連バッジ（コメント数で進化・段数・名前・色）と名簿<span class="ver">v0.7.0</span></li>
@@ -319,10 +320,11 @@
           <li>リアクションの見出し・名前の行・チャット返信／コメビューを横に画面の端まで・名前と翻訳文の書体<span class="ver">v0.9.8</span></li>
           <li>アラート・チャネポ・リアクションの文字（見出し・名前の行・メッセージ）と 1 件ごとの「🎨 文字」<span class="ver">v0.9.9</span></li>
           <li>アラートを自由に置く（ドラッグ）・出方 8 種・表示時間／連続視聴のアラート<span class="ver">v0.9.9</span></li>
+          <li>消されたコメントの追従（コメビュー・弾幕・ピックアップ・読み上げ）・YouTube のスーパーチャット／メンバーの表示と読み上げ<span class="ver">v0.9.10</span></li>
         </ul>
       </details>
       <details class="dgrp">
-        <summary>🎬 配信・OBS <span class="n">7</span></summary>
+        <summary>🎬 配信・OBS <span class="n">8</span></summary>
         <ul>
           <li>OBS連携（シーン切替・配信開始/停止）・同伴起動・配信タイトル/カテゴリ/サムネイルの変更（タイトルは Twitch / YouTube 両方へ一度に）<span class="ver">v0.7.0</span></li>
           <li>「同伴機能」ページ（VOICEVOX・棒読みちゃん・わんコメ・OBS を一緒に起動）<span class="ver">v0.7.2</span></li>
@@ -331,18 +333,20 @@
           <li>配信タイトルのひな形と「(n)回目」の自動カウント・配信モニター<span class="ver">v0.9.5</span></li>
           <li>Twitch のタグ編集・「OBS側を更新」を Ligastmir のソースだけに・BGM と効果音を分けて並べる<span class="ver">v0.9.8</span></li>
           <li>BGM の「流すフォルダ」・OBS 連携の接続欄を分かりやすく（パスワードを写す手順）<span class="ver">v0.9.9</span></li>
+          <li>Twitch のチャットの自動再接続・配信画面の「👥 視聴者数」<span class="ver">v0.9.10</span></li>
         </ul>
       </details>
       <details class="dgrp">
-        <summary>🛟 安心・安全 <span class="n">7</span></summary>
+        <summary>🛟 安心・安全 <span class="n">8</span></summary>
         <ul>
           <li>「本物の確認」と起動時の自己チェック<span class="ver">v0.7.0</span></li>
           <li>セーフティ（軽い停止・外部一括切断・軽量モード）<span class="ver">v0.8.0</span></li>
-          <li>セーフモード起動・総合診断・マイクチェック・いま動いている機能の見える化<span class="ver">v0.8.0</span></li>
+          <li>セーフモード起動・総合診断・マイクチェック・いま動いている機能の一覧（稼働中の表示）<span class="ver">v0.8.0</span></li>
           <li>設定・辞書・名簿・集計の自動バックアップと復元<span class="ver">v0.9.0</span></li>
           <li>翻訳が途中で止まって戻らない不具合の修正・どの翻訳先が駄目かを表示<span class="ver">v0.9.5</span></li>
           <li>ダッシュボードのパネルがランダムに欠ける不具合の修正・総合診断の強化<span class="ver">v0.9.6</span></li>
           <li>誤検知対策（起動部分を自前で組み立て）・古い OBS（32.2.2 以前）のお知らせ・置き場所の案内の強化<span class="ver">v0.9.8</span></li>
+          <li>視聴者のデータの保存期間（YouTube は 30 日）・YouTube の長い配信でコメントが止まる不具合と、日本語以外の Windows で起動直後に落ちる不具合の修正<span class="ver">v0.9.10</span></li>
         </ul>
       </details>
       <details class="dgrp">

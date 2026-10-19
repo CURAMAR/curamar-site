@@ -20,7 +20,7 @@
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"HowTo","name":"Twitch / YouTube のコメントを読み上げる方法","description":"無料の配信支援ツール Ligastmir で、配信コメントを音声合成で自動読み上げする手順。VOICEVOX・Windows標準（SAPI5）・棒読みちゃんに対応。","totalTime":"PT5M","tool":[{"@type":"HowToTool","name":"Ligastmir（無料）"},{"@type":"HowToTool","name":"VOICEVOX または 棒読みちゃん（任意）"}],"step":[
 {"@type":"HowToStep","position":1,"name":"Ligastmir を起動する","text":"ダウンロードして解凍し、起動.bat から起動します。"},
-{"@type":"HowToStep","position":2,"name":"読み上げの声を選ぶ","text":"「音声・コメント」ページで音声エンジンを選びます。Windows標準（SAPI5）は準備なしでそのまま使えます。VOICEVOX は自動起動を設定でき、棒読みちゃんは本体を起動してから選ぶだけです。"},
+{"@type":"HowToStep","position":2,"name":"読み上げを ON にして声を選ぶ","text":"「音声・コメント」ページの「TTS 読み上げ」を ON にし、音声エンジンを選びます。Windows標準（SAPI5）は準備なしでそのまま使えます。VOICEVOX は自動起動を設定でき、棒読みちゃんは本体を起動してから選ぶだけです。"},
 {"@type":"HowToStep","position":3,"name":"配信チャンネルに接続する","text":"「配信」ページでTwitchのチャンネル名を入れて接続します（匿名でOK）。YouTube は配信URLとAPIキーで接続します。"},
 {"@type":"HowToStep","position":4,"name":"コメントが読み上げられる","text":"視聴者のコメントが自動で読み上げられます。音量・話者・読み上げ前のお知らせ音も調整できます。"}]}
 </script>
@@ -138,7 +138,7 @@
     <h2>実際の設定画面</h2>
     <div class="fshots">
       <figure class="wide">
-        <img src="assets/shots/voice-settings.webp" alt="Ligastmirの音声・コメント設定画面。マイク・字幕設定と、読み上げエンジンの選択・音量・話者・辞書などのTTS設定が並ぶ" width="1440" height="900" loading="lazy">
+        <img src="assets/shots/voice-settings.webp" alt="Ligastmirの「音声・コメント」ページ。上はマイク・字幕の設定で、読み上げの設定は同じページの右の列（または下）に並ぶ" width="1440" height="900" loading="lazy">
         <figcaption>「音声・コメント」ページ。エンジン選択・音量・話者・読み上げ辞書までここに集約。</figcaption>
       </figure>
     </div>
@@ -146,15 +146,15 @@
     <h2>声は3系統から選べます</h2>
     <div class="engines">
       <div class="eng"><b>🪟 Windows標準（SAPI5）</b><p>追加インストール不要。<strong>今すぐ使えます</strong>。まず試すならこれ。</p></div>
-      <div class="eng"><b>🟢 VOICEVOX</b><p>ずんだもん等のキャラ声（無料）。<strong>自動起動</strong>を設定すれば、Ligastmirと一緒に立ち上がります。クレジット表記も自動生成。</p></div>
+      <div class="eng"><b>🟢 VOICEVOX</b><p>ずんだもん等のキャラ声（無料・本体は別に入れます）。「詳細設定 › 同伴機能」で<strong>自動起動</strong>を設定すれば、Ligastmirと一緒に立ち上がります。配信で使うときは「VOICEVOX:ずんだもん」のような<strong>クレジット表記が要ります</strong>（話者ごとの規約も確認を）。使った話者は自動で記録され、「📋 コピー」で貼れます。</p></div>
       <div class="eng"><b>📢 棒読みちゃん</b><p>既にお使いなら本体を起動して選ぶだけ。<strong>読み方辞書・声・速度はそのまま</strong>使えます。</p></div>
     </div>
 
     <h2>最短手順（4ステップ）</h2>
     <div class="qsteps">
       <div class="qstep"><b>Ligastmir を起動する</b><span><a href="download.html">ダウンロード</a>して解凍し、<code>起動.bat</code> から起動。まだの方は <a href="quickstart.html">3分ではじめる</a> をどうぞ。</span></div>
-      <div class="qstep"><b>読み上げの声を選ぶ</b><span>「音声・コメント」ページで音声エンジンを選択。VOICEVOX は「自動検出」でパスを見つけて自動起動をONにできます。</span></div>
-      <div class="qstep"><b>配信チャンネルに接続する</b><span>「配信」ページで Twitch のチャンネル名を入れて「接続」（<strong>匿名でOK・登録不要</strong>）。YouTube は配信URLとAPIキーで接続します。</span></div>
+      <div class="qstep"><b>読み上げを ON にして声を選ぶ</b><span>「音声・コメント」ページの「🔊 TTS・読み上げ・音量」で「<strong>TTS 読み上げ</strong>」を ON にし、「音声エンジン」を選びます（迷ったら Windows 標準の SAPI5）。VOICEVOX を使うなら、先に <a href="https://voicevox.hiroshiba.jp/" target="_blank" rel="noopener">VOICEVOX</a>（無料）を入れておき、「詳細設定 › 同伴機能」の「🎙 VOICEVOX 同伴起動」で「自動検出」を押して ON にすると、次から一緒に立ち上がります。</span></div>
+      <div class="qstep"><b>配信チャンネルに接続する</b><span>「配信」ページで Twitch のチャンネル名を入れて「接続」（<strong>匿名でOK・登録不要</strong>）。YouTube は配信を始めてからの URL と API キーで接続します（→ <a href="feature-youtube.html">YouTube配信での使い方</a>）。</span></div>
       <div class="qstep"><b>コメントが読み上げられる</b><span>音量・話者・読み上げ前のお知らせ音は同じページで調整。設定は自動保存されます。</span></div>
     </div>
 

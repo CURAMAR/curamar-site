@@ -20,7 +20,7 @@
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"HowTo","name":"配信でOBSに音声認識字幕を表示する方法","description":"無料の配信支援ツール Ligastmir で、話した内容をリアルタイムに OBS へ字幕表示する手順。","totalTime":"PT5M","tool":[{"@type":"HowToTool","name":"Ligastmir（無料）"},{"@type":"HowToTool","name":"OBS Studio"},{"@type":"HowToTool","name":"マイク"}],"step":[
 {"@type":"HowToStep","position":1,"name":"Ligastmir を起動する","text":"ダウンロードして解凍し、起動.bat から起動します。"},
-{"@type":"HowToStep","position":2,"name":"マイクを選んで音声認識をON","text":"「音声・コメント」ページで使うマイクを選び、音声認識（字幕）をONにします。"},
+{"@type":"HowToStep","position":2,"name":"マイクを決めて字幕をON","text":"Windows の「設定 → システム → サウンド → 入力」で使うマイクを既定にしてから、「音声・コメント」ページの「字幕 ON / OFF」を ON にします。"},
 {"@type":"HowToStep","position":3,"name":"字幕のURLをコピー","text":"「ブラウザソース」ページの一覧から、字幕のURLをコピーボタンでコピーします。"},
 {"@type":"HowToStep","position":4,"name":"OBSにブラウザソースを追加","text":"OBSでソース欄の＋→ブラウザを追加し、コピーしたURLを貼り付けます。「非アクティブ時にソースをシャットダウンする」のチェックは外します。"},
 {"@type":"HowToStep","position":5,"name":"話して確認","text":"マイクに向かって話すと、画面にリアルタイムで字幕が表示されます。"}]}
@@ -123,7 +123,7 @@
     <div class="lead">
       Ligastmir（無料）を使うと、<strong>話した内容がリアルタイムで字幕になり、OBS の画面に表示されます</strong>。
       耳が聞こえづらい視聴者・音を出せない環境で見ている視聴者にも配信が届くようになり、
-      翻訳字幕を重ねれば海外の視聴者にも伝わります（翻訳先は12言語から選べます）。設定は「マイクを選んでON → URLをOBSに貼る」だけです。
+      翻訳字幕を重ねれば海外の視聴者にも伝わります（翻訳先は12言語から選べます）。設定は「字幕を ON → URL を OBS に貼る」だけです。
     </div>
 
     <figure style="margin:22px 0 0;background:var(--bg-soft);border:1px solid var(--bg-line);border-radius:12px;overflow:hidden">
@@ -150,10 +150,10 @@
     <h2>最短手順（5ステップ）</h2>
     <div class="qsteps">
       <div class="qstep"><b>Ligastmir を起動する</b><span><a href="download.html">ダウンロード</a>して解凍し、<code>起動.bat</code> から起動します。まだの方は <a href="quickstart.html">3分ではじめる</a> をどうぞ。</span></div>
-      <div class="qstep"><b>マイクを選んで音声認識をON</b><span>「音声・コメント」ページで使うマイクを選び、音声認識（字幕）をONにします。</span></div>
-      <div class="qstep"><b>字幕のURLをコピー</b><span>「ブラウザソース」ページに、字幕・コメビューなどのURLが<strong>コピーボタン付きで一覧</strong>になっています。</span></div>
-      <div class="qstep"><b>OBSにブラウザソースを追加</b><span>OBSのソース欄「＋」→「ブラウザ」→ URLを貼り付け。<strong>「非アクティブ時にソースをシャットダウンする」のチェックは外して</strong>ください（映像が止まる原因になります）。</span></div>
-      <div class="qstep"><b>話して確認</b><span>マイクに向かって話すと字幕が出ます。「テスト/ログ」ページの調整用字幕プレビューを使うと、出しっぱなしにして見た目を合わせられます。</span></div>
+      <div class="qstep"><b>マイクを決めて字幕を ON</b><span>字幕は Windows の「既定の入力デバイス」のマイクで拾います（アプリで選ぶマイクは音量メーターと総合診断用）。Windows の「設定 → システム → サウンド → 入力」で使うマイクを既定にしてから、「音声・コメント」ページの「🎤 マイク・音声認識」で「字幕 ON / OFF」を ON にします。<br>翻訳字幕も出すなら、同じページの「字幕翻訳」で「翻訳字幕の言語」を選び、「字幕翻訳 ON / OFF」も ON に（チャット翻訳とは別のスイッチです）。</span></div>
+      <div class="qstep"><b>字幕のURLをコピー</b><span>左メニューの「ブラウザソース」に、字幕・コメビューなどのURLが<strong>コピーボタン付きで一覧</strong>になっています（字幕は「🎤 字幕表示」）。</span></div>
+      <div class="qstep"><b>OBSにブラウザソースを追加</b><span>OBSのソース欄「＋」→「ブラウザ」→ URLを貼り付け、<strong>幅 1920・高さ 1080</strong>（画面と同じ）に。字幕の位置はアプリの「④ 位置」で決めます。<strong>「非アクティブ時にソースをシャットダウンする」のチェックは外して</strong>ください（映像が止まる原因になります）。</span></div>
+      <div class="qstep"><b>話して確認</b><span>マイクに向かって話すと字幕が出ます。話さなくても、「字幕表示設定」の「▶ サンプル字幕を出しておく」を ON にすると、OBS に字幕を出したまま見た目を合わせられます。</span></div>
     </div>
 
     <h2 id="settings">字幕の動きをまとめて決める（v0.9.11〜）</h2>

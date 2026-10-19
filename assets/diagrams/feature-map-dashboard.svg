@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 350" width="780" height="350" font-family="'Hiragino Kaku Gothic ProN','Noto Sans JP','Yu Gothic',sans-serif" role="img" aria-labelledby="fmdbTitle fmdbDesc">
 <title id="fmdbTitle">配信支援ダッシュボードの相関図</title>
-<desc id="fmdbDesc">Ligastmirを起動するだけで、配信前後の段取りを1画面にまとめられる。付随機能は一括スタート・配信前チェックリスト・稼働中表示と機能依存の見える化。カスタム次第でウィジェットの自由配置・構成の共有・コメントピックアップまで広がる。</desc>
+<desc id="fmdbDesc">Ligastmirを起動するだけで、配信前後の段取りを1画面にまとめられる。付随機能は一括スタート・配信前チェックリスト・稼働中表示と、どの機能が何に頼っているかがひと目で分かる表示。カスタム次第でウィジェットの自由配置・構成の共有・コメントピックアップまで広がる。</desc>
 <defs>
 <marker id="ahdb" markerWidth="7" markerHeight="7" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#4a5a68"/></marker>
 </defs>

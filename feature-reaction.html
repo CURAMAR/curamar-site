@@ -152,7 +152,7 @@
         <figcaption>キーワードに反応して演出カードが出た例。画像・効果音を割り当てれば自分の演出になります。</figcaption>
       </figure>
       <figure class="wide">
-        <img src="assets/shots/skin-reaction.webp" alt="Ligastmirの着せ替えページにあるリアクション設定UI。きっかけの種別・対象・画像・効果音・クールダウンを行ごとに設定できる" width="1440" height="900" loading="lazy">
+        <img src="assets/shots/skin-reaction.webp" alt="Ligastmirの「着せ替え」ページ。リアクションの設定は、このページの「⚡ リアクション」の欄に 1 行ずつ足していく" width="1440" height="900" loading="lazy">
         <figcaption>設定は「着せ替え」ページの「⚡ リアクション」。1行ずつ足していきます。</figcaption>
       </figure>
     </div>
@@ -169,7 +169,7 @@
       <div class="tcard"><b>🎉 配信イベント</b><p>フォロー・サブスク・レイドなどのイベントで発火。</p></div>
     </div>
     <div class="note">
-      <strong>チャンネルポイント報酬ごとの演出</strong>も同じページから設定できます（「🎉 報酬演出」）。
+      <strong>チャンネルポイント報酬ごとの演出</strong>は、左メニューの「チャネポ」で報酬ごとに設定できます（画像・音・OBS のシーン切替・読み上げ・返信）。
       報酬ごとに違う画像・音を割り当てられます。
     </div>
 
@@ -177,7 +177,7 @@
     <div class="qsteps">
       <div class="qstep"><b>アラートのURLをOBSに追加する</b><span>「ブラウザソース」ページからアラートのURLをコピーし、OBSの「ブラウザ」ソースに貼ります（推奨 1920×1080）。演出はこのソースに出ます。</span></div>
       <div class="qstep"><b>「着せ替え」→「⚡ リアクション」を開く</b><span>ここに演出を1行ずつ足していきます。</span></div>
-      <div class="qstep"><b>きっかけを決める</b><span>キーワード／スタンプ／イベントから選び、対象（例：<code>888</code>）を入力します。</span></div>
+      <div class="qstep"><b>きっかけを決める</b><span>種類（コメント／エモート／イベント）を選び、対象（例：<code>888</code>）を入力します。コメント・エモートは「配信」ページでコメントに接続しているときに動きます。フォロー・サブスクなどのイベントには、同じページの「🔑 Twitch連携情報」で Twitch の認証も要ります。</span></div>
       <div class="qstep"><b>出す演出を割り当てる</b><span>画像・効果音・絵文字を指定。<strong>何も割り当てなくても既定の演出が出る</strong>ので、まず試すだけならこのままでOKです。</span></div>
       <div class="qstep"><b>クールダウンを決めてテスト</b><span>「▶ テスト」ボタンでOBSの見え方をその場で確認できます。</span></div>
     </div>
@@ -197,7 +197,7 @@
 
     <h2>うまくいかないとき</h2>
     <div class="tcase"><b>演出が画面に出ない</b>
-      アラートのブラウザソースがOBSに追加されているか確認してください（リアクション・報酬演出はアラートと同じソースに出ます）。→ <a href="guide.html#obs-source">使い方 ②OBSに表示する</a></div>
+      アラートのブラウザソースがOBSに追加されているか確認してください（リアクション・チャネポの演出はアラートと同じソースに出ます）。→ <a href="guide.html#obs-source">使い方 ②OBSに表示する</a></div>
     <div class="tcase"><b>スタンプのきっかけが反応しない</b>
       スタンプ（エモート）トリガーは Twitch のコメントで動きます。エモートのコード名が正確か確認してください。</div>
     <div class="tcase"><b>演出が出すぎる／出なさすぎる</b>
@@ -219,7 +219,7 @@
       <div class="rcards">
         <a class="rcard" href="feature-commentview.html"><span class="t">💬 コメントビューをOBSに表示</span><span class="d">演出と一緒にコメントも画面に。</span></a>
         <a class="rcard" href="feature-tts.html"><span class="t">🔊 コメント読み上げ</span><span class="d">音でも反応する。</span></a>
-        <a class="rcard" href="feature-dashboard.html"><span class="t">🎛 配信前チェック・ダッシュボード</span><span class="d">演出のテスト発火もここから。</span></a>
+        <a class="rcard" href="feature-dashboard.html"><span class="t">🎛 配信前チェック・ダッシュボード</span><span class="d">配信前の接続チェック・一括スタート。</span></a>
         <a class="rcard" href="guide.html"><span class="t">📖 使い方ガイド</span><span class="d">全機能の設定手順とトラブル対処。</span></a>
       </div>
     </div>

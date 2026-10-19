@@ -159,10 +159,10 @@
 
     <h2>接続の流れ（初回のみ準備あり）</h2>
     <div class="qsteps">
-      <div class="qstep"><b>YouTube Data API キーを取得する</b><span>Google Cloud で YouTube Data API のキーを<strong>無料で取得</strong>します（初回のみ）。配信情報の編集など一部機能は Google 認証も使います。</span></div>
-      <div class="qstep"><b>配信ページで YouTube を選ぶ</b><span>「配信」ページの接続モードを YouTube にし、<strong>ライブ配信のURLとAPIキー</strong>を入力して接続します。</span></div>
+      <div class="qstep"><b>YouTube Data API キーを取得する</b><span>Google Cloud で YouTube Data API のキーを<strong>無料で取得</strong>します（初回のみ）。取り方は「配信」ページ YouTube 関連の「📖 接続前に必読」に順に載っています。タイトル・サムネイルも変えるなら、「🔑 YouTube連携情報」の手順で Google の認証も。</span></div>
+      <div class="qstep"><b>配信ページで YouTube を選ぶ</b><span>「配信」ページの接続モードを YouTube にし、API キーを入れます。<strong>配信のたびに、その回のライブの URL</strong>（YouTube Studio の「共有」でコピー）を「YouTube ライブ配信URL / 動画ID」に貼って「接続」します。前回の URL のままだとコメントが来ません。</span></div>
       <div class="qstep"><b>使いたい機能を設定する</b><span>読み上げエンジンの選択、チャット翻訳のON、コメビューURLをOBSに貼る——ここは Twitch と同じ操作です。</span></div>
-      <div class="qstep"><b>配信中に動く</b><span>ライブが始まるとコメントの取得が始まります（配信前は「接続待機中」）。</span></div>
+      <div class="qstep"><b>配信中に動く</b><span>ライブが始まるとコメントの取得が始まります（配信前は「ライブ開始待ち」と出て、始まったら自動でつながります）。</span></div>
     </div>
     <div class="note">
       <strong>Twitch と同時配信する場合：</strong> 両方を接続しておけば、コメントは合流して表示・読み上げされ、
@@ -179,7 +179,7 @@
       もう一度「YouTubeで認証する」を押せばその場で直ります。
       <strong>7日ごとに繰り返す場合</strong>は、Google 側の公開ステータスが「テスト」のままです
       ——テスト中は Google の仕様で<strong>認証が7日で切れます</strong>。
-      Google Cloud の「Google Auth Platform → 対象」で<strong>「本番」に切り替える</strong>と切れなくなります（審査は不要）。
+      Google Cloud の「Google Auth Platform → 対象」で<strong>「本番」に切り替える</strong>と切れなくなります（審査は要りません）。認証のときに「確認が完了していません」と出ますが、自分で作った自分専用のアプリなので「詳細」→「移動」で進めます。
       <span style="color:var(--ink-dim)">※ コメントの取得は APIキーで動いているので、認証が切れてもコメントは止まりません。
       止まるのは「サムネイル」「配信タイトル・説明の変更」だけです。</span></div>
     <div class="tcase"><b>コメントが取得できない</b>

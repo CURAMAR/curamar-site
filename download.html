@@ -125,16 +125,16 @@
       <h3>Ligastmir（Windows 10 / 11・無料）</h3>
       <p>下のボタンから<strong>最新版（zip）</strong>をダウンロードできます。解凍して、中の <code>起動.bat</code> から起動してください。解凍したフォルダは<strong>フォルダのまま</strong><strong>デスクトップか「ドキュメント」</strong>に置きます（<a href="quickstart.html#place">「ダウンロード」フォルダの中や同期フォルダの中は避けてください</a>——設定がそのフォルダの中に保存されるためです）。<strong>中身だけをダウンロードやデスクトップにじかに出さず</strong>、<code>Ligastmir.exe</code>・<code>_internal</code> などは 1 つのフォルダに入れたまま使ってください。すでにお使いの方の更新のやり方は下の「差し替え方法」を参照してください。</p>
       <a class="btn" href="https://github.com/CURAMAR/ligastmir-releases/releases/latest/download/Ligastmir.zip">⬇ Ligastmir をダウンロード（zip）</a>
-      <p style="margin:10px 0 0;font-size:13px;color:var(--ink-dim)">インストーラー版は v1.0.0 で配布予定です（準備中）。</p>
+      <p style="margin:10px 0 0;font-size:13px;color:var(--ink-dim)">ブラウザや Windows に止められたときは → <a href="#blocked">起動できない・止められた時</a>。インストーラー版は v1.0.0 で配布予定です（準備中）。</p>
       <details style="margin:14px 0 0;font-size:13px;color:var(--ink-dim)">
-        <summary style="cursor:pointer;color:var(--accent-cool)">落としたファイルが本物か、開く前に確かめる</summary>
+        <summary style="cursor:pointer;color:var(--accent-cool)">落としたファイルが本物か、開く前に確かめる（zip の確認コード）</summary>
         <p style="margin:10px 0 0">解凍する前に、zip の「確認コード（SHA-256）」を照らし合わせられます。
-        PowerShell を開いて、落とした zip を指定してください。</p>
-        <p style="margin:8px 0 0"><code id="dl-sha-cmd" style="font-family:var(--font-mono);background:var(--bg);border:1px solid var(--bg-line);border-radius:4px;padding:2px 6px;display:inline-block;word-break:break-all">Get-FileHash .\Ligastmir.zip -Algorithm SHA256</code></p>
-        <p style="margin:8px 0 0">出てきた値が、下と同じなら本物です。</p>
+        スタートボタンを右クリック →「ターミナル」（Windows 10 は「Windows PowerShell」）を開き、次の 1 行を貼って Enter を押してください（「ダウンロード」フォルダに落とした場合）。</p>
+        <p style="margin:8px 0 0"><code id="dl-sha-cmd" style="font-family:var(--font-mono);background:var(--bg);border:1px solid var(--bg-line);border-radius:4px;padding:2px 6px;display:inline-block;word-break:break-all">Get-FileHash "$HOME\Downloads\Ligastmir.zip" -Algorithm SHA256</code></p>
+        <p style="margin:8px 0 0">出てきた値が、下と同じなら本物です（大文字・小文字の違いは気にしなくて大丈夫です）。</p>
         <p style="margin:8px 0 0"><code id="dl-sha" style="font-family:var(--font-mono);background:var(--bg);border:1px solid var(--bg-line);border-radius:4px;padding:2px 6px;display:inline-block;word-break:break-all">f669006cfbe60648d1019c553a59e5736a3b7187819f0f2c1bb0e93d5c554d94</code>
         <span id="dl-sha-ver" style="display:block;margin-top:4px">（v0.9.11 の zip）</span></p>
-        <p style="margin:8px 0 0">アプリを起動できる場合は、ツール内の「INFO → 本物の確認」でも照合できます。</p>
+        <p style="margin:8px 0 0">アプリの「INFO → 本物の確認」に出るコードは、<strong>アプリ本体の確認コードで、上の zip の値とは別のもの</strong>です。アプリの方は「公式サイトと照合する」を押せば、自動で見比べます。</p>
       </details>
       <p style="font-size:13px;color:var(--ink-dim);margin:14px 0 0">うまく落とせない時や、これまで通り受け取りたい方は <a href="https://discord.gg/QtQcEgn9JF" target="_blank" rel="noopener">公式Discord</a> でも配布しています。</p>
       <p style="font-size:13px;color:var(--ink-dim);margin:10px 0 0">はじめての方は <a href="quickstart.html">🔰 3分ではじめる（最短セットアップ）</a> からどうぞ。<br>
@@ -168,14 +168,15 @@
 
     <div class="safe">
       <strong>設定はコピーで引き継げます。</strong><br>
-      設定・読み上げ辞書・視聴者メモ・着せ替え素材は、<code>Ligastmir.exe</code> とは別のファイル／フォルダに保存されています。
+      設定・読み上げ辞書・ファン名簿・着せ替え素材は、<code>Ligastmir.exe</code> とは別のファイル／フォルダに保存されています。
       新しいフォルダへ下記をコピーすれば、設定はそのまま引き継がれます。
     </div>
 
     <div class="steps">
       <div class="step">
         <div class="st-t">新しい Ligastmir をダウンロードして展開する</div>
-        <div class="st-d">最新版の zip を入手し、解凍して新しい <code>Ligastmir_v0.9.11…</code> フォルダを取り出します。中に <code>Ligastmir.exe</code> と <code>_internal</code> フォルダが入っています。</div>
+        <div class="st-d">最新版の zip を入手し、右クリック →「すべて展開」で新しいフォルダ（サイトから落とした場合は <code>Ligastmir</code>）を取り出します。中に <code>Ligastmir.exe</code> と <code>_internal</code> フォルダが入っています。<br>
+        今のフォルダも同じ名前のときは、<strong>先に今のフォルダの名前を「Ligastmir_前の版」などに変えておく</strong>と、名前がぶつかりません。</div>
       </div>
       <div class="step">
         <div class="st-t">今使っている Ligastmir を閉じる</div>
@@ -185,12 +186,14 @@
         <div class="st-t">古いフォルダから設定ファイルをコピーする</div>
         <div class="st-d">今まで使っていたフォルダ（<code>Ligastmir.exe</code> があった場所）から、次のファイル・フォルダを<strong>新しいフォルダ（<code>Ligastmir.exe</code> と同じ階層）へコピー</strong>します。<br>
         <code>config.json</code> / <code>tts_dict.json</code> / <code>viewers.json</code> / <code>viewer_stats.json</code> / <code>user_assets</code> フォルダ<br>
+        （あれば）<code>voicevox_credit_overrides.json</code> … VOICEVOX のクレジット表記を自分で直した方だけ<br>
         （任意）<code>_backup</code> フォルダ … 設定の控えです。コピーしなくても新しい版でまた自動で作られますが、<strong>過去の控えごと引き継ぎたい場合</strong>は一緒にコピーしてください。<br>
-        ※ <code>_internal</code> フォルダはプログラム本体なので<strong>触らない</strong>でください。</div>
+        ※ <code>_internal</code> フォルダはプログラム本体なので<strong>触らない</strong>でください。<br>
+        ※「内蔵の翻訳」を使っていた方は、翻訳のモデルを新しいフォルダでもう一度取得してください（「音声・コメント › 翻訳エンジン設定」）。</div>
       </div>
       <div class="step">
         <div class="st-t">起動して完了</div>
-        <div class="st-d">新しいフォルダの <code>Ligastmir.exe</code>（または同じ場所の <code>起動.bat</code>）から起動します。設定が引き継がれた状態で立ち上がれば完了です。古いフォルダはしばらくバックアップとして残しておくと安心です。</div>
+        <div class="st-d">新しいフォルダの <code>起動.bat</code> から起動します（ダウンロードのときに付いたブロックを外してから立ち上がります）。設定が引き継がれた状態で立ち上がれば完了です。古いフォルダはしばらくバックアップとして残しておくと安心です。</div>
       </div>
     </div>
 
@@ -198,7 +201,7 @@
       <strong>設定がうまく引き継げない時：</strong>コピー先が <code>Ligastmir.exe</code> と同じ階層になっているかを確認してください（<code>_internal</code> フォルダの中ではありません）。それでも設定が消えたように見える場合は、下のサポートへご連絡ください。
     </div>
 
-    <h2>起動できない時（ブロックの解除）</h2>
+    <h2 id="blocked">起動できない時（ブロックの解除）</h2>
     <p>起動してもすぐ閉じてしまう・<code>Failed to resolve … Python.Runtime.dll</code> のようなエラーが出る場合は、<strong>ネットからダウンロードしたファイルに付く「ブロック」</strong>が原因です。Windows がブロックされたファイルの読み込みを止めるために起こります。次のどちらかで直ります。</p>
 
     <div class="safe">
@@ -219,20 +222,21 @@
     </div>
 
     <div class="warn-box">
-      <strong>SmartScreen の警告が出た場合：</strong>署名なしの個人開発アプリのため「発行元不明」と表示されることがあります。「詳細情報 → 実行」で起動できます（手元で動作確認した配布版です）。
+      <strong>「Windows によって PC が保護されました」という青い画面が出た場合：</strong>文の下の小さな「詳細情報」を押すと「実行」が出るので、それを押せば起動できます。署名（有料の証明書）を付けていない個人開発のアプリに出る画面です（Windows の SmartScreen という仕組み）。
       <br><br>
-      <strong>「脅威が見つかりました」でダウンロードできない・消される場合：</strong>誤検知です。
-      対処（フォルダを除外に追加する／一度消された場合は先に「デバイスで許可」する）は
-      <a href="faq.html">よくある質問</a> にまとめています。
+      <strong>「脅威が見つかりました」でダウンロードできない・消される場合：</strong>このページのボタンから落とした公式のものなら、誤検知です。
+      心配なときは、先に上の「zip の確認コード」で本物か確かめてから、
+      <a href="faq.html#av-threat">よくある質問（フォルダを除外に追加する／一度消された場合は先に「デバイスで許可」する）</a> の手順で許可してください。
       <br><br>
       <strong>「発行元が確認できなかったためブロックしました」と出る場合：</strong>
       これはウイルス判定ではなく Windows 11 の「スマート アプリ コントロール」です。
       ⚠ この機能は<strong>一度オフにすると元に戻せません</strong>。判断の材料は
-      <a href="faq.html">よくある質問</a> をご覧ください。
+      <a href="faq.html#sac-block">よくある質問</a> をご覧ください。
     </div>
 
     <div class="warn-box">
       <strong>公式の入手先は、この公式サイトと公式Discordだけです。</strong>
+      ダウンロードボタンのファイルは、GitHub の <code>CURAMAR/ligastmir-releases</code> から届きます（ここも公式です。ほかの人の GitHub にあるものは公式ではありません）。
       まとめサイト・無断転載・改変版にご注意ください。見分け方は
       <a href="verify.html">本物の見分け方・偽配布の注意</a> をご覧ください
       （ツール内の「INFO → 本物の確認」でも照合できます）。
@@ -250,7 +254,7 @@
       <div class="sc">
         <div class="lab">FORM（Discord なしでOK）</div>
         <h3>フォームで送る</h3>
-        <p>Discord を使わない方はこちら。ログファイルの添付もできます。</p>
+        <p>Discord を使わない方はこちら。名前を出さずに送れます。<br><span style="font-size:13px;color:var(--ink-dim)">※ ファイルを付けるときは Google へのログインが要り、Google アカウントの名前と写真が記録されます（Google フォームの仕組み）。名前を出したくない方は、ファイルなしで送るか Discord へ。</span></p>
         <!-- 報告フォーム（Googleフォーム） -->
         <a class="btn" href="https://forms.gle/RFj81KQe1nFik4L76" target="_blank" rel="noopener">報告フォームを開く</a>
       </div>
@@ -260,12 +264,13 @@
     <p>不具合の調査には、ログファイルがとても役立ちます。送る時は次のようにしてください。</p>
     <div class="steps">
       <div class="step">
-        <div class="st-t">ログファイルを見つける</div>
-        <div class="st-d">アプリの「INFO」ページの「ログフォルダを開く」から、ログのある場所を開けます。</div>
+        <div class="st-t">報告用の zip を作る</div>
+        <div class="st-d">アプリの「テスト/ログ」ページの「<strong>📦 報告用にまとめる（zip）</strong>」を押すと、動作ログを zip 1 つにまとめます。<strong>設定・認証情報・コメントログ（視聴者の名前とコメント）は入りません。</strong><br>
+        ※ ログフォルダから手で選ぶときは、<code>chat_</code> で始まるファイル（視聴者の名前とコメント入り）は送らないでください。</div>
       </div>
       <div class="step">
         <div class="st-t">送る</div>
-        <div class="st-d"><strong>サイズが小さいログ</strong>は、Discord の <code>#ログ共有</code> にそのまま添付するか、報告フォームに添付してください。<br><strong>サイズが大きいログ</strong>は、ギガファイル便などのファイル転送サービスにアップロードして、その URL を Discord か報告フォームに貼ってください。</div>
+        <div class="st-d">できた zip を、Discord の <code>#ログ共有</code> に添付するか、報告フォームに添付してください。<br>大きすぎて添付できないときは、ギガファイル便などのファイル転送サービスにアップロードして、その URL を貼ってください。</div>
       </div>
     </div>
   </article>

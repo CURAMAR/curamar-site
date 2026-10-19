@@ -24,9 +24,9 @@
 {"@context":"https://schema.org","@type":"HowTo","name":"Ligastmir の最短セットアップ（3分）","description":"配信支援ツール Ligastmir をダウンロードして、OBS に字幕やコメントビューを表示するまでの最短手順。","totalTime":"PT3M","supply":[],"tool":[{"@type":"HowToTool","name":"Windows 10 / 11 の PC"},{"@type":"HowToTool","name":"OBS Studio（画面に表示する場合）"}],"step":[
 {"@type":"HowToStep","position":1,"name":"最新版をダウンロード","text":"ダウンロードページから最新版の zip を入手します。"},
 {"@type":"HowToStep","position":2,"name":"zip を解凍して、置き場所を決める","text":"zip を右クリック→「すべて展開」でフォルダを取り出し、デスクトップか「ドキュメント」に置きます。「ダウンロード」フォルダの中・OneDrive などの同期フォルダの中・Program Files の中は避けてください（設定がそのフォルダの中に保存されるため）。"},
-{"@type":"HowToStep","position":3,"name":"起動.bat をダブルクリック","text":"フォルダ内の 起動.bat をダブルクリックして起動します。初回に SmartScreen が出たら「詳細情報 → 実行」で進めます。"},
+{"@type":"HowToStep","position":3,"name":"起動.bat をダブルクリック","text":"フォルダ内の 起動.bat をダブルクリックして起動します。初回に「Windows によって PC が保護されました」が出たら「詳細情報 → 実行」で進めます。"},
 {"@type":"HowToStep","position":4,"name":"使いたい機能だけ ON","text":"字幕だけ・読み上げだけでも OK。Twitch / YouTube / OBS は使うものだけ接続します。"},
-{"@type":"HowToStep","position":5,"name":"OBS にブラウザソースを追加","text":"画面に出したい機能（字幕・コメントビューなど）の URL を OBS のブラウザソースに貼り付けます。"}]}
+{"@type":"HowToStep","position":5,"name":"OBS にブラウザソースを追加","text":"左メニューの「ブラウザソース」で、出したいものの URL を「コピー」し、OBS の「ソース」の＋ →「ブラウザ」に貼って、幅 1920・高さ 1080 にします。"}]}
 </script>
 <style>
   :root{
@@ -146,7 +146,7 @@
            このフォルダの中に保存されるので、「消される場所」に置くと全部消える。
            サイト内で置き場所を説明するのはここ1か所。他ページはここ（#place）へ送る。 -->
       <div class="qstep" id="place"><b>zip を解凍して、置き場所を決める</b><span>
-        zip を右クリック →「すべて展開」。出てきたフォルダ（<code>Ligastmir_v…</code>）を、<strong>フォルダのまま</strong><strong>デスクトップ</strong>か<strong>「ドキュメント」</strong>に移します。<br>
+        zip を右クリック →「すべて展開」。出てきたフォルダ（サイトから落とした場合は <code>Ligastmir</code>）を、<strong>フォルダのまま</strong><strong>デスクトップ</strong>か<strong>「ドキュメント」</strong>に移します。<br>
         <!-- 2026-09-27（curamar「zip の中身をダウンロードフォルダの直下に全部出していた人がいた。ダウンロード\Ligastmir.exe って感じ」） -->
         <strong>★フォルダの中身だけを取り出さないでください。</strong><code>Ligastmir.exe</code>・<code>_internal</code>・<code>起動.bat</code> などは、<strong>1 つのフォルダに入ったまま</strong>使います。
         ダウンロードやデスクトップに<strong>じかにバラバラに出してしまった</strong>ときは、新しいフォルダ（例: <code>Ligastmir</code>）を作って、それらを<strong>全部その中へ</strong>移してください（アプリもこの形を見つけると知らせます）。<br>
@@ -159,9 +159,9 @@
           <li><strong>zip の中から直接</strong>・一時フォルダ — 開くたびに別の場所に展開され、設定が残りません。</li>
         </ul>
       </span></div>
-      <div class="qstep"><b><code>起動.bat</code> をダブルクリック</b><span>フォルダの中の <code>起動.bat</code> から起動します。<strong>Ligastmir.exe を直接起動することもできますが、ダウンロード時のブロック解除を自動で行ってくれるので、通常は 起動.bat がおすすめ</strong>です。初回に SmartScreen の画面が出たら「詳細情報 → 実行」で進めます（公式サイト・公式 Discord から入手した配布版であれば大丈夫です）。</span></div>
+      <div class="qstep"><b><code>起動.bat</code> をダブルクリック</b><span>フォルダの中の <code>起動.bat</code> から起動します。<strong>Ligastmir.exe を直接起動することもできますが、ダウンロード時のブロック解除を自動で行ってくれるので、通常は 起動.bat がおすすめ</strong>です。初回に「Windows によって PC が保護されました」という青い画面が出たら、文の下の小さな「詳細情報」を押し、出てきた「実行」で進めます。署名（有料の証明書）を付けていない個人開発のアプリに出る画面です（公式サイト・公式 Discord から入手した配布版であれば大丈夫です）。</span></div>
       <div class="qstep"><b>使いたい機能だけ ON にする</b><span>最初の画面の案内に沿って、使いたい機能だけスイッチを入れます。<strong>字幕だけ・読み上げだけでも「正解」</strong>です。Twitch / YouTube / OBS の接続も、使うものだけでかまいません。</span></div>
-      <div class="qstep"><b>OBS にブラウザソースを追加する</b><span>画面に出したいもの（字幕・コメントビューなど）の URL がツール内に一覧で用意されています。コピーして OBS の「ブラウザ」ソースに貼れば表示されます。</span></div>
+      <div class="qstep"><b>OBS にブラウザソースを追加する</b><span>左メニューの<strong>「ブラウザソース」</strong>に、画面に出したいもの（字幕なら「🎤 字幕表示」）の URL が一覧で並んでいます。「コピー」を押して、OBS の「ソース」の＋ →「ブラウザ」→ URL 欄に貼り、<strong>幅 1920・高さ 1080</strong> にして OK。Ligastmir を先に起動しておくと、真っ白になりません。</span></div>
     </div>
     <div class="note">
       これで完了です。うまくいかないところがあったら、<a href="faq.html">FAQ</a> か <a href="guide.html">使い方ガイド</a> を見るか、
@@ -187,19 +187,19 @@
       <div class="recipe">
         <h3>🎤 まず字幕だけ使う</h3>
         <ol>
-          <li>起動して<strong>字幕（音声認識）を ON</strong></li>
-          <li>字幕ページの URL をコピー</li>
-          <li>OBS のブラウザソースに貼る</li>
+          <li>起動して「音声・コメント」でマイクを選び、<strong>字幕（音声認識）を ON</strong></li>
+          <li>左メニュー「ブラウザソース」の「🎤 字幕表示」の URL をコピー</li>
+          <li>OBS のブラウザソースに貼る（幅 1920・高さ 1080）</li>
           <li>マイクに向かって話す → 画面に字幕が出ます</li>
         </ol>
       </div>
       <div class="recipe">
         <h3>🔊 まず読み上げだけ使う</h3>
         <ol>
-          <li>起動して <strong>Twitch か YouTube に接続</strong></li>
+          <li>起動して「配信」ページで接続。<strong>Twitch はチャンネル名を入れて「接続」だけ</strong>（ログイン不要）。YouTube は、配信を始めてからの配信 URL と Google の API キー（最初の 1 回だけ・無料・取り方はアプリの中に手順あり）が要ります</li>
           <li><strong>読み上げを ON</strong>（Windows 標準の声ならそのまま使えます）</li>
           <li>コメントが来ると読み上げてくれます</li>
-          <li>VOICEVOX の声を使いたくなったら<a href="guide.html#tts">ガイドへ</a></li>
+          <li>VOICEVOX の声を使いたくなったら<a href="guide.html#tts">ガイドへ</a>（配信で使うときは「VOICEVOX:ずんだもん」のようなクレジット表記が要ります）</li>
         </ol>
       </div>
     </div>

@@ -144,20 +144,20 @@
 
     <h2>最短手順（3ステップ）</h2>
     <div class="qsteps">
-      <div class="qstep"><b>Ligastmir を起動して配信に接続する</b><span><code>起動.bat</code> から起動し、「配信」ページで Twitch のチャンネル名を入れて接続（<strong>匿名でOK</strong>）。YouTube は配信URLとAPIキーで接続します。</span></div>
+      <div class="qstep"><b>Ligastmir を起動して配信に接続する</b><span><code>起動.bat</code> から起動し、「配信」ページで Twitch のチャンネル名を入れて接続（<strong>匿名でOK</strong>）。YouTube は配信を始めてからの URL と API キーで接続します（→ <a href="feature-youtube.html">YouTube配信での使い方</a>）。</span></div>
       <div class="qstep"><b>「チャット翻訳」をONにする</b><span>「音声・コメント」ページの「💬コメント関連」にあります。スイッチ1つだけです。</span></div>
-      <div class="qstep"><b>外国語コメントが自動で翻訳される</b><span>コメントビューに原文＋日本語訳の2段表示、読み上げは日本語訳。<strong>どの言語かを設定する必要はありません</strong>（自動検出）。</span></div>
+      <div class="qstep"><b>外国語コメントが自動で翻訳される</b><span>コメントビューに原文＋日本語訳の2段表示、読み上げは日本語訳。<strong>どの言語かを設定する必要はありません</strong>（自動検出）。<br>画面に出すにはコメビューを OBS に貼っておきます（→ <a href="feature-commentview.html">コメントビューの表示</a>）。声で聞くには「TTS 読み上げ」を ON に（→ <a href="feature-tts.html">コメント読み上げ</a>）。<br>自分の字幕に翻訳字幕を重ねるのは、別のスイッチ「字幕翻訳 ON / OFF」です（→ <a href="feature-subtitle.html">音声認識字幕</a>）。</span></div>
     </div>
 
     <h2 id="engines">翻訳エンジンについて</h2>
     <ul>
-      <li><strong>何も設定しなくても動きます</strong> — 使う順番は <strong>DeepL（キーがあるとき）→ 内蔵の翻訳（ON のとき・v0.9.11〜）→ Google 翻訳 → MyMemory → LibreTranslate</strong>。調子の悪いものは自動で後回しにし、全部が不調でもどれかで必ず訳します。</li>
+      <li><strong>何も設定しなくても動きます</strong> — 使う順番は <strong>DeepL（キーがあるとき）→ 内蔵の翻訳（ON のとき・v0.9.11〜）→ Google 翻訳 → MyMemory → LibreTranslate</strong>。調子の悪いものは自動で後回しにし、どれか 1 つでも通れば訳します（全部だめなときは訳が出ません）。</li>
       <li><strong>Google 翻訳について（正直に）</strong> — Google 翻訳は、Google の公式の API ではなく、<strong>人が使う Web の翻訳画面</strong>を使っています（Google の利用規約の「自動でのアクセス」の決まりに触れうる使い方です）。止められたときは自動で次のエンジンに回ります。今後、Google 公式の翻訳の関数（Google Apps Script）を自分のアカウントで使う方式も足す予定です。</li>
       <li><strong>DeepL キー対応（任意）</strong> — 無料の DeepL API キー（月 50 万文字）を設定すると、より自然な訳になり、最初に DeepL を使います。</li>
       <li><strong>上限を増やす道</strong> — 長い配信で翻訳がときどき出ないときは、<a href="#builtin"><strong>内蔵の翻訳</strong></a>（上限なし・v0.9.11〜）を使うか、<strong>MyMemory に連絡用のメールアドレスを入れる</strong>（登録不要・1 日 5,000 文字 → 5 万文字）か、<strong>DeepL の無料キー</strong>で増やせます（<a href="#limits">上限の数え方</a>）。翻訳がうまくいかないときの知らせにも、まだ入れていない方の案内が出ます（v0.9.10〜）。</li>
       <li><strong>送られるもの</strong> — 翻訳する文（コメント・字幕）は、そのとき使った翻訳サービスに送られます（内蔵の翻訳だけは PC の外へ送りません）。詳しくは <a href="privacy.html">プライバシーポリシー</a>。</li>
-      <li><strong>読み上げ辞書と共存</strong> — 辞書登録した固有名詞は、翻訳を通しても読み方が保たれます。</li>
-      <li><strong>日本語のコメントはすぐ読む（v0.9.8〜）</strong> — チャット翻訳が ON でも、日本語のコメントは訳を待たずに読み上げます（外国語は訳ができてから）。切り替えもできます。</li>
+      <li><strong>読み上げ辞書と共存</strong> — 辞書に登録した言葉だけのコメント（スタンプ名など）は翻訳に回さず、辞書の読みで読み上げます。</li>
+      <li><strong>日本語のコメントはすぐ読む（v0.9.8〜）</strong> — 「日本語コメントを海外向けに訳す」を ON にしていても、日本語のコメントは訳を待たずに読み上げます。訳が付いてから読ませたいときは「日本語コメントは訳を待たずに読む」を OFF に。</li>
       <li><strong>自分の字幕の翻訳先は12言語から選べます</strong> — English／中文（简体・繁體）／한국어／Русский／Español／Français／Deutsch／Português／Italiano／Tiếng Việt／Bahasa Indonesia。一覧には日本語の言語名も併記しているので、見慣れない綴りでも迷いません（<a href="feature-subtitle.html">字幕機能</a>と連動）。</li>
     </ul>
 

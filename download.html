@@ -141,7 +141,7 @@
         <div class="dl-opt main">
           <div class="dl-lab">おすすめ</div>
           <h4>インストーラー版</h4>
-          <p>落とした <code>Ligastmir_Setup.exe</code> を実行して「次へ」で入れるだけ。スタートメニュー（とデスクトップ）から起動します。<strong>更新も新しいインストーラーを実行するだけ</strong>で、設定・読み上げ辞書・ファン名簿・素材はそのまま引き継がれます。管理者の確認は出ません（既定は「このユーザーだけ」に入れます）。</p>
+          <p>落とした <code>Ligastmir_Setup.exe</code> を実行して「次へ」で入れるだけ。スタートメニュー（とデスクトップ）から起動します。<strong>更新も新しいインストーラーを実行するだけ</strong>で、設定・読み上げ辞書・ファン名簿・素材はそのまま引き継がれます。最初の小さな窓は「現在のユーザー用にインストール (推奨)」のまま OK を押せば、管理者の確認は出ません。</p>
           <a class="btn" href="https://github.com/CURAMAR/ligastmir-releases/releases/latest/download/Ligastmir_Setup.exe">⬇ インストーラーをダウンロード</a>
         </div>
         <div class="dl-opt">
@@ -151,7 +151,7 @@
           <a class="btn cool" href="https://github.com/CURAMAR/ligastmir-releases/releases/latest/download/Ligastmir.zip">⬇ zip をダウンロード</a>
         </div>
       </div>
-      <p style="font-size:13px;color:var(--ink-dim);margin:14px 0 0">すでに zip 版をお使いの方は、インストーラー版で入れて起動すると「前の Ligastmir から引き継ぎますか？」と案内します（<a href="#update">下の「更新のしかた」</a>）。</p>
+      <p style="font-size:13px;color:var(--ink-dim);margin:14px 0 0">すでに zip 版をお使いの方は、インストーラー版で入れて起動すると「前の Ligastmir から引き継ぎますか？」と案内します（<a href="#move">下の「zip 版からインストーラー版へ移る」</a>）。</p>
         <p style="margin:10px 0 0;font-size:13px;color:var(--ink-dim)">ブラウザや Windows に止められたときは → <a href="#blocked">起動できない・止められた時</a>。</p>
         <details style="margin:14px 0 0;font-size:13px;color:var(--ink-dim)">
           <summary style="cursor:pointer;color:var(--accent-cool)">落としたファイルが本物か、開く前に確かめる（確認コード）</summary>
@@ -265,7 +265,7 @@
       <div class="step">
         <div class="st-t">「閉じて起動し直す」で完了</div>
         <div class="st-d">「閉じて起動し直す」を押すと、Ligastmir がいったん閉じて自動でもう一度開きます。「前の Ligastmir から引き継ぎました」と出れば完了です。コピーして中身が同じことを確かめてから入れ替えるので、<strong>前のフォルダはそのまま残ります</strong>（いつもどおり動くのを確かめたら、消して大丈夫です）。<br>
-        ※ ダッシュボードに埋め込んだチャット欄だけは、ログインし直してください。</div>
+        ※ ダッシュボードに埋め込んだチャット欄はログインし直し、内蔵の翻訳を使っていた方は翻訳のモデルをもう一度取得してください（音声・コメント › 翻訳エンジン設定）。</div>
       </div>
     </div>
       <details style="margin:10px 0 0;font-size:13px;color:var(--ink-dim)">
@@ -275,7 +275,7 @@
       </details>
 
     <h3 class="sub-h" id="uninstall">アンインストール（インストーラー版）</h3>
-    <p>Windows の「設定 → アプリ → インストールされているアプリ」から Ligastmir の「…」→「アンインストール」。<br>
+    <p>Windows の「設定 → アプリ → インストールされているアプリ」から Ligastmir の「…」→「アンインストール」（Windows 10 は「設定 → アプリ → アプリと機能」で Ligastmir を選んで「アンインストール」）。<br>
     「設定・読み上げ辞書・ファン名簿・取り込んだ素材も、すべて削除しますか？」には、<strong>「いいえ」なら残します</strong>（入れ直したとき、そのまま使えます）。全部消すときは「はい」→「本当に削除しますか？」にも「はい」です。</p>
 
       <h2 id="blocked">起動できない時（zip 版・ブロックの解除）</h2>
@@ -303,7 +303,7 @@
         インストーラーを開いたときも同じです。「すべてのユーザー用にインストール」を選んだときだけ、管理者の確認（発行元: 不明）が出ます。
       <br><br>
       <strong>「脅威が見つかりました」でダウンロードできない・消される場合：</strong>このページのボタンから落とした公式のものなら、誤検知です。
-      心配なときは、先に上の「zip の確認コード」で本物か確かめてから、
+      心配なときは、先に上の「確認コード」（インストーラー・zip）で本物か確かめてから、
       <a href="faq.html#av-threat">よくある質問（フォルダを除外に追加する／一度消された場合は先に「デバイスで許可」する）</a> の手順で許可してください。
       <br><br>
       <strong>「発行元が確認できなかったためブロックしました」と出る場合：</strong>
@@ -386,7 +386,8 @@
     var s=document.getElementById('dl-sha'); if(s&&d.zip_sha256){s.textContent=d.zip_sha256;}
     var sv=document.getElementById('dl-sha-ver'); if(sv&&d.version){sv.textContent='（v'+d.version+' の zip）';}
     // インストーラーの確認コードも version.json から（v1.0.0〜）
-    var si=document.getElementById('dl-sha-ins'); if(si&&d.installer_sha256){si.textContent=d.installer_sha256+'（v'+d.version+'）';}
+    var si=document.getElementById('dl-sha-ins'); if(si&&d.installer_sha256){si.textContent=d.installer_sha256;}
+    var siv=document.getElementById('dl-sha-ins-ver'); if(siv&&d.version){siv.textContent='（v'+d.version+' のインストーラー）';}
   }).catch(function(){});
 </script>
 <script src="/sitemap.js" defer></script>

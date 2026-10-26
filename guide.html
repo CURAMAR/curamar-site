@@ -182,11 +182,11 @@
     <p>入れ方は 2 通りです（<a href="download.html">ダウンロードページ</a>）。<strong>インストーラー版（おすすめ）</strong>と、インストールせずにフォルダのまま使う <strong>zip 版</strong>です。</p>
     <h3 style="margin:22px 0 8px">インストーラー版</h3>
     <ol>
-      <li><code>Ligastmir_Setup.exe</code> を開いて「次へ」→「完了」。完了で起動します。次からは<strong>スタートメニュー（またはデスクトップ）の Ligastmir</strong> から起動します。</li>
+      <li><code>Ligastmir_Setup.exe</code> を開き、最初の小さな窓は「現在のユーザー用にインストール (推奨)」のまま OK →「次へ」→「完了」（管理者の確認は出ません）。完了で起動します。次からは<strong>スタートメニュー（またはデスクトップ）の Ligastmir</strong> から起動します。</li>
       <li>初回は「<strong>WindowsによってPCが保護されました</strong>」と出ることがあります → <strong>「詳細情報」→「実行」</strong>で開けます（署名のない自作アプリのため・問題ありません）。</li>
       <li>少し待つと操作画面（コマンドセンター）が開きます。</li>
     </ol>
-    <div class="note">置き場所を考える必要はありません。設定・読み上げ辞書・ファン名簿・取り込んだ素材・ログは Windows のアプリ用の場所（<code>%LOCALAPPDATA%\Ligastmir</code>）に自動で作られ、<strong>更新やアンインストールでも残ります</strong>。更新は新しいインストーラーを実行するだけです。</div>
+    <div class="note">置き場所を考える必要はありません。設定・読み上げ辞書・ファン名簿・取り込んだ素材・ログは Windows のアプリ用の場所（<code>%LOCALAPPDATA%\Ligastmir</code>）に自動で作られ、<strong>更新でもそのまま残ります</strong>（アンインストールのときは、設定などを残すか選べます。動作ログとコメントログ〈logs〉は消えます）。更新は新しいインストーラーを実行するだけです。</div>
     <h3 style="margin:22px 0 8px">zip 版</h3>
     <div class="safe"><strong>起動は <code>起動.bat</code> から。</strong><span class="muted">初回は「ネットからダウンロードしたファイルのブロック」が付いていて、exe を直接起動すると <code>Failed to resolve … Python.Runtime.dll</code> のようなエラーで<strong>すぐ閉じてしまう</strong>ことがあります。<code>起動.bat</code> はこのブロックを自動で解除してから起動するので確実です。</span></div>
     <ol>
@@ -328,9 +328,9 @@
     <div class="url-row"><b>キャラアイコン</b><code>PNG / GIFアニメ（各カードの左横）</code><span class="sz">正方形・48×48px枠</span></div>
     <div class="url-row"><b>バッジ表示</b><code>絵文字 ⇄ Twitch公式バッジ画像（要Twitch認証）</code><span class="sz">切替のみ</span></div>
     <ul>
-      <li><strong>保存場所：</strong> 取り込んだ素材は exe と同じフォルダの <code>user_assets</code> に入ります。割り当ては自動保存され、<strong>再起動後も復元</strong>されます。<span class="muted">v0.9.9 からは「📦 素材倉庫」で <code>user_assets</code> の中にフォルダを作って分けられます。</span></li>
+      <li><strong>保存場所：</strong> 取り込んだ素材はデータの置き場所の <code>user_assets</code> に入ります（インストーラー版は <code>%LOCALAPPDATA%\Ligastmir</code>、zip 版は exe と同じフォルダ・「詳細設定 → 📂 データの置き場所」で開けます）。割り当ては自動保存され、<strong>再起動後も復元</strong>されます。<span class="muted">v0.9.9 からは「📦 素材倉庫」で <code>user_assets</code> の中にフォルダを作って分けられます。</span></li>
       <li><strong>軽量起動：</strong> <code>Ligastmir.exe --skin-editor</code> で、配信機能を立ち上げずに着せ替えだけを開けます（配信前の準備に便利）。</li>
-      <li><strong>📦 素材倉庫（v0.9.9〜）：</strong> 左メニュー「📦 素材倉庫」で、取り込んだ画像・音・動画を<strong>フォルダで分けられます</strong>。フォルダは Ligastmir のフォルダの中の <code>user_assets</code> に<strong>本物のフォルダ</strong>として作られます（ドラッグで移動・▶ で試聴）。移しても、設定で選んでいる素材はそのまま使えます。素材を選ぶ窓でもフォルダで絞り込めます。</li>
+      <li><strong>📦 素材倉庫（v0.9.9〜）：</strong> 左メニュー「📦 素材倉庫」で、取り込んだ画像・音・動画を<strong>フォルダで分けられます</strong>。フォルダはデータの置き場所の <code>user_assets</code> に<strong>本物のフォルダ</strong>として作られます（ドラッグで移動・▶ で試聴）。移しても、設定で選んでいる素材はそのまま使えます。素材を選ぶ窓でもフォルダで絞り込めます。</li>
     </ul>
     <div class="note" style="margin-top:10px">
       <strong>自分の素材で着せ替えたい人へ — 無料素材の入手先（配信で使えるもの）</strong>
@@ -450,8 +450,8 @@
       <div class="cause">署名なしの個人開発EXEのため、誤検知が出ることがあります。</div>
       <ul>
         <li>「Windows によって PC が保護されました」の青い画面は、文の下の小さな「詳細情報」→「実行」で開けます。</li>
-        <li>心配なときは、<a href="download.html">ダウンロードページ</a>の「zip の確認コード」で本物か確かめてください（判定はウイルス対策ソフトや版ごとに揺れるので、ほかの判定サイトの結果は当てにしすぎないでください）。</li>
-        <li>隔離された場合は、対策ソフトでそのフォルダを「除外」に追加してください（手順は <a href="faq.html#av-threat">FAQ</a>）。</li>
+        <li>心配なときは、<a href="download.html">ダウンロードページ</a>の「確認コード」（インストーラー・zip）で本物か確かめてください（判定はウイルス対策ソフトや版ごとに揺れるので、ほかの判定サイトの結果は当てにしすぎないでください）。</li>
+        <li>隔離された場合は、対策ソフトでそのフォルダ（インストーラー版は <code>%LOCALAPPDATA%\Programs\Ligastmir</code>・zip 版は解凍したフォルダ）を「除外」に追加してください（手順は <a href="faq.html#av-threat">FAQ</a>）。</li>
         <li>「発行元が確認できなかったためブロックしました」と出るのは Windows 11 の「スマート アプリ コントロール」です。⚠ 一度オフにすると元に戻せないので、<a href="faq.html#sac-block">FAQ</a> を読んでから決めてください。</li>
       </ul>
       <div class="jump">→ 関連: <a href="#start">① まず起動する</a></div>
@@ -468,7 +468,7 @@
       <summary><h3>新しいバージョンへの更新／別PCに移したら設定が消えた</h3></summary>
       <div class="cause">設定の保存場所と暗号化の仕組みを押さえると解決します。</div>
       <ul>
-        <li>設定・辞書・着せ替え素材は exe と同じフォルダに保存されます。更新は、新しいフォルダに入れ替えて、設定のファイルをコピーします（exe だけの差し替えではありません）。手順は <a href="download.html">ダウンロード・更新方法</a>へ。</li>
+        <li>インストーラー版の更新は、新しいインストーラーを実行するだけです（設定は <code>%LOCALAPPDATA%\Ligastmir</code> に残ります）。zip 版は設定・辞書・着せ替え素材が exe と同じフォルダにあるので、新しいフォルダに入れ替えて、設定のファイルをコピーします（exe だけの差し替えではありません）。手順は <a href="download.html">ダウンロード・更新方法</a>へ。</li>
         <li><strong>別PCに移すと API キー/トークンは入力し直しが必要</strong>（そのPC固有の鍵で暗号化しているため復号できない＝仕様）。</li>
       </ul>
       <div class="jump">→ 関連: <a href="download.html">ダウンロードと更新方法</a></div>

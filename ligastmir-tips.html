@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>知っておくと便利な機能 — Ligastmir</title>
+<meta name="description" content="無料の配信支援ツール Ligastmir の、知っておくと便利な機能を動きで紹介します。設定を言葉で探す（Ctrl+K）、やりたいことから探す、字幕の動きをおすすめにする など。">
+<link rel="canonical" href="https://curamar.space/ligastmir-tips.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="curamar.space">
+<meta property="og:title" content="知っておくと便利な機能 — Ligastmir">
+<meta property="og:description" content="設定を言葉で探す（Ctrl+K）・やりたいことから探す・字幕のおすすめ など、知っておくと便利な機能を動きで紹介。">
+<meta property="og:url" content="https://curamar.space/ligastmir-tips.html">
+<meta property="og:image" content="https://curamar.space/assets/clips/search-poster.webp">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="知っておくと便利な機能 — Ligastmir">
+<meta name="twitter:description" content="設定を言葉で探す（Ctrl+K）など、知っておくと便利な機能を動きで紹介。無料・Windows。">
+<meta name="twitter:image" content="https://curamar.space/assets/clips/search-poster.webp">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+{"@type":"ListItem","position":1,"name":"トップ","item":"https://curamar.space/"},
+{"@type":"ListItem","position":2,"name":"Ligastmir","item":"https://curamar.space/ligastmir.html"},
+{"@type":"ListItem","position":3,"name":"知っておくと便利な機能","item":"https://curamar.space/ligastmir-tips.html"}]}
+</script>
+<style>
+  :root{
+    --bg:#0d1014;--bg-soft:#141a21;--bg-line:#1f2730;
+    --ink:#e8edf2;--ink-dim:#8a97a5;
+    --accent:#c8f542;--accent-cool:#5cc8ff;--warn:#ff6b6b;
+    --radius:14px;--maxw:900px;
+    --font-disp:"Zen Kaku Gothic New","Hiragino Kaku Gothic ProN",sans-serif;
+    --font-body:"Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;
+    --font-mono:"SFMono-Regular",Consolas,"Courier New",monospace;
+  }
+  @media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--ink);font-family:var(--font-body);line-height:1.9;-webkit-font-smoothing:antialiased}
+  a{color:var(--accent-cool)}
+  .grid-bg{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.4;
+    background-image:linear-gradient(var(--bg-line) 1px,transparent 1px),linear-gradient(90deg,var(--bg-line) 1px,transparent 1px);
+    background-size:48px 48px;
+    mask-image:radial-gradient(ellipse 80% 50% at 50% 0%,#000 20%,transparent 70%);
+    -webkit-mask-image:radial-gradient(ellipse 80% 50% at 50% 0%,#000 20%,transparent 70%)}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px;position:relative;z-index:1}
+  header{position:sticky;top:0;z-index:50;background:rgba(13,16,20,.82);backdrop-filter:blur(10px);border-bottom:1px solid var(--bg-line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:62px}
+  .logo{font-family:var(--font-mono);font-weight:700;letter-spacing:.05em;font-size:18px;text-decoration:none}
+  .logo .cura{color:var(--accent)}.logo .mar{color:var(--accent-cool)}
+  .back{font-size:14px;color:var(--ink-dim);text-decoration:none}.back:hover{color:var(--ink)}
+  article{padding:56px 0 40px}
+  .doc-eyebrow{font-family:var(--font-mono);font-size:13px;color:var(--accent-cool);letter-spacing:.16em;display:inline-flex;align-items:center;gap:10px;margin-bottom:16px}
+  .doc-eyebrow::before{content:"";width:28px;height:1px;background:var(--accent-cool)}
+  h1{font-family:var(--font-disp);font-size:clamp(25px,4.6vw,36px);font-weight:700;margin-bottom:10px;text-wrap:balance}
+  h1 .hl{color:var(--accent)}
+  .lead{font-size:15.5px;color:var(--ink-dim);margin:14px 0 30px;max-width:62ch}
+  .lead strong{color:var(--ink)}
+  /* 目次（このページの機能） */
+  .toc{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 34px}
+  .toc a{font-size:13.5px;color:var(--ink);text-decoration:none;background:var(--bg-soft);border:1px solid var(--bg-line);border-radius:999px;padding:6px 14px}
+  .toc a:hover{border-color:var(--accent)}
+  /* 1 つの機能 */
+  .tip{margin:0 0 46px;scroll-margin-top:80px}
+  h2.grp{font-family:var(--font-mono);font-size:13px;font-weight:700;letter-spacing:.14em;color:var(--accent-cool);margin:54px 0 18px;padding-bottom:8px;border-bottom:1px solid var(--bg-line)}
+  .tip h3{font-family:var(--font-disp);font-size:22px;font-weight:700;margin:0 0 6px;padding-left:14px;border-left:3px solid var(--accent);text-wrap:balance}
+  .tip .where{font-size:12.5px;color:var(--ink-dim);margin:0 0 10px 17px}
+  .tip .where b{color:var(--ink);font-weight:600}
+  .tip p{font-size:15px;margin:0 0 12px;max-width:62ch}
+  .tip p strong{color:var(--ink)}
+  kbd{font-family:"Segoe UI",var(--font-body);font-size:.88em;font-weight:700;color:var(--ink);background:#232b36;border:1px solid #3a4553;border-bottom-width:3px;border-radius:6px;padding:1px 7px}
+  /* 動く画像 */
+  .clip{margin:4px 0 0;background:var(--bg-soft);border:1px solid var(--bg-line);border-radius:12px;overflow:hidden}
+  .clip video{display:block;width:100%;height:auto;aspect-ratio:1200/720;background:#0b0e12;cursor:pointer}
+  .clip figcaption{font-size:12.5px;color:var(--ink-dim);padding:9px 13px;line-height:1.6;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+  .clip .playhint{font-family:var(--font-mono);font-size:11.5px;color:var(--ink-dim);white-space:nowrap}
+  /* コマ送り（①②③） */
+  .steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:12px 0 0;counter-reset:st}
+  .steps figure{margin:0;background:var(--bg-soft);border:1px solid var(--bg-line);border-radius:10px;overflow:hidden;counter-increment:st}
+  .steps img{display:block;width:100%;height:auto;aspect-ratio:1200/720;object-fit:cover;object-position:left top}
+  .steps figcaption{font-size:12.5px;color:var(--ink-dim);padding:8px 11px 9px;line-height:1.55}
+  .steps figcaption::before{content:counter(st);display:inline-grid;place-items:center;width:20px;height:20px;margin-right:7px;border-radius:6px;
+    background:var(--accent);color:#0d1014;font-family:var(--font-mono);font-weight:700;font-size:12px;vertical-align:1px}
+  .steps.two{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .clip.still img{display:block;width:100%;height:auto}
+  @media(max-width:640px){.steps,.steps.two{grid-template-columns:1fr}}
+  .note{background:var(--bg-soft);border:1px solid var(--bg-line);border-radius:10px;padding:14px 18px;font-size:14px;color:var(--ink-dim);margin:8px 0 18px}
+  .cta-row{display:flex;gap:14px;flex-wrap:wrap;margin:30px 0 8px}
+  .cta{display:inline-flex;align-items:center;gap:9px;background:var(--accent);color:#0d1014;font-weight:700;font-size:15px;
+    padding:13px 26px;border-radius:10px;transition:transform .15s,box-shadow .2s;text-decoration:none}
+  .cta:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(200,245,66,.25)}
+  .cta.ghost{background:transparent;color:var(--ink);border:1px solid var(--bg-line)}
+  .cta.ghost:hover{border-color:var(--accent);box-shadow:none}
+  footer{border-top:1px solid var(--bg-line);padding:34px 0;margin-top:40px}
+  .foot{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px}
+  .foot .links{display:flex;gap:18px;font-size:14px;flex-wrap:wrap}
+  .foot .links a{color:var(--ink-dim);text-decoration:none}.foot .links a:hover{color:var(--accent)}
+  .foot .cp{font-family:var(--font-mono);font-size:12px;color:var(--ink-dim)}
+</style>
+</head>
+<body>
+<div class="grid-bg"></div>
+
+<header>
+  <div class="wrap nav">
+    <a href="index.html" class="logo"><span class="cura">cura</span><span class="mar">mar</span></a>
+    <a href="ligastmir.html" class="back">← Ligastmir について</a>
+  </div>
+</header>
+
+<div class="wrap">
+  <article>
+    <div class="doc-eyebrow">TIPS</div>
+    <h1>知っておくと<span class="hl">便利な機能</span></h1>
+    <p class="lead">設定がどこにあるか分からないとき、配信の前や途中に困ったとき。<strong>見れば分かる</strong>ように、動きで紹介します（画面はお試し用の表示で、名前・日付・結果は例です）。</p>
+
+    <nav class="toc" aria-label="このページの機能">
+      <a href="#search">🔍 設定を言葉で探す</a>
+      <a href="#wants">🔎 やりたいことから探す</a>
+      <a href="#preset">✨ 字幕のおすすめ</a>
+      <a href="#sample">▶ サンプル字幕</a>
+      <a href="#batch">⚡ 一括スタート</a>
+      <a href="#softpause">⏸ 軽い停止</a>
+      <a href="#overlays">👁 出す／しまう</a>
+      <a href="#diag">🩺 総合診断</a>
+      <a href="#logzip">📦 報告用 zip</a>
+      <a href="#backup">🛟 バックアップ</a>
+    </nav>
+
+    <!-- 動く画像・静止画は _handoff/tools/site_capture.py の場面から作る（場面の名前＝ファイル名）。版の表示は写さない＝配布のたびに撮り直さなくてよい -->
+    <h2 class="grp">設定を探す</h2>
+
+    <section class="tip" id="search">
+      <h3>🔍 設定を言葉で探す（<kbd>Ctrl</kbd>＋<kbd>K</kbd>）</h3>
+      <div class="where">場所: <b>左メニューのいちばん上</b>（どのページからでも <kbd>Ctrl</kbd>＋<kbd>K</kbd>）</div>
+      <p>探したい言葉を打つだけで、その設定の場所が出ます。<strong>言い方が違っても見つかります</strong>（「ふち」→「縁取り」、「光る」→「ネオン」）。<kbd>Enter</kbd> で、その場所まで連れて行って光らせます。</p>
+      <figure class="clip">
+        <video data-clip src="assets/clips/search.mp4" poster="assets/clips/search-poster.webp" muted loop playsinline preload="none"
+               aria-label="左上の検索欄で Ctrl+K を押し、「ふち」と打つと「縁取りの色」などが一覧に出て、Enter で字幕の設定の縁取りの行まで移動して光る様子"></video>
+        <figcaption><span>「ふち」と打つ → 言い換えで「縁取り」が出る → <kbd>Enter</kbd> でその場所へ</span><span class="playhint">クリックで一時停止</span></figcaption>
+      </figure>
+      <div class="steps">
+        <figure><img src="assets/clips/search-step1.webp" alt="左メニューの一番上の検索欄に入力のカーソルがあり、画面の下に Ctrl + K の札が出ている" loading="lazy" width="1200" height="720"><figcaption><kbd>Ctrl</kbd>＋<kbd>K</kbd> で検索欄へ</figcaption></figure>
+        <figure><img src="assets/clips/search-step2.webp" alt="「ふち」と打つと、縁取りの色・縁取りの太さなど 20 件が、どのページのどこにあるかと一緒に並ぶ" loading="lazy" width="1200" height="720"><figcaption>言葉を打つと、場所つきで並ぶ</figcaption></figure>
+        <figure><img src="assets/clips/search-step3.webp" alt="字幕表示設定の「文字の色・縁取りの色」の行が、緑の枠で光っている" loading="lazy" width="1200" height="720"><figcaption><kbd>Enter</kbd> でその場所が光る</figcaption></figure>
+      </div>
+    </section>
+
+    <section class="tip" id="wants">
+      <h3>🔎 やりたいことから探す</h3>
+      <div class="where">場所: <b>INFO</b> の「🔎 やりたいことから探す」（使い方ガイドの 1 章）。<kbd>Ctrl</kbd>＋<kbd>K</kbd> の検索にも出ます</div>
+      <p>「〜したい」で探せる一覧です。<strong>機能の名前を知らなくても大丈夫</strong>。「そこへ ↗」で、その設定まで連れて行きます。</p>
+      <figure class="clip">
+        <video data-clip src="assets/clips/wants.mp4" poster="assets/clips/wants-poster.webp" muted loop playsinline preload="none"
+               aria-label="使い方ガイドの「やりたいことから探す」で「光らせたい」と打つと「字幕の見た目を変えたい」などが出て、「そこへ」を押すと字幕の設定の「サンプル字幕を出しておく」の行まで移動して光る様子"></video>
+        <figcaption><span>「光らせたい」と打つ → 「そこへ ↗」 → 字幕の見た目の設定へ</span><span class="playhint">クリックで一時停止</span></figcaption>
+      </figure>
+    </section>
+
+    <h2 class="grp">字幕を整える</h2>
+
+    <section class="tip" id="preset">
+      <h3>✨ 字幕の動きを「おすすめ」にする</h3>
+      <div class="where">場所: <b>音声・コメント › 字幕表示設定 › ① 表示</b>の先頭</div>
+      <p><strong>1 回押すだけ</strong>で、改行・行数・消えるまでの秒数が、読みやすい組み合わせになります（「入りきらないぶんを流す」は OFF に）。色・大きさ・位置は変わりません。テンポの速い配信には「⚡ すばやく」、じっくり読んでもらうなら「🐢 ゆっくり読ませる」。</p>
+      <figure class="clip">
+        <video data-clip src="assets/clips/preset.mp4" poster="assets/clips/preset-poster.webp" muted loop playsinline preload="none"
+               aria-label="「いま: 自分の設定」の状態で「おすすめにする」を押すと、文ごとに改行・言葉の区切りで改行に印が付き、消えるまでが 4 秒、最大行数が 2 行になり、「いま: おすすめ」に変わる様子"></video>
+        <figcaption><span>押すと「いま: おすすめ」に。変わった所が順に光ります</span><span class="playhint">クリックで一時停止</span></figcaption>
+      </figure>
+      <p class="note">ひとつずつの意味は <a href="feature-subtitle.html#settings">字幕のページ</a> にあります。</p>
+    </section>
+
+    <section class="tip" id="sample">
+      <h3>▶ サンプル字幕を出したまま見た目を合わせる</h3>
+      <div class="where">場所: <b>音声・コメント › 字幕表示設定</b>の先頭（<b>テスト/ログ</b>にも同じスイッチ）</div>
+      <p>話さなくても、OBS にサンプルの字幕と翻訳字幕が<strong>出たまま</strong>になります。色や大きさを変えると、その場で OBS の見え方が変わるので、見ながら合わせられます。OFF で消えます。</p>
+      <div class="steps two">
+        <figure><img src="assets/clips/sample-step1.webp" alt="字幕表示設定の「サンプル字幕を出しておく」のスイッチが ON になっている" loading="lazy" width="1200" height="720"><figcaption>「▶ サンプル字幕を出しておく」を ON</figcaption></figure>
+        <figure><img src="assets/clips/sample-step2.webp" style="object-position:center" alt="OBS の画面の下に「こんばんは、配信を始めます！」「今日はゲームをやっていきます」の 2 行と、英語の翻訳字幕が出ている" loading="lazy" width="1200" height="675"><figcaption>OBS に字幕と翻訳字幕のサンプルが出たまま</figcaption></figure>
+      </div>
+    </section>
+
+    <h2 class="grp">配信の前・配信中</h2>
+
+    <section class="tip" id="batch">
+      <h3>⚡ 一括スタート／一括ストップ</h3>
+      <div class="where">場所: 対象は <b>一括オン設定</b> で選ぶ・押すのは <b>ダッシュボードの「⚡ 一括スタート」</b>（一括オン設定のページにもボタン）</div>
+      <p>配信のたびに各ページを回ってスイッチを入れる手間がなくなります。<strong>チェックした機能だけ</strong>をまとめて ON／接続。すでに ON のものはそのまま。「一括ストップ」は、いま ON のものだけをまとめて OFF にします。</p>
+      <div class="steps two">
+        <figure><img src="assets/clips/batch-step1.webp" alt="一括オン設定の対象項目で、OBS 接続・字幕認識・字幕翻訳・コメント読み上げにチェックが入っている" loading="lazy" width="1200" height="720"><figcaption>一括オン設定で、配信で使う機能にチェック</figcaption></figure>
+        <figure><img src="assets/clips/batch-step2.webp" alt="ダッシュボードの「一括スタート」ウィジェットの大きなボタン" loading="lazy" width="1200" height="720"><figcaption>配信の前に「⚡ 一括スタート」を 1 回</figcaption></figure>
+      </div>
+    </section>
+
+    <section class="tip" id="softpause">
+      <h3>⏸ 困ったら「軽い停止」</h3>
+      <div class="where">場所: <b>画面の右上</b>（どのページでも）</div>
+      <p>読み上げが詰まった・演出が止まらないときに 1 回押すと、<strong>読み上げ・翻訳・演出だけ</strong>が止まります。コメントの表示・日本語の字幕・接続はそのまま。もう一度押すと再開します。</p>
+      <figure class="clip">
+        <video data-clip src="assets/clips/softpause.mp4" poster="assets/clips/softpause-poster.webp" muted loop playsinline preload="none"
+               aria-label="右上の「軽い停止」を押すと「再開（停止中）」に変わり、読み上げ・翻訳・演出だけを止めると説明が出て、もう一度押すと元に戻る様子"></video>
+        <figcaption><span>押すと「▶ 再開（停止中）」に。もう一度で戻ります</span><span class="playhint">クリックで一時停止</span></figcaption>
+      </figure>
+    </section>
+
+    <section class="tip" id="overlays">
+      <h3>👁 OBS を触らずに「出す／しまう」</h3>
+      <div class="where">場所: <b>ブラウザソース</b>の各カードの右のスイッチ（「全部出す」「全部しまう」も）・ダッシュボードの「👁 オーバーレイ表示」</div>
+      <p>コメビューや弾幕などを、<strong>OBS を開かずに</strong>消したり出したりできます。OBS のソースは残ったまま（中身が透明になるだけ）なので、戻すのもワンタッチ。OBS と連携していなくても効きます。</p>
+      <figure class="clip">
+        <video data-clip src="assets/clips/overlays.mp4" poster="assets/clips/overlays-poster.webp" muted loop playsinline preload="none"
+               aria-label="ブラウザソースのページで、コメビューのカードの右のスイッチを押すと OFF になり、OBS を触らずにしまえると説明が出て、もう一度押すと ON に戻る様子"></video>
+        <figcaption><span>スイッチ 1 つで、そのオーバーレイだけしまう／出す</span><span class="playhint">クリックで一時停止</span></figcaption>
+      </figure>
+      <p class="note">OBS 側の表示が止まったときは、同じ行の「↻ OBS側を更新」で Ligastmir のブラウザソースだけを読み込み直せます（OBS と連携しているとき）。</p>
+    </section>
+
+    <h2 class="grp">うまくいかないとき</h2>
+
+    <section class="tip" id="diag">
+      <h3>🩺 総合診断</h3>
+      <div class="where">場所: <b>テスト/ログ › 総合診断</b>の「🔍 診断実行」</div>
+      <p>主な機能をまとめて点検します。使っていない機能は「—」と出るだけで正常。<strong>うまくいっていない所には、原因の見当と次に試すことが日本語で</strong>出ます。結果は動作ログにも残ります。</p>
+      <figure class="clip">
+        <video data-clip src="assets/clips/diag.mp4" poster="assets/clips/diag-poster.webp" muted loop playsinline preload="none"
+               aria-label="総合診断を押すと結果が 1 行ずつ出て、マイクの行に「前に選んだデバイスが見つかりません」と、原因かも・試すことが続く様子（結果は例）"></video>
+        <figcaption><span>✅ は OK・❌ は要確認。すぐ下に「原因かも／試すこと」（結果は例）</span><span class="playhint">クリックで一時停止</span></figcaption>
+      </figure>
+    </section>
+
+    <section class="tip" id="logzip">
+      <h3>📦 困ったときの送り方（報告用 zip）</h3>
+      <div class="where">場所: <b>テスト/ログ › ログの場所・報告用の書き出し</b>の「📦 報告用にまとめる（zip）」</div>
+      <p>押すと動作ログを zip 1 つにまとめます。そのまま <a href="https://discord.gg/QtQcEgn9JF" target="_blank" rel="noopener">Discord</a> や報告フォームに添付してください。<strong>設定・認証情報・コメントログは入りません</strong>（動作ログにもコメント本文・視聴者名は書きません）。</p>
+      <figure class="clip">
+        <video data-clip src="assets/clips/logzip.mp4" poster="assets/clips/logzip-poster.webp" muted loop playsinline preload="none"
+               aria-label="報告用にまとめる（zip）を押すと「書き出しました」に変わり、そのまま添付できると説明が出る様子"></video>
+        <figcaption><span>押すと「✅ 書き出しました」。できた zip を添付するだけ</span><span class="playhint">クリックで一時停止</span></figcaption>
+      </figure>
+    </section>
+
+    <section class="tip" id="backup">
+      <h3>🛟 自動のバックアップから戻す</h3>
+      <div class="where">場所: <b>テスト/ログ › 設定・名簿のバックアップ</b></div>
+      <p>設定・読み上げ辞書・名簿・集計の 4 つは、<strong>起動のたびに自動で控え</strong>ています（中身が変わったときだけ）。「設定が勝手に消えた・元に戻したい」ときは、控えを選んで「この時点に戻す」。戻す前の状態も自動で控えるので、やり直せます。戻したあとはアプリを起動し直してください。控えはパソコンの中だけに置かれます。</p>
+      <figure class="clip still">
+        <img src="assets/clips/backup.webp" alt="設定・名簿のバックアップの一覧に、日付ごとの控えと「この時点に戻す」ボタンが並んでいる" loading="lazy" width="1200" height="720">
+        <figcaption><span>日付ごとの控えから「↩ この時点に戻す」（日付は例）</span></figcaption>
+      </figure>
+    </section>
+
+    <div class="cta-row">
+      <a class="cta" href="download.html">⬇ Ligastmir をダウンロード（無料）</a>
+      <a class="cta ghost" href="guide.html">📖 使い方ガイド</a>
+    </div>
+  </article>
+</div>
+
+<footer>
+  <div class="wrap foot">
+    <a href="index.html" class="logo"><span class="cura">cura</span><span class="mar">mar</span></a>
+    <nav class="links">
+      <a href="index.html">トップ</a>
+      <a href="ligastmir.html">Ligastmir</a>
+      <a href="guide.html">使い方</a>
+      <a href="faq.html">FAQ</a>
+      <a href="download.html">ダウンロード</a>
+      <a href="changelog.html">更新履歴</a>
+      <a href="roadmap.html">進化マップ</a>
+      <a href="collaborate.html">協力する</a>
+      <a href="about.html">About</a>
+      <a href="blog.html">ブログ</a>
+      <a href="support.html">応援</a>
+      <a href="credits.html">クレジット</a>
+      <a href="https://discord.gg/QtQcEgn9JF" target="_blank" rel="noopener">Discord</a>
+      <a href="https://x.com/curamar2525" target="_blank" rel="noopener">X</a>
+      <a href="/sitemap.html" data-scm-open>サイトマップ</a>
+      <a href="privacy.html">プライバシーポリシー</a>
+    </nav>
+    <div class="cp">© 2026 curamar</div>
+  </div>
+</footer>
+<script>
+/* 動く画像: 画面に入ってから読み込んで再生・出たら止める（スマホで重くしない）。
+   動きを減らす設定の人には自動で動かさない（ポスター＋再生ボタン）。クリックで一時停止／再生。 */
+(function () {
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var vids = document.querySelectorAll('video[data-clip]');
+  vids.forEach(function (v) {
+    v.muted = true; v.playsInline = true;
+    function toggle() { v.dataset.user = '1'; if (v.paused) { v.play().catch(function () {}); } else { v.pause(); } }
+    v.setAttribute('tabindex', '0');
+    v.addEventListener('click', toggle);
+    v.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(); } });
+    if (reduce) { v.controls = true; return; }
+    if (!('IntersectionObserver' in window)) { v.preload = 'auto'; v.play().catch(function () {}); return; }
+    new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) {
+          if (v.preload === 'none') v.preload = 'auto';
+          if (v.dataset.user !== '1') v.play().catch(function () {});
+        } else if (!v.paused) { v.pause(); }
+      });
+    }, { threshold: 0.35 }).observe(v);
+  });
+})();
+</script>
+<script src="/sitemap.js" defer></script>
+<script src="/lightbox.js" defer></script>
+</body>
+</html>

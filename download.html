@@ -255,7 +255,8 @@
     <div class="steps">
       <div class="step">
         <div class="st-t">zip 版の Ligastmir を閉じて、インストーラーで入れる</div>
-        <div class="st-d">上の「インストーラーをダウンロード」から落として実行します。</div>
+        <div class="st-d">上の「インストーラーをダウンロード」から落として実行します。<br>
+        ⚠ <strong>zip 版は窓を閉じたあとも、タスクバーに Ligastmir が残っていないか確かめてください。</strong>v0.9.9 以前の zip 版は、動いていてもインストーラーが気づけません。開いたまま入れると、次の「起動し直す」で前の版の画面が出ることがあります。</div>
       </div>
       <div class="step">
         <div class="st-t">起動して「引き継ぐ」</div>
@@ -267,6 +268,16 @@
         <div class="st-d">「閉じて起動し直す」を押すと、Ligastmir がいったん閉じて自動でもう一度開きます。「前の Ligastmir から引き継ぎました」と出れば完了です。コピーして中身が同じことを確かめてから入れ替えるので、<strong>前のフォルダはそのまま残ります</strong>（いつもどおり動くのを確かめたら、消して大丈夫です）。<br>
         ※ ダッシュボードに埋め込んだチャット欄はログインし直し、内蔵の翻訳を使っていた方は翻訳のモデルをもう一度取得してください（音声・コメント › 翻訳エンジン設定）。</div>
       </div>
+      <div class="step">
+        <div class="st-t">古い zip 版のショートカットを消す</div>
+        <div class="st-d">インストーラー版は、スタートメニュー（と、選んだときはデスクトップ）に <strong>「Ligastmir」</strong> という名前のショートカットを作ります。<br>
+        zip 版のときに自分で作ったショートカット（デスクトップ・タスクバーのピン留め）は<strong>そのまま残ります</strong>。押すと前の zip 版が開いてしまうので、消してください。ショートカットを消しても、前のフォルダや設定は消えません。</div>
+      </div>
+    </div>
+    <div class="warn-box">
+      <strong>「閉じて起動し直す」のあと、前の版（v0.9 など）の画面が開いたとき：</strong>前の zip 版が動いたままになっています。
+      Ligastmir の窓をすべて閉じ、タスクマネージャー（Ctrl + Shift + Esc）に Ligastmir が残っていれば選んで［タスクの終了］を押してから、
+      スタートメニューの「Ligastmir」から開き直してください。引き継いだ設定はそのまま入っています。
     </div>
       <details style="margin:10px 0 0;font-size:13px;color:var(--ink-dim)">
         <summary style="cursor:pointer;color:var(--accent-cool)">引き継ぐもの・引き継がないもの</summary>

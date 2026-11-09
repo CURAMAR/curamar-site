@@ -134,7 +134,7 @@
     <!-- ============================================================ -->
     <h2>ダウンロード</h2>
     <div class="dl-card">
-        <div class="ver" id="dl-ver">最新版 v1.0.0</div>
+        <div class="ver" id="dl-ver">最新版 v1.0.1</div>
         <h3>Ligastmir（Windows 10 / 11・無料）</h3>
       <p>入れ方は 2 通りです。<strong>はじめての方・これから長く使う方は、インストーラー（おすすめ）</strong>をどうぞ。</p>
       <div class="dl-choice">
@@ -158,11 +158,11 @@
           <p style="margin:10px 0 0">開く前に、落としたファイルの「確認コード（SHA-256）」を照らし合わせられます。
           スタートボタンを右クリック →「ターミナル」（Windows 10 は「Windows PowerShell」）を開き、次の 1 行を貼って Enter を押してください（「ダウンロード」フォルダに落とした場合）。</p>
           <p style="margin:8px 0 0">インストーラー：<br><code id="dl-sha-ins-cmd" style="font-family:var(--font-mono);background:var(--bg);border:1px solid var(--bg-line);border-radius:4px;padding:2px 6px;display:inline-block;word-break:break-all">Get-FileHash "$HOME\Downloads\Ligastmir_Setup.exe" -Algorithm SHA256</code></p>
-          <p style="margin:8px 0 0"><code id="dl-sha-ins" style="font-family:var(--font-mono);background:var(--bg);border:1px solid var(--bg-line);border-radius:4px;padding:2px 6px;display:inline-block;word-break:break-all">5067cdb9e493131b7fea6f3484678b417aeb0e10c975bc0fe7801bf223317f09</code>
-          <span id="dl-sha-ins-ver" style="display:block;margin-top:4px">（v1.0.0 のインストーラー）</span></p>
+          <p style="margin:8px 0 0"><code id="dl-sha-ins" style="font-family:var(--font-mono);background:var(--bg);border:1px solid var(--bg-line);border-radius:4px;padding:2px 6px;display:inline-block;word-break:break-all">292d081819b87352ceed15d086661fb5ed5eb30fa9e847975e7c5b9b63efa470</code>
+          <span id="dl-sha-ins-ver" style="display:block;margin-top:4px">（v1.0.1 のインストーラー）</span></p>
           <p style="margin:8px 0 0">zip：<br><code id="dl-sha-cmd" style="font-family:var(--font-mono);background:var(--bg);border:1px solid var(--bg-line);border-radius:4px;padding:2px 6px;display:inline-block;word-break:break-all">Get-FileHash "$HOME\Downloads\Ligastmir.zip" -Algorithm SHA256</code></p>
-          <p style="margin:8px 0 0"><code id="dl-sha" style="font-family:var(--font-mono);background:var(--bg);border:1px solid var(--bg-line);border-radius:4px;padding:2px 6px;display:inline-block;word-break:break-all">70c50c1ff0c9ac1f58ae108a83291af5b4e4fd9f479736c63679b4e63714162c</code>
-          <span id="dl-sha-ver" style="display:block;margin-top:4px">（v1.0.0 の zip）</span></p>
+          <p style="margin:8px 0 0"><code id="dl-sha" style="font-family:var(--font-mono);background:var(--bg);border:1px solid var(--bg-line);border-radius:4px;padding:2px 6px;display:inline-block;word-break:break-all">47461258fadce4c1a372ec3f97f1b924ba339b152f70c29952cff9ac5d15e950</code>
+          <span id="dl-sha-ver" style="display:block;margin-top:4px">（v1.0.1 の zip）</span></p>
           <p style="margin:8px 0 0">出てきた値が、上と同じなら本物です（大文字・小文字の違いは気にしなくて大丈夫です）。</p>
           <p style="margin:8px 0 0">アプリの「INFO → 本物の確認」に出るコードは、<strong>アプリ本体の確認コードで、上のインストーラー・zip の値とは別のもの</strong>です。アプリの方は「公式サイトと照合する」を押せば、自動で見比べます。</p>
       </details>
